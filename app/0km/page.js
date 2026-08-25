@@ -123,7 +123,7 @@ export default function Catalogo0KM() {
         </p>
       </section>
 
-      {/* 2. CINTA MARQUESINA DE MARCAS (ANCHO COMPLETO) */}
+      {/* 2. CINTA MARQUESINA DE MARCAS */}
       <div style={{ width: '100%', backgroundColor: '#0f1013', borderTop: '1px solid #1F2024', borderBottom: '1px solid #1F2024', padding: '14px 0', overflow: 'hidden', whiteSpace: 'nowrap', marginBottom: '50px' }}>
         <div style={{ display: 'inline-block', animation: 'marquee 28s linear infinite' }}>
           {marqueeBrands.concat(marqueeBrands).map((b, i) => (
@@ -134,13 +134,13 @@ export default function Catalogo0KM() {
         </div>
       </div>
 
-      {/* 3. GRILLA DE 16 MARCAS (EXPANDIDA A ANCHO COMPLETO) */}
+      {/* 3. GRILLA DE 16 MARCAS (ANCHO COMPLETO) */}
       <main style={{ maxWidth: '1440px', margin: '0 auto', padding: '0 24px' }}>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(310px, 1fr))', gap: '26px' }}>
           {brands.map((b, i) => (
             <div 
               key={i} 
-              style={{ backgroundColor: '#141518', border: '1px solid #27272a', borderRadius: '18px', overflow: 'hidden', display: 'flex', flexDirection: 'column', transition: 'transform 0.2s ease, border-color 0.2s ease' }}
+              style={{ backgroundColor: '#141518', border: '1px solid #27272a', borderRadius: '18px', overflow: 'hidden', display: 'flex', flexDirection: 'column' }}
             >
               <div style={{ position: 'relative', height: '210px', backgroundColor: '#0a0a0c', overflow: 'hidden' }}>
                 <span style={{ position: 'absolute', top: '14px', right: '14px', backgroundColor: 'rgba(0,0,0,0.75)', color: '#ED1C24', border: '1px solid rgba(237, 28, 36, 0.4)', fontSize: '0.68rem', fontWeight: 800, padding: '4px 10px', borderRadius: '6px', letterSpacing: '0.5px', zIndex: 2 }}>
@@ -169,14 +169,14 @@ export default function Catalogo0KM() {
           ))}
         </div>
 
-        {/* 4. SECCIÓN ¿POR QUÉ ELEGIRNOS? (CON ÍCONOS VECTORIALES SERIOS Y PROFESIONALES) */}
+        {/* 4. SECCIÓN ¿POR QUÉ ELEGIRNOS? (CON ÍCONOS VECTORIALES) */}
         <section style={{ marginTop: '90px', borderTop: '1px solid #1F2024', paddingTop: '60px' }}>
           <div style={{ textAlign: 'center', marginBottom: '40px' }}>
             <span style={{ fontSize: '0.75rem', fontWeight: 800, color: '#ED1C24', letterSpacing: '1.5px', textTransform: 'uppercase' }}>RESPALDO Y CONFIANZA</span>
             <h2 style={{ fontSize: '2.1rem', fontWeight: 900, margin: '6px 0 0 0' }}>¿Por qué elegirnos para tu próximo 0Km?</h2>
           </div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '22px' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: '22px' }}>
             
             {/* 1. Toma de Usados */}
             <div style={{ backgroundColor: '#141518', border: '1px solid #27272a', borderRadius: '16px', padding: '24px', display: 'flex', gap: '16px' }}>
@@ -226,15 +226,6 @@ export default function Catalogo0KM() {
         </section>
       </main>
 
-      <style jsx global>{`
-        @keyframes marquee {
-          0% { transform: translateX(0%); }
-          100% { transform: translateX(-50%); }
-        }
-      `}</style>
-
     </div>
-  );
-}
   );
 }
