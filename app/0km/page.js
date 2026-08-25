@@ -28,6 +28,11 @@ export default function RootLayout({ children }) {
             
             {/* Logo e Isotipo */}
             <a href="/" style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+              <img 
+                src="/logo.png" 
+                alt="Cogno Automotores" 
+                style={{ height: '38px', width: 'auto' }} 
+              />
               <div style={{ display: 'flex', flexDirection: 'column' }}>
                 <span style={{ fontSize: '1.3rem', fontWeight: 900, color: '#ffffff', letterSpacing: '1px', lineHeight: 1 }}>
                   COGNO <span style={{ color: '#ED1C24' }}>AUTOMOTORES</span>
