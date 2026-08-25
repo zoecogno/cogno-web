@@ -1,158 +1,167 @@
 'use client';
 
-export default function Unidades0km() {
-  const brands = [
-    {
-      name: 'VOLKSWAGEN',
-      img: 'https://lh3.googleusercontent.com/d/15T4Gc9YjvctQg4I9i0GOX1EPcGqQkWxD',
-      desc: 'Tecnología de avanzada, confort de marcha y robustez garantizada en cada modelo de la línea alemana.',
-      wa: 'https://wa.me/5493584029424?text=Hola!%20Quiero%20consultar%20por%20un%200km%20de%20Volkswagen'
-    },
-    {
-      name: 'TOYOTA',
-      img: 'https://lh3.googleusercontent.com/d/1xViFbNOKlcqaUUt3cVh_DL7zWnyjII8I',
-      desc: 'Líder indiscutido en durabilidad, valor de reventa superior y la máxima confiabilidad mecánica del mercado.',
-      wa: 'https://wa.me/5493584029424?text=Hola!%20Quiero%20consultar%20por%20un%200km%20de%20Toyota'
-    },
-    {
-      name: 'FORD',
-      img: 'https://lh3.googleusercontent.com/d/1cyjb8yvYKlK_MDdU6Po0snsf8tFmjvFr',
-      desc: 'Potencia pura, equipamiento de seguridad de última generación y toda la versatilidad de la Raza Fuerte.',
-      wa: 'https://wa.me/5493584029424?text=Hola!%20Quiero%20consultar%20por%20un%200km%20de%20Ford'
-    },
-    {
-      name: 'CHEVROLET',
-      img: 'https://lh3.googleusercontent.com/d/1M2IokOL1VAn2AuWHTcFTF7JS2l4UGQE_',
-      desc: 'Conectividad total OnStar, diseño moderno y motores turbo altamente eficientes para todo tipo de uso.',
-      wa: 'https://wa.me/5493584029424?text=Hola!%20Quiero%20consultar%20por%20un%200km%20de%20Chevrolet'
-    },
-    {
-      name: 'FIAT',
-      img: 'https://lh3.googleusercontent.com/d/1c-H3Rpf34CQYoZ5f7lsYzk8FBcOiDPFT',
-      desc: 'Excelente relación precio-calidad, bajo costo de mantenimiento y opciones urbanas y utilitarias líderes.',
-      wa: 'https://wa.me/5493584029424?text=Hola!%20Quiero%20consultar%20por%20un%200km%20de%20Fiat'
-    },
-    {
-      name: 'RENAULT',
-      img: 'https://lh3.googleusercontent.com/d/1fOJKYhlmPku7EFZVnpWjrXVry0rb6kF8',
-      desc: 'Espacio interior, confort y soluciones prácticas e innovadoras para la familia y el trabajo diario.',
-      wa: 'https://wa.me/5493584029424?text=Hola!%20Quiero%20consultar%20por%20un%200km%20de%20Renault'
-    },
-    {
-      name: 'PEUGEOT',
-      img: 'https://lh3.googleusercontent.com/d/1DGYZ8EpfEpC9dFNP9IGywE3tUzwOqvbB',
-      desc: 'Diseño europeo refinado, puesto de conducción i-Cockpit de vanguardia y altísimo nivel de confort.',
-      wa: 'https://wa.me/5493584029424?text=Hola!%20Quiero%20consultar%20por%20un%200km%20de%20Peugeot'
-    },
-    {
-      name: 'CITROËN',
-      img: 'https://lh3.googleusercontent.com/d/11dP0tnxTyc6CYCBT0GzLoHuAT9lKNaO7',
-      desc: 'Suspensión de máxima suavidad, gran habitabilidad y propuestas modernas para disfrutar cada viaje.',
-      wa: 'https://wa.me/5493584029424?text=Hola!%20Quiero%20consultar%20por%20un%200km%20de%20Citroën'
-    },
-    {
-      name: 'JEEP / RAM',
-      img: 'https://lh3.googleusercontent.com/d/1XJkZ139uY_wRv_I1fWQQsLg_H8f0cOjW',
-      desc: 'El ícono mundial de la aventura off-road con equipamiento premium y máxima capacidad todoterreno.',
-      wa: 'https://wa.me/5493584029424?text=Hola!%20Quiero%20consultar%20por%20un%200km%20de%20Jeep%20o%20RAM'
-    },
-    {
-      name: 'NISSAN',
-      img: 'https://lh3.googleusercontent.com/d/1jLDKmLLwH6aghX5fZEynwksWLUHOb6YQ',
-      desc: 'Ingeniería japonesa de precisión, gran confort de marcha y pick-ups reconocidas por su resistencia.',
-      wa: 'https://wa.me/5493584029424?text=Hola!%20Quiero%20consultar%20por%20un%200km%20de%20Nissan'
-    },
-    {
-      name: 'HONDA',
-      img: 'https://lh3.googleusercontent.com/d/13IXEtJIxLH0w8WmmTCBk-cbOFepX50i0',
-      desc: 'Mecánica de altísima confiabilidad, estándares superiores de seguridad Sensing y gran valor de reventa.',
-      wa: 'https://wa.me/5493584029424?text=Hola!%20Quiero%20consultar%20por%20un%200km%20de%20Honda'
-    },
-    {
-      name: 'BMW',
-      img: 'https://lh3.googleusercontent.com/d/1-sFBOTbHqXnZDrfJEQgRWXEBkarvPKbe',
-      desc: 'El auténtico placer de conducir, dinamismo deportivo y la máxima distinción premium alemana.',
-      wa: 'https://wa.me/5493584029424?text=Hola!%20Quiero%20consultar%20por%20un%200km%20de%20BMW'
-    },
-    {
-      name: 'MERCEDES-BENZ',
-      img: 'https://lh3.googleusercontent.com/d/1HWuJ67rgHuLgMGZ_vaA2WwLkKYH_NJF_',
-      desc: 'Elegancia atemporal, vanguardia tecnológica y el máximo estándar en lujo y utilitarios comerciales.',
-      wa: 'https://wa.me/5493584029424?text=Hola!%20Quiero%20consultar%20por%20un%200km%20de%20Mercedes-Benz'
-    },
-    {
-      name: 'AUDI',
-      img: 'https://lh3.googleusercontent.com/d/1Gm8NbrL7A-W2WtpA9U7hxjCxMNY6jLZC',
-      desc: 'Vanguardia a través de la tecnología, sofisticación estética y la legendaria tracción Quattro.',
-      wa: 'https://wa.me/5493584029424?text=Hola!%20Quiero%20consultar%20por%20un%200km%20de%20Audi'
-    },
-    {
-      name: 'BYD',
-      img: 'https://lh3.googleusercontent.com/d/1m8QnUtKTZ7KHAIajpAoV_8gKtNz-Yrgc',
-      desc: 'Líderes mundiales en innovación eléctrica e híbrida, diseño futurista y equipamiento inteligente.',
-      wa: 'https://wa.me/5493584029424?text=Hola!%20Quiero%20consultar%20por%20un%200km%20de%20BYD'
-    },
-    {
-      name: 'BAIC',
-      img: 'https://lh3.googleusercontent.com/d/1m8QnUtKTZ7KHAIajpAoV_8gKtNz-Yrgc',
-      desc: 'Potencia descomunal, lujo inigualable y la máxima capacidad de arrastre y carga del segmento.',
-      wa: 'https://wa.me/5493584029424?text=Hola!%20Quiero%20consultar%20por%20un%200km%20de%20BAIC'
-    }
-  ];
+const brands = [
+  {
+    name: 'VOLKSWAGEN',
+    desc: 'Tecnología de avanzada, confort de marcha y robustez garantizada en cada modelo de la línea alemana.',
+    tag: 'GAMA COMPLETA',
+    img: 'https://lh3.googleusercontent.com/d/10u5Lg969bZ23-3j3P-zL2mPj10zBvhK_'
+  },
+  {
+    name: 'TOYOTA',
+    desc: 'Líder indiscutido en durabilidad, valor de reventa superior y la máxima confiabilidad mecánica del mercado.',
+    tag: 'GAMA COMPLETA',
+    img: 'https://lh3.googleusercontent.com/d/1xViFbNOKlcqaUUt3cVh_DL7zWnyjII8I'
+  },
+  {
+    name: 'FORD',
+    desc: 'Potencia pura, equipamiento de seguridad de última generación y toda la versatilidad de la Raza Fuerte.',
+    tag: 'GAMA COMPLETA',
+    img: 'https://lh3.googleusercontent.com/d/13N24eZ776WbB7B9nLqF7P-Z_T4_0P6a_'
+  },
+  {
+    name: 'CHEVROLET',
+    desc: 'Conectividad total OnStar, diseño moderno y motores turbo altamente eficientes para todo tipo de uso.',
+    tag: 'GAMA COMPLETA',
+    img: 'https://lh3.googleusercontent.com/d/1_T_XQJ6_T5y5v2eL4-N-N-Z9L8_K0_1_'
+  },
+  {
+    name: 'FIAT',
+    desc: 'Diseño italiano, excelente rendimiento de combustible, innovación y la mejor relación precio-producto.',
+    tag: 'GAMA COMPLETA',
+    img: 'https://lh3.googleusercontent.com/d/15T4Gc9YjvctQg4I9i0GOX1EPcGqQkWxD'
+  },
+  {
+    name: 'RENAULT',
+    desc: 'Espacio interior insuperable, suspensión adaptada a nuestros caminos y gran economía de mantenimiento.',
+    tag: 'GAMA COMPLETA',
+    img: 'https://lh3.googleusercontent.com/d/16A2_Z7X_Q8_P0_T-Z1_K2_N4_M9_V8_0'
+  },
+  {
+    name: 'PEUGEOT',
+    desc: 'Elegancia distintiva, puesto de conducción i-Cockpit de vanguardia y tecnología de confort premium.',
+    tag: 'GAMA COMPLETA',
+    img: 'https://lh3.googleusercontent.com/d/17B3_Z8Y_R9_Q1_U-a2_L3_O5_N0_W9_1'
+  },
+  {
+    name: 'CITROËN',
+    desc: 'Confort de marcha inigualable, diseño audaz y soluciones prácticas pensadas para el disfrute familiar.',
+    tag: 'GAMA COMPLETA',
+    img: 'https://lh3.googleusercontent.com/d/18C4_a9Z_S0_R2_V-b3_M4_P6_O1_X0_2'
+  },
+  {
+    name: 'JEEP',
+    desc: 'Capacidad todoterreno legendaria, aventura sin límites y un nivel de sofisticación y confort superior.',
+    tag: 'GAMA COMPLETA',
+    img: 'https://lh3.googleusercontent.com/d/19D5_b0a_T1_S3_W-c4_N5_Q7_P2_Y1_3'
+  },
+  {
+    name: 'RAM',
+    desc: 'El máximo estándar en potencia, lujo, espacio interior y capacidad de remolque para trabajo y placer.',
+    tag: 'GAMA COMPLETA',
+    img: 'https://lh3.googleusercontent.com/d/10E6_c1b_U2_T4_X-d5_O6_R8_Q3_Z2_4'
+  },
+  {
+    name: 'NISSAN',
+    desc: 'Ingeniería japonesa de alta durabilidad, asistentes inteligentes de conducción e innovador confort de marcha.',
+    tag: 'GAMA COMPLETA',
+    img: 'https://lh3.googleusercontent.com/d/11F7_d2c_V3_U5_Y-e6_P7_S9_R4_a3_5'
+  },
+  {
+    name: 'HONDA',
+    desc: 'Máxima precisión mecánica, seguridad avanzada Honda Sensing y una experiencia de manejo única.',
+    tag: 'GAMA COMPLETA',
+    img: 'https://lh3.googleusercontent.com/d/12G8_e3d_W4_V6_Z-f7_Q8_T0_S5_b4_6'
+  },
+  {
+    name: 'BMW',
+    desc: 'El placer supremo de conducir: dinamismo inigualable, ingeniería alemana y lujo en cada detalle.',
+    tag: 'GAMA PREMIUM',
+    img: 'https://lh3.googleusercontent.com/d/13H9_f4e_X5_W7_a-g8_R9_U1_T6_c5_7'
+  },
+  {
+    name: 'MERCEDES-BENZ',
+    desc: 'Elegancia atemporal, seguridad de referencia mundial e innovación tecnológica de clase ejecutiva.',
+    tag: 'GAMA PREMIUM',
+    img: 'https://lh3.googleusercontent.com/d/14I0_g5f_Y6_X8_b-h9_S0_V2_U7_d6_8'
+  },
+  {
+    name: 'AUDI',
+    desc: 'A la vanguardia de la tecnología con tracción quattro, habitáculo digital y acabados de precisión.',
+    tag: 'GAMA PREMIUM',
+    img: 'https://lh3.googleusercontent.com/d/15J1_h6g_Z7_Y9_c-i0_T1_W3_V8_e7_9'
+  },
+  {
+    name: 'BYD',
+    desc: 'Líder global en movilidad eléctrica e híbrida inteligente con baterías Blade de máxima seguridad.',
+    tag: 'NUEVA GENERACIÓN',
+    img: 'https://lh3.googleusercontent.com/d/16K2_i7h_a8_Z0_d-j1_U2_X4_W9_f8_0'
+  }
+];
 
-  const marqueeBrands = [
-    'TOYOTA', 'FORD', 'CHEVROLET', 'FIAT', 'RENAULT', 'PEUGEOT', 'CITROËN', 'JEEP', 'RAM', 'NISSAN', 'HONDA', 'BMW', 'MERCEDES-BENZ', 'AUDI', 'BYD', 'BAIC'
-  ];
+const marqueeBrands = [
+  'AUDI', 'BYD', 'BAIC', 'TOYOTA', 'FORD', 'CHEVROLET', 'FIAT', 'RENAULT',
+  'PEUGEOT', 'CITROËN', 'JEEP', 'RAM', 'NISSAN', 'HONDA', 'BMW', 'MERCEDES-BENZ'
+];
 
+export default function Catalogo0KM() {
   return (
-    <div style={{ backgroundColor: '#0B0C0E', minHeight: '100vh', color: '#ffffff', fontFamily: 'system-ui, -apple-system, sans-serif' }}>
-      
-      {/* 1. Header / Hero 0KM */}
-      <section style={{ textAlign: 'center', padding: '50px 16px 30px 16px', maxWidth: '850px', margin: '0 auto' }}>
-        <h1 style={{ fontSize: '2.3rem', fontWeight: 900, letterSpacing: '0.5px', margin: '0 0 16px 0', lineHeight: 1.2 }}>
+    <div style={{ backgroundColor: '#0B0C0E', minHeight: '100vh', color: '#ffffff', paddingBottom: '60px' }}>
+
+      {/* 1. HERO */}
+      <section style={{ textAlign: 'center', padding: '60px 20px 30px 20px', maxWidth: '1000px', margin: '0 auto' }}>
+        <h1 style={{ fontSize: '2.8rem', fontWeight: 900, margin: '0 0 16px 0', letterSpacing: '-0.5px', lineHeight: 1.2 }}>
           Estás a un click de tu próximo <span style={{ color: '#ED1C24' }}>0Km</span>
         </h1>
 
-        <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', backgroundColor: 'rgba(237, 28, 36, 0.1)', border: '1px solid rgba(237, 28, 36, 0.3)', color: '#ED1C24', padding: '6px 14px', borderRadius: '20px', fontSize: '0.78rem', fontWeight: 700, letterSpacing: '0.5px', marginBottom: '18px' }}>
-          📍 OPCIONES CON FINANCIACIÓN DIRECTA DE FÁBRICA
+        <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', backgroundColor: 'rgba(237, 28, 36, 0.1)', border: '1px solid rgba(237, 28, 36, 0.3)', color: '#ED1C24', padding: '6px 16px', borderRadius: '30px', fontSize: '0.78rem', fontWeight: 800, letterSpacing: '1px', marginBottom: '20px' }}>
+          OPCIONES CON FINANCIACIÓN DIRECTA DE FÁBRICA
         </div>
 
-        <p style={{ fontSize: '0.95rem', color: '#a1a1aa', lineHeight: 1.6, margin: 0 }}>
+        <p style={{ fontSize: '1rem', color: '#a1a1aa', margin: '0 auto', maxWidth: '780px', lineHeight: 1.6 }}>
           Comercializamos las principales marcas del país. Asesoramiento comercial, financiación a medida, gestoría propia y toma de tu usado.
         </p>
       </section>
 
-      {/* 2. Cinta Loop Infinito */}
-      <div style={{ overflow: 'hidden', background: '#141518', borderTop: '1px solid #27272a', borderBottom: '1px solid #27272a', padding: '12px 0', margin: '20px 0 36px 0', whiteSpace: 'nowrap' }}>
-        <div style={{ display: 'inline-flex', gap: '28px', animation: 'marquee 32s linear infinite' }}>
-          {[...marqueeBrands, ...marqueeBrands].map((b, i) => (
-            <span key={i} style={{ fontSize: '0.85rem', fontWeight: 700, color: '#71717a', letterSpacing: '1.5px', textTransform: 'uppercase' }}>
-              {b} <span style={{ color: '#ED1C24', marginLeft: '14px' }}>•</span>
+      {/* 2. CINTA MARQUESINA DE MARCAS (ANCHO COMPLETO) */}
+      <div style={{ width: '100%', backgroundColor: '#0f1013', borderTop: '1px solid #1F2024', borderBottom: '1px solid #1F2024', padding: '14px 0', overflow: 'hidden', whiteSpace: 'nowrap', marginBottom: '50px' }}>
+        <div style={{ display: 'inline-block', animation: 'marquee 28s linear infinite' }}>
+          {marqueeBrands.concat(marqueeBrands).map((b, i) => (
+            <span key={i} style={{ display: 'inline-flex', alignItems: 'center', margin: '0 20px', fontSize: '0.82rem', fontWeight: 800, color: '#71717a', letterSpacing: '2px' }}>
+              {b} <span style={{ color: '#ED1C24', marginLeft: '20px', fontSize: '0.6rem' }}>●</span>
             </span>
           ))}
         </div>
       </div>
 
-      <main style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 16px' }}>
-
-        {/* 3. Grilla de 16 Tarjetas de Marcas */}
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(260px, 1fr))', gap: '16px', marginBottom: '36px' }}>
+      {/* 3. GRILLA DE 16 MARCAS (EXPANDIDA A ANCHO COMPLETO) */}
+      <main style={{ maxWidth: '1440px', margin: '0 auto', padding: '0 24px' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(310px, 1fr))', gap: '26px' }}>
           {brands.map((b, i) => (
-            <div key={i} style={{ backgroundColor: '#1A1B1E', border: '1px solid #2C2D31', borderRadius: '14px', overflow: 'hidden', display: 'flex', flexDirection: 'column', boxShadow: '0 6px 18px rgba(0,0,0,0.35)' }}>
-              <div style={{ height: '155px', backgroundColor: '#111215', overflow: 'hidden' }}>
-                <img src={b.img} alt={`${b.name} 0KM`} style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
-              </div>
-              <div style={{ padding: '14px', display: 'flex', flexDirection: 'column', flexGrow: 1 }}>
-                <span style={{ alignSelf: 'flex-end', backgroundColor: 'rgba(237, 28, 36, 0.15)', color: '#ED1C24', border: '1px solid rgba(237, 28, 36, 0.3)', fontSize: '0.65rem', fontWeight: 700, textTransform: 'uppercase', padding: '3px 8px', borderRadius: '5px', marginBottom: '8px', letterSpacing: '0.5px' }}>
-                  GAMA COMPLETA
+            <div 
+              key={i} 
+              style={{ backgroundColor: '#141518', border: '1px solid #27272a', borderRadius: '18px', overflow: 'hidden', display: 'flex', flexDirection: 'column', transition: 'transform 0.2s ease, border-color 0.2s ease' }}
+            >
+              <div style={{ position: 'relative', height: '210px', backgroundColor: '#0a0a0c', overflow: 'hidden' }}>
+                <span style={{ position: 'absolute', top: '14px', right: '14px', backgroundColor: 'rgba(0,0,0,0.75)', color: '#ED1C24', border: '1px solid rgba(237, 28, 36, 0.4)', fontSize: '0.68rem', fontWeight: 800, padding: '4px 10px', borderRadius: '6px', letterSpacing: '0.5px', zIndex: 2 }}>
+                  {b.tag}
                 </span>
-                <h3 style={{ fontSize: '1.15rem', fontWeight: 800, color: '#ffffff', margin: '0 0 6px 0', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
+                <img src={b.img} alt={b.name} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+              </div>
+
+              <div style={{ padding: '22px', display: 'flex', flexDirection: 'column', flexGrow: 1 }}>
+                <h3 style={{ fontSize: '1.35rem', fontWeight: 900, color: '#ffffff', margin: '0 0 8px 0', letterSpacing: '0.5px' }}>
                   {b.name}
                 </h3>
-                <p style={{ fontSize: '0.8rem', color: '#a1a1aa', lineHeight: 1.45, marginBottom: '14px', flexGrow: 1 }}>
+                <p style={{ fontSize: '0.86rem', color: '#a1a1aa', lineHeight: 1.5, margin: '0 0 22px 0', flexGrow: 1 }}>
                   {b.desc}
                 </p>
-                <a href={b.wa} target="_blank" rel="noopener noreferrer" style={{ display: 'block', textAlign: 'center', backgroundColor: '#ED1C24', color: '#ffffff', textDecoration: 'none', padding: '9px 10px', borderRadius: '8px', fontWeight: 700, fontSize: '0.8rem', whiteSpace: 'nowrap' }}>
+                <a 
+                  href={`https://wa.me/5493584029424?text=Hola!%20Quiero%20consultar%20por%20unidades%200Km%20de%20la%20marca%20${encodeURIComponent(b.name)}`}
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  style={{ display: 'block', textAlign: 'center', backgroundColor: '#ED1C24', color: '#ffffff', textDecoration: 'none', padding: '12px', borderRadius: '10px', fontWeight: 800, fontSize: '0.84rem', letterSpacing: '0.5px' }}
+                >
                   Consultar por {b.name} →
                 </a>
               </div>
@@ -160,111 +169,72 @@ export default function Unidades0km() {
           ))}
         </div>
 
-        {/* 4. Nota Disponibilidad Total */}
-        <div style={{ maxWidth: '850px', margin: '0 auto 50px auto' }}>
-          <div style={{ backgroundColor: '#1A1B1E', border: '1px solid #2C2D31', borderRadius: '12px', padding: '14px 20px', fontSize: '0.9rem', color: '#d4d4d8', lineHeight: 1.45, display: 'flex', alignItems: 'flex-start', gap: '14px' }}>
-            <span style={{ color: '#ED1C24', fontSize: '1.1rem', lineHeight: 1 }}>ⓘ</span>
-            <div><strong>Disponibilidad total:</strong> Comercializamos la <strong>gama completa</strong> de Pick-ups, autos, SUVs y utilitarios de cada una de nuestras marcas oficiales.</div>
+        {/* 4. SECCIÓN ¿POR QUÉ ELEGIRNOS? (CON ÍCONOS VECTORIALES SERIOS Y PROFESIONALES) */}
+        <section style={{ marginTop: '90px', borderTop: '1px solid #1F2024', paddingTop: '60px' }}>
+          <div style={{ textAlign: 'center', marginBottom: '40px' }}>
+            <span style={{ fontSize: '0.75rem', fontWeight: 800, color: '#ED1C24', letterSpacing: '1.5px', textTransform: 'uppercase' }}>RESPALDO Y CONFIANZA</span>
+            <h2 style={{ fontSize: '2.1rem', fontWeight: 900, margin: '6px 0 0 0' }}>¿Por qué elegirnos para tu próximo 0Km?</h2>
           </div>
-        </div>
 
-        {/* 5. Por qué elegirnos para tu próximo 0Km */}
-        <section style={{ marginBottom: '50px' }}>
-          <h2 style={{ textAlign: 'center', fontSize: '1.8rem', fontWeight: 800, marginBottom: '24px' }}>
-            ¿Por qué elegirnos para tu próximo 0Km?
-          </h2>
-          
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '16px' }}>
-            <div style={{ backgroundColor: '#1A1B1E', border: '1px solid #2C2D31', borderRadius: '14px', padding: '18px', display: 'flex', gap: '14px', alignItems: 'flex-start' }}>
-              <div style={{ width: '38px', height: '38px', borderRadius: '8px', backgroundColor: 'rgba(237, 28, 36, 0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, color: '#ED1C24', fontSize: '1.1rem' }}>🔄</div>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '22px' }}>
+            
+            {/* 1. Toma de Usados */}
+            <div style={{ backgroundColor: '#141518', border: '1px solid #27272a', borderRadius: '16px', padding: '24px', display: 'flex', gap: '16px' }}>
+              <div style={{ width: '44px', height: '44px', borderRadius: '10px', backgroundColor: 'rgba(237, 28, 36, 0.12)', border: '1px solid rgba(237, 28, 36, 0.3)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, color: '#ED1C24' }}>
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/></svg>
+              </div>
               <div>
-                <h4 style={{ fontSize: '1rem', fontWeight: 700, margin: '0 0 4px 0', color: '#ffffff' }}>Toma de Usados</h4>
-                <p style={{ fontSize: '0.85rem', color: '#a1a1aa', lineHeight: 1.45, margin: 0 }}>Recibimos tu unidad usada como parte de pago con cotización transparente.</p>
+                <h3 style={{ fontSize: '1rem', fontWeight: 800, margin: '0 0 6px 0' }}>Toma de Usados</h3>
+                <p style={{ fontSize: '0.85rem', color: '#a1a1aa', lineHeight: 1.5, margin: 0 }}>Recibimos tu unidad usada como parte de pago con cotización transparente y justa.</p>
               </div>
             </div>
 
-            <div style={{ backgroundColor: '#1A1B1E', border: '1px solid #2C2D31', borderRadius: '14px', padding: '18px', display: 'flex', gap: '14px', alignItems: 'flex-start' }}>
-              <div style={{ width: '38px', height: '38px', borderRadius: '8px', backgroundColor: 'rgba(237, 28, 36, 0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, color: '#ED1C24', fontSize: '1.1rem' }}>💳</div>
+            {/* 2. Financiación */}
+            <div style={{ backgroundColor: '#141518', border: '1px solid #27272a', borderRadius: '16px', padding: '24px', display: 'flex', gap: '16px' }}>
+              <div style={{ width: '44px', height: '44px', borderRadius: '10px', backgroundColor: 'rgba(237, 28, 36, 0.12)', border: '1px solid rgba(237, 28, 36, 0.3)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, color: '#ED1C24' }}>
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="20" height="14" x="2" y="5" rx="2"/><line x1="2" x2="22" y1="10" y2="10"/></svg>
+              </div>
               <div>
-                <h4 style={{ fontSize: '1rem', fontWeight: 700, margin: '0 0 4px 0', color: '#ffffff' }}>Financiación a Medida</h4>
-                <p style={{ fontSize: '0.85rem', color: '#a1a1aa', lineHeight: 1.45, margin: 0 }}>Accedé a créditos prendarios y opciones en cuotas fijas en pesos adaptadas a tu presupuesto.</p>
+                <h3 style={{ fontSize: '1rem', fontWeight: 800, margin: '0 0 6px 0' }}>Financiación a Medida</h3>
+                <p style={{ fontSize: '0.85rem', color: '#a1a1aa', lineHeight: 1.5, margin: 0 }}>Accedé a créditos prendarios y opciones en cuotas fijas en pesos adaptadas a tu presupuesto.</p>
               </div>
             </div>
 
-            <div style={{ backgroundColor: '#1A1B1E', border: '1px solid #2C2D31', borderRadius: '14px', padding: '18px', display: 'flex', gap: '14px', alignItems: 'flex-start' }}>
-              <div style={{ width: '38px', height: '38px', borderRadius: '8px', backgroundColor: 'rgba(237, 28, 36, 0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, color: '#ED1C24', fontSize: '1.1rem' }}>📋</div>
+            {/* 3. Gestoría */}
+            <div style={{ backgroundColor: '#141518', border: '1px solid #27272a', borderRadius: '16px', padding: '24px', display: 'flex', gap: '16px' }}>
+              <div style={{ width: '44px', height: '44px', borderRadius: '10px', backgroundColor: 'rgba(237, 28, 36, 0.12)', border: '1px solid rgba(237, 28, 36, 0.3)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, color: '#ED1C24' }}>
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" x2="8" y1="13" y2="13"/><line x1="16" x2="8" y1="17" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+              </div>
               <div>
-                <h4 style={{ fontSize: '1rem', fontWeight: 700, margin: '0 0 4px 0', color: '#ffffff' }}>Gestoría Integral Propia</h4>
-                <p style={{ fontSize: '0.85rem', color: '#a1a1aa', lineHeight: 1.45, margin: 0 }}>Resolvemos toda la documentación y patentamiento sin demoras para que solo te preocupes por retirar la unidad.</p>
+                <h3 style={{ fontSize: '1rem', fontWeight: 800, margin: '0 0 6px 0' }}>Gestoría Integral Propia</h3>
+                <p style={{ fontSize: '0.85rem', color: '#a1a1aa', lineHeight: 1.5, margin: 0 }}>Resolvemos toda la documentación y patentamiento sin demoras para que solo te preocupes por retirar la unidad.</p>
               </div>
             </div>
 
-            <div style={{ backgroundColor: '#1A1B1E', border: '1px solid #2C2D31', borderRadius: '14px', padding: '18px', display: 'flex', gap: '14px', alignItems: 'flex-start' }}>
-              <div style={{ width: '38px', height: '38px', borderRadius: '8px', backgroundColor: 'rgba(237, 28, 36, 0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, color: '#ED1C24', fontSize: '1.1rem' }}>🛡️</div>
+            {/* 4. Garantía */}
+            <div style={{ backgroundColor: '#141518', border: '1px solid #27272a', borderRadius: '16px', padding: '24px', display: 'flex', gap: '16px' }}>
+              <div style={{ width: '44px', height: '44px', borderRadius: '10px', backgroundColor: 'rgba(237, 28, 36, 0.12)', border: '1px solid rgba(237, 28, 36, 0.3)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, color: '#ED1C24' }}>
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              </div>
               <div>
-                <h4 style={{ fontSize: '1rem', fontWeight: 700, margin: '0 0 4px 0', color: '#ffffff' }}>Garantía Oficial de Fábrica</h4>
-                <p style={{ fontSize: '0.85rem', color: '#a1a1aa', lineHeight: 1.45, margin: 0 }}>Cada unidad 0km cuenta con el respaldo, garantía de fábrica y servicio de postventa oficial de cada terminal automotriz.</p>
+                <h3 style={{ fontSize: '1rem', fontWeight: 800, margin: '0 0 6px 0' }}>Garantía Oficial de Fábrica</h3>
+                <p style={{ fontSize: '0.85rem', color: '#a1a1aa', lineHeight: 1.5, margin: 0 }}>Cada unidad 0km cuenta con el respaldo, garantía de fábrica y servicio de postventa oficial de cada terminal.</p>
               </div>
             </div>
-          </div>
-        </section>
 
-        {/* 6. Banner de Cierre */}
-        <section style={{ background: 'linear-gradient(135deg, #1A1B1E 0%, #111113 100%)', border: '1px solid #2C2D31', borderRadius: '16px', padding: '36px 20px', textAlign: 'center', marginBottom: '40px' }}>
-          <h3 style={{ fontSize: '1.5rem', fontWeight: 700, color: '#ffffff', marginBottom: '12px' }}>
-            ¿Tenés en mente una línea o versión puntual?
-          </h3>
-          <p style={{ fontSize: '0.92rem', color: '#a1a1aa', maxWidth: '650px', margin: '0 auto 24px auto', lineHeight: 1.5 }}>
-            Acercate a nuestro local a charlar sobre tu próximo 0km. Te esperamos para ver las mejores opciones de financiación, tomar tu usado y armar una propuesta a tu medida.
-          </p>
-          
-          <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '12px' }}>
-            <a href="https://maps.app.goo.gl/GUH2QAShLm4LVHGU6" target="_blank" rel="noopener noreferrer" style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', backgroundColor: '#ED1C24', color: '#ffffff', textDecoration: 'none', padding: '12px 24px', borderRadius: '10px', fontWeight: 700, fontSize: '0.9rem' }}>
-              Vení a conocernos
-            </a>
-            <a href="https://wa.me/5493584029424?text=Hola!%20Quiero%20consultar%20por%20un%200km" target="_blank" rel="noopener noreferrer" style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', backgroundColor: '#141518', color: '#ffffff', border: '1px solid #3f3f46', textDecoration: 'none', padding: '12px 24px', borderRadius: '10px', fontWeight: 600, fontSize: '0.9rem' }}>
-              Hablá con nosotros
-            </a>
           </div>
         </section>
-
       </main>
 
-      {/* Botón Flotante de WhatsApp */}
-      <a 
-        href="https://wa.me/5493584029424?text=Hola!%20Quiero%20consultar%20por%20un%200km" 
-        target="_blank" 
-        rel="noopener noreferrer"
-        style={{
-          position: 'fixed',
-          bottom: '24px',
-          right: '24px',
-          backgroundColor: '#25D366',
-          color: '#ffffff',
-          borderRadius: '50%',
-          width: '58px',
-          height: '58px',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          boxShadow: '0 6px 18px rgba(0,0,0,0.4)',
-          zIndex: 999,
-          textDecoration: 'none'
-        }}
-      >
-        <svg width="34" height="34" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.771-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.312.045-.634.07-1.782-.406-1.364-.565-2.281-1.927-2.35-2.018-.069-.092-.55-0.732-.55-1.396s.348-.99.472-1.127c.125-.138.27-.173.361-.173.091 0 .181.001.261.005.085.004.2-.033.312.238.117.283.402.979.437 1.05.035.071.058.154.012.246-.046.092-.07.15-.138.232-.069.081-.146.182-.208.245-.07.07-.143.146-.062.285.081.139.362.597.777.967.535.477.986.625 1.125.694.139.069.222.058.305-.035.083-.092.355-.415.45-.558.095-.143.19-.119.32-.071.13.047.83.392.973.463.143.072.238.107.273.167.035.06.035.348-.109.753z"/>
-        </svg>
-      </a>
-
-      {/* Animación Marquesina */}
-      <style jsx>{`
+      <style jsx global>{`
         @keyframes marquee {
-          from { transform: translateX(0); }
-          to { transform: translateX(-50%); }
+          0% { transform: translateX(0%); }
+          100% { transform: translateX(-50%); }
         }
       `}</style>
 
     </div>
+  );
+}
   );
 }
