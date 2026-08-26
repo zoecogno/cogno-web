@@ -362,12 +362,14 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 5. RESEÑAS */}
-    <section style={{ maxWidth: '1500px', margin: '60px auto 0 auto', padding: '0 24px' }}>
-        <div style={{ textAlign: 'center', marginBottom: '38px' }}>
-          <span style={{ fontSize: '0.92rem', fontWeight: 600, color: '#ED1C24', letterSpacing: '2px', textTransform: 'uppercase' }}>TESTIMONIOS REALES</span>
-          <h2 style={{ fontSize: '2.3rem', fontWeight: 600, margin: '8px 0 0 0' }}>Opiniones de quienes nos eligen</h2>
-        </div>
+ {/* 5. RESEÑAS */}
+      <section style={{ maxWidth: '1500px', margin: '80px auto 0 auto', padding: '0 24px' }}>
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: '32px', flexWrap: 'wrap', gap: '16px' }}>
+          <div>
+            <span style={{ fontSize: '0.92rem', fontWeight: 600, color: '#ED1C24', letterSpacing: '2px', textTransform: 'uppercase' }}>TESTIMONIOS REALES</span>
+            <h2 style={{ fontSize: '2.3rem', fontWeight: 600, margin: '6px 0 0 0' }}>Opiniones de quienes nos eligen</h2>
+          </div>
+
           <div style={{ display: 'flex', gap: '12px' }}>
             <button onClick={() => scroll('left')} className="scroll-btn" aria-label="Anterior">←</button>
             <button onClick={() => scroll('right')} className="scroll-btn" aria-label="Siguiente">→</button>
