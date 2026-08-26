@@ -126,43 +126,44 @@ export default function QuienesSomos() {
         }
       `}</style>
 
+      {/* 1. ENCABEZADO INSTITUCIONAL */}
+      <section style={{ padding: '50px 20px 24px 20px', textAlign: 'center', maxWidth: '1000px', margin: '0 auto' }}>
+        
+        {/* Logo centrado */}
+        <div style={{ marginBottom: '16px' }}>
+          <img 
+            src="/logo.png.png" 
+            alt="Cogno Automotores" 
+            style={{ height: '75px', width: 'auto', margin: '0 auto', display: 'inline-block' }}
+          />
+        </div>
 
-{/* ENCABEZADO ESTANDARIZADO */}
-<section style={{ padding: '50px 20px 24px 20px', textAlign: 'center', maxWidth: '1000px', margin: '0 auto' }}>
-  {/* Logo centrado */}
-  <div style={{ marginBottom: '16px' }}>
-    <img 
-      src="/logo.png.png" 
-      alt="Cogno Automotores" 
-      style={{ height: '75px', width: 'auto', margin: '0 auto', display: 'inline-block' }}
-    />
-  </div>
+        {/* Título principal estilizado */}
+        <h1 style={{ fontSize: '2.75rem', fontWeight: 600, margin: '0 0 20px 0', letterSpacing: '-0.5px', color: '#ffffff' }}>
+          ¿Quiénes <span style={{ color: '#ED1C24' }}>somos?</span>
+        </h1>
 
-  {/* Título principal estilizado */}
-  <h1 style={{ fontSize: '2.75rem', fontWeight: 600, margin: '0 0 20px 0', letterSpacing: '-0.5px', color: '#ffffff' }}>
-    ¿Quiénes <span style={{ color: '#ED1C24' }}>somos?</span>
-  </h1>
+        {/* Badge rojo tipo píldora */}
+        <div style={{ display: 'inline-flex', alignItems: 'center', gap: '10px', backgroundColor: 'rgba(237, 28, 36, 0.08)', border: '1px solid rgba(237, 28, 36, 0.4)', color: '#ED1C24', padding: '10px 24px', borderRadius: '40px', fontSize: '0.88rem', fontWeight: 700, letterSpacing: '0.8px', marginBottom: '28px', textTransform: 'uppercase' }}>
+          <span>🛡️</span>
+          <span>TRAYECTORIA Y COMPROMISO</span>
+        </div>
 
-  {/* Badge rojo tipo píldora */}
-  <div style={{ display: 'inline-flex', alignItems: 'center', gap: '10px', backgroundColor: 'rgba(237, 28, 36, 0.08)', border: '1px solid rgba(237, 28, 36, 0.4)', color: '#ED1C24', padding: '10px 24px', borderRadius: '40px', fontSize: '0.88rem', fontWeight: 700, letterSpacing: '0.8px', marginBottom: '24px', textTransform: 'uppercase' }}>
-    <span>🛡️</span>
-    <span> TRAYECTORIA Y COMPROMISO</span>
-  </div>
-
-      {/* PÁRRAFOS PRINCIPALES SEPARADOS EN 2 BLOQUES */}
-        <div style={{ maxWidth: '960px', margin: '0 auto 40px auto', display: 'flex', flexDirection: 'column', gap: '16px' }}>
-          <p style={{ fontSize: '1.2rem', color: '#f4f4f5', lineHeight: 1.7, margin: 0, fontWeight: 400 }}>
+        {/* Párrafos principales en 2 bloques */}
+        <div style={{ maxWidth: '850px', margin: '0 auto', display: 'flex', flexDirection: 'column', gap: '16px' }}>
+          <p style={{ fontSize: '1.05rem', color: '#f4f4f5', lineHeight: 1.7, margin: 0, fontWeight: 400 }}>
             Somos <strong style={{ color: '#ffffff', fontWeight: 600 }}>Cogno Automotores S.A.</strong>, una empresa familiar con más de 35 años de trayectoria en el sector automotor. Nos dedicamos a la venta de vehículos nuevos y usados, con un amplio stock y una destacada variedad de pick-ups.
           </p>
-          <p style={{ fontSize: '1.14rem', color: '#d4d4d8', lineHeight: 1.7, margin: 0, fontWeight: 300 }}>
-            <strong style={{ color: '#ffffff', fontWeight: 600 }}>Nuestra historia nos respalda</strong>, y seguimos trabajando cada día para ofrecer un servicio responsable, cercano y a la altura de las expectativas de quienes nos eligen.
+          <p style={{ fontSize: '1.02rem', color: '#a1a1aa', lineHeight: 1.7, margin: 0, fontWeight: 300 }}>
+            <strong style={{ color: '#ffffff', fontWeight: 500 }}>Nuestra historia nos respalda</strong>, y seguimos trabajando cada día para ofrecer un servicio responsable, cercano y a la altura de las expectativas de quienes nos eligen.
           </p>
         </div>
 
-</section>
+      </section>
 
-        {/* FOTO COMPLETA PROPORCIONAL (SIN RECORTES) */}
-        <div style={{ maxWidth: '1200px', margin: '0 auto', borderRadius: '24px', overflow: 'hidden', border: '1px solid #27272a', backgroundColor: '#070709', boxShadow: '0 24px 50px rgba(0,0,0,0.7)' }}>
+      {/* FOTO SALÓN COMPLETA */}
+      <div style={{ maxWidth: '1200px', margin: '30px auto 0 auto', padding: '0 20px' }}>
+        <div style={{ borderRadius: '24px', overflow: 'hidden', border: '1px solid #27272a', backgroundColor: '#070709', boxShadow: '0 24px 50px rgba(0,0,0,0.7)' }}>
           <img 
             src="/frente-2026.jpg.jpg" 
             onError={(e) => { e.currentTarget.src = '/local-2026.jpg.webp'; }}
@@ -171,17 +172,17 @@ export default function QuienesSomos() {
           />
         </div>
 
-        {/* Párrafos a lo largo continuos y centrados */}
-        <div style={{ maxWidth: '960px', margin: '45px auto 0 auto', textAlign: 'center', display: 'flex', flexDirection: 'column', gap: '22px' }}>
-          <p style={{ fontSize: '1.12rem', color: '#d4d4d8', lineHeight: 1.8, margin: 0, fontWeight: 300 }}>
+        {/* Párrafos descriptivos inferiores */}
+        <div style={{ maxWidth: '850px', margin: '40px auto 0 auto', textAlign: 'center', display: 'flex', flexDirection: 'column', gap: '16px' }}>
+          <p style={{ fontSize: '1.02rem', color: '#a1a1aa', lineHeight: 1.7, margin: 0, fontWeight: 300 }}>
             A lo largo de los años, nos hemos consolidado como un referente en el mercado local, elegidos por generaciones de clientes que valoran nuestro compromiso, la atención personalizada y la confianza construida en cada paso.
           </p>
 
-          <p style={{ fontSize: '1.12rem', color: '#d4d4d8', lineHeight: 1.8, margin: 0, fontWeight: 300 }}>
+          <p style={{ fontSize: '1.02rem', color: '#a1a1aa', lineHeight: 1.7, margin: 0, fontWeight: 300 }}>
             Todas nuestras unidades usadas cuentan con garantía propia, como parte de nuestro compromiso con la calidad, la seriedad y la transparencia.
           </p>
         </div>
-      </section>
+      </div>
 
       {/* 2. PROPÓSITO & VISIÓN */}
       <section style={{ maxWidth: '1440px', margin: '70px auto 0 auto', padding: '0 24px' }}>
@@ -214,11 +215,11 @@ export default function QuienesSomos() {
         </div>
       </section>
 
-      {/* 3. NUESTROS VALORES (GRILLA ESTRICTA 2x2) */}
+      {/* 3. NUESTROS VALORES */}
       <section style={{ maxWidth: '1440px', margin: '80px auto 0 auto', padding: '0 24px' }}>
         <div style={{ textAlign: 'center', marginBottom: '40px' }}>
           <span style={{ fontSize: '0.85rem', fontWeight: 600, color: '#ED1C24', letterSpacing: '2px', textTransform: 'uppercase' }}>PILARES FUNDAMENTALES</span>
-          <h2 style={{ fontSize: '2.5rem', fontWeight: 600, margin: '6px 0 0 0' }}>Nuestros Valores</h2>
+          <h2 style={{ fontSize: '2.4rem', fontWeight: 600, margin: '6px 0 0 0' }}>Nuestros Valores</h2>
         </div>
 
         <div className="values-grid">
@@ -228,10 +229,10 @@ export default function QuienesSomos() {
                 {v.icon}
               </div>
               <div>
-                <h3 style={{ fontSize: '1.3rem', fontWeight: 600, color: '#ffffff', margin: '0 0 8px 0' }}>
+                <h3 style={{ fontSize: '1.25rem', fontWeight: 600, color: '#ffffff', margin: '0 0 8px 0' }}>
                   {v.title}
                 </h3>
-                <p style={{ fontSize: '1rem', color: '#a1a1aa', lineHeight: 1.6, margin: 0, fontWeight: 300 }}>
+                <p style={{ fontSize: '0.96rem', color: '#a1a1aa', lineHeight: 1.6, margin: 0, fontWeight: 300 }}>
                   {v.desc}
                 </p>
               </div>
@@ -254,7 +255,7 @@ export default function QuienesSomos() {
               <h2 style={{ fontSize: '2.4rem', fontWeight: 600, margin: '0 0 16px 0', lineHeight: 1.2 }}>
                 Vení a conocer nuestro local
               </h2>
-              <p style={{ fontSize: '1.05rem', color: '#a1a1aa', lineHeight: 1.6, margin: '0 0 24px 0', fontWeight: 300 }}>
+              <p style={{ fontSize: '1.02rem', color: '#a1a1aa', lineHeight: 1.6, margin: '0 0 24px 0', fontWeight: 300 }}>
                 Te esperamos en nuestro salón comercial para conocer el stock en persona, realizar un peritaje transparente de tu usado y asesorarte de forma personalizada.
               </p>
 
