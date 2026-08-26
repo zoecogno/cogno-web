@@ -365,7 +365,7 @@ export default function Home() {
       {/* 5. RESEÑAS */}
     <section style={{ maxWidth: '1500px', margin: '60px auto 0 auto', padding: '0 24px' }}>
         <div style={{ textAlign: 'center', marginBottom: '38px' }}>
-          <span style={{ fontSize: '0.92rem', fontWeight: 600, color: '#ED1C24', letterSpacing: '2px', textTransform: 'uppercase' }}>TESTIMONIOS REALES<</span>
+          <span style={{ fontSize: '0.92rem', fontWeight: 600, color: '#ED1C24', letterSpacing: '2px', textTransform: 'uppercase' }}>TESTIMONIOS REALES</span>
           <h2 style={{ fontSize: '2.3rem', fontWeight: 600, margin: '8px 0 0 0' }}>Opiniones de quienes nos eligen</h2>
         </div>
           <div style={{ display: 'flex', gap: '12px' }}>
