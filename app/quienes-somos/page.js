@@ -132,7 +132,7 @@ export default function QuienesSomos() {
           TRAYECTORIA Y COMPROMISO
         </div>
 
-        <h1 style={{ fontSize: '3.4rem', fontWeight: 700, margin: '0 0 24px 0', letterSpacing: '-0.8px', lineHeight: 1.15 }}>
+        <h1 style={{ fontSize: '3.4rem', fontWeight: 700, margin: '0 0 24px 0', letterSpacing: '1px', lineHeight: 1.15 }}>
           ¿Quiénes <span style={{ color: '#ED1C24' }}>somos?</span>
         </h1>
 
