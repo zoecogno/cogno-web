@@ -1,247 +1,189 @@
 'use client';
 
+const values = [
+  {
+    title: 'Honestidad y Transparencia',
+    desc: 'Claridad absoluta en el estado de cada vehículo, precios y condiciones comerciales desde el primer contacto.',
+    icon: (
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="m11 17 2 2a1 1 0 0 0 1.42 0l6.58-6.59a1 1 0 0 0 0-1.41l-2.58-2.59a1 1 0 0 0-1.42 0L15 10.41" />
+        <path d="m18 13-1.5-1.5" />
+        <path d="M14 6.5 12.5 5" />
+        <path d="M2 13v7a2 2 0 0 0 2 2h7l9-9-4.5-4.5z" />
+        <path d="M6 18h.01" />
+      </svg>
+    ),
+  },
+  {
+    title: 'Confianza y Cercanía',
+    desc: 'Trato personalizado y humano. Generaciones de clientes nos siguen eligiendo para renovar su unidad.',
+    icon: (
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+      </svg>
+    ),
+  },
+  {
+    title: 'Responsabilidad',
+    desc: 'Asumimos con seriedad cada compromiso, cumpliendo con lo prometido en tiempo y forma.',
+    icon: (
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+        <polyline points="22 4 12 14.01 9 11.01" />
+      </svg>
+    ),
+  },
+  {
+    title: 'Compromiso Post Venta',
+    desc: 'Sostenemos un estándar de respuesta ágil y eficiente para cualquier necesidad posterior a la operación.',
+    icon: (
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" />
+      </svg>
+    ),
+  },
+];
+
 export default function QuienesSomos() {
-  const reviews = [
-    {
-      name: 'Silvana Olguin',
-      text: 'Excelente atención. Y por sobre todo personas responsables y muy cumplidoras.',
-      stars: 5
-    },
-    {
-      name: 'Santiago Lovera',
-      text: 'Hace más de quince años que soy cliente. Muy eficientes, excelentes precios y mejor atención.',
-      stars: 5
-    },
-    {
-      name: 'Lucia Noelia Bressan',
-      text: 'Muy buen negocio, gente de confianza.',
-      stars: 5
-    },
-    {
-      name: 'Juan Bahl',
-      text: 'Muy buena atención, agilidad en trámites y entregas, recomendable!!',
-      stars: 5
-    },
-    {
-      name: 'Franco Revelli',
-      text: 'Ya 8 vehículos comprados en mi familia, siempre recibiendo el usado. Excelente atención.',
-      stars: 5
-    }
-  ];
-
-  const values = [
-    {
-      title: 'Honestidad',
-      desc: 'Actuamos con transparencia y claridad en cada paso del proceso.',
-      icon: '🤝'
-    },
-    {
-      title: 'Confianza y Cercanía',
-      desc: 'Mantenemos una relación directa y accesible con nuestros clientes, basada en la credibilidad y el respeto mutuo.',
-      icon: '🛡️'
-    },
-    {
-      title: 'Responsabilidad',
-      desc: 'Asumimos con seriedad cada compromiso, cumpliendo con lo prometido en tiempo y forma.',
-      icon: '🤝'
-    },
-    {
-      title: 'Compromiso Post Venta',
-      desc: 'Sostenemos un estándar de respuesta ágil y eficiente para cualquier necesidad posterior a la operación.',
-      icon: '🚗'
-    }
-  ];
-
   return (
-    <div style={{ backgroundColor: '#0B0C0E', minHeight: '100vh', color: '#ffffff', fontFamily: 'system-ui, -apple-system, sans-serif', paddingBottom: '40px' }}>
+    <div style={{ backgroundColor: '#0B0C0E', minHeight: '100vh', color: '#ffffff', paddingBottom: '100px' }}>
+      
+      {/* ESTILOS INTERACTIVOS */}
+      <style>{`
+        .value-card {
+          background-color: #141518;
+          border: 1px solid #27272a;
+          border-radius: 20px;
+          padding: 32px 28px;
+          display: flex;
+          gap: 20px;
+          align-items: flex-start;
+          transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+        .value-card:hover {
+          transform: translateY(-5px);
+          border-color: rgba(237, 28, 36, 0.4);
+          box-shadow: 0 12px 28px rgba(0,0,0,0.5);
+        }
+        .purpose-box {
+          background-color: #141518;
+          border: 1px solid #27272a;
+          border-radius: 20px;
+          padding: 36px 30px;
+          transition: transform 0.2s ease, border-color 0.2s ease;
+        }
+        .purpose-box:hover {
+          border-color: #3f3f46;
+          transform: translateY(-3px);
+        }
+      `}</style>
 
-      {/* 1. Hero / Portada Institucional */}
-      <section style={{ textAlign: 'center', padding: '60px 16px 40px 16px', maxWidth: '900px', margin: '0 auto' }}>
-        <h1 style={{ fontSize: '2.4rem', fontWeight: 900, letterSpacing: '1px', margin: '0 0 16px 0', lineHeight: 1.2 }}>
-          Trayectoria y compromiso: somos <span style={{ color: '#ED1C24' }}>la propuesta confiable</span> para tu próximo vehículo
+      {/* 1. HERO INSTITUCIONAL */}
+      <section style={{ padding: '50px 24px 40px 24px', textAlign: 'center', maxWidth: '1400px', margin: '0 auto' }}>
+        <div style={{ display: 'inline-flex', alignItems: 'center', backgroundColor: 'rgba(237, 28, 36, 0.1)', border: '1px solid rgba(237, 28, 36, 0.3)', color: '#ED1C24', padding: '6px 20px', borderRadius: '30px', fontSize: '0.82rem', fontWeight: 600, letterSpacing: '1.5px', textTransform: 'uppercase', marginBottom: '18px' }}>
+          TRAYECTORIA Y COMPROMISO
+        </div>
+
+        <h1 style={{ fontSize: '3.2rem', fontWeight: 700, margin: '0 0 18px 0', letterSpacing: '-0.8px', lineHeight: 1.15 }}>
+          ¿Quiénes <span style={{ color: '#ED1C24' }}>somos?</span>
         </h1>
-        <p style={{ fontSize: '1.05rem', color: '#a1a1aa', lineHeight: 1.6, maxWidth: '750px', margin: '0 auto 28px auto' }}>
-          Vehículos 0KM y usados seleccionados, con destacada variedad de pick-ups. Garantía propia y atención personalizada en cada etapa de la compra.
-        </p>
-        <a 
-          href="/usados" 
-          style={{ display: 'inline-block', backgroundColor: '#ED1C24', color: '#ffffff', textDecoration: 'none', padding: '13px 28px', borderRadius: '10px', fontWeight: 700, fontSize: '0.95rem' }}
-        >
-          Elegí tu próximo vehículo
-        </a>
 
-        <div style={{ marginTop: '40px', borderRadius: '18px', overflow: 'hidden', border: '1px solid #2C2D31', boxShadow: '0 12px 30px rgba(0,0,0,0.5)' }}>
+        <p style={{ fontSize: '1.12rem', color: '#a1a1aa', maxWidth: '820px', margin: '0 auto 40px auto', lineHeight: 1.7, fontWeight: 300 }}>
+          Somos <strong style={{ color: '#ffffff', fontWeight: 600 }}>Cogno Automotores S.A.</strong>, una empresa familiar con más de 35 años de trayectoria en el sector automotor. A lo largo de los años nos consolidamos como un referente en el mercado regional, elegidos por generaciones de clientes que valoran nuestro compromiso, la atención personalizada y la confianza construida en cada operación.
+        </p>
+
+        {/* FOTO DESTACADA DEL SALÓN */}
+        <div style={{ maxWidth: '1100px', margin: '0 auto', height: '440px', borderRadius: '24px', overflow: 'hidden', border: '1px solid #27272a', backgroundColor: '#070709', boxShadow: '0 20px 40px rgba(0,0,0,0.6)' }}>
           <img 
-            src="https://lh3.googleusercontent.com/d/15T4Gc9YjvctQg4I9i0GOX1EPcGqQkWxD" 
-            alt="Fachada Cogno Automotores" 
-            style={{ width: '100%', height: 'auto', display: 'block', maxHeight: '520px', objectFit: 'cover' }}
+            src="/local-frente.jpg.webp" 
+            alt="Salón Cogno Automotores" 
+            style={{ width: '100%', height: '100%', objectFit: 'cover' }}
           />
         </div>
       </section>
 
-      {/* 2. Historia y 3 Pilares */}
-      <section style={{ maxWidth: '1050px', margin: '60px auto', padding: '0 16px', textAlign: 'center' }}>
-        <h2 style={{ fontSize: '1.9rem', fontWeight: 800, marginBottom: '14px' }}>¿Quiénes somos?</h2>
-        <p style={{ color: '#a1a1aa', fontSize: '0.95rem', lineHeight: 1.7, maxWidth: '850px', margin: '0 auto 40px auto' }}>
-          Somos <strong>Cogno Automotores S.A.</strong>, una empresa familiar con más de 35 años de trayectoria en el sector automotor. A lo largo de los años, nos hemos consolidado como un referente en el mercado regional, elegidos por generaciones de clientes que valoran nuestro compromiso, la atención personalizada y la confianza construida en cada operación.
-        </p>
-
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '20px' }}>
-          <div style={{ backgroundColor: '#1A1B1E', border: '1px solid #2C2D31', borderRadius: '16px', overflow: 'hidden', paddingBottom: '16px' }}>
-            <div style={{ height: '220px', overflow: 'hidden', backgroundColor: '#111215' }}>
-              <img src="https://lh3.googleusercontent.com/d/1c-H3Rpf34CQYoZ5f7lsYzk8FBcOiDPFT" alt="Garantía propia" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-            </div>
-            <h4 style={{ margin: '16px 12px 0 12px', fontSize: '1rem', fontWeight: 700 }}>Garantía propia en unidades usadas</h4>
-          </div>
-
-          <div style={{ backgroundColor: '#1A1B1E', border: '1px solid #2C2D31', borderRadius: '16px', overflow: 'hidden', paddingBottom: '16px' }}>
-            <div style={{ height: '220px', overflow: 'hidden', backgroundColor: '#111215' }}>
-              <img src="https://lh3.googleusercontent.com/d/1fOJKYhlmPku7EFZVnpWjrXVry0rb6kF8" alt="Atención personalizada" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-            </div>
-            <h4 style={{ margin: '16px 12px 0 12px', fontSize: '1rem', fontWeight: 700 }}>Atención personalizada, de principio a fin</h4>
-          </div>
-
-          <div style={{ backgroundColor: '#1A1B1E', border: '1px solid #2C2D31', borderRadius: '16px', overflow: 'hidden', paddingBottom: '16px' }}>
-            <div style={{ height: '220px', overflow: 'hidden', backgroundColor: '#111215' }}>
-              <img src="https://lh3.googleusercontent.com/d/1DGYZ8EpfEpC9dFNP9IGywE3tUzwOqvbB" alt="Trayectoria" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-            </div>
-            <h4 style={{ margin: '16px 12px 0 12px', fontSize: '1rem', fontWeight: 700 }}>+35 años de trayectoria en el sector</h4>
-          </div>
-        </div>
-      </section>
-
-      {/* 3. Nuestros Valores */}
-      <section style={{ backgroundColor: '#111215', borderTop: '1px solid #1f2024', borderBottom: '1px solid #1f2024', padding: '60px 16px' }}>
-        <div style={{ maxWidth: '1050px', margin: '0 auto' }}>
-          <h2 style={{ fontSize: '1.9rem', fontWeight: 800, textAlign: 'center', marginBottom: '36px' }}>Nuestros Valores</h2>
+      {/* 2. PROPÓSITO & VISIÓN */}
+      <section style={{ maxWidth: '1400px', margin: '70px auto 0 auto', padding: '0 24px' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(340px, 1fr))', gap: '26px' }}>
           
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '20px' }}>
-            {values.map((v, i) => (
-              <div key={i} style={{ backgroundColor: '#1A1B1E', border: '1px solid #2C2D31', borderRadius: '14px', padding: '22px', display: 'flex', gap: '16px', alignItems: 'flex-start' }}>
-                <div style={{ backgroundColor: 'rgba(237,28,36,0.15)', color: '#ED1C24', padding: '10px', borderRadius: '10px', fontSize: '1.2rem', minWidth: '42px', textAlign: 'center' }}>
-                  {v.icon}
-                </div>
-                <div>
-                  <h3 style={{ margin: '0 0 6px 0', fontSize: '1.05rem', fontWeight: 700, color: '#ffffff' }}>{v.title}</h3>
-                  <p style={{ margin: 0, fontSize: '0.85rem', color: '#a1a1aa', lineHeight: 1.5 }}>{v.desc}</p>
-                </div>
-              </div>
-            ))}
+          <div className="purpose-box">
+            <span style={{ fontSize: '0.78rem', fontWeight: 600, color: '#ED1C24', letterSpacing: '1.5px', textTransform: 'uppercase' }}>NUESTRO PROPÓSITO</span>
+            <h3 style={{ fontSize: '1.45rem', fontWeight: 600, margin: '8px 0 12px 0' }}>Experiencias de compra seguras y transparentes</h3>
+            <p style={{ fontSize: '0.96rem', color: '#a1a1aa', lineHeight: 1.6, margin: 0, fontWeight: 300 }}>
+              Brindar una propuesta comercial integral y honesta, ofreciendo vehículos 0km y usados rigurosamente seleccionados con garantía real, para que cada persona y familia tome su mejor decisión con absoluta tranquilidad.
+            </p>
           </div>
+
+          <div className="purpose-box">
+            <span style={{ fontSize: '0.78rem', fontWeight: 600, color: '#ED1C24', letterSpacing: '1.5px', textTransform: 'uppercase' }}>HACIA DÓNDE VAMOS</span>
+            <h3 style={{ fontSize: '1.45rem', fontWeight: 600, margin: '8px 0 12px 0' }}>La propuesta de referencia en toda la región</h3>
+            <p style={{ fontSize: '0.96rem', color: '#a1a1aa', lineHeight: 1.6, margin: 0, fontWeight: 300 }}>
+              Consolidarnos como el punto de encuentro automotor más confiable de Río Cuarto y la zona, manteniendo los valores y la calidez de una firma familiar a la par de una gestión comercial moderna y ágil.
+            </p>
+          </div>
+
         </div>
       </section>
 
-      {/* 4. Reseñas / Opiniones */}
-      <section style={{ maxWidth: '1150px', margin: '60px auto', padding: '0 16px', textAlign: 'center' }}>
-        <h2 style={{ fontSize: '1.9rem', fontWeight: 800, marginBottom: '32px' }}>Opiniones de quienes nos eligen</h2>
-        
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(210px, 1fr))', gap: '16px', marginBottom: '36px' }}>
-          {reviews.map((r, i) => (
-            <div key={i} style={{ backgroundColor: '#1A1B1E', border: '1px solid #2C2D31', borderRadius: '14px', padding: '18px', textAlign: 'left', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
-              <p style={{ fontSize: '0.85rem', color: '#d4d4d8', lineHeight: 1.5, margin: '0 0 16px 0', fontStyle: 'italic' }}>
-                "{r.text}"
-              </p>
+      {/* 3. NUESTROS VALORES (GRILLA 2x2) */}
+      <section style={{ maxWidth: '1400px', margin: '80px auto 0 auto', padding: '0 24px' }}>
+        <div style={{ textAlign: 'center', marginBottom: '40px' }}>
+          <span style={{ fontSize: '0.8rem', fontWeight: 600, color: '#ED1C24', letterSpacing: '1.5px', textTransform: 'uppercase' }}>PILAREES FUNDAMENTALES</span>
+          <h2 style={{ fontSize: '2.3rem', fontWeight: 600, margin: '6px 0 0 0' }}>Nuestros Valores</h2>
+        </div>
+
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(420px, 1fr))', gap: '26px' }}>
+          {values.map((v, i) => (
+            <div key={i} className="value-card">
+              <div style={{ width: '48px', height: '48px', borderRadius: '12px', backgroundColor: 'rgba(237, 28, 36, 0.12)', border: '1px solid rgba(237, 28, 36, 0.3)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, color: '#ED1C24' }}>
+                {v.icon}
+              </div>
               <div>
-                <div style={{ color: '#f59e0b', fontSize: '0.85rem', marginBottom: '4px' }}>★★★★★</div>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-                  <span style={{ fontWeight: 800, color: '#4285F4', fontSize: '0.9rem' }}>G</span>
-                  <span style={{ fontSize: '0.85rem', fontWeight: 700, color: '#ffffff' }}>{r.name}</span>
-                </div>
+                <h3 style={{ fontSize: '1.2rem', fontWeight: 600, color: '#ffffff', margin: '0 0 8px 0' }}>
+                  {v.title}
+                </h3>
+                <p style={{ fontSize: '0.94rem', color: '#a1a1aa', lineHeight: 1.6, margin: 0, fontWeight: 300 }}>
+                  {v.desc}
+                </p>
               </div>
             </div>
           ))}
         </div>
-
-        <a 
-          href="https://maps.app.goo.gl/GUH2QAShLm4LVHGU6" 
-          target="_blank" 
-          rel="noopener noreferrer"
-          style={{ display: 'inline-block', backgroundColor: '#ED1C24', color: '#ffffff', textDecoration: 'none', padding: '12px 24px', borderRadius: '8px', fontWeight: 700, fontSize: '0.88rem' }}
-        >
-          Dejanos tu opinión
-        </a>
       </section>
 
-      {/* 5. Vení a Visitarnos & Mapa */}
-      <section style={{ maxWidth: '1050px', margin: '60px auto 20px auto', padding: '0 16px' }}>
-        <h2 style={{ fontSize: '1.9rem', fontWeight: 800, textAlign: 'center', marginBottom: '8px' }}>Vení a visitarnos</h2>
-        <p style={{ textAlign: 'center', color: '#a1a1aa', fontSize: '0.9rem', marginBottom: '36px' }}>
-          Acercate a conocer nuestro stock de unidades y recibir asesoramiento personalizado.
-        </p>
+      {/* 4. VISITANOS EN NUESTRO SALÓN */}
+      <section style={{ maxWidth: '1200px', margin: '90px auto 0 auto', padding: '0 24px' }}>
+        <div style={{ backgroundColor: '#141518', border: '1px solid #27272a', borderRadius: '26px', padding: '50px 36px', textAlign: 'center' }}>
+          <span style={{ fontSize: '0.78rem', fontWeight: 600, color: '#ED1C24', letterSpacing: '1.5px', textTransform: 'uppercase' }}>ATENCIÓN EN SALÓN</span>
+          <h2 style={{ fontSize: '2.3rem', fontWeight: 600, margin: '8px 0 12px 0' }}>Vení a conocer nuestro local</h2>
+          <p style={{ fontSize: '1.05rem', color: '#a1a1aa', maxWidth: '680px', margin: '0 auto 24px auto', lineHeight: 1.6, fontWeight: 300 }}>
+            Te esperamos en nuestro salón comercial para conocer el stock de unidades, realizar un peritaje de tu usado y tomar un café mientras charlamos sobre tu próximo vehículo.
+          </p>
 
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '24px', alignItems: 'stretch' }}>
-          {/* Datos de contacto */}
-          <div style={{ backgroundColor: '#1A1B1E', border: '1px solid #2C2D31', borderRadius: '16px', padding: '28px', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
-            <div>
-              <div style={{ marginBottom: '22px' }}>
-                <div style={{ fontSize: '0.85rem', color: '#ED1C24', fontWeight: 700, marginBottom: '4px' }}>📍 Ubicación</div>
-                <div style={{ fontSize: '1rem', fontWeight: 700 }}>Av. Marcelo T. de Alvear 1580</div>
-                <div style={{ fontSize: '0.85rem', color: '#a1a1aa' }}>Río Cuarto, Córdoba</div>
-              </div>
-
-              <div style={{ marginBottom: '22px' }}>
-                <div style={{ fontSize: '0.85rem', color: '#ED1C24', fontWeight: 700, marginBottom: '4px' }}>🕒 Horarios de Atención</div>
-                <div style={{ fontSize: '0.9rem', fontWeight: 600 }}>Lunes a Viernes: 09:00 a 18:00 hs</div>
-                <div style={{ fontSize: '0.9rem', fontWeight: 600 }}>Sábados: 09:00 a 12:30 hs</div>
-              </div>
-
-              <div style={{ marginBottom: '22px' }}>
-                <div style={{ fontSize: '0.85rem', color: '#ED1C24', fontWeight: 700, marginBottom: '4px' }}>📞 Contacto</div>
-                <div style={{ fontSize: '0.95rem', fontWeight: 700 }}>+54 9 358 402-9424</div>
-              </div>
-            </div>
-
-            <a 
-              href="https://maps.app.goo.gl/GUH2QAShLm4LVHGU6" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              style={{ display: 'block', textAlign: 'center', backgroundColor: '#ED1C24', color: '#ffffff', textDecoration: 'none', padding: '12px', borderRadius: '10px', fontWeight: 700, fontSize: '0.9rem' }}
-            >
-              Cómo llegar en Google Maps →
-            </a>
+          <div style={{ display: 'inline-block', backgroundColor: '#0B0C0E', border: '1px solid #27272a', padding: '12px 24px', borderRadius: '12px', marginBottom: '30px', fontSize: '0.95rem' }}>
+            📍 <strong style={{ color: '#ffffff' }}>Av. Marcelo T. de Alvear 1580</strong> — Río Cuarto, Córdoba
           </div>
 
-          {/* Mapa de Google embebido */}
-          <div style={{ borderRadius: '16px', overflow: 'hidden', border: '1px solid #2C2D31', minHeight: '320px' }}>
-            <iframe 
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3341.6749069153093!2d-64.3392476!3d-33.1176214!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95cfd02dd71bdf25%3A0x6b1be2f0db38166b!2sCogno%20Automotores!5e0!3m2!1ses-419!2sar!4v1700000000000!5m2!1ses-419!2sar" 
-              width="100%" 
-              height="100%" 
-              style={{ border: 0, minHeight: '320px', display: 'block' }} 
-              allowFullScreen="" 
-              loading="lazy" 
-              referrerPolicy="no-referrer-when-downgrade"
-            />
+          <div style={{ display: 'flex', justifyContent: 'center', gap: '16px', flexWrap: 'wrap' }}>
+            <a 
+              href="https://maps.app.goo.gl" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              style={{ display: 'inline-block', backgroundColor: '#ED1C24', color: '#ffffff', padding: '14px 32px', borderRadius: '12px', fontWeight: 600, fontSize: '0.94rem' }}
+            >
+              Cómo llegar con Google Maps →
+            </a>
+            <a 
+              href="https://wa.me/5493584029424?text=Hola!%20Quiero%20coordinar%20una%20visita%20al%20sal%C3%B3n" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              style={{ display: 'inline-block', backgroundColor: '#1F2024', border: '1px solid #333', color: '#ffffff', padding: '14px 32px', borderRadius: '12px', fontWeight: 600, fontSize: '0.94rem' }}
+            >
+              Consultar por WhatsApp
+            </a>
           </div>
         </div>
       </section>
-
-      {/* 6. Botón Flotante de WhatsApp */}
-      <a 
-        href="https://wa.me/5493584029424?text=Hola!%20Quiero%20hacer%20una%20consulta" 
-        target="_blank" 
-        rel="noopener noreferrer"
-        style={{
-          position: 'fixed',
-          bottom: '24px',
-          right: '24px',
-          backgroundColor: '#25D366',
-          color: '#ffffff',
-          borderRadius: '50%',
-          width: '58px',
-          height: '58px',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          boxShadow: '0 6px 18px rgba(0,0,0,0.4)',
-          zIndex: 999,
-          textDecoration: 'none'
-        }}
-      >
-        <svg width="34" height="34" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.771-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.312.045-.634.07-1.782-.406-1.364-.565-2.281-1.927-2.35-2.018-.069-.092-.55-0.732-.55-1.396s.348-.99.472-1.127c.125-.138.27-.173.361-.173.091 0 .181.001.261.005.085.004.2-.033.312.238.117.283.402.979.437 1.05.035.071.058.154.012.246-.046.092-.07.15-.138.232-.069.081-.146.182-.208.245-.07.07-.143.146-.062.285.081.139.362.597.777.967.535.477.986.625 1.125.694.139.069.222.058.305-.035.083-.092.355-.415.45-.558.095-.143.19-.119.32-.071.13.047.83.392.973.463.143.072.238.107.273.167.035.06.035.348-.109.753z"/>
-        </svg>
-      </a>
 
     </div>
   );
