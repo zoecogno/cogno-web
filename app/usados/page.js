@@ -109,8 +109,9 @@ export default function CatalogoUsados() {
             Estás a un click de tu próximo <span style={{ color: '#ED1C24' }}>vehículo</span>
           </h1>
 
-          <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', backgroundColor: 'rgba(237, 28, 36, 0.1)', border: '1px solid rgba(237, 28, 36, 0.3)', color: '#ED1C24', padding: '6px 18px', borderRadius: '30px', fontSize: '0.8rem', fontWeight: 700, letterSpacing: '0.5px', marginBottom: '18px', textTransform: 'uppercase' }}>
-            🛡️ Todos nuestros usados cuentan con 6 meses de garantía total
+       <div style={{ display: 'inline-flex', alignItems: 'center', gap: '10px', backgroundColor: 'rgba(237, 28, 36, 0.08)', border: '1px solid rgba(237, 28, 36, 0.4)', color: '#ED1C24', padding: '10px 24px', borderRadius: '40px', fontSize: '0.88rem', fontWeight: 700, letterSpacing: '0.8px', marginBottom: '28px', textTransform: 'uppercase' }}>
+            <span>🛡️</span>
+            <span>TODOS NUESTROS USADOS CUENTAN CON 6 MESES DE GARANTÍA TOTAL</span>
           </div>
 
           <h2 style={{ fontSize: '1.6rem', fontWeight: 700, margin: '14px 0 6px 0', color: '#ffffff' }}>
