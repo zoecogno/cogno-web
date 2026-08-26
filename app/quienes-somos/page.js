@@ -149,14 +149,16 @@ export default function QuienesSomos() {
     <span> TRAYECTORIA Y COMPROMISO</span>
   </div>
 
-  {/* Bajada / Descripción */}
-  <p style={{ color: '#a1a1aa', fontSize: '1rem', maxWidth: '750px', margin: '0 auto', lineHeight: 1.6, fontWeight: 300 }}>
-       Somos <strong style={{ color: '#ffffff', fontWeight: 600 }}>Cogno Automotores S.A.</strong>, una empresa familiar con más de 35 años de trayectoria en el sector automotor. Nos dedicamos a la venta de vehículos nuevos y usados, con un amplio stock y una destacada variedad de pick-ups.
+      {/* PÁRRAFOS PRINCIPALES SEPARADOS EN 2 BLOQUES */}
+        <div style={{ maxWidth: '960px', margin: '0 auto 40px auto', display: 'flex', flexDirection: 'column', gap: '16px' }}>
+          <p style={{ fontSize: '1.2rem', color: '#f4f4f5', lineHeight: 1.7, margin: 0, fontWeight: 400 }}>
+            Somos <strong style={{ color: '#ffffff', fontWeight: 600 }}>Cogno Automotores S.A.</strong>, una empresa familiar con más de 35 años de trayectoria en el sector automotor. Nos dedicamos a la venta de vehículos nuevos y usados, con un amplio stock y una destacada variedad de pick-ups.
           </p>
-           </p>
           <p style={{ fontSize: '1.14rem', color: '#d4d4d8', lineHeight: 1.7, margin: 0, fontWeight: 300 }}>
             <strong style={{ color: '#ffffff', fontWeight: 600 }}>Nuestra historia nos respalda</strong>, y seguimos trabajando cada día para ofrecer un servicio responsable, cercano y a la altura de las expectativas de quienes nos eligen.
           </p>
+        </div>
+
 </section>
 
         {/* FOTO COMPLETA PROPORCIONAL (SIN RECORTES) */}
