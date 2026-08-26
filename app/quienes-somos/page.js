@@ -151,7 +151,7 @@ export default function QuienesSomos() {
 
         {/* 1er Párrafo de Apertura */}
         <p style={{ fontSize: '1.2rem', color: '#f4f4f5', maxWidth: '920px', margin: '0 auto 40px auto', lineHeight: 1.7, fontWeight: 400 }}>
-          Somos <strong style={{ color: '#ffffff', fontWeight: 600 }}>Cogno Automotores S.A.</strong>, una empresa familiar con más de 35 años de trayectoria en el sector automotor. Nos dedicamos a la venta de vehículos nuevos y usados, con un amplio stock y una destacada variedad de pick-ups.
+          Somos <strong style={{ color: '#ffffff', fontWeight: 600 }}>Cogno Automotores S.A.</strong>, una empresa familiar con más de 35 años de trayectoria en el sector automotor. Nos dedicamos a la venta de vehículos nuevos y usados, con un amplio stock y una destacada variedad de pick-ups.  <strong style={{ color: '#ffffff', fontWeight: 600 }}>Nuestra historia nos respalda</strong>, y seguimos trabajando cada día para ofrecer un servicio responsable, cercano y a la altura de las expectativas de quienes nos eligen.
         </p>
 
         {/* FOTO PANORÁMICA GRANDE DEL LOCAL (560px con foco abajo) */}
@@ -160,21 +160,20 @@ export default function QuienesSomos() {
             src="/frente-2026.jpg.jpg" 
             onError={(e) => { e.currentTarget.src = '/local-2026.jpg.webp'; }}
             alt="Salón Cogno Automotores" 
-            style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center bottom' }}
+            style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center 20%' }}
           />
         </div>
 
-        {/* Los 2 Párrafos siguientes como texto limpio sin cajas */}
+  {/* Los 2 Párrafos siguientes como texto limpio sin cajas */}
         <div className="text-split-grid" style={{ maxWidth: '1100px', margin: '40px auto 0 auto' }}>
           <p style={{ fontSize: '1.08rem', color: '#d4d4d8', lineHeight: 1.8, margin: 0, fontWeight: 300 }}>
             A lo largo de los años, nos hemos consolidado como un referente en el mercado local, elegidos por generaciones de clientes que valoran nuestro compromiso, la atención personalizada y la confianza construida en cada paso.
           </p>
 
           <p style={{ fontSize: '1.08rem', color: '#d4d4d8', lineHeight: 1.8, margin: 0, fontWeight: 300 }}>
-            Todas nuestras unidades usadas cuentan con garantía propia, como parte de nuestro compromiso con la calidad, la seriedad y la transparencia. Nuestra historia nos respalda, y seguimos trabajando cada día para ofrecer un servicio responsable, cercano y a la altura de las expectativas de quienes nos eligen.
+            Todas nuestras unidades usadas cuentan con garantía propia, como parte de nuestro compromiso con la calidad, la seriedad y la transparencia. 
           </p>
         </div>
-      </section>
 
       {/* 2. PROPÓSITO & VISIÓN */}
       <section style={{ maxWidth: '1440px', margin: '70px auto 0 auto', padding: '0 24px' }}>
