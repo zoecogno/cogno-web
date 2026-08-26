@@ -266,32 +266,35 @@ export default function CeroKmPage() {
         }
       `}</style>
 
-      {/* HEADER DE LA SECCIÓN */}
-      <section style={{ padding: '50px 20px 24px 20px', textAlign: 'center', maxWidth: '1000px', margin: '0 auto' }}>
 
-        <div style={{ marginBottom: '18px' }}>
-  <img 
-    src="/logo.png.png" 
-    alt="Cogno Automotores" 
-    style={{ height: '75px', width: 'auto', margin: '0 auto', display: 'inline-block' }}
-  />
-</div>
-        <h1 style={{ fontSize: '2.8rem', fontWeight: 700, margin: '0 0 16px 0', letterSpacing: '-0.5px', lineHeight: 1.2 }}>
-          Estás a un click de tu próximo <span style={{ color: '#ED1C24' }}>0Km</span>
-        </h1>
+            {/* ENCABEZADO ESTANDARIZADO */}
+<section style={{ padding: '50px 20px 24px 20px', textAlign: 'center', maxWidth: '1000px', margin: '0 auto' }}>
+  {/* Logo centrado */}
+  <div style={{ marginBottom: '16px' }}>
+    <img 
+      src="/logo.png.png" 
+      alt="Cogno Automotores" 
+      style={{ height: '75px', width: 'auto', margin: '0 auto', display: 'inline-block' }}
+    />
+  </div>
 
-        <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '6px 16px', borderRadius: '30px', border: '1px solid rgba(237, 28, 36, 0.3)', backgroundColor: 'rgba(237, 28, 36, 0.1)', marginBottom: '20px' }}>
-          <span style={{ fontSize: '0.9rem' }}>🛡️</span>
-          <span style={{ fontSize: '0.78rem', fontWeight: 700, color: '#ED1C24', letterSpacing: '1px', textTransform: 'uppercase' }}>
-            Opciones con financiación directa de fábrica
-          </span>
-        </div>
+  {/* Título principal estilizado */}
+  <h1 style={{ fontSize: '2.75rem', fontWeight: 600, margin: '0 0 20px 0', letterSpacing: '-0.5px', color: '#ffffff' }}>
+   Estás a un click de tu próximo <span style={{ color: '#ED1C24' }}>0Km</span>
+  </h1>
 
-        <p style={{ fontSize: '1.05rem', color: '#a1a1aa', maxWidth: '680px', margin: '0 auto 10px auto', lineHeight: 1.6, fontWeight: 300 }}>
-          Comercializamos las principales marcas del país. Asesoramiento comercial, financiación a medida, gestoría propia y toma de tu usado.
-        </p>
-      </section>
+  {/* Badge rojo tipo píldora */}
+  <div style={{ display: 'inline-flex', alignItems: 'center', gap: '10px', backgroundColor: 'rgba(237, 28, 36, 0.08)', border: '1px solid rgba(237, 28, 36, 0.4)', color: '#ED1C24', padding: '10px 24px', borderRadius: '40px', fontSize: '0.88rem', fontWeight: 700, letterSpacing: '0.8px', marginBottom: '24px', textTransform: 'uppercase' }}>
+    <span>🛡️</span>
+    <span> Opciones con financiación directa de fábrica</span>
+  </div>
 
+  {/* Bajada / Descripción */}
+  <p style={{ color: '#a1a1aa', fontSize: '1rem', maxWidth: '750px', margin: '0 auto', lineHeight: 1.6, fontWeight: 300 }}>
+    Comercializamos las principales marcas del país. Asesoramiento comercial, financiación a medida, gestoría propia y toma de tu usado.
+  </p>
+</section>
+  
       <div className="section-0km">
 
         {/* 1. Cinta Loop Infinito de Marcas */}
