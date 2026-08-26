@@ -2,7 +2,7 @@
 
 export default function Home() {
   return (
-    <div style={{ backgroundColor: '#0B0C0E', minHeight: '100vh', color: '#ffffff', paddingBottom: '80px' }}>
+    <div style={{ backgroundColor: '#0B0C0E', minHeight: '100vh', color: '#ffffff', paddingBottom: '90px' }}>
       
       {/* ESTILOS INTERACTIVOS (HOVER, ZOOM Y ELEVACIÓN) */}
       <style>{`
@@ -35,18 +35,52 @@ export default function Home() {
         .interactive-card:hover .card-img-container img {
           transform: scale(1.06);
         }
+        .identity-card {
+          position: relative;
+          height: 320px;
+          border-radius: 18px;
+          overflow: hidden;
+          border: 1px solid #27272a;
+          transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+          display: flex;
+          align-items: flex-end;
+          text-decoration: none;
+        }
+        .identity-card img {
+          position: absolute;
+          inset: 0;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+          z-index: 1;
+        }
+        .identity-card:hover img {
+          transform: scale(1.08);
+        }
+        .identity-card:hover {
+          transform: translateY(-6px);
+          border-color: #ED1C24;
+          box-shadow: 0 14px 28px rgba(0,0,0,0.5);
+        }
+        .identity-overlay {
+          position: relative;
+          z-index: 2;
+          width: 100%;
+          padding: 24px 20px 18px 20px;
+          background: linear-gradient(180deg, rgba(11,12,14,0) 0%, rgba(11,12,14,0.7) 40%, rgba(11,12,14,0.95) 100%);
+        }
         .metric-box {
           background-color: #141518;
           border: 1px solid #27272a;
           border-radius: 18px;
-          padding: 30px 20px;
+          padding: 28px 18px;
           text-align: center;
-          transition: transform 0.3s ease, border-color 0.3s ease, background-color 0.3s ease;
+          transition: transform 0.3s ease, border-color 0.3s ease;
         }
         .metric-box:hover {
           transform: translateY(-4px);
           border-color: #ED1C24;
-          background-color: #18191d;
         }
         .action-btn-red {
           display: block;
@@ -63,20 +97,9 @@ export default function Home() {
           background-color: #c9141b;
           transform: scale(1.02);
         }
-        .feature-box {
-          background-color: #141518;
-          border: 1px solid #27272a;
-          border-radius: 16px;
-          padding: 26px;
-          transition: transform 0.2s ease, border-color 0.2s ease;
-        }
-        .feature-box:hover {
-          transform: translateY(-4px);
-          border-color: #3f3f46;
-        }
       `}</style>
 
-      {/* 1. HERO */}
+      {/* 1. HERO PRINCIPAL */}
       <section style={{ padding: '60px 20px 40px 20px', textAlign: 'center', maxWidth: '1100px', margin: '0 auto' }}>
         <div style={{ display: 'inline-flex', alignItems: 'center', backgroundColor: 'rgba(237, 28, 36, 0.1)', border: '1px solid rgba(237, 28, 36, 0.3)', color: '#ED1C24', padding: '5px 16px', borderRadius: '30px', fontSize: '0.72rem', fontWeight: 600, letterSpacing: '1.5px', textTransform: 'uppercase', marginBottom: '20px' }}>
           LA PROPUESTA CONFIABLE
@@ -90,19 +113,16 @@ export default function Home() {
           Elegí la categoría de tu interés para explorar nuestras unidades disponibles, opciones de financiación directa y propuestas a medida.
         </p>
 
-        {/* 2 TARJETAS PRINCIPALES CON INTERACCIÓN */}
+        {/* 2 TARJETAS DE ELECCIÓN CON HOVER */}
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '30px', textAlign: 'left' }}>
 
-          {/* Tarjeta 0KM */}
+          {/* 0KM */}
           <div className="interactive-card">
             <div className="card-img-container">
               <span style={{ position: 'absolute', top: '14px', left: '14px', backgroundColor: '#ED1C24', color: '#ffffff', fontSize: '0.7rem', fontWeight: 600, padding: '4px 10px', borderRadius: '6px', letterSpacing: '0.5px', zIndex: 2 }}>
                 0 KM
               </span>
-              <img 
-                src="https://lh3.googleusercontent.com/d/1xViFbNOKlcqaUUt3cVh_DL7zWnyjII8I" 
-                alt="Unidades 0km" 
-              />
+              <img src="https://lh3.googleusercontent.com/d/1xViFbNOKlcqaUUt3cVh_DL7zWnyjII8I" alt="0km" />
             </div>
             <div style={{ padding: '28px', display: 'flex', flexDirection: 'column', flexGrow: 1 }}>
               <h2 style={{ fontSize: '1.25rem', fontWeight: 600, color: '#ffffff', margin: '0 0 10px 0', letterSpacing: '0.5px' }}>
@@ -117,16 +137,13 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Tarjeta Usados */}
+          {/* Usados */}
           <div className="interactive-card">
             <div className="card-img-container">
               <span style={{ position: 'absolute', top: '14px', left: '14px', backgroundColor: '#ED1C24', color: '#ffffff', fontSize: '0.7rem', fontWeight: 600, padding: '4px 10px', borderRadius: '6px', letterSpacing: '0.5px', zIndex: 2 }}>
                 SELECCIONADOS
               </span>
-              <img 
-                src="https://lh3.googleusercontent.com/d/10u5Lg969bZ23-3j3P-zL2mPj10zBvhK_" 
-                alt="Usados Seleccionados" 
-              />
+              <img src="https://lh3.googleusercontent.com/d/10u5Lg969bZ23-3j3P-zL2mPj10zBvhK_" alt="Usados" />
             </div>
             <div style={{ padding: '28px', display: 'flex', flexDirection: 'column', flexGrow: 1 }}>
               <h2 style={{ fontSize: '1.25rem', fontWeight: 600, color: '#ffffff', margin: '0 0 6px 0', letterSpacing: '0.5px' }}>
@@ -147,8 +164,44 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 2. BLOQUE DE MÉTRICAS & TRAYECTORIA */}
-      <section style={{ maxWidth: '1200px', margin: '30px auto 0 auto', padding: '0 20px' }}>
+      {/* 2. NUEVA SECCIÓN DE IDENTIDAD: 3 FOTOS REALES CON HOVER INTERACTIVO */}
+      <section style={{ maxWidth: '1200px', margin: '60px auto 0 auto', padding: '0 20px' }}>
+        <div style={{ textAlign: 'center', marginBottom: '32px' }}>
+          <span style={{ fontSize: '0.72rem', fontWeight: 600, color: '#ED1C24', letterSpacing: '1.5px', textTransform: 'uppercase' }}>IDENTIDAD Y COMPROMISO</span>
+          <h2 style={{ fontSize: '1.9rem', fontWeight: 600, margin: '6px 0 0 0' }}>El respaldo de una trayectoria real</h2>
+        </div>
+
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '22px' }}>
+          
+          {/* Foto 1: Garantía / Cromado */}
+          <div className="identity-card">
+            <img src="/calidad-usados.jpg" onError={(e) => { e.currentTarget.src = 'https://lh3.googleusercontent.com/d/10u5Lg969bZ23-3j3P-zL2mPj10zBvhK_'; }} alt="Garantía propia" />
+            <div className="identity-overlay">
+              <h3 style={{ fontSize: '1.1rem', fontWeight: 600, margin: 0, color: '#ffffff' }}>Garantía propia en las unidades usadas</h3>
+            </div>
+          </div>
+
+          {/* Foto 2: Frente Local / Atención */}
+          <div className="identity-card">
+            <img src="/local-frente.jpg" onError={(e) => { e.currentTarget.src = 'https://lh3.googleusercontent.com/d/1xViFbNOKlcqaUUt3cVh_DL7zWnyjII8I'; }} alt="Atención personalizada" />
+            <div className="identity-overlay">
+              <h3 style={{ fontSize: '1.1rem', fontWeight: 600, margin: 0, color: '#ffffff' }}>Atención personalizada de principio a fin</h3>
+            </div>
+          </div>
+
+          {/* Foto 3: Premios / Trayectoria */}
+          <div className="identity-card">
+            <img src="/premios-trayectoria.jpg" onError={(e) => { e.currentTarget.src = 'https://lh3.googleusercontent.com/d/13N24eZ776WbB7B9nLqF7P-Z_T4_0P6a_'; }} alt="Premios y trayectoria" />
+            <div className="identity-overlay">
+              <h3 style={{ fontSize: '1.1rem', fontWeight: 600, margin: 0, color: '#ffffff' }}>+35 años de trayectoria en el sector automotor</h3>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      {/* 3. MÉTRICAS */}
+      <section style={{ maxWidth: '1200px', margin: '50px auto 0 auto', padding: '0 20px' }}>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '20px' }}>
           
           <div className="metric-box">
@@ -173,40 +226,6 @@ export default function Home() {
             <div style={{ fontSize: '2.4rem', fontWeight: 700, color: '#ED1C24', lineHeight: 1, marginBottom: '8px' }}>16+</div>
             <div style={{ fontSize: '0.9rem', fontWeight: 600, color: '#ffffff', marginBottom: '4px' }}>Marcas Multimarca</div>
             <div style={{ fontSize: '0.78rem', color: '#71717a', fontWeight: 300 }}>Gama 0km completa disponible</div>
-          </div>
-
-        </div>
-      </section>
-
-      {/* 3. PROPUESTA DE VALOR */}
-      <section style={{ maxWidth: '1200px', margin: '70px auto 0 auto', padding: '0 20px', textAlign: 'center' }}>
-        <span style={{ fontSize: '0.72rem', fontWeight: 600, color: '#ED1C24', letterSpacing: '1.5px', textTransform: 'uppercase' }}>EXPERIENCIA Y SEGURIDAD</span>
-        <h2 style={{ fontSize: '2rem', fontWeight: 600, margin: '8px 0 36px 0' }}>La forma más confiable de cambiar tu auto</h2>
-
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '20px', textAlign: 'left' }}>
-          
-          <div className="feature-box">
-            <div style={{ color: '#ED1C24', marginBottom: '14px' }}>
-              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/></svg>
-            </div>
-            <h3 style={{ fontSize: '1rem', fontWeight: 600, margin: '0 0 6px 0' }}>Tomamos tu usado al mejor valor</h3>
-            <p style={{ fontSize: '0.84rem', color: '#a1a1aa', lineHeight: 1.5, margin: 0, fontWeight: 300 }}>Recibimos tu vehículo como parte de pago con cotización transparente, justa y ágil en el acto.</p>
-          </div>
-
-          <div className="feature-box">
-            <div style={{ color: '#ED1C24', marginBottom: '14px' }}>
-              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="20" height="14" x="2" y="5" rx="2"/><line x1="2" x2="22" y1="10" y2="10"/></svg>
-            </div>
-            <h3 style={{ fontSize: '1rem', fontWeight: 600, margin: '0 0 6px 0' }}>Financiación en pesos a medida</h3>
-            <p style={{ fontSize: '0.84rem', color: '#a1a1aa', lineHeight: 1.5, margin: 0, fontWeight: 300 }}>Opciones en cuotas fijas, créditos prendarios bancarios y planes directos adaptados a tu posibilidad.</p>
-          </div>
-
-          <div className="feature-box">
-            <div style={{ color: '#ED1C24', marginBottom: '14px' }}>
-              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-            </div>
-            <h3 style={{ fontSize: '1rem', fontWeight: 600, margin: '0 0 6px 0' }}>Tranquilidad y respaldo total</h3>
-            <p style={{ fontSize: '0.84rem', color: '#a1a1aa', lineHeight: 1.5, margin: 0, fontWeight: 300 }}>Cada operación cuenta con el respaldo de nuestra trayectoria, seriedad comercial y atención cercana.</p>
           </div>
 
         </div>
