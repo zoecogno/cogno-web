@@ -116,7 +116,7 @@ export default function QuienesSomos() {
         .text-split-grid {
           display: grid;
           grid-template-columns: 1fr 1fr;
-          gap: 30px;
+          gap: 36px;
           margin-top: 36px;
           text-align: left;
         }
@@ -154,17 +154,17 @@ export default function QuienesSomos() {
           Somos <strong style={{ color: '#ffffff', fontWeight: 600 }}>Cogno Automotores S.A.</strong>, una empresa familiar con más de 35 años de trayectoria en el sector automotor. Nos dedicamos a la venta de vehículos nuevos y usados, con un amplio stock y una destacada variedad de pick-ups.
         </p>
 
-        {/* FOTO PANORÁMICA GRANDE DEL LOCAL (540px) */}
-        <div style={{ maxWidth: '1440px', margin: '0 auto', height: '600px', borderRadius: '24px', overflow: 'hidden', border: '1px solid #27272a', backgroundColor: '#070709', boxShadow: '0 24px 50px rgba(0,0,0,0.7)' }}>
+        {/* FOTO PANORÁMICA GRANDE DEL LOCAL (560px con foco abajo) */}
+        <div style={{ maxWidth: '1440px', margin: '0 auto', height: '560px', borderRadius: '24px', overflow: 'hidden', border: '1px solid #27272a', backgroundColor: '#070709', boxShadow: '0 24px 50px rgba(0,0,0,0.7)' }}>
           <img 
             src="/frente-2026.jpg.jpg" 
-            onError={(e) => { e.currentTarget.src = '/frente-2026.jpg.jpg'; }}
+            onError={(e) => { e.currentTarget.src = '/local-2026.jpg.webp'; }}
             alt="Salón Cogno Automotores" 
             style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center bottom' }}
           />
         </div>
 
-       {/* Los 2 Párrafos siguientes como texto limpio sin cajas */}
+        {/* Los 2 Párrafos siguientes como texto limpio sin cajas */}
         <div className="text-split-grid" style={{ maxWidth: '1100px', margin: '40px auto 0 auto' }}>
           <p style={{ fontSize: '1.08rem', color: '#d4d4d8', lineHeight: 1.8, margin: 0, fontWeight: 300 }}>
             A lo largo de los años, nos hemos consolidado como un referente en el mercado local, elegidos por generaciones de clientes que valoran nuestro compromiso, la atención personalizada y la confianza construida en cada paso.
@@ -174,6 +174,7 @@ export default function QuienesSomos() {
             Todas nuestras unidades usadas cuentan con garantía propia, como parte de nuestro compromiso con la calidad, la seriedad y la transparencia. Nuestra historia nos respalda, y seguimos trabajando cada día para ofrecer un servicio responsable, cercano y a la altura de las expectativas de quienes nos eligen.
           </p>
         </div>
+      </section>
 
       {/* 2. PROPÓSITO & VISIÓN */}
       <section style={{ maxWidth: '1440px', margin: '70px auto 0 auto', padding: '0 24px' }}>
