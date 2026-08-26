@@ -226,7 +226,7 @@ export default function Home() {
               <span style={{ position: 'absolute', top: '14px', left: '14px', backgroundColor: '#ED1C24', color: '#ffffff', fontSize: '0.7rem', fontWeight: 600, padding: '4px 10px', borderRadius: '6px', letterSpacing: '0.5px', zIndex: 2 }}>
                 0 KM
               </span>
-              <img src="https://lh3.googleusercontent.com/d/1xViFbNOKlcqaUUt3cVh_DL7zWnyjII8I" alt="0km" />
+              <img src="https://lh3.googleusercontent.com/d/1t2g4CyQTMlnMiD9sOd13_cwBE1M_bCBD" alt="0km" />
             </div>
             <div style={{ padding: '28px', display: 'flex', flexDirection: 'column', flexGrow: 1 }}>
               <h2 style={{ fontSize: '1.25rem', fontWeight: 600, color: '#ffffff', margin: '0 0 10px 0', letterSpacing: '0.5px' }}>
@@ -247,7 +247,7 @@ export default function Home() {
               <span style={{ position: 'absolute', top: '14px', left: '14px', backgroundColor: '#ED1C24', color: '#ffffff', fontSize: '0.7rem', fontWeight: 600, padding: '4px 10px', borderRadius: '6px', letterSpacing: '0.5px', zIndex: 2 }}>
                 SELECCIONADOS
               </span>
-              <img src="https://lh3.googleusercontent.com/d/1YDtAHqMdLNs5unVJTbrNr503FpFFogwg" alt="Usados" />
+              <img src="https://lh3.googleusercontent.com/d/1O1Z7NUU5ULEMQuldROYqvUJgnHKRyeAe" alt="Usados" />
             </div>
             <div style={{ padding: '28px', display: 'flex', flexDirection: 'column', flexGrow: 1 }}>
               <h2 style={{ fontSize: '1.25rem', fontWeight: 600, color: '#ffffff', margin: '0 0 6px 0', letterSpacing: '0.5px' }}>
