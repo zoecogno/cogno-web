@@ -1,6 +1,6 @@
-import { Poppins } from 'next/font/google';
+import { Inter } from 'next/font/google';
 
-const poppins = Poppins({
+const inter = Inter({
   subsets: ['latin'],
   weight: ['300', '400', '500', '600', '700'],
   display: 'swap',
@@ -13,7 +13,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="es" className={poppins.className}>
+    <html lang="es" className={inter.className}>
       <head>
         <style>{`
           * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -32,38 +32,30 @@ export default function RootLayout({ children }) {
       </head>
       <body>
         
-        {/* HEADER / NAVBAR */}
-        <header style={{ backgroundColor: '#0B0C0E', borderBottom: '1px solid #1F2024', position: 'sticky', top: 0, zIndex: 100 }}>
-          <div style={{ maxWidth: '1400px', margin: '0 auto', padding: '12px 20px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '12px' }}>
+        {/* HEADER / NAVBAR FULL-WIDTH */}
+        <header style={{ backgroundColor: '#0B0C0E', borderBottom: '1px solid #1F2024', position: 'sticky', top: 0, zIndex: 100, width: '100%' }}>
+          <div style={{ width: '100%', padding: '14px 40px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '16px' }}>
             
-            {/* Logo */}
-            <a href="/" style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+            {/* Logo solo (sin textos repetidos) */}
+            <a href="/" style={{ display: 'inline-flex', alignItems: 'center' }}>
               <img 
                 src="/logo.png.png" 
                 alt="Cogno Automotores" 
-                style={{ height: '42px', width: 'auto', objectFit: 'contain' }} 
+                style={{ height: '48px', width: 'auto', objectFit: 'contain' }} 
               />
-              <div style={{ display: 'flex', flexDirection: 'column' }}>
-                <span style={{ fontSize: '1.2rem', fontWeight: 700, color: '#ffffff', letterSpacing: '0.5px', lineHeight: 1 }}>
-                  COGNO <span style={{ color: '#ED1C24' }}>AUTOMOTORES</span>
-                </span>
-                <span style={{ fontSize: '0.62rem', color: '#a1a1aa', letterSpacing: '1.5px', textTransform: 'uppercase', marginTop: '3px', fontWeight: 400 }}>
-                  La propuesta confiable
-                </span>
-              </div>
             </a>
 
             {/* Navegación */}
-            <nav style={{ display: 'flex', alignItems: 'center', gap: '22px', flexWrap: 'wrap' }}>
-              <a href="/quienes-somos" style={{ color: '#d4d4d8', fontSize: '0.86rem', fontWeight: 500 }}>Quiénes somos</a>
-              <a href="/" style={{ color: '#d4d4d8', fontSize: '0.86rem', fontWeight: 500 }}>Elegí tu vehículo</a>
-              <a href="/0km" style={{ color: '#d4d4d8', fontSize: '0.86rem', fontWeight: 500 }}>Unidades 0Km</a>
-              <a href="/usados" style={{ color: '#d4d4d8', fontSize: '0.86rem', fontWeight: 500 }}>Inventario de Usados</a>
+            <nav style={{ display: 'flex', alignItems: 'center', gap: '26px', flexWrap: 'wrap' }}>
+              <a href="/quienes-somos" style={{ color: '#d4d4d8', fontSize: '0.9rem', fontWeight: 500 }}>Quiénes somos</a>
+              <a href="/" style={{ color: '#d4d4d8', fontSize: '0.9rem', fontWeight: 500 }}>Elegí tu vehículo</a>
+              <a href="/0km" style={{ color: '#d4d4d8', fontSize: '0.9rem', fontWeight: 500 }}>Unidades 0Km</a>
+              <a href="/usados" style={{ color: '#d4d4d8', fontSize: '0.9rem', fontWeight: 500 }}>Inventario de Usados</a>
               <a 
                 href="https://wa.me/5493584029424?text=Hola!%20Quiero%20hacer%20una%20consulta" 
                 target="_blank" 
-                rel="noopener noreferrer"
-                style={{ backgroundColor: '#ED1C24', color: '#ffffff', padding: '8px 18px', borderRadius: '8px', fontSize: '0.82rem', fontWeight: 600, letterSpacing: '0.3px' }}
+                rel="noopener noreferrer" 
+                style={{ backgroundColor: '#ED1C24', color: '#ffffff', padding: '9px 20px', borderRadius: '8px', fontSize: '0.86rem', fontWeight: 600, letterSpacing: '0.3px' }}
               >
                 WhatsApp
               </a>
@@ -74,19 +66,28 @@ export default function RootLayout({ children }) {
 
         <main>{children}</main>
 
-        {/* FOOTER */}
-        <footer style={{ backgroundColor: '#070709', borderTop: '1px solid #1F2024', padding: '40px 20px', marginTop: '60px', color: '#71717a', fontSize: '0.85rem' }}>
-          <div style={{ maxWidth: '1400px', margin: '0 auto', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '20px' }}>
-            <div>
-              <div style={{ fontWeight: 600, color: '#ffffff', fontSize: '1.05rem', marginBottom: '4px' }}>COGNO AUTOMOTORES</div>
-              <div style={{ fontWeight: 300 }}>La propuesta confiable — Río Cuarto, Córdoba</div>
+        {/* FOOTER FULL-WIDTH CON LOGO */}
+        <footer style={{ backgroundColor: '#070709', borderTop: '1px solid #1F2024', padding: '48px 40px', marginTop: '70px', color: '#71717a', fontSize: '0.88rem' }}>
+          <div style={{ width: '100%', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '24px' }}>
+            
+            <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
+              <img 
+                src="/logo.png.png" 
+                alt="Cogno Automotores" 
+                style={{ height: '52px', width: 'auto', objectFit: 'contain' }} 
+              />
+              <div>
+                <div style={{ fontWeight: 600, color: '#ffffff', fontSize: '1.05rem', marginBottom: '2px' }}>COGNO AUTOMOTORES S.A.</div>
+                <div style={{ fontWeight: 300, color: '#a1a1aa' }}>La propuesta confiable — Río Cuarto, Córdoba</div>
+              </div>
             </div>
 
             <div style={{ textAlign: 'right' }}>
-              <div style={{ fontWeight: 600, color: '#ffffff', textTransform: 'uppercase', fontSize: '0.75rem', letterSpacing: '1px', marginBottom: '4px' }}>Contacto & Salón</div>
-              <div style={{ fontWeight: 300 }}>Av. Marcelo T. de Alvear 1580</div>
+              <div style={{ fontWeight: 600, color: '#ffffff', textTransform: 'uppercase', fontSize: '0.76rem', letterSpacing: '1px', marginBottom: '4px' }}>Contacto & Salón</div>
+              <div style={{ fontWeight: 300, color: '#a1a1aa' }}>Av. Marcelo T. de Alvear 1580</div>
               <div style={{ color: '#ED1C24', fontWeight: 600, marginTop: '2px' }}>+54 9 3584 02-9424</div>
             </div>
+
           </div>
         </footer>
 
