@@ -113,6 +113,19 @@ export default function QuienesSomos() {
           position: relative;
           z-index: 3;
         }
+        .text-split-grid {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 30px;
+          margin-top: 36px;
+          text-align: left;
+        }
+        @media (max-width: 860px) {
+          .text-split-grid {
+            grid-template-columns: 1fr;
+            gap: 20px;
+          }
+        }
         .salon-grid {
           display: grid;
           grid-template-columns: 1fr 1.2fr;
@@ -132,39 +145,45 @@ export default function QuienesSomos() {
           TRAYECTORIA Y COMPROMISO
         </div>
 
-        <h1 style={{ fontSize: '3.4rem', fontWeight: 700, margin: '0 0 24px 0', letterSpacing: '-0.8px', lineHeight: 1.15 }}>
+        <h1 style={{ fontSize: '3.4rem', fontWeight: 700, margin: '0 0 20px 0', letterSpacing: '-0.8px', lineHeight: 1.15 }}>
           ¿Quiénes <span style={{ color: '#ED1C24' }}>somos?</span>
         </h1>
 
-        {/* Texto oficial en 3 bloques elegantes */}
-        <div style={{ maxWidth: '900px', margin: '0 auto 48px auto', display: 'flex', flexDirection: 'column', gap: '18px', textAlign: 'center' }}>
-          <p style={{ fontSize: '1.18rem', color: '#f4f4f5', lineHeight: 1.7, margin: 0, fontWeight: 400 }}>
-            Somos <strong style={{ color: '#ffffff', fontWeight: 600 }}>Cogno Automotores S.A.</strong>, una empresa familiar con más de 35 años de trayectoria en el sector automotor. Nos dedicamos a la venta de vehículos nuevos y usados, con un amplio stock y una destacada variedad de pick-ups.
-          </p>
-          <p style={{ fontSize: '1.05rem', color: '#a1a1aa', lineHeight: 1.7, margin: 0, fontWeight: 300 }}>
-            A lo largo de los años, nos hemos consolidado como un referente en el mercado local, elegidos por generaciones de clientes que valoran nuestro compromiso, la atención personalizada y la confianza construida en cada paso.
-          </p>
-          <p style={{ fontSize: '1.05rem', color: '#a1a1aa', lineHeight: 1.7, margin: 0, fontWeight: 300 }}>
-            Todas nuestras unidades usadas cuentan con garantía propia, como parte de nuestro compromiso con la calidad, la seriedad y la transparencia. Nuestra historia nos respalda, y seguimos trabajando cada día para ofrecer un servicio responsable, cercano y a la altura de las expectativas de quienes nos eligen.
-          </p>
-        </div>
+        {/* 1er Párrafo de Apertura */}
+        <p style={{ fontSize: '1.2rem', color: '#f4f4f5', maxWidth: '920px', margin: '0 auto 40px auto', lineHeight: 1.7, fontWeight: 400 }}>
+          Somos <strong style={{ color: '#ffffff', fontWeight: 600 }}>Cogno Automotores S.A.</strong>, una empresa familiar con más de 35 años de trayectoria en el sector automotor. Nos dedicamos a la venta de vehículos nuevos y usados, con un amplio stock y una destacada variedad de pick-ups.
+        </p>
 
         {/* FOTO PANORÁMICA GRANDE DEL LOCAL (540px) */}
         <div style={{ maxWidth: '1440px', margin: '0 auto', height: '540px', borderRadius: '24px', overflow: 'hidden', border: '1px solid #27272a', backgroundColor: '#070709', boxShadow: '0 24px 50px rgba(0,0,0,0.7)' }}>
           <img 
             src="/local-2026.jpg.jpg" 
-            onError={(e) => { e.currentTarget.src = '/local-frente.jpg.webp'; }}
+            onError={(e) => { e.currentTarget.src = '/frente-2026.jpg.jpg'; }}
             alt="Salón Cogno Automotores" 
             style={{ width: '100%', height: '100%', objectFit: 'cover' }}
           />
         </div>
+
+        {/* Los 2 Párrafos siguientes divididos abajo de la foto */}
+        <div className="text-split-grid" style={{ maxWidth: '1200px', margin: '36px auto 0 auto' }}>
+          <div style={{ backgroundColor: '#141518', border: '1px solid #27272a', borderRadius: '18px', padding: '28px 24px' }}>
+            <p style={{ fontSize: '1.05rem', color: '#a1a1aa', lineHeight: 1.7, margin: 0, fontWeight: 300 }}>
+              A lo largo de los años, nos hemos consolidado como un referente en el mercado local, elegidos por generaciones de clientes que valoran nuestro compromiso, la atención personalizada y la confianza construida en cada paso.
+            </p>
+          </div>
+
+          <div style={{ backgroundColor: '#141518', border: '1px solid #27272a', borderRadius: '18px', padding: '28px 24px' }}>
+            <p style={{ fontSize: '1.05rem', color: '#a1a1aa', lineHeight: 1.7, margin: 0, fontWeight: 300 }}>
+              Todas nuestras unidades usadas cuentan con garantía propia, como parte de nuestro compromiso con la calidad, la seriedad y la transparencia. Nuestra historia nos respalda, y seguimos trabajando cada día para ofrecer un servicio responsable, cercano y a la altura de las expectativas de quienes nos eligen.
+            </p>
+          </div>
+        </div>
       </section>
 
-      {/* 2. PROPÓSITO & VISIÓN CON FONDOS VISUALES */}
+      {/* 2. PROPÓSITO & VISIÓN */}
       <section style={{ maxWidth: '1440px', margin: '70px auto 0 auto', padding: '0 24px' }}>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(400px, 1fr))', gap: '26px' }}>
           
-          {/* Propósito */}
           <div className="vision-card">
             <img src="/calidad-usados.jpg.webp" alt="Propósito" />
             <div className="vision-overlay"></div>
@@ -177,7 +196,6 @@ export default function QuienesSomos() {
             </div>
           </div>
 
-          {/* Visión */}
           <div className="vision-card">
             <img src="/premios-trayectoria.jpg.webp" alt="Visión" />
             <div className="vision-overlay"></div>
@@ -219,7 +237,7 @@ export default function QuienesSomos() {
         </div>
       </section>
 
-      {/* 4. SECCIÓN SALÓN + MAPA GOOGLE EMBEBIDO (2 COLUMNAS) */}
+      {/* 4. SECCIÓN SALÓN + MAPA GOOGLE EMBEBIDO */}
       <section style={{ maxWidth: '1440px', margin: '90px auto 0 auto', padding: '0 24px' }}>
         <div style={{ backgroundColor: '#141518', border: '1px solid #27272a', borderRadius: '28px', padding: '48px 36px', overflow: 'hidden' }}>
           
