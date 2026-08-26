@@ -155,30 +155,25 @@ export default function QuienesSomos() {
         </p>
 
         {/* FOTO PANORÁMICA GRANDE DEL LOCAL (540px) */}
-        <div style={{ maxWidth: '1440px', margin: '0 auto', height: '540px', borderRadius: '24px', overflow: 'hidden', border: '1px solid #27272a', backgroundColor: '#070709', boxShadow: '0 24px 50px rgba(0,0,0,0.7)' }}>
+        <div style={{ maxWidth: '1440px', margin: '0 auto', height: '600px', borderRadius: '24px', overflow: 'hidden', border: '1px solid #27272a', backgroundColor: '#070709', boxShadow: '0 24px 50px rgba(0,0,0,0.7)' }}>
           <img 
-            src="/local-2026.jpg.jpg" 
+            src="/frente-2026.jpg.jpg" 
             onError={(e) => { e.currentTarget.src = '/frente-2026.jpg.jpg'; }}
             alt="Salón Cogno Automotores" 
-            style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+            style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center bottom' }}
           />
         </div>
 
-        {/* Los 2 Párrafos siguientes divididos abajo de la foto */}
-        <div className="text-split-grid" style={{ maxWidth: '1200px', margin: '36px auto 0 auto' }}>
-          <div style={{ backgroundColor: '#141518', border: '1px solid #27272a', borderRadius: '18px', padding: '28px 24px' }}>
-            <p style={{ fontSize: '1.05rem', color: '#a1a1aa', lineHeight: 1.7, margin: 0, fontWeight: 300 }}>
-              A lo largo de los años, nos hemos consolidado como un referente en el mercado local, elegidos por generaciones de clientes que valoran nuestro compromiso, la atención personalizada y la confianza construida en cada paso.
-            </p>
-          </div>
+       {/* Los 2 Párrafos siguientes como texto limpio sin cajas */}
+        <div className="text-split-grid" style={{ maxWidth: '1100px', margin: '40px auto 0 auto' }}>
+          <p style={{ fontSize: '1.08rem', color: '#d4d4d8', lineHeight: 1.8, margin: 0, fontWeight: 300 }}>
+            A lo largo de los años, nos hemos consolidado como un referente en el mercado local, elegidos por generaciones de clientes que valoran nuestro compromiso, la atención personalizada y la confianza construida en cada paso.
+          </p>
 
-          <div style={{ backgroundColor: '#141518', border: '1px solid #27272a', borderRadius: '18px', padding: '28px 24px' }}>
-            <p style={{ fontSize: '1.05rem', color: '#a1a1aa', lineHeight: 1.7, margin: 0, fontWeight: 300 }}>
-              Todas nuestras unidades usadas cuentan con garantía propia, como parte de nuestro compromiso con la calidad, la seriedad y la transparencia. Nuestra historia nos respalda, y seguimos trabajando cada día para ofrecer un servicio responsable, cercano y a la altura de las expectativas de quienes nos eligen.
-            </p>
-          </div>
+          <p style={{ fontSize: '1.08rem', color: '#d4d4d8', lineHeight: 1.8, margin: 0, fontWeight: 300 }}>
+            Todas nuestras unidades usadas cuentan con garantía propia, como parte de nuestro compromiso con la calidad, la seriedad y la transparencia. Nuestra historia nos respalda, y seguimos trabajando cada día para ofrecer un servicio responsable, cercano y a la altura de las expectativas de quienes nos eligen.
+          </p>
         </div>
-      </section>
 
       {/* 2. PROPÓSITO & VISIÓN */}
       <section style={{ maxWidth: '1440px', margin: '70px auto 0 auto', padding: '0 24px' }}>
