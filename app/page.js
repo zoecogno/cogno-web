@@ -75,7 +75,7 @@ export default function Home() {
         }
         .card-img-container {
           position: relative;
-          height: 250px;
+          height: 340px;
           background-color: #070709;
           overflow: hidden;
         }
@@ -194,7 +194,7 @@ export default function Home() {
       `}</style>
 
       {/* 1. HERO PRINCIPAL */}
-      <section style={{ padding: '40px 20px 40px 20px', textAlign: 'center', maxWidth: '1100px', margin: '0 auto' }}>
+      <section style={{ padding: '40px 20px 40px 20px', textAlign: 'center', maxWidth: '1440px', margin: '0 auto' }}>
         
         {/* LOGO SUPERIOR */}
         <div style={{ marginBottom: '18px' }}>
@@ -218,7 +218,7 @@ export default function Home() {
         </p>
 
         {/* 2 TARJETAS */}
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '30px', textAlign: 'left' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(420px, 1fr))', gap: '40px', textAlign: 'left' }}>
 
           {/* 0KM */}
           <div className="interactive-card">
@@ -257,7 +257,7 @@ export default function Home() {
                 🛡️ 6 MESES DE GARANTÍA ESCRITA
               </div>
               <p style={{ fontSize: '0.86rem', color: '#a1a1aa', lineHeight: 1.5, margin: '0 0 24px 0', flexGrow: 1, fontWeight: 300 }}>
-                Unidades rigurosamente inspeccionadas, con historial verificado y entrega con toda la documentación lista para transferir.
+                Unidades seleccionadas, con historial verificado y entrega con toda la documentación lista.
               </p>
               <a href="/usados" className="action-btn-red">
                 Ver Catálogo de Usados →
@@ -269,7 +269,7 @@ export default function Home() {
       </section>
 
       {/* 2. IDENTIDAD: 3 FOTOS REALES */}
-      <section style={{ maxWidth: '1200px', margin: '50px auto 0 auto', padding: '0 20px' }}>
+      <section style={{ maxWidth: '1440px', margin: '50px auto 0 auto', padding: '0 20px' }}>
         <div style={{ textAlign: 'center', marginBottom: '32px' }}>
           <span style={{ fontSize: '0.72rem', fontWeight: 600, color: '#ED1C24', letterSpacing: '1.5px', textTransform: 'uppercase' }}>IDENTIDAD Y COMPROMISO</span>
           <h2 style={{ fontSize: '1.9rem', fontWeight: 600, margin: '6px 0 0 0' }}>El respaldo de una trayectoria real</h2>
@@ -302,7 +302,7 @@ export default function Home() {
       </section>
 
       {/* 3. MÉTRICAS */}
-      <section style={{ maxWidth: '1200px', margin: '50px auto 0 auto', padding: '0 20px' }}>
+      <section style={{ maxWidth: '1440px', margin: '50px auto 0 auto', padding: '0 20px' }}>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '20px' }}>
           
           <div className="metric-box">
@@ -333,7 +333,7 @@ export default function Home() {
       </section>
 
       {/* 4. FINANCIACIÓN Y CRÉDITOS */}
-      <section style={{ maxWidth: '1000px', margin: '70px auto 0 auto', padding: '0 20px' }}>
+      <section style={{ maxWidth: '1200px', margin: '70px auto 0 auto', padding: '0 20px' }}>
         <div style={{ backgroundColor: '#141518', border: '1px solid #27272a', borderRadius: '22px', padding: '46px 30px', textAlign: 'center' }}>
           <div style={{ display: 'inline-flex', alignItems: 'center', backgroundColor: 'rgba(237, 28, 36, 0.1)', border: '1px solid rgba(237, 28, 36, 0.3)', color: '#ED1C24', padding: '4px 14px', borderRadius: '30px', fontSize: '0.7rem', fontWeight: 600, letterSpacing: '1px', textTransform: 'uppercase', marginBottom: '16px' }}>
             PLANES A MEDIDA
@@ -356,7 +356,7 @@ export default function Home() {
       </section>
 
       {/* 5. RESEÑAS EN CARRUSEL */}
-      <section style={{ maxWidth: '1200px', margin: '70px auto 0 auto', padding: '0 20px' }}>
+      <section style={{ maxWidth: '1440px', margin: '70px auto 0 auto', padding: '0 20px' }}>
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: '28px', flexWrap: 'wrap', gap: '16px' }}>
           <div>
             <span style={{ fontSize: '0.72rem', fontWeight: 600, color: '#ED1C24', letterSpacing: '1.5px', textTransform: 'uppercase' }}>TESTIMONIOS REALES</span>
