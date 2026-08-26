@@ -1,5 +1,7 @@
 'use client';
 
+export const dynamic = 'force-dynamic';
+
 import { useState, useEffect } from 'react';
 import { useParams } from 'next/navigation';
 
@@ -45,7 +47,7 @@ export default function DetalleVehiculo() {
   const waMsg = encodeURIComponent(`Hola! Quiero consultar por el ${vehicle.brand || ''} ${vehicle.line || ''} ${vehicle.version || ''} (${vehicle.year || ''})`);
 
   return (
-    <div style={{ backgroundColor: '#0B0C0E', minHeight: '90vh', color: '#ffffff', fontFamily: 'system-ui, -apple-system, sans-serif', padding: '40px 16px' }}>
+    <div style={{ backgroundColor: '#0B0C0E', minHeight: '90vh', color: '#ffffff', padding: '40px 16px' }}>
       <div style={{ maxWidth: '750px', margin: '0 auto', backgroundColor: '#1A1B1E', border: '1px solid #2C2D31', borderRadius: '18px', padding: '24px', boxShadow: '0 12px 30px rgba(0,0,0,0.5)' }}>
         
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '16px' }}>
