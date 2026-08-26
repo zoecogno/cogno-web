@@ -14,7 +14,7 @@ export default function CeroKmPage() {
           font-family: inherit;
           color: #ffffff;
           padding: 0px 16px 60px 16px;
-          max-width: 1200px;
+          max-width: 1480px;
           width: 100%;
           margin: 0 auto;
           overflow-x: hidden !important;
@@ -63,7 +63,7 @@ export default function CeroKmPage() {
         .brands-grid-0km {
           display: grid;
           grid-template-columns: repeat(4, 1fr);
-          gap: 16px;
+          gap: 24px;
           margin-bottom: 32px;
         }
 
@@ -85,7 +85,7 @@ export default function CeroKmPage() {
 
         .brand-img-container {
           width: 100%;
-          height: 155px;
+          height: 210px;
           background-color: #111215;
           overflow: hidden;
         }
@@ -268,6 +268,14 @@ export default function CeroKmPage() {
 
       {/* HEADER DE LA SECCIÓN */}
       <section style={{ padding: '50px 20px 24px 20px', textAlign: 'center', maxWidth: '1000px', margin: '0 auto' }}>
+
+        <div style={{ marginBottom: '18px' }}>
+  <img 
+    src="/logo.png.png" 
+    alt="Cogno Automotores" 
+    style={{ height: '75px', width: 'auto', margin: '0 auto', display: 'inline-block' }}
+  />
+</div>
         <h1 style={{ fontSize: '2.8rem', fontWeight: 700, margin: '0 0 16px 0', letterSpacing: '-0.5px', lineHeight: 1.2 }}>
           Estás a un click de tu próximo <span style={{ color: '#ED1C24' }}>0Km</span>
         </h1>
