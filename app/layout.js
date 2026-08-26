@@ -17,7 +17,7 @@ export default function RootLayout({ children }) {
       <head>
         <style>{`
           * { box-sizing: border-box; margin: 0; padding: 0; }
-          body { font-family: inherit; background-color: #0B0C0E; color: #ffffff; }
+          body { font-family: inherit; font-weight: 400; background-color: #0B0C0E; color: #ffffff; -webkit-font-smoothing: antialiased; }
           a { text-decoration: none; }
           @keyframes marqueeAnim {
             0% { transform: translateX(0%); }
@@ -47,7 +47,7 @@ export default function RootLayout({ children }) {
                 <span style={{ fontSize: '1.2rem', fontWeight: 700, color: '#ffffff', letterSpacing: '0.5px', lineHeight: 1 }}>
                   COGNO <span style={{ color: '#ED1C24' }}>AUTOMOTORES</span>
                 </span>
-                <span style={{ fontSize: '0.62rem', color: '#a1a1aa', letterSpacing: '1.5px', textTransform: 'uppercase', marginTop: '3px' }}>
+                <span style={{ fontSize: '0.62rem', color: '#a1a1aa', letterSpacing: '1.5px', textTransform: 'uppercase', marginTop: '3px', fontWeight: 400 }}>
                   La propuesta confiable
                 </span>
               </div>
@@ -78,13 +78,13 @@ export default function RootLayout({ children }) {
         <footer style={{ backgroundColor: '#070709', borderTop: '1px solid #1F2024', padding: '40px 20px', marginTop: '60px', color: '#71717a', fontSize: '0.85rem' }}>
           <div style={{ maxWidth: '1400px', margin: '0 auto', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '20px' }}>
             <div>
-              <div style={{ fontWeight: 700, color: '#ffffff', fontSize: '1.05rem', marginBottom: '4px' }}>COGNO AUTOMOTORES</div>
-              <div>La propuesta confiable — Río Cuarto, Córdoba</div>
+              <div style={{ fontWeight: 600, color: '#ffffff', fontSize: '1.05rem', marginBottom: '4px' }}>COGNO AUTOMOTORES</div>
+              <div style={{ fontWeight: 300 }}>La propuesta confiable — Río Cuarto, Córdoba</div>
             </div>
 
             <div style={{ textAlign: 'right' }}>
               <div style={{ fontWeight: 600, color: '#ffffff', textTransform: 'uppercase', fontSize: '0.75rem', letterSpacing: '1px', marginBottom: '4px' }}>Contacto & Salón</div>
-              <div>Av. Marcelo T. de Alvear 1580</div>
+              <div style={{ fontWeight: 300 }}>Av. Marcelo T. de Alvear 1580</div>
               <div style={{ color: '#ED1C24', fontWeight: 600, marginTop: '2px' }}>+54 9 3584 02-9424</div>
             </div>
           </div>
