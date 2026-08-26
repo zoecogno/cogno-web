@@ -132,29 +132,27 @@ export default function QuienesSomos() {
           TRAYECTORIA Y COMPROMISO
         </div>
 
-        <h1 style={{ fontSize: '3.4rem', fontWeight: 700, margin: '0 0 20px 0', letterSpacing: '-0.8px', lineHeight: 1.15 }}>
+        <h1 style={{ fontSize: '3.4rem', fontWeight: 700, margin: '0 0 24px 0', letterSpacing: '-0.8px', lineHeight: 1.15 }}>
           ¿Quiénes <span style={{ color: '#ED1C24' }}>somos?</span>
         </h1>
 
-        {/* 1er Párrafo de Apertura */}
-        <div style={{ maxWidth: '960px', margin: '45px auto 0 auto', textAlign: 'center', display: 'flex', flexDirection: 'column', gap: '22px' }}>
-          <p style={{ fontSize: '1.2rem', color: '#f4f4f5', lineHeight: 1.7, margin: '0 auto 40px auto', fontWeight: 400 }}>
-           Somos <strong style={{ color: '#ffffff', fontWeight: 600 }}>Cogno Automotores S.A.</strong>, una empresa familiar con más de 35 años de trayectoria en el sector automotor. Nos dedicamos a la venta de vehículos nuevos y usados, con un amplio stock y una destacada variedad de pick-ups.
+        {/* PÁRRAFOS PRINCIPALES SEPARADOS EN 2 BLOQUES */}
+        <div style={{ maxWidth: '960px', margin: '0 auto 40px auto', display: 'flex', flexDirection: 'column', gap: '16px' }}>
+          <p style={{ fontSize: '1.2rem', color: '#f4f4f5', lineHeight: 1.7, margin: 0, fontWeight: 400 }}>
+            Somos <strong style={{ color: '#ffffff', fontWeight: 600 }}>Cogno Automotores S.A.</strong>, una empresa familiar con más de 35 años de trayectoria en el sector automotor. Nos dedicamos a la venta de vehículos nuevos y usados, con un amplio stock y una destacada variedad de pick-ups.
           </p>
-
-          <p style={{ fontSize: '1.2rem', color: '#f4f4f5', lineHeight: 1.7, margin: '0 auto 40px auto', fontWeight: 400 }}>
-             <strong style={{ color: '#ffffff', fontWeight: 600 }}>Nuestra historia nos respalda</strong>, y seguimos trabajando cada día para ofrecer un servicio responsable, cercano y a la altura de las expectativas de quienes nos eligen
+          <p style={{ fontSize: '1.14rem', color: '#d4d4d8', lineHeight: 1.7, margin: 0, fontWeight: 300 }}>
+            <strong style={{ color: '#ffffff', fontWeight: 600 }}>Nuestra historia nos respalda</strong>, y seguimos trabajando cada día para ofrecer un servicio responsable, cercano y a la altura de las expectativas de quienes nos eligen.
           </p>
         </div>
-      </section>
 
-        {/* FOTO PANORÁMICA GRANDE DEL LOCAL (560px con foco arriba) */}
-        <div style={{ maxWidth: '1440px', margin: '0 auto', height: '560px', borderRadius: '24px', overflow: 'hidden', border: '1px solid #27272a', backgroundColor: '#070709', boxShadow: '0 24px 50px rgba(0,0,0,0.7)' }}>
+        {/* FOTO COMPLETA PROPORCIONAL (SIN RECORTES) */}
+        <div style={{ maxWidth: '1200px', margin: '0 auto', borderRadius: '24px', overflow: 'hidden', border: '1px solid #27272a', backgroundColor: '#070709', boxShadow: '0 24px 50px rgba(0,0,0,0.7)' }}>
           <img 
             src="/frente-2026.jpg.jpg" 
             onError={(e) => { e.currentTarget.src = '/local-2026.jpg.webp'; }}
             alt="Salón Cogno Automotores" 
-            style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center 20%' }}
+            style={{ width: '100%', height: 'auto', display: 'block' }}
           />
         </div>
 
