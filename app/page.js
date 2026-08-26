@@ -33,7 +33,7 @@ const reviews = [
     text: 'Tan sólidos y confiables como siempre, un placer hacer negocios con esta prestigiosa firma de Banda Norte…',
     rating: 5,
   },
-   {
+  {
     name: 'Jorge Luis Etcheverry',
     text: 'Excelentes vehículos, muy buena atención y por sobre todo, responsabilidad',
     rating: 5,
@@ -193,10 +193,10 @@ export default function Home() {
         }
       `}</style>
 
-      {/* 1. HERO PRINCIPAL CON LOGO DE MARCA ARRIBA */}
+      {/* 1. HERO PRINCIPAL */}
       <section style={{ padding: '40px 20px 40px 20px', textAlign: 'center', maxWidth: '1100px', margin: '0 auto' }}>
         
-        {/* LOGO SUPERIOR TIPO SOFTR */}
+        {/* LOGO SUPERIOR */}
         <div style={{ marginBottom: '18px' }}>
           <img 
             src="/logo.png.png" 
@@ -355,21 +355,20 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 5. RESEÑAS EN CARRUSEL (1 FILA CON DESPLAZAMIENTO) */}
-         <section style={{ maxWidth: '1200px', margin: '50px auto 0 auto', padding: '0 20px' }}>
-        <div style={{ textAlign: 'center', marginBottom: '32px' }}>
-          <span style={{ fontSize: '0.72rem', fontWeight: 600, color: '#ED1C24', letterSpacing: '1.5px', textTransform: 'uppercase' }}>TESTIMONIOS REALES</span>
-          <h2 style={{ fontSize: '1.9rem', fontWeight: 600, margin: '6px 0 0 0' }}>Opiniones de quienes nos eligenl</h2>
-        </div>
+      {/* 5. RESEÑAS EN CARRUSEL */}
+      <section style={{ maxWidth: '1200px', margin: '70px auto 0 auto', padding: '0 20px' }}>
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: '28px', flexWrap: 'wrap', gap: '16px' }}>
+          <div>
+            <span style={{ fontSize: '0.72rem', fontWeight: 600, color: '#ED1C24', letterSpacing: '1.5px', textTransform: 'uppercase' }}>TESTIMONIOS REALES</span>
+            <h2 style={{ fontSize: '2rem', fontWeight: 600, margin: '4px 0 0 0' }}>Opiniones de quienes nos eligen</h2>
+          </div>
 
-          {/* Flechas del carrusel */}
           <div style={{ display: 'flex', gap: '10px' }}>
             <button onClick={() => scroll('left')} className="scroll-btn" aria-label="Anterior">←</button>
             <button onClick={() => scroll('right')} className="scroll-btn" aria-label="Siguiente">→</button>
           </div>
         </div>
 
-        {/* Contenedor deslizable en 1 sola fila */}
         <div 
           ref={scrollRef}
           className="no-scrollbar"
