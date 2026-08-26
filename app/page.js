@@ -1,5 +1,7 @@
 'use client';
 
+import { useRef } from 'react';
+
 const reviews = [
   {
     name: 'Silvana Olguin',
@@ -29,6 +31,19 @@ const reviews = [
 ];
 
 export default function Home() {
+  const scrollRef = useRef(null);
+
+  const scroll = (direction) => {
+    if (scrollRef.current) {
+      const { scrollLeft, clientWidth } = scrollRef.current;
+      const scrollAmount = clientWidth * 0.75;
+      scrollRef.current.scrollTo({
+        left: direction === 'left' ? scrollLeft - scrollAmount : scrollLeft + scrollAmount,
+        behavior: 'smooth'
+      });
+    }
+  };
+
   return (
     <div style={{ backgroundColor: '#0B0C0E', minHeight: '100vh', color: '#ffffff', paddingBottom: '90px' }}>
       
@@ -110,7 +125,7 @@ export default function Home() {
           transform: translateY(-4px);
           border-color: #ED1C24;
         }
-        .review-card {
+        .review-carousel-item {
           background-color: #141518;
           border: 1px solid #27272a;
           border-radius: 16px;
@@ -118,12 +133,38 @@ export default function Home() {
           display: flex;
           flex-direction: column;
           justify-content: space-between;
-          min-width: 280px;
+          width: 320px;
+          flex-shrink: 0;
+          scroll-snap-align: start;
           transition: transform 0.2s ease, border-color 0.2s ease;
         }
-        .review-card:hover {
+        .review-carousel-item:hover {
           transform: translateY(-4px);
           border-color: #3f3f46;
+        }
+        .scroll-btn {
+          width: 42px;
+          height: 42px;
+          border-radius: 50%;
+          background-color: #141518;
+          border: 1px solid #27272a;
+          color: #ffffff;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          cursor: pointer;
+          transition: background-color 0.2s, border-color 0.2s;
+        }
+        .scroll-btn:hover {
+          background-color: #ED1C24;
+          border-color: #ED1C24;
+        }
+        .no-scrollbar::-webkit-scrollbar {
+          display: none;
+        }
+        .no-scrollbar {
+          -ms-overflow-style: none;
+          scrollbar-width: none;
         }
         .action-btn-red {
           display: block;
@@ -142,14 +183,24 @@ export default function Home() {
         }
       `}</style>
 
-      {/* 1. HERO PRINCIPAL */}
-      <section style={{ padding: '60px 20px 40px 20px', textAlign: 'center', maxWidth: '1100px', margin: '0 auto' }}>
-        <div style={{ display: 'inline-flex', alignItems: 'center', backgroundColor: 'rgba(237, 28, 36, 0.1)', border: '1px solid rgba(237, 28, 36, 0.3)', color: '#ED1C24', padding: '5px 16px', borderRadius: '30px', fontSize: '0.72rem', fontWeight: 600, letterSpacing: '1.5px', textTransform: 'uppercase', marginBottom: '20px' }}>
-          LA PROPUESTA CONFIABLE
+      {/* 1. HERO PRINCIPAL CON LOGO DE MARCA ARRIBA */}
+      <section style={{ padding: '40px 20px 40px 20px', textAlign: 'center', maxWidth: '1100px', margin: '0 auto' }}>
+        
+        {/* LOGO SUPERIOR TIPO SOFTR */}
+        <div style={{ marginBottom: '18px' }}>
+          <img 
+            src="/logo.png.png" 
+            alt="Cogno Automotores" 
+            style={{ height: '75px', width: 'auto', margin: '0 auto', display: 'inline-block' }}
+          />
+        </div>
+
+        <div style={{ display: 'inline-flex', alignItems: 'center', backgroundColor: 'rgba(237, 28, 36, 0.1)', border: '1px solid rgba(237, 28, 36, 0.3)', color: '#ED1C24', padding: '5px 16px', borderRadius: '30px', fontSize: '0.72rem', fontWeight: 600, letterSpacing: '1.5px', textTransform: 'uppercase', marginBottom: '16px' }}>
+          TU PRÓXIMO VEHÍCULO TE ESPERA
         </div>
 
         <h1 style={{ fontSize: '2.6rem', fontWeight: 600, margin: '0 0 14px 0', letterSpacing: '-0.5px', lineHeight: 1.2 }}>
-          ¿0Km o Usado <span style={{ color: '#ED1C24' }}>seleccionado?</span>
+          ¿Qué estás <span style={{ color: '#ED1C24' }}>buscando?</span>
         </h1>
 
         <p style={{ fontSize: '0.95rem', color: '#a1a1aa', maxWidth: '640px', margin: '0 auto 46px auto', lineHeight: 1.6, fontWeight: 300 }}>
@@ -169,7 +220,7 @@ export default function Home() {
             </div>
             <div style={{ padding: '28px', display: 'flex', flexDirection: 'column', flexGrow: 1 }}>
               <h2 style={{ fontSize: '1.25rem', fontWeight: 600, color: '#ffffff', margin: '0 0 10px 0', letterSpacing: '0.5px' }}>
-                UNIDADES 0KM
+                Unidades 0KM
               </h2>
               <p style={{ fontSize: '0.86rem', color: '#a1a1aa', lineHeight: 1.5, margin: '0 0 24px 0', flexGrow: 1, fontWeight: 300 }}>
                 Comercializamos la gama completa de las principales marcas del país. Financiación directa de fábrica y entrega programada.
@@ -190,7 +241,7 @@ export default function Home() {
             </div>
             <div style={{ padding: '28px', display: 'flex', flexDirection: 'column', flexGrow: 1 }}>
               <h2 style={{ fontSize: '1.25rem', fontWeight: 600, color: '#ffffff', margin: '0 0 6px 0', letterSpacing: '0.5px' }}>
-                USADOS SELECCIONADOS
+                Usados Seleccionados
               </h2>
               <div style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', color: '#ED1C24', fontSize: '0.72rem', fontWeight: 500, marginBottom: '10px' }}>
                 🛡️ 6 MESES DE GARANTÍA ESCRITA
@@ -208,7 +259,7 @@ export default function Home() {
       </section>
 
       {/* 2. IDENTIDAD: 3 FOTOS REALES */}
-      <section style={{ maxWidth: '1200px', margin: '60px auto 0 auto', padding: '0 20px' }}>
+      <section style={{ maxWidth: '1200px', margin: '50px auto 0 auto', padding: '0 20px' }}>
         <div style={{ textAlign: 'center', marginBottom: '32px' }}>
           <span style={{ fontSize: '0.72rem', fontWeight: 600, color: '#ED1C24', letterSpacing: '1.5px', textTransform: 'uppercase' }}>IDENTIDAD Y COMPROMISO</span>
           <h2 style={{ fontSize: '1.9rem', fontWeight: 600, margin: '6px 0 0 0' }}>El respaldo de una trayectoria real</h2>
@@ -271,7 +322,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 4. BLOQUE: FINANCIACIÓN Y CRÉDITOS PRENDARIOS */}
+      {/* 4. FINANCIACIÓN Y CRÉDITOS */}
       <section style={{ maxWidth: '1000px', margin: '70px auto 0 auto', padding: '0 20px' }}>
         <div style={{ backgroundColor: '#141518', border: '1px solid #27272a', borderRadius: '22px', padding: '46px 30px', textAlign: 'center' }}>
           <div style={{ display: 'inline-flex', alignItems: 'center', backgroundColor: 'rgba(237, 28, 36, 0.1)', border: '1px solid rgba(237, 28, 36, 0.3)', color: '#ED1C24', padding: '4px 14px', borderRadius: '30px', fontSize: '0.7rem', fontWeight: 600, letterSpacing: '1px', textTransform: 'uppercase', marginBottom: '16px' }}>
@@ -294,16 +345,29 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 5. OPINIONES DE GOOGLE CON LOGO OFICIAL A COLOR */}
+      {/* 5. RESEÑAS EN CARRUSEL (1 FILA CON DESPLAZAMIENTO) */}
       <section style={{ maxWidth: '1200px', margin: '70px auto 0 auto', padding: '0 20px' }}>
-        <div style={{ textAlign: 'center', marginBottom: '36px' }}>
-          <span style={{ fontSize: '0.72rem', fontWeight: 600, color: '#ED1C24', letterSpacing: '1.5px', textTransform: 'uppercase' }}>TESTIMONIOS REALES</span>
-          <h2 style={{ fontSize: '2rem', fontWeight: 600, margin: '6px 0 0 0' }}>Opiniones de quienes nos eligen</h2>
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: '28px', flexWrap: 'wrap', gap: '16px' }}>
+          <div>
+            <span style={{ fontSize: '0.72rem', fontWeight: 600, color: '#ED1C24', letterSpacing: '1.5px', textTransform: 'uppercase' }}>TESTIMONIOS REALES</span>
+            <h2 style={{ fontSize: '2rem', fontWeight: 600, margin: '4px 0 0 0' }}>Opiniones de quienes nos eligen</h2>
+          </div>
+
+          {/* Flechas del carrusel */}
+          <div style={{ display: 'flex', gap: '10px' }}>
+            <button onClick={() => scroll('left')} className="scroll-btn" aria-label="Anterior">←</button>
+            <button onClick={() => scroll('right')} className="scroll-btn" aria-label="Siguiente">→</button>
+          </div>
         </div>
 
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '20px', marginBottom: '32px' }}>
+        {/* Contenedor deslizable en 1 sola fila */}
+        <div 
+          ref={scrollRef}
+          className="no-scrollbar"
+          style={{ display: 'flex', gap: '20px', overflowX: 'auto', scrollSnapType: 'x mandatory', paddingBottom: '16px' }}
+        >
           {reviews.map((r, i) => (
-            <div key={i} className="review-card">
+            <div key={i} className="review-carousel-item">
               <div>
                 <p style={{ fontSize: '0.86rem', color: '#d4d4d8', fontStyle: 'italic', lineHeight: 1.5, margin: '0 0 16px 0', fontWeight: 300 }}>
                   "{r.text}"
@@ -313,7 +377,6 @@ export default function Home() {
                 </div>
               </div>
 
-              {/* Autor con logo oficial de Google a color */}
               <div style={{ display: 'flex', alignItems: 'center', gap: '10px', borderTop: '1px solid #27272a', paddingTop: '12px' }}>
                 <svg width="18" height="18" viewBox="0 0 24 24">
                   <path fill="#4285F4" d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.52-1.14 2.82-2.4 3.68v3.05h3.88c2.27-2.09 3.665-5.17 3.665-9.17z"/>
@@ -327,7 +390,7 @@ export default function Home() {
           ))}
         </div>
 
-        <div style={{ textAlign: 'center' }}>
+        <div style={{ textAlign: 'center', marginTop: '20px' }}>
           <a 
             href="https://maps.app.goo.gl" 
             target="_blank" 
