@@ -34,14 +34,14 @@ export default function RootLayout({ children }) {
         
         {/* HEADER / NAVBAR */}
         <header style={{ backgroundColor: '#0B0C0E', borderBottom: '1px solid #1F2024', position: 'sticky', top: 0, zIndex: 100 }}>
-          <div style={{ maxWidth: '1400px', margin: '0 auto', padding: '14px 20px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '12px' }}>
+          <div style={{ maxWidth: '1400px', margin: '0 auto', padding: '12px 20px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '12px' }}>
             
             {/* Logo */}
             <a href="/" style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
               <img 
-                src="/logo.png" 
+                src="/logo.png.png" 
                 alt="Cogno Automotores" 
-                style={{ height: '36px', width: 'auto' }} 
+                style={{ height: '42px', width: 'auto', objectFit: 'contain' }} 
               />
               <div style={{ display: 'flex', flexDirection: 'column' }}>
                 <span style={{ fontSize: '1.2rem', fontWeight: 700, color: '#ffffff', letterSpacing: '0.5px', lineHeight: 1 }}>
