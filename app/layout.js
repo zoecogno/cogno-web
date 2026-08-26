@@ -56,9 +56,9 @@ export default function RootLayout({ children }) {
         
         {/* HEADER / NAVBAR FULL-WIDTH */}
         <header style={{ backgroundColor: '#0B0C0E', borderBottom: '1px solid #1F2024', position: 'sticky', top: 0, zIndex: 100, width: '100%' }}>
-          <div style={{ width: '100%', padding: '14px 40px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '16px' }}>
+          <div style={{ width: '100%', padding: '16px 40px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '16px' }}>
             
-            {/* Logo solo */}
+            {/* Logo */}
             <a href="/" style={{ display: 'inline-flex', alignItems: 'center' }}>
               <img 
                 src="/logo.png.png" 
@@ -67,20 +67,12 @@ export default function RootLayout({ children }) {
               />
             </a>
 
-            {/* Navegación */}
-            <nav style={{ display: 'flex', alignItems: 'center', gap: '26px', flexWrap: 'wrap' }}>
-              <a href="/quienes-somos" style={{ color: '#d4d4d8', fontSize: '0.9rem', fontWeight: 500 }}>Quiénes somos</a>
-              <a href="/" style={{ color: '#d4d4d8', fontSize: '0.9rem', fontWeight: 500 }}>Elegí tu vehículo</a>
-              <a href="/0km" style={{ color: '#d4d4d8', fontSize: '0.9rem', fontWeight: 500 }}>Unidades 0Km</a>
-              <a href="/usados" style={{ color: '#d4d4d8', fontSize: '0.9rem', fontWeight: 500 }}>Inventario de Usados</a>
-              <a 
-                href="https://wa.me/5493584029424?text=Hola!%20Quiero%20hacer%20una%20consulta" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                style={{ backgroundColor: '#ED1C24', color: '#ffffff', padding: '9px 20px', borderRadius: '8px', fontSize: '0.86rem', fontWeight: 600, letterSpacing: '0.3px' }}
-              >
-                WhatsApp
-              </a>
+            {/* Navegación limpia */}
+            <nav style={{ display: 'flex', alignItems: 'center', gap: '32px', flexWrap: 'wrap' }}>
+              <a href="/quienes-somos" style={{ color: '#d4d4d8', fontSize: '0.92rem', fontWeight: 500, transition: 'color 0.2s ease' }}>Quiénes somos</a>
+              <a href="/" style={{ color: '#d4d4d8', fontSize: '0.92rem', fontWeight: 500, transition: 'color 0.2s ease' }}>Elegí tu vehículo</a>
+              <a href="/0km" style={{ color: '#d4d4d8', fontSize: '0.92rem', fontWeight: 500, transition: 'color 0.2s ease' }}>Unidades 0Km</a>
+              <a href="/usados" style={{ color: '#d4d4d8', fontSize: '0.92rem', fontWeight: 500, transition: 'color 0.2s ease' }}>Inventario de Usados</a>
             </nav>
 
           </div>
@@ -88,7 +80,7 @@ export default function RootLayout({ children }) {
 
         <main>{children}</main>
 
-        {/* BOTÓN FLOTANTE DE WHATSAPP GLOBAL */}
+        {/* BOTÓN FLOTANTE DE WHATSAPP */}
         <a 
           href="https://wa.me/5493584029424?text=Hola!%20Quiero%20hacer%20una%20consulta" 
           target="_blank" 
