@@ -25,7 +25,17 @@ const reviews = [
   },
   {
     name: 'Franco Revelli',
-    text: 'Ya 8 vehículos comprados en mi familia, siempre recibiendo el usado. Excelente atención.',
+    text: 'Ya 8 vehículos comprados en mi familia, siempre recibiendo el usado. Se hacen buenos negocios, te facilitan todos los tramites y siempre cumplen con su palabra.',
+    rating: 5,
+  },
+  {
+    name: 'Gabriel Agustín Dama',
+    text: 'Tan sólidos y confiables como siempre, un placer hacer negocios con esta prestigiosa firma de Banda Norte…',
+    rating: 5,
+  },
+   {
+    name: 'Jorge Luis Etcheverry',
+    text: 'Excelentes vehículos, muy buena atención y por sobre todo, responsabilidad',
     rating: 5,
   },
 ];
@@ -237,7 +247,7 @@ export default function Home() {
               <span style={{ position: 'absolute', top: '14px', left: '14px', backgroundColor: '#ED1C24', color: '#ffffff', fontSize: '0.7rem', fontWeight: 600, padding: '4px 10px', borderRadius: '6px', letterSpacing: '0.5px', zIndex: 2 }}>
                 SELECCIONADOS
               </span>
-              <img src="https://lh3.googleusercontent.com/d/10u5Lg969bZ23-3j3P-zL2mPj10zBvhK_" alt="Usados" />
+              <img src="https://lh3.googleusercontent.com/d/1YDtAHqMdLNs5unVJTbrNr503FpFFogwg" alt="Usados" />
             </div>
             <div style={{ padding: '28px', display: 'flex', flexDirection: 'column', flexGrow: 1 }}>
               <h2 style={{ fontSize: '1.25rem', fontWeight: 600, color: '#ffffff', margin: '0 0 6px 0', letterSpacing: '0.5px' }}>
@@ -346,12 +356,11 @@ export default function Home() {
       </section>
 
       {/* 5. RESEÑAS EN CARRUSEL (1 FILA CON DESPLAZAMIENTO) */}
-      <section style={{ maxWidth: '1200px', margin: '70px auto 0 auto', padding: '0 20px' }}>
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: '28px', flexWrap: 'wrap', gap: '16px' }}>
-          <div>
-            <span style={{ fontSize: '0.72rem', fontWeight: 600, color: '#ED1C24', letterSpacing: '1.5px', textTransform: 'uppercase' }}>TESTIMONIOS REALES</span>
-            <h2 style={{ fontSize: '2rem', fontWeight: 600, margin: '4px 0 0 0' }}>Opiniones de quienes nos eligen</h2>
-          </div>
+         <section style={{ maxWidth: '1200px', margin: '50px auto 0 auto', padding: '0 20px' }}>
+        <div style={{ textAlign: 'center', marginBottom: '32px' }}>
+          <span style={{ fontSize: '0.72rem', fontWeight: 600, color: '#ED1C24', letterSpacing: '1.5px', textTransform: 'uppercase' }}>TESTIMONIOS REALES</span>
+          <h2 style={{ fontSize: '1.9rem', fontWeight: 600, margin: '6px 0 0 0' }}>Opiniones de quienes nos eligenl</h2>
+        </div>
 
           {/* Flechas del carrusel */}
           <div style={{ display: 'flex', gap: '10px' }}>
