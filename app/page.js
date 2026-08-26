@@ -75,7 +75,7 @@ export default function Home() {
         }
         .card-img-container {
           position: relative;
-          height: 340px;
+          height: 460px;
           background-color: #070709;
           overflow: hidden;
         }
@@ -252,7 +252,7 @@ export default function Home() {
                 SELECCIONADOS
               </span>
               <img 
-                src="https://lh3.googleusercontent.com/d/1YDtAHqMdLNs5unVJTbrNr503FpFFogwg" 
+                src="https://lh3.googleusercontent.com/d/1O1Z7NUU5ULEMQuldROYqvUJgnHKRyeAe" 
                 alt="Usados Seleccionados" 
               />
             </div>
