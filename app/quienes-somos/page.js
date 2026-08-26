@@ -137,9 +137,16 @@ export default function QuienesSomos() {
         </h1>
 
         {/* 1er Párrafo de Apertura */}
-        <p style={{ fontSize: '1.2rem', color: '#f4f4f5', maxWidth: '960px', margin: '0 auto 40px auto', lineHeight: 1.7, fontWeight: 400 }}>
-          Somos <strong style={{ color: '#ffffff', fontWeight: 600 }}>Cogno Automotores S.A.</strong>, una empresa familiar con más de 35 años de trayectoria en el sector automotor. Nos dedicamos a la venta de vehículos nuevos y usados, con un amplio stock y una destacada variedad de pick-ups. <strong style={{ color: '#ffffff', fontWeight: 600 }}>Nuestra historia nos respalda</strong>, y seguimos trabajando cada día para ofrecer un servicio responsable, cercano y a la altura de las expectativas de quienes nos eligen.
-        </p>
+        <div style={{ maxWidth: '960px', margin: '45px auto 0 auto', textAlign: 'center', display: 'flex', flexDirection: 'column', gap: '22px' }}>
+          <p style={{ fontSize: '1.2rem', color: '#f4f4f5', lineHeight: 1.7, margin: '0 auto 40px auto', fontWeight: 400 }}>
+           Somos <strong style={{ color: '#ffffff', fontWeight: 600 }}>Cogno Automotores S.A.</strong>, una empresa familiar con más de 35 años de trayectoria en el sector automotor. Nos dedicamos a la venta de vehículos nuevos y usados, con un amplio stock y una destacada variedad de pick-ups.
+          </p>
+
+          <p style={{ fontSize: '1.2rem', color: '#f4f4f5', lineHeight: 1.7, margin: '0 auto 40px auto', fontWeight: 400 }}>
+             <strong style={{ color: '#ffffff', fontWeight: 600 }}>Nuestra historia nos respalda</strong>, y seguimos trabajando cada día para ofrecer un servicio responsable, cercano y a la altura de las expectativas de quienes nos eligen
+          </p>
+        </div>
+      </section>
 
         {/* FOTO PANORÁMICA GRANDE DEL LOCAL (560px con foco arriba) */}
         <div style={{ maxWidth: '1440px', margin: '0 auto', height: '560px', borderRadius: '24px', overflow: 'hidden', border: '1px solid #27272a', backgroundColor: '#070709', boxShadow: '0 24px 50px rgba(0,0,0,0.7)' }}>
