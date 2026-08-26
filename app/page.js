@@ -1,10 +1,38 @@
 'use client';
 
+const reviews = [
+  {
+    name: 'Silvana Olguin',
+    text: 'Excelente atención. Y por sobre todo personas responsables y muy cumplidoras.',
+    rating: 5,
+  },
+  {
+    name: 'Santiago Lovera',
+    text: 'Hace más de quince años que soy cliente. Muy eficientes, excelentes precios y mejor atención.',
+    rating: 5,
+  },
+  {
+    name: 'Lucia Noelia Bressan',
+    text: 'Muy buen negocio, gente de confianza y excelente predisposición.',
+    rating: 5,
+  },
+  {
+    name: 'Juan Bahl',
+    text: 'Muy buena atención, agilidad en trámites y entregas, totalmente recomendable!!',
+    rating: 5,
+  },
+  {
+    name: 'Franco Revelli',
+    text: 'Ya 8 vehículos comprados en mi familia, siempre recibiendo el usado. Excelente atención.',
+    rating: 5,
+  },
+];
+
 export default function Home() {
   return (
     <div style={{ backgroundColor: '#0B0C0E', minHeight: '100vh', color: '#ffffff', paddingBottom: '90px' }}>
       
-      {/* ESTILOS INTERACTIVOS (HOVER, ZOOM Y ELEVACIÓN) */}
+      {/* ESTILOS INTERACTIVOS */}
       <style>{`
         .interactive-card {
           background-color: #141518;
@@ -82,6 +110,21 @@ export default function Home() {
           transform: translateY(-4px);
           border-color: #ED1C24;
         }
+        .review-card {
+          background-color: #141518;
+          border: 1px solid #27272a;
+          border-radius: 16px;
+          padding: 24px;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          min-width: 280px;
+          transition: transform 0.2s ease, border-color 0.2s ease;
+        }
+        .review-card:hover {
+          transform: translateY(-4px);
+          border-color: #3f3f46;
+        }
         .action-btn-red {
           display: block;
           text-align: center;
@@ -113,7 +156,7 @@ export default function Home() {
           Elegí la categoría de tu interés para explorar nuestras unidades disponibles, opciones de financiación directa y propuestas a medida.
         </p>
 
-        {/* 2 TARJETAS DE ELECCIÓN CON HOVER */}
+        {/* 2 TARJETAS */}
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '30px', textAlign: 'left' }}>
 
           {/* 0KM */}
@@ -164,7 +207,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 2. NUEVA SECCIÓN DE IDENTIDAD: 3 FOTOS REALES CON HOVER INTERACTIVO */}
+      {/* 2. IDENTIDAD: 3 FOTOS REALES */}
       <section style={{ maxWidth: '1200px', margin: '60px auto 0 auto', padding: '0 20px' }}>
         <div style={{ textAlign: 'center', marginBottom: '32px' }}>
           <span style={{ fontSize: '0.72rem', fontWeight: 600, color: '#ED1C24', letterSpacing: '1.5px', textTransform: 'uppercase' }}>IDENTIDAD Y COMPROMISO</span>
@@ -173,27 +216,24 @@ export default function Home() {
 
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '22px' }}>
           
-          {/* Foto 1: Garantía / Cromado */}
           <div className="identity-card">
-            <img src="/calidad-usados.jpg" onError={(e) => { e.currentTarget.src = 'https://lh3.googleusercontent.com/d/10u5Lg969bZ23-3j3P-zL2mPj10zBvhK_'; }} alt="Garantía propia" />
+            <img src="/calidad-usados.jpg.webp" alt="Garantía propia" />
             <div className="identity-overlay">
-              <h3 style={{ fontSize: '1.1rem', fontWeight: 600, margin: 0, color: '#ffffff' }}>Garantía propia en las unidades usadas</h3>
+              <h3 style={{ fontSize: '1.05rem', fontWeight: 600, margin: 0, color: '#ffffff' }}>Garantía propia en las unidades usadas</h3>
             </div>
           </div>
 
-          {/* Foto 2: Frente Local / Atención */}
           <div className="identity-card">
-            <img src="/local-frente.jpg" onError={(e) => { e.currentTarget.src = 'https://lh3.googleusercontent.com/d/1xViFbNOKlcqaUUt3cVh_DL7zWnyjII8I'; }} alt="Atención personalizada" />
+            <img src="/local-frente.jpg.webp" alt="Atención personalizada" />
             <div className="identity-overlay">
-              <h3 style={{ fontSize: '1.1rem', fontWeight: 600, margin: 0, color: '#ffffff' }}>Atención personalizada de principio a fin</h3>
+              <h3 style={{ fontSize: '1.05rem', fontWeight: 600, margin: 0, color: '#ffffff' }}>Atención personalizada de principio a fin</h3>
             </div>
           </div>
 
-          {/* Foto 3: Premios / Trayectoria */}
           <div className="identity-card">
-            <img src="/premios-trayectoria.jpg" onError={(e) => { e.currentTarget.src = 'https://lh3.googleusercontent.com/d/13N24eZ776WbB7B9nLqF7P-Z_T4_0P6a_'; }} alt="Premios y trayectoria" />
+            <img src="/premios-trayectoria.jpg.webp" alt="Premios y trayectoria" />
             <div className="identity-overlay">
-              <h3 style={{ fontSize: '1.1rem', fontWeight: 600, margin: 0, color: '#ffffff' }}>+35 años de trayectoria en el sector automotor</h3>
+              <h3 style={{ fontSize: '1.05rem', fontWeight: 600, margin: 0, color: '#ffffff' }}>+35 años de trayectoria en el sector automotor</h3>
             </div>
           </div>
 
@@ -228,6 +268,74 @@ export default function Home() {
             <div style={{ fontSize: '0.78rem', color: '#71717a', fontWeight: 300 }}>Gama 0km completa disponible</div>
           </div>
 
+        </div>
+      </section>
+
+      {/* 4. BLOQUE: FINANCIACIÓN Y CRÉDITOS PRENDARIOS */}
+      <section style={{ maxWidth: '1000px', margin: '70px auto 0 auto', padding: '0 20px' }}>
+        <div style={{ backgroundColor: '#141518', border: '1px solid #27272a', borderRadius: '22px', padding: '46px 30px', textAlign: 'center' }}>
+          <div style={{ display: 'inline-flex', alignItems: 'center', backgroundColor: 'rgba(237, 28, 36, 0.1)', border: '1px solid rgba(237, 28, 36, 0.3)', color: '#ED1C24', padding: '4px 14px', borderRadius: '30px', fontSize: '0.7rem', fontWeight: 600, letterSpacing: '1px', textTransform: 'uppercase', marginBottom: '16px' }}>
+            PLANES A MEDIDA
+          </div>
+          <h2 style={{ fontSize: '2rem', fontWeight: 600, margin: '0 0 14px 0' }}>
+            Financiación y Créditos Prendarios
+          </h2>
+          <p style={{ fontSize: '0.92rem', color: '#a1a1aa', maxWidth: '680px', margin: '0 auto 28px auto', lineHeight: 1.6, fontWeight: 300 }}>
+            Te asesoramos para que encuentres la estructura de pago más conveniente: créditos prendarios bancarios, cuotas fijas en pesos y toma de tu vehículo usado como anticipo.
+          </p>
+          <a 
+            href="https://wa.me/5493584029424?text=Hola!%20Quiero%20consultar%20por%20opciones%20de%20financiaci%C3%B3n" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            style={{ display: 'inline-block', backgroundColor: '#ED1C24', color: '#ffffff', padding: '13px 30px', borderRadius: '10px', fontWeight: 600, fontSize: '0.88rem' }}
+          >
+            Consultar Opciones de Financiación →
+          </a>
+        </div>
+      </section>
+
+      {/* 5. OPINIONES DE GOOGLE CON LOGO OFICIAL A COLOR */}
+      <section style={{ maxWidth: '1200px', margin: '70px auto 0 auto', padding: '0 20px' }}>
+        <div style={{ textAlign: 'center', marginBottom: '36px' }}>
+          <span style={{ fontSize: '0.72rem', fontWeight: 600, color: '#ED1C24', letterSpacing: '1.5px', textTransform: 'uppercase' }}>TESTIMONIOS REALES</span>
+          <h2 style={{ fontSize: '2rem', fontWeight: 600, margin: '6px 0 0 0' }}>Opiniones de quienes nos eligen</h2>
+        </div>
+
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '20px', marginBottom: '32px' }}>
+          {reviews.map((r, i) => (
+            <div key={i} className="review-card">
+              <div>
+                <p style={{ fontSize: '0.86rem', color: '#d4d4d8', fontStyle: 'italic', lineHeight: 1.5, margin: '0 0 16px 0', fontWeight: 300 }}>
+                  "{r.text}"
+                </p>
+                <div style={{ color: '#F59E0B', fontSize: '0.9rem', marginBottom: '12px' }}>
+                  {'★'.repeat(r.rating)}
+                </div>
+              </div>
+
+              {/* Autor con logo oficial de Google a color */}
+              <div style={{ display: 'flex', alignItems: 'center', gap: '10px', borderTop: '1px solid #27272a', paddingTop: '12px' }}>
+                <svg width="18" height="18" viewBox="0 0 24 24">
+                  <path fill="#4285F4" d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.52-1.14 2.82-2.4 3.68v3.05h3.88c2.27-2.09 3.665-5.17 3.665-9.17z"/>
+                  <path fill="#34A853" d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.05c-1.08.72-2.45 1.16-4.05 1.16-3.12 0-5.77-2.1-6.72-4.93H1.25v3.15C3.26 21.36 7.33 24 12 24z"/>
+                  <path fill="#FBBC05" d="M5.28 14.27c-.25-.72-.38-1.49-.38-2.27s.13-1.55.38-2.27V6.58H1.25C.45 8.18 0 10.04 0 12s.45 3.82 1.25 5.42l4.03-3.15z"/>
+                  <path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.33 0 3.26 2.64 1.25 6.58l4.03 3.15c.95-2.83 3.6-4.98 6.72-4.98z"/>
+                </svg>
+                <span style={{ fontSize: '0.86rem', fontWeight: 600, color: '#ffffff' }}>{r.name}</span>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <div style={{ textAlign: 'center' }}>
+          <a 
+            href="https://maps.app.goo.gl" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', backgroundColor: '#141518', border: '1px solid #27272a', color: '#a1a1aa', padding: '10px 22px', borderRadius: '8px', fontSize: '0.82rem', fontWeight: 500 }}
+          >
+            Ver más opiniones en Google Maps ↗
+          </a>
         </div>
       </section>
 
