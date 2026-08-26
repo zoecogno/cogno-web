@@ -206,7 +206,7 @@ export default function Home() {
           />
         </div>
 
-        <div style={{ display: 'inline-flex', alignItems: 'center', backgroundColor: 'rgba(237, 28, 36, 0.1)', border: '1px solid rgba(237, 28, 36, 0.3)', color: '#ED1C24', padding: '6px 20px', borderRadius: '30px', fontSize: '0.82rem', fontWeight: 600, letterSpacing: '1.5px', textTransform: 'uppercase', marginBottom: '20px' }}>
+        <div style={{ display: 'inline-flex', alignItems: 'center', backgroundColor: 'rgba(237, 28, 36, 0.1)', border: '1px solid rgba(237, 28, 36, 0.3)', color: '#ED1C24', padding: '7px 22px', borderRadius: '30px', fontSize: '0.92rem', fontWeight: 600, letterSpacing: '1.5px', textTransform: 'uppercase', marginBottom: '20px' }}>
           TU PRÓXIMO VEHÍCULO TE ESPERA
         </div>
 
@@ -219,12 +219,12 @@ export default function Home() {
         </p>
 
         {/* 2 TARJETAS */}
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(480px, 1fr))', gap: '40px', textAlign: 'left' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(420px, 1fr))', gap: '40px', textAlign: 'left' }}>
 
           {/* 0KM */}
           <div className="interactive-card">
             <div className="card-img-container">
-              <span style={{ position: 'absolute', top: '16px', left: '16px', backgroundColor: '#ED1C24', color: '#ffffff', fontSize: '0.78rem', fontWeight: 700, padding: '5px 12px', borderRadius: '6px', letterSpacing: '0.5px', zIndex: 2 }}>
+              <span style={{ position: 'absolute', top: '16px', left: '16px', backgroundColor: '#ED1C24', color: '#ffffff', fontSize: '0.88rem', fontWeight: 700, padding: '6px 14px', borderRadius: '6px', letterSpacing: '0.5px', zIndex: 2 }}>
                 0 KM
               </span>
               <img 
@@ -248,7 +248,7 @@ export default function Home() {
           {/* Usados */}
           <div className="interactive-card">
             <div className="card-img-container">
-              <span style={{ position: 'absolute', top: '16px', left: '16px', backgroundColor: '#ED1C24', color: '#ffffff', fontSize: '0.78rem', fontWeight: 700, padding: '5px 12px', borderRadius: '6px', letterSpacing: '0.5px', zIndex: 2 }}>
+              <span style={{ position: 'absolute', top: '16px', left: '16px', backgroundColor: '#ED1C24', color: '#ffffff', fontSize: '0.88rem', fontWeight: 700, padding: '6px 14px', borderRadius: '6px', letterSpacing: '0.5px', zIndex: 2 }}>
                 SELECCIONADOS
               </span>
               <img 
@@ -278,7 +278,7 @@ export default function Home() {
       {/* 2. IDENTIDAD */}
       <section style={{ maxWidth: '1500px', margin: '60px auto 0 auto', padding: '0 24px' }}>
         <div style={{ textAlign: 'center', marginBottom: '38px' }}>
-          <span style={{ fontSize: '0.8rem', fontWeight: 600, color: '#ED1C24', letterSpacing: '1.5px', textTransform: 'uppercase' }}>IDENTIDAD Y COMPROMISO</span>
+          <span style={{ fontSize: '0.92rem', fontWeight: 600, color: '#ED1C24', letterSpacing: '2px', textTransform: 'uppercase' }}>IDENTIDAD Y COMPROMISO</span>
           <h2 style={{ fontSize: '2.3rem', fontWeight: 600, margin: '8px 0 0 0' }}>El respaldo de una trayectoria real</h2>
         </div>
 
@@ -342,7 +342,7 @@ export default function Home() {
       {/* 4. FINANCIACIÓN */}
       <section style={{ maxWidth: '1200px', margin: '80px auto 0 auto', padding: '0 24px' }}>
         <div style={{ backgroundColor: '#141518', border: '1px solid #27272a', borderRadius: '26px', padding: '54px 36px', textAlign: 'center' }}>
-          <div style={{ display: 'inline-flex', alignItems: 'center', backgroundColor: 'rgba(237, 28, 36, 0.1)', border: '1px solid rgba(237, 28, 36, 0.3)', color: '#ED1C24', padding: '5px 16px', borderRadius: '30px', fontSize: '0.78rem', fontWeight: 600, letterSpacing: '1px', textTransform: 'uppercase', marginBottom: '18px' }}>
+          <div style={{ display: 'inline-flex', alignItems: 'center', backgroundColor: 'rgba(237, 28, 36, 0.1)', border: '1px solid rgba(237, 28, 36, 0.3)', color: '#ED1C24', padding: '7px 22px', borderRadius: '30px', fontSize: '0.92rem', fontWeight: 600, letterSpacing: '1.5px', textTransform: 'uppercase', marginBottom: '18px' }}>
             PLANES A MEDIDA
           </div>
           <h2 style={{ fontSize: '2.4rem', fontWeight: 600, margin: '0 0 16px 0' }}>
@@ -363,13 +363,11 @@ export default function Home() {
       </section>
 
       {/* 5. RESEÑAS */}
-      <section style={{ maxWidth: '1500px', margin: '80px auto 0 auto', padding: '0 24px' }}>
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: '32px', flexWrap: 'wrap', gap: '16px' }}>
-          <div>
-            <span style={{ fontSize: '0.8rem', fontWeight: 600, color: '#ED1C24', letterSpacing: '1.5px', textTransform: 'uppercase' }}>TESTIMONIOS REALES</span>
-            <h2 style={{ fontSize: '2.3rem', fontWeight: 600, margin: '6px 0 0 0' }}>Opiniones de quienes nos eligen</h2>
-          </div>
-
+    <section style={{ maxWidth: '1500px', margin: '60px auto 0 auto', padding: '0 24px' }}>
+        <div style={{ textAlign: 'center', marginBottom: '38px' }}>
+          <span style={{ fontSize: '0.92rem', fontWeight: 600, color: '#ED1C24', letterSpacing: '2px', textTransform: 'uppercase' }}>TESTIMONIOS REALES<</span>
+          <h2 style={{ fontSize: '2.3rem', fontWeight: 600, margin: '8px 0 0 0' }}>Opiniones de quienes nos eligen</h2>
+        </div>
           <div style={{ display: 'flex', gap: '12px' }}>
             <button onClick={() => scroll('left')} className="scroll-btn" aria-label="Anterior">←</button>
             <button onClick={() => scroll('right')} className="scroll-btn" aria-label="Siguiente">→</button>
