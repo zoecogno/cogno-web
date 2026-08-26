@@ -3,57 +3,55 @@ import { NextResponse } from 'next/server';
 export const dynamic = 'force-dynamic';
 
 export async function GET() {
-  const AIRTABLE_TOKEN = process.env.AIRTABLE_API_KEY;
-  const BASE_ID = process.env.AIRTABLE_BASE_ID;
-  const TABLE_NAME = process.env.AIRTABLE_TABLE_NAME || 'Inventario';
+  const apiKey = process.env.AIRTABLE_API_KEY;
+  const baseId = process.env.AIRTABLE_BASE_ID;
+  const tableName = process.env.AIRTABLE_TABLE_NAME || 'Inventario de Vehículos';
 
-  if (!AIRTABLE_TOKEN || !BASE_ID) {
-    return NextResponse.json(
-      { error: 'Faltan configurar las variables de entorno de Airtable' },
-      { status: 500 }
-    );
+  if (!apiKey || !baseId) {
+    return NextResponse.json({ error: 'Faltan credenciales de Airtable' }, { status: 500 });
   }
 
   try {
-    const url = `https://api.airtable.com/v0/${BASE_ID}/${encodeURIComponent(TABLE_NAME)}`;
-    
-    const response = await fetch(url, {
+    const url = `https://api.airtable.com/v0/${baseId}/${encodeURIComponent(tableName)}`;
+    const res = await fetch(url, {
       headers: {
-        Authorization: `Bearer ${AIRTABLE_TOKEN}`,
+        Authorization: `Bearer ${apiKey}`,
       },
       cache: 'no-store',
     });
 
-    if (!response.ok) {
-      const errorData = await response.json();
-      return NextResponse.json({ error: errorData }, { status: response.status });
+    if (!res.ok) {
+      const errorText = await res.text();
+      return NextResponse.json({ error: errorText }, { status: res.status });
     }
 
-    const data = await response.json();
+    const data = await res.json();
 
-    const vehicles = data.records.map((record) => {
+    const vehicles = (data.records || []).map((record) => {
       const f = record.fields;
 
-      // Extracción de las URLs de las fotos cargadas en Airtable
-      const photos = Array.isArray(f['Fotos'] || f['Photos'] || f['Imagenes'])
-        ? (f['Fotos'] || f['Photos'] || f['Imagenes']).map((img) => img.url)
-        : [];
+      // Extracción robusta de fotos
+      let photos = [];
+      const rawPhotos = f.Fotos || f.FOTOS || f.Photos || f.Imagenes || f.IMAGENES;
+      if (Array.isArray(rawPhotos)) {
+        photos = rawPhotos.map((img) => img.url || img.thumbnails?.large?.url || img.thumbnails?.full?.url).filter(Boolean);
+      }
 
       return {
         id: record.id,
-        brand: f['Marca'] || f['Brand'] || '',
-        line: f['Línea'] || f['Linea'] || f['Line'] || '',
-        version: f['Versión'] || f['Version'] || '',
-        year: f['Año'] || f['Modelo'] || f['Year'] || '',
-        km: f['Kilómetros'] || f['Kilometros'] || f['KM'] || '',
-        equipment: f['Equipamiento'] || f['Detalle'] || f['Observaciones'] || '',
+        brand: f.MARCA || f.Marca || f.brand || '',
+        line: f.LINEA || f.Línea || f.Linea || f.line || '',
+        version: f.VERSION || f.Versión || f.Version || f.version || '',
+        year: f.AÑO || f.Año || f.Modelo || f.year || '',
+        km: f.KILOMETRAJE || f.Kilometraje || f.KM || f.km || '',
+        equipment: f.EQUIPAMIENTO || f.Equipamiento || f.equipment || '',
+        status: f.ESTADO || f.Estado || f.status || 'Disponible',
         photos: photos,
       };
     });
 
     return NextResponse.json(vehicles);
   } catch (error) {
-    console.error('Error al conectar con Airtable:', error);
-    return NextResponse.json({ error: 'Error interno del servidor' }, { status: 500 });
+    return NextResponse.json({ error: error.message }, { status: 500 });
   }
 }
