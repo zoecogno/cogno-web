@@ -126,25 +126,38 @@ export default function QuienesSomos() {
         }
       `}</style>
 
-      {/* 1. HERO INSTITUCIONAL */}
-      <section style={{ padding: '50px 24px 40px 24px', textAlign: 'center', maxWidth: '1440px', margin: '0 auto' }}>
-        <div style={{ display: 'inline-flex', alignItems: 'center', backgroundColor: 'rgba(237, 28, 36, 0.1)', border: '1px solid rgba(237, 28, 36, 0.3)', color: '#ED1C24', padding: '6px 20px', borderRadius: '30px', fontSize: '0.86rem', fontWeight: 600, letterSpacing: '1.5px', textTransform: 'uppercase', marginBottom: '20px' }}>
-          TRAYECTORIA Y COMPROMISO
-        </div>
 
-        <h1 style={{ fontSize: '3.4rem', fontWeight: 700, margin: '0 0 24px 0', letterSpacing: '1px', lineHeight: 1.15 }}>
-          ¿Quiénes <span style={{ color: '#ED1C24' }}>somos?</span>
-        </h1>
+{/* ENCABEZADO ESTANDARIZADO */}
+<section style={{ padding: '50px 20px 24px 20px', textAlign: 'center', maxWidth: '1000px', margin: '0 auto' }}>
+  {/* Logo centrado */}
+  <div style={{ marginBottom: '16px' }}>
+    <img 
+      src="/logo.png.png" 
+      alt="Cogno Automotores" 
+      style={{ height: '75px', width: 'auto', margin: '0 auto', display: 'inline-block' }}
+    />
+  </div>
 
-        {/* PÁRRAFOS PRINCIPALES SEPARADOS EN 2 BLOQUES */}
-        <div style={{ maxWidth: '960px', margin: '0 auto 40px auto', display: 'flex', flexDirection: 'column', gap: '16px' }}>
-          <p style={{ fontSize: '1.2rem', color: '#f4f4f5', lineHeight: 1.7, margin: 0, fontWeight: 400 }}>
-            Somos <strong style={{ color: '#ffffff', fontWeight: 600 }}>Cogno Automotores S.A.</strong>, una empresa familiar con más de 35 años de trayectoria en el sector automotor. Nos dedicamos a la venta de vehículos nuevos y usados, con un amplio stock y una destacada variedad de pick-ups.
+  {/* Título principal estilizado */}
+  <h1 style={{ fontSize: '2.75rem', fontWeight: 600, margin: '0 0 20px 0', letterSpacing: '-0.5px', color: '#ffffff' }}>
+    ¿Quiénes <span style={{ color: '#ED1C24' }}>somos?</span>
+  </h1>
+
+  {/* Badge rojo tipo píldora */}
+  <div style={{ display: 'inline-flex', alignItems: 'center', gap: '10px', backgroundColor: 'rgba(237, 28, 36, 0.08)', border: '1px solid rgba(237, 28, 36, 0.4)', color: '#ED1C24', padding: '10px 24px', borderRadius: '40px', fontSize: '0.88rem', fontWeight: 700, letterSpacing: '0.8px', marginBottom: '24px', textTransform: 'uppercase' }}>
+    <span>🛡️</span>
+    <span> TRAYECTORIA Y COMPROMISO</span>
+  </div>
+
+  {/* Bajada / Descripción */}
+  <p style={{ color: '#a1a1aa', fontSize: '1rem', maxWidth: '750px', margin: '0 auto', lineHeight: 1.6, fontWeight: 300 }}>
+       Somos <strong style={{ color: '#ffffff', fontWeight: 600 }}>Cogno Automotores S.A.</strong>, una empresa familiar con más de 35 años de trayectoria en el sector automotor. Nos dedicamos a la venta de vehículos nuevos y usados, con un amplio stock y una destacada variedad de pick-ups.
           </p>
+           </p>
           <p style={{ fontSize: '1.14rem', color: '#d4d4d8', lineHeight: 1.7, margin: 0, fontWeight: 300 }}>
             <strong style={{ color: '#ffffff', fontWeight: 600 }}>Nuestra historia nos respalda</strong>, y seguimos trabajando cada día para ofrecer un servicio responsable, cercano y a la altura de las expectativas de quienes nos eligen.
           </p>
-        </div>
+</section>
 
         {/* FOTO COMPLETA PROPORCIONAL (SIN RECORTES) */}
         <div style={{ maxWidth: '1200px', margin: '0 auto', borderRadius: '24px', overflow: 'hidden', border: '1px solid #27272a', backgroundColor: '#070709', boxShadow: '0 24px 50px rgba(0,0,0,0.7)' }}>
