@@ -1,659 +1,320 @@
 'use client';
 
-export default function CeroKmPage() {
+const BRANDS = [
+  { name: 'Toyota', logo: 'https://www.carlogos.org/car-logos/toyota-logo-2020-europe-640.png' },
+  { name: 'Volkswagen', logo: 'https://www.carlogos.org/car-logos/volkswagen-logo-2019-640.png' },
+  { name: 'Ford', logo: 'https://www.carlogos.org/car-logos/ford-logo-2017-640.png' },
+  { name: 'Chevrolet', logo: 'https://www.carlogos.org/car-logos/chevrolet-logo-2013-640.png' },
+  { name: 'Fiat', logo: 'https://www.carlogos.org/car-logos/fiat-logo-2020-640.png' },
+  { name: 'Renault', logo: 'https://www.carlogos.org/car-logos/renault-logo-2021-640.png' },
+  { name: 'Jeep', logo: 'https://www.carlogos.org/car-logos/jeep-logo-1993-640.png' },
+  { name: 'RAM', logo: 'https://www.carlogos.org/car-logos/ram-logo-2009-640.png' },
+  { name: 'Peugeot', logo: 'https://www.carlogos.org/car-logos/peugeot-logo-2021-640.png' },
+  { name: 'Citroën', logo: 'https://www.carlogos.org/car-logos/citroen-logo-2022-640.png' },
+  { name: 'Nissan', logo: 'https://www.carlogos.org/car-logos/nissan-logo-2020-white-640.png' },
+  { name: 'Honda', logo: 'https://www.carlogos.org/car-logos/honda-logo-2000-640.png' },
+];
+
+export default function CeroKm() {
   return (
-    <div style={{ backgroundColor: '#0B0C0E', minHeight: '100vh', color: '#ffffff', paddingBottom: '80px' }}>
+    <div style={{ backgroundColor: '#0B0C0E', minHeight: '100vh', color: '#ffffff', paddingBottom: '90px', overflowX: 'hidden' }}>
       
-      {/* ESTILOS ORIGINALES DE SOFTR */}
+      {/* ESTILOS INTERACTIVOS Y RESPONSIVE */}
       <style>{`
-        *, *::before, *::after {
-          box-sizing: border-box !important;
-        }
-
-        .section-0km {
-          font-family: inherit;
+        .hero-title-0km {
+          font-size: 3.2rem;
+          font-weight: 600;
+          margin: 0 auto 18px auto;
+          letter-spacing: -0.5px;
           color: #ffffff;
-          padding: 0px 16px 60px 16px;
-          max-width: 1480px;
-          width: 100%;
+          line-height: 1.2;
+          max-width: 950px;
+        }
+        .brands-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+          gap: 20px;
+          max-width: 1540px;
           margin: 0 auto;
-          overflow-x: hidden !important;
         }
-
-        /* Cinta Loop Infinito */
-        .marquee-wrapper {
-          width: 100%;
-          overflow: hidden;
-          background: #141518;
-          border-top: 1px solid #27272a;
-          border-bottom: 1px solid #27272a;
-          padding: 12px 0;
-          margin: 0 0 36px 0;
-          white-space: nowrap;
-        }
-
-        .marquee-track {
-          display: inline-flex;
-          animation: marquee-scroll 32s linear infinite;
-          gap: 28px;
-        }
-
-        .marquee-item {
-          font-size: 0.9rem;
-          font-weight: 700;
-          color: #71717a;
-          letter-spacing: 1.5px;
-          text-transform: uppercase;
-          display: inline-flex;
-          align-items: center;
-          gap: 28px;
-        }
-
-        .marquee-item::after {
-          content: "•";
-          color: #ED1C24;
-        }
-
-        @keyframes marquee-scroll {
-          from { transform: translateX(0); }
-          to { transform: translateX(-50%); }
-        }
-
-        /* Grilla de Marcas */
-        .brands-grid-0km {
-          display: grid;
-          grid-template-columns: repeat(4, 1fr);
-          gap: 24px;
-          margin-bottom: 32px;
-        }
-
-        .brand-card-0km {
-          background-color: #1A1B1E;
-          border: 1px solid #2C2D31;
-          border-radius: 14px;
-          overflow: hidden;
+        .brand-card {
+          background-color: #141518;
+          border: 1px solid #27272a;
+          border-radius: 18px;
+          padding: 28px 20px;
           display: flex;
           flex-direction: column;
-          box-shadow: 0 6px 18px rgba(0,0,0,0.35);
-          transition: transform 0.2s ease, border-color 0.2s ease;
-        }
-
-        .brand-card-0km:hover {
-          transform: translateY(-3px);
-          border-color: #3f4046;
-        }
-
-        .brand-img-container {
-          width: 100%;
-          height: 210px;
-          background-color: #111215;
-          overflow: hidden;
-        }
-
-        .brand-img-container img {
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-          display: block;
-        }
-
-        .brand-content-0km {
-          padding: 14px;
-          display: flex;
-          flex-direction: column;
-          flex-grow: 1;
-        }
-
-        /* Badge alineado a la derecha */
-        .brand-badge-unit {
-          display: inline-block;
-          align-self: flex-end;
-          background-color: rgba(237, 28, 36, 0.15);
-          color: #ED1C24;
-          border: 1px solid rgba(237, 28, 36, 0.3);
-          font-size: 0.65rem;
-          font-weight: 700;
-          text-transform: uppercase;
-          padding: 3px 8px;
-          border-radius: 5px;
-          margin-bottom: 8px;
-          letter-spacing: 0.5px;
-        }
-
-        .brand-title-0km {
-          font-size: 1.15rem;
-          font-weight: 800;
-          color: #ffffff;
-          margin: 0 0 6px 0;
-          text-transform: uppercase;
-          letter-spacing: 0.5px;
-        }
-
-        .brand-desc-0km {
-          font-size: 0.8rem;
-          color: #a1a1aa;
-          line-height: 1.45;
-          margin-bottom: 14px;
-          flex-grow: 1;
-        }
-
-        .brand-btn-0km {
-          display: block;
-          text-align: center;
-          background-color: #ED1C24;
-          color: #ffffff;
-          text-decoration: none;
-          padding: 9px 10px;
-          border-radius: 8px;
-          font-weight: 700;
-          font-size: 0.8rem;
-          transition: background-color 0.2s ease;
-          white-space: nowrap;
-        }
-
-        .brand-btn-0km:hover {
-          background-color: #c9141b;
-        }
-
-        /* Nota Disponibilidad Total */
-        .models-disclaimer-wrap {
-          margin: 0 auto 50px auto;
-          max-width: 850px;
-        }
-
-        .models-disclaimer {
-          background-color: #1A1B1E;
-          border: 1px solid #2C2D31;
-          border-radius: 12px;
-          padding: 14px 20px;
-          font-size: 0.9rem;
-          color: #d4d4d8;
-          line-height: 1.45;
-        }
-
-        /* Sección Por qué elegirnos */
-        .why-us-wrap {
-          margin-bottom: 48px;
-        }
-
-        .why-us-title {
-          text-align: center;
-          font-size: 1.8rem;
-          font-weight: 800;
-          margin-bottom: 24px;
-        }
-
-        .why-grid {
-          display: grid;
-          grid-template-columns: repeat(2, 1fr);
-          gap: 16px;
-        }
-
-        .why-card {
-          background-color: #1A1B1E;
-          border: 1px solid #2C2D31;
-          border-radius: 14px;
-          padding: 18px;
-          display: flex;
-          gap: 14px;
-          align-items: flex-start;
-        }
-
-        .why-icon {
-          width: 38px;
-          height: 38px;
-          border-radius: 8px;
-          background-color: rgba(237, 28, 36, 0.1);
-          display: flex;
           align-items: center;
           justify-content: center;
-          flex-shrink: 0;
-          color: #ED1C24;
+          text-decoration: none;
+          transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+        .brand-card:hover {
+          transform: translateY(-6px);
+          border-color: #ED1C24;
+          box-shadow: 0 14px 28px rgba(0,0,0,0.5), 0 0 15px rgba(237, 28, 36, 0.15);
+        }
+        .brand-logo-img {
+          height: 52px;
+          width: auto;
+          object-fit: contain;
+          margin-bottom: 14px;
+          filter: brightness(0) invert(1);
+          opacity: 0.85;
+          transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+        .brand-card:hover .brand-logo-img {
+          transform: scale(1.1);
+          opacity: 1;
+        }
+        .benefits-grid {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 24px;
+          max-width: 1540px;
+          margin: 0 auto;
+        }
+        .benefit-card {
+          background-color: #141518;
+          border: 1px solid #27272a;
+          border-radius: 20px;
+          padding: 32px 24px;
+          transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+        .benefit-card:hover {
+          transform: translateY(-4px);
+          border-color: #ED1C24;
+        }
+        .salon-grid {
+          display: grid;
+          grid-template-columns: 1.1fr 1fr;
+          gap: 36px;
+          align-items: center;
         }
 
-        .why-h4 {
-          font-size: 1rem;
-          font-weight: 700;
-          margin: 0 0 4px 0;
-          color: #ffffff;
-        }
-
-        .why-p {
-          font-size: 0.85rem;
-          color: #a1a1aa;
-          line-height: 1.45;
-          margin: 0;
-        }
-
-        /* Banner de Cierre */
-        .cta-banner-0km {
-          background: linear-gradient(135deg, #1A1B1E 0%, #111113 100%);
-          border: 1px solid #2C2D31;
-          border-radius: 16px;
-          padding: 36px 20px;
-          text-align: center;
-        }
-
-        /* Adaptación Celulares */
+        /* CELULARES (ADAPTACIÓN COMPACTA) */
         @media (max-width: 768px) {
-          .brands-grid-0km {
-            grid-template-columns: repeat(2, 1fr);
-            gap: 10px;
+          .hero-title-0km {
+            font-size: 1.95rem !important;
+            line-height: 1.25 !important;
+            margin-bottom: 12px !important;
           }
-          .brand-img-container {
-            height: 115px;
+          .hero-desc-0km {
+            font-size: 0.94rem !important;
+            line-height: 1.5 !important;
           }
-          .brand-content-0km {
-            padding: 10px;
+          .hero-badge-0km {
+            padding: 6px 16px !important;
+            font-size: 0.75rem !important;
+            margin-bottom: 14px !important;
           }
-          .brand-title-0km {
-            font-size: 0.95rem;
+          .brands-grid {
+            grid-template-columns: repeat(2, 1fr) !important;
+            gap: 12px !important;
           }
-          .brand-desc-0km {
-            font-size: 0.75rem;
-            margin-bottom: 10px;
+          .brand-card {
+            padding: 20px 12px !important;
+            border-radius: 14px !important;
           }
-          .brand-btn-0km {
-            font-size: 0.72rem;
-            padding: 8px 4px;
+          .brand-logo-img {
+            height: 38px !important;
+            margin-bottom: 8px !important;
           }
-          .why-grid {
-            grid-template-columns: 1fr;
+          .benefits-grid {
+            grid-template-columns: 1fr !important;
+            gap: 12px !important;
           }
-          .cta-banner-0km {
-            padding: 28px 16px;
+          .benefit-card {
+            padding: 22px 18px !important;
+            border-radius: 16px !important;
+          }
+          .salon-card-box {
+            padding: 24px 16px !important;
+            border-radius: 16px !important;
+          }
+          .salon-grid {
+            grid-template-columns: 1fr !important;
+            gap: 18px !important;
+          }
+          .salon-map-container {
+            height: 220px !important;
           }
         }
       `}</style>
 
-
-            {/* ENCABEZADO ESTANDARIZADO */}
-<section style={{ padding: '50px 20px 24px 20px', textAlign: 'center', maxWidth: '1000px', margin: '0 auto' }}>
-  {/* Logo centrado */}
-  <div style={{ marginBottom: '16px' }}>
-    <img 
-      src="/logo.png.png" 
-      alt="Cogno Automotores" 
-      style={{ height: '75px', width: 'auto', margin: '0 auto', display: 'inline-block' }}
-    />
-  </div>
-
-  {/* Título principal estilizado */}
-  <h1 style={{ fontSize: '2.75rem', fontWeight: 600, margin: '0 0 20px 0', letterSpacing: '-0.5px', color: '#ffffff' }}>
-   Estás a un click de tu próximo <span style={{ color: '#ED1C24' }}>0Km</span>
-  </h1>
-
-  {/* Badge rojo tipo píldora */}
-  <div style={{ display: 'inline-flex', alignItems: 'center', gap: '10px', backgroundColor: 'rgba(237, 28, 36, 0.08)', border: '1px solid rgba(237, 28, 36, 0.4)', color: '#ED1C24', padding: '10px 24px', borderRadius: '40px', fontSize: '0.88rem', fontWeight: 700, letterSpacing: '0.8px', marginBottom: '24px', textTransform: 'uppercase' }}>
-    <span>🛡️</span>
-    <span> Opciones con financiación directa de fábrica</span>
-  </div>
-
-  {/* Bajada / Descripción */}
-  <p style={{ color: '#a1a1aa', fontSize: '1rem', maxWidth: '750px', margin: '0 auto', lineHeight: 1.6, fontWeight: 300 }}>
-    Comercializamos las principales marcas del país. Asesoramiento comercial, financiación a medida, gestoría propia y toma de tu usado.
-  </p>
-</section>
-  
-      <div className="section-0km">
-
-        {/* 1. Cinta Loop Infinito de Marcas */}
-        <div className="marquee-wrapper">
-          <div className="marquee-track">
-            <span className="marquee-item">VOLKSWAGEN</span>
-            <span className="marquee-item">TOYOTA</span>
-            <span className="marquee-item">FORD</span>
-            <span className="marquee-item">CHEVROLET</span>
-            <span className="marquee-item">FIAT</span>
-            <span className="marquee-item">RENAULT</span>
-            <span className="marquee-item">PEUGEOT</span>
-            <span className="marquee-item">CITROËN</span>
-            <span className="marquee-item">JEEP</span>
-            <span className="marquee-item">RAM</span>
-            <span className="marquee-item">NISSAN</span>
-            <span className="marquee-item">HONDA</span>
-            <span className="marquee-item">BMW</span>
-            <span className="marquee-item">MERCEDES-BENZ</span>
-            <span className="marquee-item">AUDI</span>
-            <span className="marquee-item">BYD</span>
-            <span className="marquee-item">BAIC</span>
-            {/* Duplicado para loop continuo */}
-            <span className="marquee-item">VOLKSWAGEN</span>
-            <span className="marquee-item">TOYOTA</span>
-            <span className="marquee-item">FORD</span>
-            <span className="marquee-item">CHEVROLET</span>
-            <span className="marquee-item">FIAT</span>
-            <span className="marquee-item">RENAULT</span>
-            <span className="marquee-item">PEUGEOT</span>
-            <span className="marquee-item">CITROËN</span>
-            <span className="marquee-item">JEEP</span>
-            <span className="marquee-item">RAM</span>
-            <span className="marquee-item">NISSAN</span>
-            <span className="marquee-item">HONDA</span>
-            <span className="marquee-item">BMW</span>
-            <span className="marquee-item">MERCEDES-BENZ</span>
-            <span className="marquee-item">AUDI</span>
-            <span className="marquee-item">BYD</span>
-            <span className="marquee-item">BAIC</span>
-          </div>
+      {/* 1. HERO INSTITUCIONAL */}
+      <section style={{ padding: '35px 20px 15px 20px', textAlign: 'center', maxWidth: '1100px', margin: '0 auto' }}>
+        
+        {/* Logo */}
+        <div style={{ marginBottom: '14px' }}>
+          <img 
+            src="/logo.png.png" 
+            alt="Cogno Automotores" 
+            style={{ height: '70px', width: 'auto', margin: '0 auto', display: 'inline-block' }} 
+          />
         </div>
 
-        {/* 2. Grilla Completa de Tarjetas Individuales */}
-        <div className="brands-grid-0km">
+        {/* Título principal */}
+        <h1 className="hero-title-0km">
+          Estás a un click de tu próximo <span style={{ color: '#ED1C24' }}>0KM</span>
+        </h1>
 
-          {/* Volkswagen */}
-          <div className="brand-card-0km">
-            <div className="brand-img-container">
-              <img src="https://lh3.googleusercontent.com/d/15T4Gc9YjvctQg4I9i0GOX1EPcGqQkWxD" alt="VOLKSWAGEN 0KM" />
-            </div>
-            <div className="brand-content-0km">
-              <span className="brand-badge-unit">GAMA COMPLETA</span>
-              <h3 className="brand-title-0km">VOLKSWAGEN</h3>
-              <p className="brand-desc-0km">Tecnología de avanzada, confort de marcha y robustez garantizada en cada modelo de la línea alemana.</p>
-              <a href="https://wa.me/5493584029424?text=Hola!%20Quiero%20consultar%20por%20un%200km%20de%20Volkswagen" target="_blank" rel="noopener noreferrer" className="brand-btn-0km">Consultar por Volkswagen →</a>
-            </div>
-          </div>
-
-          {/* Toyota */}
-          <div className="brand-card-0km">
-            <div className="brand-img-container">
-              <img src="https://lh3.googleusercontent.com/d/1xViFbNOKlcqaUUt3cVh_DL7zWnyjII8I" alt="TOYOTA 0KM" />
-            </div>
-            <div className="brand-content-0km">
-              <span className="brand-badge-unit">GAMA COMPLETA</span>
-              <h3 className="brand-title-0km">TOYOTA</h3>
-              <p className="brand-desc-0km">Líder indiscutido en durabilidad, valor de reventa superior y la máxima confiabilidad mecánica del mercado.</p>
-              <a href="https://wa.me/5493584029424?text=Hola!%20Quiero%20consultar%20por%20un%200km%20de%20Toyota" target="_blank" rel="noopener noreferrer" className="brand-btn-0km">Consultar por Toyota →</a>
-            </div>
-          </div>
-
-          {/* Ford */}
-          <div className="brand-card-0km">
-            <div className="brand-img-container">
-              <img src="https://lh3.googleusercontent.com/d/1cyjb8yvYKlK_MDdU6Po0snsf8tFmjvFr" alt="FORD 0KM" />
-            </div>
-            <div className="brand-content-0km">
-              <span className="brand-badge-unit">GAMA COMPLETA</span>
-              <h3 className="brand-title-0km">FORD</h3>
-              <p className="brand-desc-0km">Potencia pura, equipamiento de seguridad de última generación y toda la versatilidad de la Raza Fuerte.</p>
-              <a href="https://wa.me/5493584029424?text=Hola!%20Quiero%20consultar%20por%20un%200km%20de%20Ford" target="_blank" rel="noopener noreferrer" className="brand-btn-0km">Consultar por Ford →</a>
-            </div>
-          </div>
-
-          {/* Chevrolet */}
-          <div className="brand-card-0km">
-            <div className="brand-img-container">
-              <img src="https://lh3.googleusercontent.com/d/1M2IokOL1VAn2AuWHTcFTF7JS2l4UGQE_" alt="CHEVROLET 0KM" />
-            </div>
-            <div className="brand-content-0km">
-              <span className="brand-badge-unit">GAMA COMPLETA</span>
-              <h3 className="brand-title-0km">CHEVROLET</h3>
-              <p className="brand-desc-0km">Conectividad total OnStar, diseño moderno y motores turbo altamente eficientes para todo tipo de uso.</p>
-              <a href="https://wa.me/5493584029424?text=Hola!%20Quiero%20consultar%20por%20un%200km%20de%20Chevrolet" target="_blank" rel="noopener noreferrer" className="brand-btn-0km">Consultar por Chevrolet →</a>
-            </div>
-          </div>
-
-          {/* Fiat */}
-          <div className="brand-card-0km">
-            <div className="brand-img-container">
-              <img src="https://lh3.googleusercontent.com/d/130N-HNOQZkhX-NiuhwUofcfFteO65L1Q" alt="FIAT 0KM" />
-            </div>
-            <div className="brand-content-0km">
-              <span className="brand-badge-unit">GAMA COMPLETA</span>
-              <h3 className="brand-title-0km">FIAT</h3>
-              <p className="brand-desc-0km">Excelente relación precio-calidad, bajo costo de mantenimiento y opciones urbanas y utilitarias líderes.</p>
-              <a href="https://wa.me/5493584029424?text=Hola!%20Quiero%20consultar%20por%20un%200km%20de%20Fiat" target="_blank" rel="noopener noreferrer" className="brand-btn-0km">Consultar por Fiat →</a>
-            </div>
-          </div>
-
-          {/* Renault */}
-          <div className="brand-card-0km">
-            <div className="brand-img-container">
-              <img src="https://lh3.googleusercontent.com/d/1fOJKYhlmPku7EFZVnpWjrXVry0rb6kF8" alt="RENAULT 0KM" />
-            </div>
-            <div className="brand-content-0km">
-              <span className="brand-badge-unit">GAMA COMPLETA</span>
-              <h3 className="brand-title-0km">RENAULT</h3>
-              <p className="brand-desc-0km">Espacio interior, confort y soluciones prácticas e innovadoras para la familia y el trabajo diario.</p>
-              <a href="https://wa.me/5493584029424?text=Hola!%20Quiero%20consultar%20por%20un%200km%20de%20Renault" target="_blank" rel="noopener noreferrer" className="brand-btn-0km">Consultar por Renault →</a>
-            </div>
-          </div>
-
-          {/* Peugeot */}
-          <div className="brand-card-0km">
-            <div className="brand-img-container">
-              <img src="https://lh3.googleusercontent.com/d/1DGYZ8EpfEpC9dFNP9IGywE3tUzwOqvbB" alt="PEUGEOT 0KM" />
-            </div>
-            <div className="brand-content-0km">
-              <span className="brand-badge-unit">GAMA COMPLETA</span>
-              <h3 className="brand-title-0km">PEUGEOT</h3>
-              <p className="brand-desc-0km">Diseño europeo refinado, puesto de conducción i-Cockpit de vanguardia y altísimo nivel de confort.</p>
-              <a href="https://wa.me/5493584029424?text=Hola!%20Quiero%20consultar%20por%20un%200km%20de%20Peugeot" target="_blank" rel="noopener noreferrer" className="brand-btn-0km">Consultar por Peugeot →</a>
-            </div>
-          </div>
-
-          {/* Citroën */}
-          <div className="brand-card-0km">
-            <div className="brand-img-container">
-              <img src="https://lh3.googleusercontent.com/d/11dP0tnxTyc6CYCBT0GzLoHuAT9lKNaO7" alt="CITROËN 0KM" />
-            </div>
-            <div className="brand-content-0km">
-              <span className="brand-badge-unit">GAMA COMPLETA</span>
-              <h3 className="brand-title-0km">CITROËN</h3>
-              <p className="brand-desc-0km">Suspensión de máxima suavidad, gran habitabilidad y propuestas modernas para disfrutar cada viaje.</p>
-              <a href="https://wa.me/5493584029424?text=Hola!%20Quiero%20consultar%20por%20un%200km%20de%20Citro%C3%ABn" target="_blank" rel="noopener noreferrer" className="brand-btn-0km">Consultar por Citroën →</a>
-            </div>
-          </div>
-
-          {/* Jeep / RAM */}
-          <div className="brand-card-0km">
-            <div className="brand-img-container">
-              <img src="https://lh3.googleusercontent.com/d/14f7r6hhkiHor5WToUbkffIsqg__CCa4H" alt="JEEP 0KM" />
-            </div>
-            <div className="brand-content-0km">
-              <span className="brand-badge-unit">GAMA COMPLETA</span>
-              <h3 className="brand-title-0km">JEEP / RAM</h3>
-              <p className="brand-desc-0km">El ícono mundial de la aventura off-road con equipamiento premium y máxima capacidad todoterreno.</p>
-              <a href="https://wa.me/5493584029424?text=Hola!%20Quiero%20consultar%20por%20un%200km%20de%20Jeep/RAM" target="_blank" rel="noopener noreferrer" className="brand-btn-0km">Consultar por Jeep / RAM →</a>
-            </div>
-          </div>
-
-          {/* Nissan */}
-          <div className="brand-card-0km">
-            <div className="brand-img-container">
-              <img src="https://lh3.googleusercontent.com/d/1jLDKmLLwH6aghX5fZEynwksWLUHOb6YQ" alt="NISSAN 0KM" />
-            </div>
-            <div className="brand-content-0km">
-              <span className="brand-badge-unit">GAMA COMPLETA</span>
-              <h3 className="brand-title-0km">NISSAN</h3>
-              <p className="brand-desc-0km">Ingeniería japonesa de precisión, gran confort de marcha y pick-ups reconocidas por su resistencia.</p>
-              <a href="https://wa.me/5493584029424?text=Hola!%20Quiero%20consultar%20por%20un%200km%20de%20Nissan" target="_blank" rel="noopener noreferrer" className="brand-btn-0km">Consultar por Nissan →</a>
-            </div>
-          </div>
-
-          {/* Honda */}
-          <div className="brand-card-0km">
-            <div className="brand-img-container">
-              <img src="https://lh3.googleusercontent.com/d/13IXEtJIxLH0w8WmmTCBk-cbOFepX50i0" alt="HONDA 0KM" />
-            </div>
-            <div className="brand-content-0km">
-              <span className="brand-badge-unit">GAMA COMPLETA</span>
-              <h3 className="brand-title-0km">HONDA</h3>
-              <p className="brand-desc-0km">Mecánica de altísima confiabilidad, estándares superiores de seguridad Sensing y gran valor de reventa.</p>
-              <a href="https://wa.me/5493584029424?text=Hola!%20Quiero%20consultar%20por%20un%200km%20de%20Honda" target="_blank" rel="noopener noreferrer" className="brand-btn-0km">Consultar por Honda →</a>
-            </div>
-          </div>
-
-          {/* BMW */}
-          <div className="brand-card-0km">
-            <div className="brand-img-container">
-              <img src="https://lh3.googleusercontent.com/d/1-sFBOTbHqXnZDrfJEQgRWXEBkarvPKbe" alt="BMW 0KM" />
-            </div>
-            <div className="brand-content-0km">
-              <span className="brand-badge-unit">GAMA COMPLETA</span>
-              <h3 className="brand-title-0km">BMW</h3>
-              <p className="brand-desc-0km">El auténtico placer de conducir, dinamismo deportivo y la máxima distinción premium alemana.</p>
-              <a href="https://wa.me/5493584029424?text=Hola!%20Quiero%20consultar%20por%20un%200km%20de%20BMW" target="_blank" rel="noopener noreferrer" className="brand-btn-0km">Consultar por BMW →</a>
-            </div>
-          </div>
-
-          {/* Mercedes-Benz */}
-          <div className="brand-card-0km">
-            <div className="brand-img-container">
-              <img src="https://lh3.googleusercontent.com/d/1HWuJ67rgHuLgMGZ_vaA2WwLkKYH_NJF_" alt="MERCEDES-BENZ 0KM" />
-            </div>
-            <div className="brand-content-0km">
-              <span className="brand-badge-unit">GAMA COMPLETA</span>
-              <h3 className="brand-title-0km">MERCEDES-BENZ</h3>
-              <p className="brand-desc-0km">Elegancia atemporal, vanguardia tecnológica y el máximo estándar en lujo y utilitarios comerciales.</p>
-              <a href="https://wa.me/5493584029424?text=Hola!%20Quiero%20consultar%20por%20un%200km%20de%20Mercedes-Benz" target="_blank" rel="noopener noreferrer" className="brand-btn-0km">Consultar por Mercedes-Benz →</a>
-            </div>
-          </div>
-
-          {/* Audi */}
-          <div className="brand-card-0km">
-            <div className="brand-img-container">
-              <img src="https://lh3.googleusercontent.com/d/1Gm8NbrL7A-W2WtpA9U7hxjCxMNY6jLZC" alt="AUDI 0KM" />
-            </div>
-            <div className="brand-content-0km">
-              <span className="brand-badge-unit">GAMA COMPLETA</span>
-              <h3 className="brand-title-0km">AUDI</h3>
-              <p className="brand-desc-0km">Vanguardia a través de la tecnología, sofisticación estética y la legendaria tracción Quattro.</p>
-              <a href="https://wa.me/5493584029424?text=Hola!%20Quiero%20consultar%20por%20un%200km%20de%20Audi" target="_blank" rel="noopener noreferrer" className="brand-btn-0km">Consultar por Audi →</a>
-            </div>
-          </div>
-
-          {/* BYD */}
-          <div className="brand-card-0km">
-            <div className="brand-img-container">
-              <img src="https://lh3.googleusercontent.com/d/1m8QnUtKTZ7KHAIajpAoV_8gKtNz-Yrgc" alt="BYD Y BAIC 0KM" />
-            </div>
-            <div className="brand-content-0km">
-              <span className="brand-badge-unit">GAMA COMPLETA</span>
-              <h3 className="brand-title-0km">BYD</h3>
-              <p className="brand-desc-0km">Líderes mundiales en innovación eléctrica e híbrida, diseño futurista y equipamiento inteligente.</p>
-              <a href="https://wa.me/5493584029424?text=Hola!%20Quiero%20consultar%20por%20un%200km%20de%20BYD" target="_blank" rel="noopener noreferrer" className="brand-btn-0km">Consultar por BYD →</a>
-            </div>
-          </div>
-
-          {/* BAIC */}
-          <div className="brand-card-0km">
-            <div className="brand-img-container">
-              <img src="https://lh3.googleusercontent.com/d/1RpG9I6xB-ZIh_c4V5-ZKa2zUuXiAO4pl" alt="BAIC 0KM" />
-            </div>
-            <div className="brand-content-0km">
-              <span className="brand-badge-unit">GAMA COMPLETA</span>
-              <h3 className="brand-title-0km">BAIC</h3>
-              <p className="brand-desc-0km">Potencia descomunal, lujo inigualable y la máxima capacidad de arrastre y carga del segmento.</p>
-              <a href="https://wa.me/5493584029424?text=Hola!%20Quiero%20consultar%20por%20un%200km%20de%20BAIC" target="_blank" rel="noopener noreferrer" className="brand-btn-0km">Consultar por BAIC →</a>
-            </div>
-          </div>
-
+        {/* Badge rojo tipo píldora */}
+        <div className="hero-badge-0km" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', backgroundColor: 'rgba(237, 28, 36, 0.08)', border: '1px solid rgba(237, 28, 36, 0.4)', color: '#ED1C24', padding: '9px 22px', borderRadius: '30px', fontSize: '0.85rem', fontWeight: 700, letterSpacing: '0.8px', marginBottom: '20px', textTransform: 'uppercase' }}>
+          <span>🛡️</span>
+          <span>OPCIONES CON FINANCIACIÓN DIRECTA DE FÁBRICA</span>
         </div>
 
-        {/* 3. Nota Disponibilidad Total */}
-        <div className="models-disclaimer-wrap">
-          <div className="models-disclaimer" style={{ display: 'flex', alignItems: 'flex-start', gap: '14px' }}>
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ED1C24" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ minWidth: '22px', width: '22px', height: '22px', flexShrink: 0, marginTop: '2px' }}>
-              <circle cx="12" cy="12" r="10"></circle>
-              <line x1="12" y1="16" x2="12" y2="12"></line>
-              <line x1="12" y1="8" x2="12.01" y2="8"></line>
-            </svg>
-            <div style={{ flexGrow: 1 }}>
-              <strong>Disponibilidad total:</strong> Comercializamos la <strong>gama completa</strong> de Pick-ups, autos, SUVs y utilitarios de cada una de nuestras marcas oficiales.
-            </div>
-          </div>
-        </div>
+        {/* Bajada */}
+        <p className="hero-desc-0km" style={{ color: '#F4F4F5', fontSize: '1.15rem', maxWidth: '880px', margin: '0 auto 14px auto', lineHeight: 1.7, fontWeight: 400 }}>
+          Comercializamos la gama completa de las principales marcas del país. Asesoramiento comercial personalizado, financiación a medida, gestoría propia y toma de tu vehículo usado.
+        </p>
 
-        {/* 4. Por qué elegirnos */}
-        <div className="why-us-wrap">
-          <h2 className="why-us-title">¿Por qué elegirnos para tu próximo 0Km?</h2>
-          
-          <div className="why-grid">
-            <div className="why-card">
-              <div className="why-icon">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/>
-                </svg>
-              </div>
-              <div>
-                <h4 className="why-h4">Toma de Usados</h4>
-                <p className="why-p">Recibimos tu unidad usada como parte de pago con cotización transparente.</p>
-              </div>
-            </div>
+        <p style={{ color: '#d4d4d8', fontSize: '1.02rem', margin: '0 auto 30px auto', fontWeight: 400 }}>
+          Hacé click en la marca de tu interés para consultar unidades disponibles y cotización:
+        </p>
+      </section>
 
-            <div className="why-card">
-              <div className="why-icon">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <rect x="1" y="4" width="22" height="16" rx="2" ry="2"/>
-                  <line x1="1" y1="10" x2="23" y2="10"/>
-                </svg>
-              </div>
-              <div>
-                <h4 className="why-h4">Financiación a Medida</h4>
-                <p className="why-p">Accedé a créditos prendarios y opciones en cuotas fijas en pesos adaptadas a tu presupuesto.</p>
-              </div>
-            </div>
-
-            <div className="why-card">
-              <div className="why-icon">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-                  <polyline points="14 2 14 8 20 8"/>
-                  <line x1="16" y1="13" x2="8" y2="13"/>
-                  <line x1="16" y1="17" x2="8" y2="17"/>
-                </svg>
-              </div>
-              <div>
-                <h4 className="why-h4">Gestoría Integral Propia</h4>
-                <p className="why-p">Resolvemos toda la documentación y patentamiento sin demoras para que solo te preocupes por retirar la unidad.</p>
-              </div>
-            </div>
-
-            <div className="why-card">
-              <div className="why-icon">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-                </svg>
-              </div>
-              <div>
-                <h4 className="why-h4">Garantía Oficial de Fábrica</h4>
-                <p className="why-p">Cada unidad 0km cuenta con el respaldo, garantía de fábrica y servicio de postventa oficial de cada terminal automotriz.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* 5. Banner de Cierre */}
-        <div className="cta-banner-0km">
-          <h3 style={{ fontSize: '1.6rem', fontWeight: 700, color: '#ffffff', marginBottom: '12px' }}>
-            ¿Tenés en mente una línea o versión puntual?
-          </h3>
-          <p style={{ fontSize: '0.95rem', color: '#a1a1aa', maxWidth: '650px', margin: '0 auto 24px auto', lineHeight: 1.5 }}>
-            Acercate a nuestro local a charlar sobre tu próximo 0km. Te esperamos para ver las mejores opciones de financiación, tomar tu usado y armar una propuesta a tu medida.
-          </p>
-          
-          <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '12px' }}>
+      {/* 2. GRILLA DE MARCAS 0KM */}
+      <section style={{ maxWidth: '1540px', margin: '0 auto', padding: '0 24px' }}>
+        <div className="brands-grid">
+          {BRANDS.map((brand, i) => (
             <a 
-              href="https://maps.app.goo.gl/GUH2QAShLm4LVHGU6" 
-              target="_blank" 
-              rel="noopener noreferrer" 
-              style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', backgroundColor: '#ED1C24', color: '#ffffff', textDecoration: 'none', padding: '13px 24px', borderRadius: '10px', fontWeight: 700, fontSize: '0.95rem' }}
+              key={i} 
+              href={`https://wa.me/5493584029424?text=Hola!%20Quiero%20consultar%20por%20la%20gama%20de%200KM%20${brand.name}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="brand-card"
             >
-              Vení a conocernos
+              <img src={brand.logo} alt={brand.name} className="brand-logo-img" />
+              <span style={{ fontSize: '1.05rem', fontWeight: 600, color: '#ffffff', letterSpacing: '0.5px' }}>{brand.name}</span>
+              <span style={{ fontSize: '0.78rem', color: '#ED1C24', fontWeight: 600, marginTop: '4px' }}>Consultar modelos →</span>
             </a>
-            <a 
-              href="https://wa.me/5493584029424?text=Hola!%20Quiero%20consultar%20por%20un%200km" 
-              target="_blank" 
-              rel="noopener noreferrer" 
-              style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', backgroundColor: 'transparent', color: '#ffffff', border: '1px solid #3f3f46', textDecoration: 'none', padding: '13px 24px', borderRadius: '10px', fontWeight: 600, fontSize: '0.95rem' }}
-            >
-              Hablá con nosotros
-            </a>
-          </div>
+          ))}
+        </div>
+      </section>
+
+      {/* 3. BENEFICIOS Y CONDICIONES COMERCIALES */}
+      <section style={{ maxWidth: '1540px', margin: '80px auto 0 auto', padding: '0 24px' }}>
+        <div style={{ textAlign: 'center', marginBottom: '36px' }}>
+          <span style={{ fontSize: '0.88rem', fontWeight: 700, color: '#ED1C24', letterSpacing: '2px', textTransform: 'uppercase' }}>VENTAJAS EXCLUSIVAS</span>
+          <h2 style={{ fontSize: '2.2rem', fontWeight: 600, margin: '6px 0 0 0' }}>¿Por qué elegir tu 0KM con nosotros?</h2>
         </div>
 
-      </div>
+        <div className="benefits-grid">
+          
+          <div className="benefit-card">
+            <div style={{ width: '46px', height: '46px', borderRadius: '12px', backgroundColor: 'rgba(237, 28, 36, 0.12)', border: '1px solid rgba(237, 28, 36, 0.3)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#ED1C24', marginBottom: '18px' }}>
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <rect x="2" y="7" width="20" height="14" rx="2" ry="2" />
+                <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
+              </svg>
+            </div>
+            <h3 style={{ fontSize: '1.25rem', fontWeight: 600, margin: '0 0 8px 0', color: '#ffffff' }}>Financiación Directa</h3>
+            <p style={{ fontSize: '1rem', color: '#E4E4E7', lineHeight: 1.6, margin: 0, fontWeight: 400 }}>
+              Accedé a tasas preferenciales de fábrica y créditos prendarios en cuotas fijas en pesos adaptadas a tu posibilidad.
+            </p>
+          </div>
+
+          <div className="benefit-card">
+            <div style={{ width: '46px', height: '46px', borderRadius: '12px', backgroundColor: 'rgba(237, 28, 36, 0.12)', border: '1px solid rgba(237, 28, 36, 0.3)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#ED1C24', marginBottom: '18px' }}>
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M16 3h5v5" />
+                <path d="M4 20L21 3" />
+                <path d="M21 16v5h-5" />
+                <path d="M15 15l6 6" />
+                <path d="M4 4l5 5" />
+              </svg>
+            </div>
+            <h3 style={{ fontSize: '1.25rem', fontWeight: 600, margin: '0 0 8px 0', color: '#ffffff' }}>Tomamos tu Usado</h3>
+            <p style={{ fontSize: '1rem', color: '#E4E4E7', lineHeight: 1.6, margin: 0, fontWeight: 400 }}>
+              Peritaje profesional y cotización transparente para recibir tu vehículo actual como parte de pago de la nueva unidad.
+            </p>
+          </div>
+
+          <div className="benefit-card">
+            <div style={{ width: '46px', height: '46px', borderRadius: '12px', backgroundColor: 'rgba(237, 28, 36, 0.12)', border: '1px solid rgba(237, 28, 36, 0.3)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#ED1C24', marginBottom: '18px' }}>
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                <polyline points="14 2 14 8 20 8" />
+                <line x1="16" y1="13" x2="8" y2="13" />
+                <line x1="16" y1="17" x2="8" y2="17" />
+                <polyline points="10 9 9 9 8 9" />
+              </svg>
+            </div>
+            <h3 style={{ fontSize: '1.25rem', fontWeight: 600, margin: '0 0 8px 0', color: '#ffffff' }}>Gestoría Integral</h3>
+            <p style={{ fontSize: '1rem', color: '#E4E4E7', lineHeight: 1.6, margin: 0, fontWeight: 400 }}>
+              Nos encargamos de todo el patentamiento, inscripción inicial y documentación para que retires tu 0KM listo para rodar.
+            </p>
+          </div>
+
+        </div>
+      </section>
+
+      {/* 4. SALÓN COMERCIAL & HORARIOS */}
+      <section style={{ maxWidth: '1540px', margin: '80px auto 0 auto', padding: '0 24px' }}>
+        <div className="salon-card-box" style={{ backgroundColor: '#141518', border: '1px solid #27272a', borderRadius: '26px', padding: '38px 30px' }}>
+          
+          <div className="salon-grid">
+            <div>
+              <span style={{ color: '#ED1C24', fontSize: '0.8rem', fontWeight: 700, letterSpacing: '1px', textTransform: 'uppercase' }}>
+                SALÓN COMERCIAL
+              </span>
+              <h2 className="salon-title" style={{ fontSize: '2.2rem', fontWeight: 600, margin: '6px 0 12px 0', lineHeight: 1.2 }}>
+                Vení a conocer nuestro local
+              </h2>
+              <p style={{ fontSize: '1.05rem', color: '#E4E4E7', lineHeight: 1.6, margin: '0 0 20px 0', fontWeight: 400 }}>
+                Te esperamos en nuestro salón comercial para asesorarte sobre plazos de entrega, versiones disponibles y cotizaciones de 0KM.
+              </p>
+
+              <div style={{ backgroundColor: '#0B0C0E', border: '1px solid #27272a', padding: '16px 20px', borderRadius: '14px', marginBottom: '22px', display: 'flex', flexDirection: 'column', gap: '12px' }}>
+                <div>
+                  <div style={{ fontSize: '0.75rem', color: '#a1a1aa', textTransform: 'uppercase', fontWeight: 600 }}>UBICACIÓN</div>
+                  <div style={{ fontSize: '1.08rem', fontWeight: 600, color: '#ffffff' }}>Av. Marcelo T. de Alvear 1580</div>
+                  <div style={{ fontSize: '0.9rem', color: '#d4d4d8' }}>Río Cuarto, Córdoba, Argentina</div>
+                </div>
+
+                <div style={{ borderTop: '1px solid #1F2024', paddingTop: '10px' }}>
+                  <div style={{ fontSize: '0.75rem', color: '#a1a1aa', textTransform: 'uppercase', fontWeight: 600 }}>HORARIOS DE ATENCIÓN</div>
+                  <div style={{ fontSize: '0.96rem', color: '#ffffff', fontWeight: 500, marginTop: '2px' }}>Lunes a Viernes: 09:00 a 18:00 hs</div>
+                </div>
+              </div>
+
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(170px, 1fr))', gap: '12px' }}>
+                <a 
+                  href="https://www.google.com/maps/search/?api=1&query=Av.+Marcelo+T.+de+Alvear+1580,+Rio+Cuarto,+Cordoba" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  style={{ backgroundColor: '#ED1C24', color: '#ffffff', padding: '13px 24px', borderRadius: '10px', fontWeight: 700, fontSize: '0.92rem', textDecoration: 'none', textAlign: 'center' }}
+                >
+                  Cómo llegar en Maps →
+                </a>
+                <a 
+                  href="https://wa.me/5493584029424?text=Hola!%20Quiero%20consultar%20por%20unidades%200KM" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  style={{ backgroundColor: '#1F2024', border: '1px solid #333', color: '#ffffff', padding: '13px 24px', borderRadius: '10px', fontWeight: 600, fontSize: '0.92rem', textDecoration: 'none', textAlign: 'center' }}
+                >
+                  Hablar por WhatsApp
+                </a>
+              </div>
+            </div>
+
+            <div className="salon-map-container" style={{ height: '340px', borderRadius: '18px', overflow: 'hidden', border: '1px solid #27272a', backgroundColor: '#0B0C0E' }}>
+              <iframe
+                title="Ubicación Cogno Automotores"
+                width="100%"
+                height="100%"
+                style={{ border: 0, filter: 'invert(90%) hue-rotate(180deg) contrast(90%)' }}
+                loading="lazy"
+                allowFullScreen
+                referrerPolicy="no-referrer-when-downgrade"
+                src="https://maps.google.com/maps?q=Av.+Marcelo+T.+de+Alvear+1580,+Rio+Cuarto,+Cordoba&t=&z=16&ie=UTF8&iwloc=&output=embed"
+              ></iframe>
+            </div>
+          </div>
+        </div>
+      </section>
 
     </div>
   );
