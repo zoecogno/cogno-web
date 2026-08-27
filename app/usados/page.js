@@ -25,7 +25,6 @@ function CatalogoContent() {
           });
           setVehicles(sorted);
 
-          // Si el link viene de WhatsApp con ?auto=ID_DEL_AUTO, lo abre solo
           if (typeof window !== 'undefined') {
             const params = new URLSearchParams(window.location.search);
             const autoId = params.get('auto') || params.get('id');
