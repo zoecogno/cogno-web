@@ -2,100 +2,68 @@
 
 const BRANDS_DATA = [
   {
-    brand: 'Toyota',
-    model: 'SW4 Diamond',
+    brand: 'TOYOTA',
     image: '/sw4 diamond blanca 0KM TOYOTA.jpeg',
-    query: 'Toyota SW4 Diamond',
   },
   {
-    brand: 'Volkswagen',
-    model: 'Amarok V6',
+    brand: 'VOLKSWAGEN',
     image: '/VW AMAROK V6 GRIS VOLCÁN.jpg',
-    query: 'Volkswagen Amarok V6',
   },
   {
-    brand: 'Ford',
-    model: 'Ranger Limited+',
+    brand: 'FORD',
     image: '/RANGER LTD+ ATRÁS 0KM FORD.jpg',
-    query: 'Ford Ranger Limited+',
   },
   {
-    brand: 'Chevrolet',
-    model: 'S10 High Country',
+    brand: 'CHEVROLET',
     image: '/S10 HIGH CHEVROLET.avif',
-    query: 'Chevrolet S10',
   },
   {
-    brand: 'Fiat',
-    model: 'Toro Volcano / Ultra',
+    brand: 'FIAT',
     image: '/FIAT TORO 0KM DUNA.jpg',
-    query: 'Fiat Toro',
   },
   {
-    brand: 'Renault',
-    model: 'Kardian Premiere',
+    brand: 'RENAULT',
     image: '/RENAULT KARDIAN 0KM.webp',
-    query: 'Renault Kardian',
   },
   {
-    brand: 'Jeep & RAM',
-    model: 'Compass / Rampage',
+    brand: 'JEEP & RAM',
     image: '/jeep compass 0km.jpg',
-    query: 'Jeep y RAM',
   },
   {
-    brand: 'Peugeot',
-    model: '208 / 2008',
+    brand: 'PEUGEOT',
     image: '/PEUGEOT 0KM.avif',
-    query: 'Peugeot',
   },
   {
-    brand: 'Citroën',
-    model: 'C4 Cactus / Basalt',
+    brand: 'CITROËN',
     image: '/CITROEN C4 0KM.png',
-    query: 'Citroën',
   },
   {
-    brand: 'Nissan',
-    model: 'Frontier PRO-4X',
+    brand: 'NISSAN',
     image: '/nissan frontier.jpg',
-    query: 'Nissan Frontier',
   },
   {
-    brand: 'Honda',
-    model: 'WR-V / HR-V',
+    brand: 'HONDA',
     image: '/honda wr v.jpg',
-    query: 'Honda',
   },
   {
     brand: 'BMW',
-    model: 'Línea X',
     image: '/bmw x6 0km.webp',
-    query: 'BMW',
   },
   {
-    brand: 'Mercedes-Benz',
-    model: 'GLC / Clase C',
+    brand: 'MERCEDES-BENZ',
     image: '/mercedez glc.avif',
-    query: 'Mercedes-Benz',
   },
   {
-    brand: 'Audi',
-    model: 'Q5 / Q3',
+    brand: 'AUDI',
     image: '/audi q5.avif',
-    query: 'Audi',
   },
   {
     brand: 'BYD',
-    model: 'Shark Híbrida',
     image: '/byd shark 0kmm.webp',
-    query: 'BYD Shark',
   },
   {
     brand: 'BAIC',
-    model: 'BJ30 / X55',
     image: '/BAIC BJ30.webp',
-    query: 'BAIC',
   },
 ];
 
@@ -179,7 +147,7 @@ export default function CeroKm() {
           box-shadow: 0 16px 32px rgba(0,0,0,0.6), 0 0 20px rgba(237, 28, 36, 0.15);
         }
         .car-img-box {
-          height: 230px;
+          height: 240px;
           position: relative;
           background-color: #070709;
           overflow: hidden;
@@ -193,19 +161,22 @@ export default function CeroKm() {
         .car-card-0km:hover .car-img-box img {
           transform: scale(1.08);
         }
-        .car-badge-0km {
-          position: absolute;
-          top: 14px;
-          left: 14px;
-          background-color: #ED1C24;
-          color: #ffffff;
-          font-size: 0.78rem;
+        
+        /* BADGE GAMA COMPLETA */
+        .badge-gama-completa {
+          display: inline-flex;
+          align-items: center;
+          background-color: rgba(237, 28, 36, 0.14);
+          border: 1px solid rgba(237, 28, 36, 0.4);
+          color: #ED1C24;
+          font-size: 0.74rem;
           font-weight: 700;
-          padding: 4px 10px;
-          borderRadius: 6px;
-          letter-spacing: 0.5px;
-          z-index: 2;
+          letter-spacing: 0.8px;
+          padding: 5px 12px;
+          border-radius: 8px;
+          margin-bottom: 12px;
         }
+
         .car-body-0km {
           padding: 22px 24px;
           display: flex;
@@ -230,12 +201,6 @@ export default function CeroKm() {
         .benefit-card:hover {
           transform: translateY(-4px);
           border-color: #ED1C24;
-        }
-        .salon-grid {
-          display: grid;
-          grid-template-columns: 1.1fr 1fr;
-          gap: 36px;
-          align-items: center;
         }
 
         /* CELULARES (ADAPTACIÓN COMPACTA) */
@@ -262,22 +227,25 @@ export default function CeroKm() {
             border-radius: 14px !important;
           }
           .car-img-box {
-            height: 120px !important;
+            height: 125px !important;
+          }
+          .badge-gama-completa {
+            font-size: 0.62rem !important;
+            padding: 3px 7px !important;
+            border-radius: 6px !important;
+            margin-bottom: 6px !important;
           }
           .car-body-0km {
             padding: 12px 10px !important;
           }
           .car-title-brand {
-            font-size: 1.05rem !important;
-            margin-bottom: 2px !important;
-          }
-          .car-title-model {
-            font-size: 0.78rem !important;
-            margin-bottom: 10px !important;
+            font-size: 1.02rem !important;
+            margin-bottom: 8px !important;
           }
           .car-btn-text {
-            font-size: 0.76rem !important;
+            font-size: 0.75rem !important;
             padding: 8px 4px !important;
+            border-radius: 8px !important;
           }
           .benefits-grid {
             grid-template-columns: 1fr !important;
@@ -287,16 +255,19 @@ export default function CeroKm() {
             padding: 22px 18px !important;
             border-radius: 16px !important;
           }
-          .salon-card-box {
-            padding: 24px 16px !important;
-            border-radius: 16px !important;
+          .banner-cierre-box {
+            padding: 28px 18px !important;
+            border-radius: 18px !important;
           }
-          .salon-grid {
-            grid-template-columns: 1fr !important;
-            gap: 18px !important;
+          .banner-cierre-title {
+            font-size: 1.45rem !important;
+            line-height: 1.3 !important;
+            margin-bottom: 12px !important;
           }
-          .salon-map-container {
-            height: 220px !important;
+          .banner-cierre-desc {
+            font-size: 0.92rem !important;
+            line-height: 1.5 !important;
+            margin-bottom: 22px !important;
           }
         }
       `}</style>
@@ -330,7 +301,7 @@ export default function CeroKm() {
         </p>
 
         <p style={{ color: '#d4d4d8', fontSize: '1.02rem', margin: '0 auto 28px auto', fontWeight: 400 }}>
-          Elegí la marca o modelo de tu interés para consultar versiones y cotización oficial:
+          Elegí la marca de tu interés para consultar versiones y cotización oficial:
         </p>
       </section>
 
@@ -346,19 +317,18 @@ export default function CeroKm() {
         </div>
       </div>
 
-      {/* 3. CATÁLOGO CON FOTOS REALES 0KM */}
+      {/* 3. CATÁLOGO DE MARCAS 0KM */}
       <section style={{ maxWidth: '1540px', margin: '0 auto', padding: '0 24px' }}>
         <div className="cars-grid-0km">
           {BRANDS_DATA.map((item, idx) => (
             <a
               key={idx}
-              href={`https://wa.me/5493584029424?text=Hola!%20Quiero%20consultar%20por%20la%20gama%20de%200KM%20${encodeURIComponent(item.query)}`}
+              href={`https://wa.me/5493584029424?text=Hola!%20Quiero%20consultar%20por%20un%200km%20${encodeURIComponent(item.brand)}`}
               target="_blank"
               rel="noopener noreferrer"
               className="car-card-0km"
             >
               <div className="car-img-box">
-                <span className="car-badge-0km">0 KM</span>
                 <img 
                   src={item.image} 
                   alt={`${item.brand} 0km`} 
@@ -368,19 +338,19 @@ export default function CeroKm() {
 
               <div className="car-body-0km">
                 <div>
-                  <h3 className="car-title-brand" style={{ fontSize: '1.35rem', fontWeight: 700, margin: '0 0 4px 0', color: '#ffffff' }}>
+                  <div className="badge-gama-completa">
+                    GAMA COMPLETA
+                  </div>
+                  <h3 className="car-title-brand" style={{ fontSize: '1.4rem', fontWeight: 700, margin: '0 0 16px 0', color: '#ffffff', letterSpacing: '0.5px' }}>
                     {item.brand}
                   </h3>
-                  <div className="car-title-model" style={{ fontSize: '0.92rem', color: '#ED1C24', fontWeight: 600, marginBottom: '16px' }}>
-                    {item.model}
-                  </div>
                 </div>
 
                 <div 
                   className="car-btn-text" 
-                  style={{ backgroundColor: 'rgba(237, 28, 36, 0.12)', border: '1px solid rgba(237, 28, 36, 0.35)', color: '#ffffff', textAlign: 'center', padding: '10px 14px', borderRadius: '10px', fontWeight: 600, fontSize: '0.88rem' }}
+                  style={{ backgroundColor: 'rgba(237, 28, 36, 0.12)', border: '1px solid rgba(237, 28, 36, 0.35)', color: '#ffffff', textAlign: 'center', padding: '11px 14px', borderRadius: '10px', fontWeight: 600, fontSize: '0.9rem' }}
                 >
-                  Consultar Gama →
+                  Consultar {item.brand} →
                 </div>
               </div>
             </a>
@@ -392,7 +362,7 @@ export default function CeroKm() {
       <section style={{ maxWidth: '1540px', margin: '80px auto 0 auto', padding: '0 24px' }}>
         <div style={{ textAlign: 'center', marginBottom: '36px' }}>
           <span style={{ fontSize: '0.88rem', fontWeight: 700, color: '#ED1C24', letterSpacing: '2px', textTransform: 'uppercase' }}>VENTAJAS EXCLUSIVAS</span>
-          <h2 style={{ fontSize: '2.2rem', fontWeight: 600, margin: '6px 0 0 0' }}>¿Por qué elegir tu 0KM con nosotros?</h2>
+          <h2 style={{ fontSize: '2.2rem', fontWeight: 600, margin: '6px 0 0 0' }}>¿Por qué elegirnos para tu proximo 0KM ?</h2>
         </div>
 
         <div className="benefits-grid">
@@ -404,9 +374,9 @@ export default function CeroKm() {
                 <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
               </svg>
             </div>
-            <h3 style={{ fontSize: '1.25rem', fontWeight: 600, margin: '0 0 8px 0', color: '#ffffff' }}>Financiación Directa</h3>
+            <h3 style={{ fontSize: '1.25rem', fontWeight: 600, margin: '0 0 8px 0', color: '#ffffff' }}>Financiación a medida</h3>
             <p style={{ fontSize: '1rem', color: '#E4E4E7', lineHeight: 1.6, margin: 0, fontWeight: 400 }}>
-              Accedé a tasas preferenciales de fábrica y créditos prendarios en cuotas fijas en pesos adaptadas a tu posibilidad.
+              Accedé a créditos prendarios y opciones en cuotas fijas en pesos adaptadas a tu presupuesto.
             </p>
           </div>
 
@@ -420,9 +390,9 @@ export default function CeroKm() {
                 <path d="M4 4l5 5" />
               </svg>
             </div>
-            <h3 style={{ fontSize: '1.25rem', fontWeight: 600, margin: '0 0 8px 0', color: '#ffffff' }}>Tomamos tu Usado</h3>
+            <h3 style={{ fontSize: '1.25rem', fontWeight: 600, margin: '0 0 8px 0', color: '#ffffff' }}>Toma de usado</h3>
             <p style={{ fontSize: '1rem', color: '#E4E4E7', lineHeight: 1.6, margin: 0, fontWeight: 400 }}>
-              Peritaje profesional y cotización transparente para recibir tu vehículo actual como parte de pago de la nueva unidad.
+              Recibimos tu unidad usada como parte de pago con cotización transparente.
             </p>
           </div>
 
@@ -436,76 +406,44 @@ export default function CeroKm() {
                 <polyline points="10 9 9 9 8 9" />
               </svg>
             </div>
-            <h3 style={{ fontSize: '1.25rem', fontWeight: 600, margin: '0 0 8px 0', color: '#ffffff' }}>Gestoría Integral</h3>
+            <h3 style={{ fontSize: '1.25rem', fontWeight: 600, margin: '0 0 8px 0', color: '#ffffff' }}>Gestoría propia</h3>
             <p style={{ fontSize: '1rem', color: '#E4E4E7', lineHeight: 1.6, margin: 0, fontWeight: 400 }}>
-              Nos encargamos de todo el patentamiento, inscripción inicial y documentación para que retires tu 0KM listo para rodar.
+              Resolvemos toda la documentación y patentamiento sin demoras para que solo te preocupes por retirar la unidad.
             </p>
           </div>
 
         </div>
       </section>
 
-      {/* 5. SALÓN COMERCIAL & HORARIOS */}
+      {/* 5. BANNER DE CIERRE INSTITUCIONAL */}
       <section style={{ maxWidth: '1540px', margin: '80px auto 0 auto', padding: '0 24px' }}>
-        <div className="salon-card-box" style={{ backgroundColor: '#141518', border: '1px solid #27272a', borderRadius: '26px', padding: '38px 30px' }}>
-          
-          <div className="salon-grid">
-            <div>
-              <span style={{ color: '#ED1C24', fontSize: '0.8rem', fontWeight: 700, letterSpacing: '1px', textTransform: 'uppercase' }}>
-                SALÓN COMERCIAL
-              </span>
-              <h2 className="salon-title" style={{ fontSize: '2.2rem', fontWeight: 600, margin: '6px 0 12px 0', lineHeight: 1.2 }}>
-                Vení a conocer nuestro local
-              </h2>
-              <p style={{ fontSize: '1.05rem', color: '#E4E4E7', lineHeight: 1.6, margin: '0 0 20px 0', fontWeight: 400 }}>
-                Te esperamos en nuestro salón comercial para asesorarte sobre plazos de entrega, versiones disponibles y cotizaciones de 0KM.
-              </p>
-
-              <div style={{ backgroundColor: '#0B0C0E', border: '1px solid #27272a', padding: '16px 20px', borderRadius: '14px', marginBottom: '22px', display: 'flex', flexDirection: 'column', gap: '12px' }}>
-                <div>
-                  <div style={{ fontSize: '0.75rem', color: '#a1a1aa', textTransform: 'uppercase', fontWeight: 600 }}>UBICACIÓN</div>
-                  <div style={{ fontSize: '1.08rem', fontWeight: 600, color: '#ffffff' }}>Av. Marcelo T. de Alvear 1580</div>
-                  <div style={{ fontSize: '0.9rem', color: '#d4d4d8' }}>Río Cuarto, Córdoba, Argentina</div>
-                </div>
-
-                <div style={{ borderTop: '1px solid #1F2024', paddingTop: '10px' }}>
-                  <div style={{ fontSize: '0.75rem', color: '#a1a1aa', textTransform: 'uppercase', fontWeight: 600 }}>HORARIOS DE ATENCIÓN</div>
-                  <div style={{ fontSize: '0.96rem', color: '#ffffff', fontWeight: 500, marginTop: '2px' }}>Lunes a Viernes: 09:00 a 18:00 hs</div>
-                </div>
-              </div>
-
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(170px, 1fr))', gap: '12px' }}>
-                <a 
-                  href="https://www.google.com/maps/search/?api=1&query=Av.+Marcelo+T.+de+Alvear+1580,+Rio+Cuarto,+Cordoba" 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
-                  style={{ backgroundColor: '#ED1C24', color: '#ffffff', padding: '13px 24px', borderRadius: '10px', fontWeight: 700, fontSize: '0.92rem', textDecoration: 'none', textAlign: 'center' }}
-                >
-                  Cómo llegar en Maps →
-                </a>
-                <a 
-                  href="https://wa.me/5493584029424?text=Hola!%20Quiero%20consultar%20por%20unidades%200KM" 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
-                  style={{ backgroundColor: '#1F2024', border: '1px solid #333', color: '#ffffff', padding: '13px 24px', borderRadius: '10px', fontWeight: 600, fontSize: '0.92rem', textDecoration: 'none', textAlign: 'center' }}
-                >
-                  Hablar por WhatsApp
-                </a>
-              </div>
-            </div>
-
-            <div className="salon-map-container" style={{ height: '340px', borderRadius: '18px', overflow: 'hidden', border: '1px solid #27272a', backgroundColor: '#0B0C0E' }}>
-              <iframe
-                title="Ubicación Cogno Automotores"
-                width="100%"
-                height="100%"
-                style={{ border: 0, filter: 'invert(90%) hue-rotate(180deg) contrast(90%)' }}
-                loading="lazy"
-                allowFullScreen
-                referrerPolicy="no-referrer-when-downgrade"
-                src="https://maps.google.com/maps?q=Av.+Marcelo+T.+de+Alvear+1580,+Rio+Cuarto,+Cordoba&t=&z=16&ie=UTF8&iwloc=&output=embed"
-              ></iframe>
-            </div>
+        <div className="banner-cierre-box" style={{ backgroundColor: '#141518', border: '1px solid #27272a', borderRadius: '24px', padding: '48px 36px', textAlign: 'center' }}>
+          <div style={{ display: 'inline-flex', alignItems: 'center', backgroundColor: 'rgba(237, 28, 36, 0.1)', border: '1px solid rgba(237, 28, 36, 0.3)', color: '#ED1C24', padding: '7px 20px', borderRadius: '30px', fontSize: '0.85rem', fontWeight: 700, letterSpacing: '1px', textTransform: 'uppercase', marginBottom: '16px' }}>
+            ASESORAMIENTO INTEGRAL
+          </div>
+          <h2 className="banner-cierre-title" style={{ fontSize: '2.2rem', fontWeight: 600, margin: '0 0 16px 0', color: '#ffffff' }}>
+            ¿Tenés en mente una línea o versión puntual?
+          </h2>
+          <p className="banner-cierre-desc" style={{ fontSize: '1.08rem', color: '#E4E4E7', maxWidth: '820px', margin: '0 auto 32px auto', lineHeight: 1.7, fontWeight: 400 }}>
+            Acercate a nuestro local a charlar sobre tu próximo 0km. Te esperamos para ver las mejores opciones de financiación, tomar tu usado y armar una propuesta a tu medida.
+          </p>
+          <div style={{ display: 'flex', gap: '14px', justifyContent: 'center', flexWrap: 'wrap' }}>
+            <a 
+              href="https://www.google.com/maps/search/?api=1&query=Av.+Marcelo+T.+de+Alvear+1580,+Rio+Cuarto,+Cordoba" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              style={{ backgroundColor: '#ED1C24', color: '#ffffff', padding: '14px 28px', borderRadius: '10px', fontWeight: 700, fontSize: '0.94rem', textDecoration: 'none' }}
+            >
+              Vení a conocernos →
+            </a>
+            <a 
+              href="https://wa.me/5493584029424?text=Hola!%20Quiero%20asesorarme%20sobre%20las%20opciones%20de%20unidades%200KM" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              style={{ backgroundColor: '#1F2024', border: '1px solid #333', color: '#ffffff', padding: '14px 28px', borderRadius: '10px', fontWeight: 600, fontSize: '0.94rem', textDecoration: 'none' }}
+            >
+              Hablá con nosotros
+            </a>
           </div>
         </div>
       </section>
