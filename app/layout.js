@@ -1,6 +1,3 @@
-'use client';
-
-import { useState } from 'react';
 import { Inter } from 'next/font/google';
 
 const inter = Inter({
@@ -9,72 +6,64 @@ const inter = Inter({
   display: 'swap',
 });
 
-export default function RootLayout({ children }) {
-  const [menuOpen, setMenuOpen] = useState(false);
+export const metadata = {
+  title: 'Cogno Automotores — La propuesta confiable',
+  description: 'Venta de vehículos 0km multimarca y usados seleccionados garantizados.',
+};
 
+export default function RootLayout({ children }) {
   return (
     <html lang="es" className={inter.className}>
       <head>
-        <title>Cogno Automotores — La propuesta confiable</title>
-        <meta name="description" content="Venta de vehículos 0km multimarca y usados seleccionados garantizados." />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <style>{`
           * { box-sizing: border-box; margin: 0; padding: 0; }
           body { font-family: inherit; background-color: #0B0C0E; color: #ffffff; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
           a { text-decoration: none; }
-          
-          .desktop-nav {
+
+          .nav-bar-container {
+            width: 100%;
+            max-width: 1480px;
+            margin: 0 auto;
+            padding: 16px 24px;
             display: flex;
             align-items: center;
-            gap: 32px;
-          }
-          .mobile-menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            color: #ffffff;
-            font-size: 1.8rem;
-            cursor: pointer;
-            padding: 4px;
-          }
-          .mobile-drawer {
-            display: none;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 16px;
           }
 
-          @media (max-width: 860px) {
-            .desktop-nav {
-              display: none;
-            }
-            .mobile-menu-btn {
-              display: block;
-            }
-            .mobile-drawer {
-              display: flex;
-              flex-direction: column;
-              gap: 18px;
-              background-color: #141518;
-              border-bottom: 1px solid #27272a;
-              padding: 24px;
-              width: 100%;
-            }
-            .footer-content {
-              flex-direction: column !important;
-              text-align: center !important;
-              gap: 24px !important;
-            }
-            .footer-contact {
-              text-align: center !important;
-            }
+          .nav-links-box {
+            display: flex;
+            align-items: center;
+            gap: 28px;
+            flex-wrap: wrap;
           }
 
           .nav-link {
             color: #e4e4e7;
-            font-size: 1rem;
+            font-size: 0.98rem;
             font-weight: 600;
             transition: color 0.2s ease;
           }
           .nav-link:hover {
             color: #ED1C24;
+          }
+
+          @media (max-width: 768px) {
+            .nav-bar-container {
+              justify-content: center;
+              flex-direction: column;
+              text-align: center;
+              gap: 14px;
+            }
+            .nav-links-box {
+              justify-content: center;
+              gap: 16px;
+            }
+            .nav-link {
+              font-size: 0.88rem;
+            }
           }
 
           .whatsapp-float {
@@ -98,34 +87,18 @@ export default function RootLayout({ children }) {
         
         {/* NAVBAR */}
         <header style={{ backgroundColor: '#0B0C0E', borderBottom: '1px solid #1F2024', position: 'sticky', top: 0, zIndex: 100 }}>
-          <div style={{ width: '100%', maxWidth: '1480px', margin: '0 auto', padding: '16px 24px', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+          <div className="nav-bar-container">
             <a href="/" style={{ display: 'inline-flex', alignItems: 'center' }}>
-              <img src="/logo.png.png" alt="Cogno Automotores" style={{ height: '46px', width: 'auto', objectFit: 'contain' }} />
+              <img src="/logo.png.png" alt="Cogno Automotores" style={{ height: '48px', width: 'auto', objectFit: 'contain' }} />
             </a>
 
-            {/* Desktop Nav */}
-            <nav className="desktop-nav">
+            <nav className="nav-links-box">
               <a href="/quienes-somos" className="nav-link">Quiénes somos</a>
               <a href="/" className="nav-link">Elegí tu vehículo</a>
               <a href="/0km" className="nav-link">Unidades 0Km</a>
               <a href="/usados" className="nav-link">Inventario de Usados</a>
             </nav>
-
-            {/* Mobile Hamburger Button */}
-            <button className="mobile-menu-btn" onClick={() => setMenuOpen(!menuOpen)} aria-label="Menú">
-              {menuOpen ? '✕' : '☰'}
-            </button>
           </div>
-
-          {/* Menú Desplegable Móvil */}
-          {menuOpen && (
-            <div className="mobile-drawer">
-              <a href="/quienes-somos" className="nav-link" onClick={() => setMenuOpen(false)}>Quiénes somos</a>
-              <a href="/" className="nav-link" onClick={() => setMenuOpen(false)}>Elegí tu vehículo</a>
-              <a href="/0km" className="nav-link" onClick={() => setMenuOpen(false)}>Unidades 0Km</a>
-              <a href="/usados" className="nav-link" onClick={() => setMenuOpen(false)}>Inventario de Usados</a>
-            </div>
-          )}
         </header>
 
         <main>{children}</main>
@@ -139,16 +112,16 @@ export default function RootLayout({ children }) {
 
         {/* FOOTER */}
         <footer style={{ backgroundColor: '#070709', borderTop: '1px solid #1F2024', padding: '40px 24px', marginTop: '70px' }}>
-          <div className="footer-content" style={{ maxWidth: '1480px', margin: '0 auto', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '16px', justifyContent: 'center' }}>
+          <div style={{ maxWidth: '1480px', margin: '0 auto', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '20px' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
               <img src="/logo.png.png" alt="Cogno" style={{ height: '48px', width: 'auto' }} />
-              <div style={{ textAlign: 'left' }}>
+              <div>
                 <div style={{ fontWeight: 600, fontSize: '1.05rem', color: '#ffffff' }}>COGNO AUTOMOTORES S.A.</div>
                 <div style={{ fontWeight: 300, color: '#a1a1aa', fontSize: '0.88rem' }}>La propuesta confiable — Río Cuarto, Córdoba</div>
               </div>
             </div>
 
-            <div className="footer-contact" style={{ textAlign: 'right' }}>
+            <div style={{ textAlign: 'right' }}>
               <div style={{ fontWeight: 700, fontSize: '0.8rem', letterSpacing: '1px', textTransform: 'uppercase', color: '#ffffff' }}>Contacto & Salón</div>
               <div style={{ fontWeight: 300, color: '#a1a1aa', fontSize: '0.9rem' }}>Av. Marcelo T. de Alvear 1580</div>
               <div style={{ color: '#ED1C24', fontWeight: 700, fontSize: '0.95rem' }}>+54 9 3584 02-9424</div>
