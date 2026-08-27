@@ -6,9 +6,9 @@ function CatalogoContent() {
   const [vehicles, setVehicles] = useState([]);
   const [loading, setLoading] = useState(true);
   const [search, setSearch] = useState('');
-  const [selectedBrand, setSelectedBrand] = useState('TODAS');
+  const [selectedBrands, setSelectedBrands] = useState([]); // Soporta múltiples marcas
   
-  // Rango de años para Slider
+  // Límites reales de años
   const [minAvailableYear, setMinAvailableYear] = useState(2010);
   const [maxAvailableYear, setMaxAvailableYear] = useState(new Date().getFullYear());
   const [yearRange, setYearRange] = useState([2010, new Date().getFullYear()]);
@@ -92,9 +92,19 @@ function CatalogoContent() {
     }
   };
 
-  const brands = useMemo(() => {
-    return ['TODAS', ...Array.from(new Set(vehicles.map((v) => v.brand).filter(Boolean))).sort()];
+  const allBrands = useMemo(() => {
+    return Array.from(new Set(vehicles.map((v) => v.brand).filter(Boolean))).sort();
   }, [vehicles]);
+
+  const toggleBrand = (b) => {
+    if (b === 'TODAS') {
+      setSelectedBrands([]);
+      return;
+    }
+    setSelectedBrands((prev) => 
+      prev.includes(b) ? prev.filter((item) => item !== b) : [...prev, b]
+    );
+  };
 
   // Búsqueda multi-palabra y filtros
   const filtered = useMemo(() => {
@@ -104,14 +114,18 @@ function CatalogoContent() {
       const vText = `${v.brand || ''} ${v.line || ''} ${v.version || ''} ${v.year || ''}`.toLowerCase();
       
       const matchesSearch = searchTerms.length === 0 || searchTerms.every((term) => vText.includes(term));
-      const matchBrand = selectedBrand === 'TODAS' || v.brand === selectedBrand;
+      const matchBrand = selectedBrands.length === 0 || selectedBrands.includes(v.brand);
       
       const vYear = Number(v.year);
       const matchYear = !vYear || (vYear >= yearRange[0] && vYear <= yearRange[1]);
 
       return matchesSearch && matchBrand && matchYear;
     });
-  }, [vehicles, search, selectedBrand, yearRange]);
+  }, [vehicles, search, selectedBrands, yearRange]);
+
+  // Cálculo porcentaje slider dual
+  const minPercent = ((yearRange[0] - minAvailableYear) / (maxAvailableYear - minAvailableYear || 1)) * 100;
+  const maxPercent = ((yearRange[1] - minAvailableYear) / (maxAvailableYear - minAvailableYear || 1)) * 100;
 
   return (
     <div style={{ maxWidth: '1540px', margin: '0 auto', padding: '0 24px' }}>
@@ -135,6 +149,89 @@ function CatalogoContent() {
           margin: 0 auto 45px auto;
           max-width: 1200px;
         }
+        
+        /* SLIDER DUAL EN UNA SOLA BARRA */
+        .dual-slider-wrapper {
+          position: relative;
+          height: 36px;
+          display: flex;
+          align-items: center;
+        }
+        .dual-slider-track {
+          position: absolute;
+          width: 100%;
+          height: 6px;
+          background-color: #27272a;
+          border-radius: 3px;
+          z-index: 1;
+        }
+        .dual-slider-highlight {
+          position: absolute;
+          height: 6px;
+          background-color: #ED1C24;
+          border-radius: 3px;
+          z-index: 2;
+        }
+        .dual-range-input {
+          position: absolute;
+          width: 100%;
+          background: none;
+          pointer-events: none;
+          -webkit-appearance: none;
+          appearance: none;
+          z-index: 3;
+          height: 0;
+          margin: 0;
+        }
+        .dual-range-input::-webkit-slider-thumb {
+          height: 20px;
+          width: 20px;
+          border-radius: 50%;
+          background: #ffffff;
+          border: 3px solid #ED1C24;
+          cursor: pointer;
+          pointer-events: auto;
+          -webkit-appearance: none;
+          box-shadow: 0 2px 6px rgba(0,0,0,0.5);
+          transition: transform 0.15s ease;
+        }
+        .dual-range-input::-webkit-slider-thumb:hover {
+          transform: scale(1.15);
+        }
+        .dual-range-input::-moz-range-thumb {
+          height: 20px;
+          width: 20px;
+          border-radius: 50%;
+          background: #ffffff;
+          border: 3px solid #ED1C24;
+          cursor: pointer;
+          pointer-events: auto;
+          box-shadow: 0 2px 6px rgba(0,0,0,0.5);
+        }
+
+        /* CHIPS MULTI-MARCA */
+        .brand-chip {
+          padding: 7px 14px;
+          border-radius: 8px;
+          font-size: 0.82rem;
+          font-weight: 600;
+          cursor: pointer;
+          border: 1px solid #27272a;
+          background-color: #0B0C0E;
+          color: #a1a1aa;
+          transition: all 0.2s ease;
+          user-select: none;
+        }
+        .brand-chip.active {
+          background-color: rgba(237, 28, 36, 0.15);
+          border-color: #ED1C24;
+          color: #ffffff;
+        }
+        .brand-chip:hover {
+          border-color: #ED1C24;
+        }
+
+        /* GRILLA Y TARJETAS */
         .usados-grid {
           display: grid;
           grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
@@ -170,6 +267,16 @@ function CatalogoContent() {
         .card-usado:hover .card-usado-img-box img {
           transform: scale(1.06);
         }
+
+        /* MODAL SIN SCROLLBAR VISIBLE */
+        .modal-box-inner {
+          scrollbar-width: none; /* Firefox */
+          -ms-overflow-style: none; /* IE/Edge */
+        }
+        .modal-box-inner::-webkit-scrollbar {
+          display: none; /* Chrome, Safari, Edge */
+        }
+
         .gallery-arrow-btn {
           position: absolute;
           top: 50%;
@@ -286,7 +393,7 @@ function CatalogoContent() {
         </div>
 
         <p className="hero-desc-usados" style={{ color: '#F4F4F5', fontSize: '1.15rem', maxWidth: '880px', margin: '0 auto 12px auto', lineHeight: 1.7, fontWeight: 400 }}>
-          Explorá nuestro catálogo de unidades seleccionadas con historial verificado y entrega con documentación lista para transferir.
+          Explorá nuestro catálogo de unidades seleccionadas con historial verificado y entrega con documentación lista para salir a la calle.
         </p>
 
         <p style={{ color: '#d4d4d8', fontSize: '1rem', margin: '0 auto 28px auto', fontWeight: 400 }}>
@@ -294,85 +401,101 @@ function CatalogoContent() {
         </p>
       </section>
 
-      {/* 2. BUSCADOR MULTI-PALABRA Y FILTROS */}
+      {/* 2. BUSCADOR MULTI-PALABRA, CHIPS MULTI-MARCA Y SLIDER DUAL */}
       <div className="filter-container">
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '18px' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
           
           {/* Input Buscador */}
           <input
             type="text"
-            placeholder="🔍 Buscá por marca, modelo o versión (ej: Toyota Hilux SRV, Amarok V6, Cruze)..."
+            placeholder="🔍 Buscá por marca, modelo o versión (ej: Chevrolet Cruze, Amarok V6, Hilux)..."
             value={search}
             onChange={(e) => setSearch(e.target.value)}
             style={{ width: '100%', boxSizing: 'border-box', padding: '15px 20px', backgroundColor: '#0B0C0E', border: '1px solid #27272a', borderRadius: '12px', color: '#ffffff', fontSize: '1rem', outline: 'none' }}
           />
 
-          {/* Fila de Filtros: Marca y Rango de Años */}
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '20px', alignItems: 'center' }}>
-            
-            {/* Selector de Marca */}
-            <div>
-              <label style={{ display: 'block', fontSize: '0.78rem', color: '#a1a1aa', fontWeight: 600, letterSpacing: '0.5px', textTransform: 'uppercase', marginBottom: '6px' }}>
-                MARCA
-              </label>
-              <select 
-                value={selectedBrand} 
-                onChange={(e) => setSelectedBrand(e.target.value)} 
-                style={{ width: '100%', padding: '12px 16px', backgroundColor: '#0B0C0E', border: '1px solid #27272a', borderRadius: '10px', color: '#ffffff', fontSize: '0.92rem', outline: 'none', cursor: 'pointer' }}
+          {/* Filtro Multi-Marca (Chips) */}
+          <div>
+            <div style={{ fontSize: '0.78rem', color: '#a1a1aa', fontWeight: 600, letterSpacing: '0.5px', textTransform: 'uppercase', marginBottom: '10px' }}>
+              FILTRAR POR MARCAS (SELECCIÓN MÚLTIPLE):
+            </div>
+            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
+              <button
+                type="button"
+                onClick={() => toggleBrand('TODAS')}
+                className={`brand-chip ${selectedBrands.length === 0 ? 'active' : ''}`}
               >
-                {brands.map((b) => (
-                  <option key={b} value={b}>{b === 'TODAS' ? 'TODAS LAS MARCAS' : b}</option>
-                ))}
-              </select>
+                TODAS
+              </button>
+              {allBrands.map((b) => {
+                const isActive = selectedBrands.includes(b);
+                return (
+                  <button
+                    key={b}
+                    type="button"
+                    onClick={() => toggleBrand(b)}
+                    className={`brand-chip ${isActive ? 'active' : ''}`}
+                  >
+                    {b} {isActive ? '✓' : ''}
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+
+          {/* Slider Dual en una sola barra */}
+          <div style={{ borderTop: '1px solid #1f2024', paddingTop: '16px' }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '6px' }}>
+              <span style={{ fontSize: '0.78rem', color: '#a1a1aa', fontWeight: 600, letterSpacing: '0.5px', textTransform: 'uppercase' }}>
+                AÑO / MODELO
+              </span>
+              <span style={{ fontSize: '0.92rem', color: '#ED1C24', fontWeight: 700 }}>
+                {yearRange[0]} — {yearRange[1]}
+              </span>
             </div>
 
-            {/* Slider de Rango de Años */}
-            <div>
-              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px' }}>
-                <label style={{ fontSize: '0.78rem', color: '#a1a1aa', fontWeight: 600, letterSpacing: '0.5px', textTransform: 'uppercase' }}>
-                  AÑO / MODELO
-                </label>
-                <span style={{ fontSize: '0.88rem', color: '#ED1C24', fontWeight: 700 }}>
-                  {yearRange[0]} — {yearRange[1]}
-                </span>
-              </div>
-
-              <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-                <input
-                  type="range"
-                  min={minAvailableYear}
-                  max={maxAvailableYear}
-                  value={yearRange[0]}
-                  onChange={(e) => {
-                    const val = Number(e.target.value);
-                    setYearRange([Math.min(val, yearRange[1]), yearRange[1]]);
-                  }}
-                  style={{ width: '100%', accentColor: '#ED1C24', cursor: 'pointer' }}
-                />
-                <input
-                  type="range"
-                  min={minAvailableYear}
-                  max={maxAvailableYear}
-                  value={yearRange[1]}
-                  onChange={(e) => {
-                    const val = Number(e.target.value);
-                    setYearRange([yearRange[0], Math.max(val, yearRange[0])]);
-                  }}
-                  style={{ width: '100%', accentColor: '#ED1C24', cursor: 'pointer' }}
-                />
-              </div>
+            <div className="dual-slider-wrapper">
+              <div className="dual-slider-track"></div>
+              <div 
+                className="dual-slider-highlight"
+                style={{
+                  left: `${minPercent}%`,
+                  width: `${Math.max(0, maxPercent - minPercent)}%`
+                }}
+              ></div>
+              <input
+                type="range"
+                min={minAvailableYear}
+                max={maxAvailableYear}
+                value={yearRange[0]}
+                onChange={(e) => {
+                  const val = Number(e.target.value);
+                  setYearRange([Math.min(val, yearRange[1]), yearRange[1]]);
+                }}
+                className="dual-range-input"
+              />
+              <input
+                type="range"
+                min={minAvailableYear}
+                max={maxAvailableYear}
+                value={yearRange[1]}
+                onChange={(e) => {
+                  const val = Number(e.target.value);
+                  setYearRange([yearRange[0], Math.max(val, yearRange[0])]);
+                }}
+                className="dual-range-input"
+              />
             </div>
-
           </div>
 
           {/* Contador de resultados */}
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderTop: '1px solid #1f2024', paddingTop: '12px', fontSize: '0.85rem', color: '#a1a1aa' }}>
             <span>Mostrando <strong style={{ color: '#ffffff' }}>{filtered.length}</strong> {filtered.length === 1 ? 'unidad' : 'unidades disponibles'}</span>
-            {(search || selectedBrand !== 'TODAS' || yearRange[0] !== minAvailableYear || yearRange[1] !== maxAvailableYear) && (
+            {(search || selectedBrands.length > 0 || yearRange[0] !== minAvailableYear || yearRange[1] !== maxAvailableYear) && (
               <button
                 onClick={() => {
                   setSearch('');
-                  setSelectedBrand('TODAS');
+                  setSelectedBrands([]);
                   setYearRange([minAvailableYear, maxAvailableYear]);
                 }}
                 style={{ background: 'transparent', border: 'none', color: '#ED1C24', fontWeight: 600, cursor: 'pointer', fontSize: '0.82rem' }}
@@ -397,7 +520,7 @@ function CatalogoContent() {
           <button
             onClick={() => {
               setSearch('');
-              setSelectedBrand('TODAS');
+              setSelectedBrands([]);
               setYearRange([minAvailableYear, maxAvailableYear]);
             }}
             style={{ backgroundColor: '#ED1C24', color: '#ffffff', border: 'none', padding: '10px 22px', borderRadius: '8px', fontWeight: 700, cursor: 'pointer' }}
@@ -429,7 +552,7 @@ function CatalogoContent() {
                     <span className="card-usado-brand" style={{ fontSize: '0.76rem', fontWeight: 700, color: '#ED1C24', letterSpacing: '1px', textTransform: 'uppercase', display: 'block', marginBottom: '4px' }}>
                       {v.brand}
                     </span>
-                    <h3 className="card-usado-line" style={{ fontSize: '1.3rem', fontWeight: 700, margin: '0 0 6px 0', textTransform: 'uppercase', color: '#ffffff' }}>
+                    <h3 className="card-usado-line" style={{ fontSize: '1.3rem', fontWeight: 600, margin: '0 0 6px 0', textTransform: 'uppercase', color: '#ffffff', letterSpacing: '-0.3px' }}>
                       {v.line}
                     </h3>
                     <p className="card-usado-version" style={{ color: '#a1a1aa', fontSize: '0.9rem', margin: '0 0 16px 0', lineHeight: 1.45, fontWeight: 300, minHeight: '38px' }}>
@@ -437,8 +560,8 @@ function CatalogoContent() {
                     </p>
 
                     <div className="card-usado-specs" style={{ borderTop: '1px solid #27272a', paddingTop: '12px', marginBottom: '18px', display: 'flex', justifyContent: 'space-between', fontSize: '0.88rem', color: '#E4E4E7' }}>
-                      <div><strong style={{ color: '#71717a', fontWeight: 500 }}>Año:</strong> {v.year || '—'}</div>
-                      <div><strong style={{ color: '#71717a', fontWeight: 500 }}>KM:</strong> {v.km ? `${Number(v.km).toLocaleString('es-AR')} km` : 'Consultar'}</div>
+                      <div><strong style={{ color: '#71717a', fontWeight: 400 }}>Año:</strong> {v.year || '—'}</div>
+                      <div><strong style={{ color: '#71717a', fontWeight: 400 }}>KM:</strong> {v.km ? `${Number(v.km).toLocaleString('es-AR')} km` : 'Consultar'}</div>
                     </div>
                   </div>
 
@@ -456,7 +579,7 @@ function CatalogoContent() {
         </div>
       )}
 
-      {/* 4. MODAL DETALLE IDÉNTICO A SOFTR */}
+      {/* 4. MODAL DETALLE IDÉNTICO A SOFTR (SIN SCROLLBAR DERECHA) */}
       {selectedVehicle && (
         <div 
           onClick={closeModal}
@@ -477,7 +600,7 @@ function CatalogoContent() {
             </button>
 
             {/* Logo Centrado Arriba */}
-            <div style={{ textAlign: 'center', marginBottom: '16px' }}>
+            <div style={{ textAlign: 'center', marginBottom: '14px' }}>
               <img 
                 src="/logo.png.png" 
                 alt="Cogno Automotores" 
@@ -485,21 +608,26 @@ function CatalogoContent() {
               />
             </div>
 
+            {/* Título Institucional Softr */}
+            <h1 style={{ textAlign: 'center', fontSize: '1.9rem', fontWeight: 600, color: '#ffffff', margin: '0 0 14px 0', letterSpacing: '-0.3px' }}>
+              Tu próximo vehículo lo encontrás acá
+            </h1>
+
             {/* Badge de Garantía */}
-            <div style={{ textAlign: 'center', marginBottom: '16px' }}>
+            <div style={{ textAlign: 'center', marginBottom: '22px' }}>
               <span style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', backgroundColor: 'rgba(237, 28, 36, 0.12)', border: '1px solid rgba(237, 28, 36, 0.35)', color: '#ED1C24', padding: '6px 16px', borderRadius: '30px', fontSize: '0.75rem', fontWeight: 700, letterSpacing: '0.6px', textTransform: 'uppercase' }}>
                 <span>🛡️</span>
                 <span>TODOS NUESTROS USADOS CUENTAN CON 6 MESES DE GARANTÍA TOTAL</span>
               </span>
             </div>
 
-            {/* Título Principal */}
-            <div style={{ marginBottom: '22px' }}>
-              <h2 className="modal-title-text" style={{ fontSize: '1.85rem', fontWeight: 800, margin: '0 0 6px 0', textTransform: 'uppercase', color: '#ffffff', letterSpacing: '-0.3px', lineHeight: 1.2 }}>
+            {/* Título Principal del Auto */}
+            <div style={{ marginBottom: '20px' }}>
+              <h2 className="modal-title-text" style={{ fontSize: '1.8rem', fontWeight: 700, margin: '0 0 4px 0', textTransform: 'uppercase', color: '#ffffff', letterSpacing: '-0.3px', lineHeight: 1.2 }}>
                 {selectedVehicle.brand} {selectedVehicle.line} {selectedVehicle.version || ''}
               </h2>
               {selectedVehicle.version && (
-                <p style={{ color: '#a1a1aa', fontSize: '0.95rem', margin: 0, fontWeight: 400 }}>
+                <p style={{ color: '#a1a1aa', fontSize: '0.92rem', margin: 0, fontWeight: 400 }}>
                   {selectedVehicle.version}
                 </p>
               )}
@@ -515,7 +643,6 @@ function CatalogoContent() {
                     style={{ width: '100%', height: '100%', objectFit: 'contain' }} 
                   />
 
-                  {/* Flechas de navegación */}
                   {selectedVehicle.photos.length > 1 && (
                     <>
                       <button onClick={prevPhoto} className="gallery-arrow-btn" style={{ left: '14px' }} aria-label="Foto anterior">
@@ -528,7 +655,6 @@ function CatalogoContent() {
                   )}
                 </div>
 
-                {/* Miniaturas inferiores */}
                 {selectedVehicle.photos.length > 1 && (
                   <div style={{ display: 'flex', gap: '10px', overflowX: 'auto', padding: '12px 0 4px 0' }}>
                     {selectedVehicle.photos.map((p, idx) => (
@@ -545,55 +671,89 @@ function CatalogoContent() {
               </div>
             )}
 
-            {/* Ficha Técnica Estilizada Softr */}
-            <div style={{ backgroundColor: '#0B0C0E', border: '1px solid #27272a', borderRadius: '16px', padding: '18px 22px', marginBottom: '26px' }}>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+            {/* Ficha Técnica Estilo Softr con Íconos Limpios y Valores a la Derecha */}
+            <div style={{ backgroundColor: '#0B0C0E', border: '1px solid #27272a', borderRadius: '16px', padding: '20px 22px', marginBottom: '26px' }}>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
                 
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderBottom: '1px solid #191a1d', paddingBottom: '10px' }}>
-                  <span style={{ color: '#a1a1aa', fontSize: '0.92rem', display: 'flex', alignItems: 'center', gap: '8px' }}>
-                    🏷️ Marca
-                  </span>
-                  <strong style={{ color: '#ffffff', fontSize: '0.98rem', textTransform: 'uppercase' }}>{selectedVehicle.brand}</strong>
+                {/* Marca */}
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderBottom: '1px solid #191a1d', paddingBottom: '12px' }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '10px', color: '#a1a1aa', fontSize: '0.92rem' }}>
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                    </svg>
+                    <span>Marca</span>
+                  </div>
+                  <strong style={{ color: '#ffffff', fontSize: '0.96rem', textTransform: 'uppercase', textAlign: 'right' }}>
+                    {selectedVehicle.brand}
+                  </strong>
                 </div>
 
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderBottom: '1px solid #191a1d', paddingBottom: '10px' }}>
-                  <span style={{ color: '#a1a1aa', fontSize: '0.92rem', display: 'flex', alignItems: 'center', gap: '8px' }}>
-                    🚘 Línea
-                  </span>
-                  <strong style={{ color: '#ffffff', fontSize: '0.98rem', textTransform: 'uppercase' }}>{selectedVehicle.line}</strong>
+                {/* Línea */}
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderBottom: '1px solid #191a1d', paddingBottom: '12px' }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '10px', color: '#a1a1aa', fontSize: '0.92rem' }}>
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <rect x="2" y="7" width="20" height="14" rx="2" ry="2"/>
+                      <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>
+                    </svg>
+                    <span>Línea</span>
+                  </div>
+                  <strong style={{ color: '#ffffff', fontSize: '0.96rem', textTransform: 'uppercase', textAlign: 'right' }}>
+                    {selectedVehicle.line}
+                  </strong>
                 </div>
 
+                {/* Versión */}
                 {selectedVehicle.version && (
-                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderBottom: '1px solid #191a1d', paddingBottom: '10px' }}>
-                    <span style={{ color: '#a1a1aa', fontSize: '0.92rem', display: 'flex', alignItems: 'center', gap: '8px' }}>
-                      ⚡ Versión
-                    </span>
-                    <strong style={{ color: '#ffffff', fontSize: '0.95rem' }}>{selectedVehicle.version}</strong>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderBottom: '1px solid #191a1d', paddingBottom: '12px' }}>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '10px', color: '#a1a1aa', fontSize: '0.92rem' }}>
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+                      </svg>
+                      <span>Versión</span>
+                    </div>
+                    <strong style={{ color: '#ffffff', fontSize: '0.96rem', textAlign: 'right' }}>
+                      {selectedVehicle.version}
+                    </strong>
                   </div>
                 )}
 
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderBottom: '1px solid #191a1d', paddingBottom: '10px' }}>
-                  <span style={{ color: '#a1a1aa', fontSize: '0.92rem', display: 'flex', alignItems: 'center', gap: '8px' }}>
-                    📅 Modelo / Año
-                  </span>
-                  <strong style={{ color: '#ffffff', fontSize: '0.98rem' }}>{selectedVehicle.year || '—'}</strong>
+                {/* Modelo / Año */}
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderBottom: '1px solid #191a1d', paddingBottom: '12px' }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '10px', color: '#a1a1aa', fontSize: '0.92rem' }}>
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                      <line x1="16" y1="2" x2="16" y2="6"/>
+                      <line x1="8" y1="2" x2="8" y2="6"/>
+                      <line x1="3" y1="10" x2="21" y2="10"/>
+                    </svg>
+                    <span>Modelo / Año</span>
+                  </div>
+                  <strong style={{ color: '#ffffff', fontSize: '0.96rem', textAlign: 'right' }}>
+                    {selectedVehicle.year || '—'}
+                  </strong>
                 </div>
 
+                {/* Kilometraje */}
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                  <span style={{ color: '#a1a1aa', fontSize: '0.92rem', display: 'flex', alignItems: 'center', gap: '8px' }}>
-                    ⏱️ Kilometraje
-                  </span>
-                  <strong style={{ color: '#ffffff', fontSize: '0.98rem' }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '10px', color: '#a1a1aa', fontSize: '0.92rem' }}>
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <circle cx="12" cy="12" r="10"/>
+                      <polyline points="12 6 12 12 16 14"/>
+                    </svg>
+                    <span>Kilometraje</span>
+                  </div>
+                  <strong style={{ color: '#ffffff', fontSize: '0.96rem', textAlign: 'right' }}>
                     {selectedVehicle.km ? `${Number(selectedVehicle.km).toLocaleString('es-AR')} km` : 'Consultar'}
                   </strong>
                 </div>
 
+                {/* Equipamiento */}
                 {selectedVehicle.equipment && (
-                  <div style={{ borderTop: '1px solid #191a1d', paddingTop: '12px', marginTop: '4px' }}>
-                    <span style={{ color: '#a1a1aa', fontSize: '0.85rem', fontWeight: 600, display: 'block', marginBottom: '4px' }}>
+                  <div style={{ borderTop: '1px solid #191a1d', paddingTop: '14px', marginTop: '4px' }}>
+                    <span style={{ color: '#a1a1aa', fontSize: '0.85rem', fontWeight: 600, display: 'block', marginBottom: '6px' }}>
                       Equipamiento destacado:
                     </span>
-                    <span style={{ color: '#E4E4E7', fontSize: '0.9rem', lineHeight: 1.5 }}>
+                    <span style={{ color: '#E4E4E7', fontSize: '0.9rem', lineHeight: 1.6 }}>
                       {selectedVehicle.equipment}
                     </span>
                   </div>
@@ -602,7 +762,7 @@ function CatalogoContent() {
               </div>
             </div>
 
-            {/* Botón WhatsApp de Acción Directa */}
+            {/* Botón de WhatsApp Directo */}
             <a
               href={`https://wa.me/5493584029424?text=${encodeURIComponent(`Hola! Quiero consultar por el ${selectedVehicle.brand} ${selectedVehicle.line} ${selectedVehicle.version || ''} (${selectedVehicle.year || ''})`)}`}
               target="_blank"
