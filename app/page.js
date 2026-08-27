@@ -426,16 +426,13 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 3. IDENTIDAD */}
-<h2 className="section-title" style={{ fontSize: '2.3rem', fontWeight: 600, margin: '6px 0 0 0' }}>
-  El valor de una trayectoria real
-</h2>
+   {/* 3. IDENTIDAD */}
       <section style={{ maxWidth: '1540px', margin: '75px auto 0 auto', padding: '0 24px' }}>
         <div style={{ textAlign: 'center', marginBottom: '36px' }}>
           <span style={{ fontSize: '0.85rem', fontWeight: 700, color: '#ED1C24', letterSpacing: '2px', textTransform: 'uppercase' }}>
             RESPALDO Y CONFIANZA
           </span>
-          <h2 style={{ fontSize: '1.85rem', fontWeight: 600, margin: '6px 0 0 0' }}>
+          <h2 className="section-title" style={{ fontSize: '2.3rem', fontWeight: 600, margin: '6px 0 0 0' }}>
             El valor de una trayectoria real
           </h2>
         </div>
@@ -516,14 +513,15 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 6. RESEÑAS (ANCHO PANORÁMICO) */}
-<h2 className="section-title" style={{ fontSize: '2.2rem', fontWeight: 600, margin: '6px 0 0 0' }}>
-  Opiniones de clientes
-</h2>
+{/* 6. RESEÑAS */}
       <section style={{ maxWidth: '1540px', margin: '75px auto 0 auto', padding: '0 24px' }}>
         <div style={{ textAlign: 'center', marginBottom: '28px' }}>
-          <span style={{ fontSize: '0.85rem', fontWeight: 700, color: '#ED1C24', letterSpacing: '2px', textTransform: 'uppercase' }}>TESTIMONIOS REALES</span>
-          <h2 style={{ fontSize: '1.85rem', fontWeight: 600, margin: '6px 0 0 0' }}>Opiniones de clientes</h2>
+          <span style={{ fontSize: '0.85rem', fontWeight: 700, color: '#ED1C24', letterSpacing: '2px', textTransform: 'uppercase' }}>
+            TESTIMONIOS REALES
+          </span>
+          <h2 className="section-title" style={{ fontSize: '2.2rem', fontWeight: 600, margin: '6px 0 0 0' }}>
+            Opiniones de clientes
+          </h2>
 
           <div style={{ display: 'flex', justifyContent: 'center', gap: '10px', marginTop: '16px' }}>
             <button onClick={() => scroll('left')} className="scroll-btn" aria-label="Anterior">←</button>
