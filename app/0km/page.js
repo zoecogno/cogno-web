@@ -320,7 +320,7 @@ export default function CeroKm() {
       {/* 3. CATÁLOGO DE MARCAS 0KM */}
       <section style={{ maxWidth: '1540px', margin: '0 auto', padding: '0 24px' }}>
         <div className="cars-grid-0km">
-          {BRANDS_DATA.map((item, idx) => (
+         {BRANDS_DATA.map((item, idx) => (
             <a
               key={idx}
               href={`https://wa.me/5493584029424?text=Hola!%20Quiero%20consultar%20por%20un%200km%20${encodeURIComponent(item.brand)}`}
@@ -329,6 +329,9 @@ export default function CeroKm() {
               className="car-card-0km"
             >
               <div className="car-img-box">
+                <span className="badge-gama-completa" style={{ position: 'absolute', top: '12px', right: '12px', margin: 0, zIndex: 2 }}>
+                  GAMA COMPLETA
+                </span>
                 <img 
                   src={item.image} 
                   alt={`${item.brand} 0km`} 
@@ -336,19 +339,14 @@ export default function CeroKm() {
                 />
               </div>
 
-              <div className="car-body-0km">
-                <div>
-                  <div className="badge-gama-completa">
-                    GAMA COMPLETA
-                  </div>
-                  <h3 className="car-title-brand" style={{ fontSize: '1.4rem', fontWeight: 700, margin: '0 0 16px 0', color: '#ffffff', letterSpacing: '0.5px' }}>
-                    {item.brand}
-                  </h3>
-                </div>
+              <div className="car-body-0km" style={{ padding: '16px 20px', textAlign: 'center' }}>
+                <h3 className="car-title-brand" style={{ fontSize: '1.35rem', fontWeight: 700, margin: '0 0 12px 0', color: '#ffffff', letterSpacing: '0.5px' }}>
+                  {item.brand}
+                </h3>
 
                 <div 
                   className="car-btn-text" 
-                  style={{ backgroundColor: 'rgba(237, 28, 36, 0.12)', border: '1px solid rgba(237, 28, 36, 0.35)', color: '#ffffff', textAlign: 'center', padding: '11px 14px', borderRadius: '10px', fontWeight: 600, fontSize: '0.9rem' }}
+                  style={{ backgroundColor: 'rgba(237, 28, 36, 0.12)', border: '1px solid rgba(237, 28, 36, 0.35)', color: '#ffffff', textAlign: 'center', padding: '10px 14px', borderRadius: '10px', fontWeight: 600, fontSize: '0.88rem' }}
                 >
                   Consultar {item.brand} →
                 </div>
@@ -367,21 +365,23 @@ export default function CeroKm() {
 
         <div className="benefits-grid">
           
-          <div className="benefit-card">
-            <div style={{ width: '46px', height: '46px', borderRadius: '12px', backgroundColor: 'rgba(237, 28, 36, 0.12)', border: '1px solid rgba(237, 28, 36, 0.3)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#ED1C24', marginBottom: '18px' }}>
+          <div className="benefit-card" style={{ display: 'flex', gap: '18px', alignItems: 'flex-start' }}>
+            <div style={{ width: '46px', height: '46px', borderRadius: '12px', backgroundColor: 'rgba(237, 28, 36, 0.12)', border: '1px solid rgba(237, 28, 36, 0.3)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#ED1C24', flexShrink: 0 }}>
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <rect x="2" y="7" width="20" height="14" rx="2" ry="2" />
                 <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
               </svg>
             </div>
-            <h3 style={{ fontSize: '1.25rem', fontWeight: 600, margin: '0 0 8px 0', color: '#ffffff' }}>Financiación a medida</h3>
-            <p style={{ fontSize: '1rem', color: '#E4E4E7', lineHeight: 1.6, margin: 0, fontWeight: 400 }}>
-              Accedé a créditos prendarios y opciones en cuotas fijas en pesos adaptadas a tu presupuesto.
-            </p>
+            <div>
+              <h3 style={{ fontSize: '1.2rem', fontWeight: 600, margin: '0 0 6px 0', color: '#ffffff' }}>Financiación a medida</h3>
+              <p style={{ fontSize: '0.98rem', color: '#E4E4E7', lineHeight: 1.6, margin: 0, fontWeight: 400 }}>
+                Accedé a créditos prendarios y opciones en cuotas fijas en pesos adaptadas a tu presupuesto.
+              </p>
+            </div>
           </div>
 
-          <div className="benefit-card">
-            <div style={{ width: '46px', height: '46px', borderRadius: '12px', backgroundColor: 'rgba(237, 28, 36, 0.12)', border: '1px solid rgba(237, 28, 36, 0.3)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#ED1C24', marginBottom: '18px' }}>
+          <div className="benefit-card" style={{ display: 'flex', gap: '18px', alignItems: 'flex-start' }}>
+            <div style={{ width: '46px', height: '46px', borderRadius: '12px', backgroundColor: 'rgba(237, 28, 36, 0.12)', border: '1px solid rgba(237, 28, 36, 0.3)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#ED1C24', flexShrink: 0 }}>
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M16 3h5v5" />
                 <path d="M4 20L21 3" />
@@ -390,14 +390,16 @@ export default function CeroKm() {
                 <path d="M4 4l5 5" />
               </svg>
             </div>
-            <h3 style={{ fontSize: '1.25rem', fontWeight: 600, margin: '0 0 8px 0', color: '#ffffff' }}>Toma de usado</h3>
-            <p style={{ fontSize: '1rem', color: '#E4E4E7', lineHeight: 1.6, margin: 0, fontWeight: 400 }}>
-              Recibimos tu unidad usada como parte de pago con cotización transparente.
-            </p>
+            <div>
+              <h3 style={{ fontSize: '1.2rem', fontWeight: 600, margin: '0 0 6px 0', color: '#ffffff' }}>Toma de usado</h3>
+              <p style={{ fontSize: '0.98rem', color: '#E4E4E7', lineHeight: 1.6, margin: 0, fontWeight: 400 }}>
+                Recibimos tu unidad usada como parte de pago con cotización transparente.
+              </p>
+            </div>
           </div>
 
-          <div className="benefit-card">
-            <div style={{ width: '46px', height: '46px', borderRadius: '12px', backgroundColor: 'rgba(237, 28, 36, 0.12)', border: '1px solid rgba(237, 28, 36, 0.3)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#ED1C24', marginBottom: '18px' }}>
+          <div className="benefit-card" style={{ display: 'flex', gap: '18px', alignItems: 'flex-start' }}>
+            <div style={{ width: '46px', height: '46px', borderRadius: '12px', backgroundColor: 'rgba(237, 28, 36, 0.12)', border: '1px solid rgba(237, 28, 36, 0.3)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#ED1C24', flexShrink: 0 }}>
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
                 <polyline points="14 2 14 8 20 8" />
@@ -406,10 +408,12 @@ export default function CeroKm() {
                 <polyline points="10 9 9 9 8 9" />
               </svg>
             </div>
-            <h3 style={{ fontSize: '1.25rem', fontWeight: 600, margin: '0 0 8px 0', color: '#ffffff' }}>Gestoría propia</h3>
-            <p style={{ fontSize: '1rem', color: '#E4E4E7', lineHeight: 1.6, margin: 0, fontWeight: 400 }}>
-              Resolvemos toda la documentación y patentamiento sin demoras para que solo te preocupes por retirar la unidad.
-            </p>
+            <div>
+              <h3 style={{ fontSize: '1.2rem', fontWeight: 600, margin: '0 0 6px 0', color: '#ffffff' }}>Gestoría propia</h3>
+              <p style={{ fontSize: '0.98rem', color: '#E4E4E7', lineHeight: 1.6, margin: 0, fontWeight: 400 }}>
+                Resolvemos toda la documentación y patentamiento sin demoras para que solo te preocupes por retirar la unidad.
+              </p>
+            </div>
           </div>
 
         </div>
