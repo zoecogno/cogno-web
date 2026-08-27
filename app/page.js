@@ -224,11 +224,11 @@ export default function Home() {
           align-items: center;
         }
 
-        /* --- CELULARES (ADAPTACIÓN COMPACTA) --- */
+    /* --- CELULARES (ADAPTACIÓN COMPACTA) --- */
         @media (max-width: 768px) {
-        .section-title {
-  font-size: 1.35rem !important;
-}
+          .section-title {
+            font-size: 1.35rem !important;
+          }
           .hero-title {
             font-size: 1.85rem !important;
             line-height: 1.25 !important;
