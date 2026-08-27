@@ -13,7 +13,8 @@ const BRANDS_DATA = [
   },
   {
     brand: 'FORD',
-    image: '/RANGER LTD+ ATRÁS 0KM FORD.jpg',
+    image: '/ford-ranger-0km.jpg',
+    fallbackImage: '/RANGER LTD+ ATRÁS 0KM FORD.jpg',
     desc: 'Potencia pura, equipamiento de seguridad de última generación y toda la versatilidad de la Raza Fuerte.',
   },
   {
@@ -130,7 +131,7 @@ export default function CeroKm() {
           100% { transform: translateX(-50%); }
         }
 
-        /* HERO & GRILLA SOFTR STYLE */
+        /* HERO & GRILLA */
         .hero-title-0km {
           font-size: 3.2rem;
           font-weight: 600;
@@ -243,7 +244,7 @@ export default function CeroKm() {
           border-color: #ED1C24;
         }
 
-        /* CELULARES (ADAPTACIÓN COMPACTA Y SIN TEXTO ROTO) */
+        /* CELULARES (ADAPTACIÓN COMPACTA) */
         @media (max-width: 1100px) {
           .cars-grid-0km {
             grid-template-columns: repeat(2, 1fr) !important;
@@ -304,14 +305,39 @@ export default function CeroKm() {
           .btn-text-mobile { display: inline !important; }
           .btn-text-desktop { display: none !important; }
 
+          /* BENEFICIOS ULTRA COMPACTOS EN CELULAR */
+          .benefits-title {
+            font-size: 1.45rem !important;
+            margin-top: 4px !important;
+          }
           .benefits-grid {
             grid-template-columns: 1fr !important;
-            gap: 12px !important;
+            gap: 10px !important;
           }
           .benefit-card {
-            padding: 22px 18px !important;
-            border-radius: 16px !important;
+            padding: 14px 16px !important;
+            border-radius: 14px !important;
+            gap: 12px !important;
           }
+          .benefit-icon-box {
+            width: 38px !important;
+            height: 38px !important;
+            border-radius: 10px !important;
+          }
+          .benefit-icon-box svg {
+            width: 18px !important;
+            height: 18px !important;
+          }
+          .benefit-card-title {
+            font-size: 1.05rem !important;
+            margin-bottom: 3px !important;
+          }
+          .benefit-card-desc {
+            font-size: 0.85rem !important;
+            line-height: 1.45 !important;
+          }
+
+          /* BANNER CIERRE COMPACTO */
           .banner-cierre-box {
             padding: 28px 18px !important;
             border-radius: 18px !important;
@@ -389,7 +415,13 @@ export default function CeroKm() {
                 <img 
                   src={encodeURI(item.image)} 
                   alt={`${item.brand} 0km`} 
-                  onError={(e) => { e.currentTarget.src = '/cero-km.png'; }}
+                  onError={(e) => { 
+                    if (item.fallbackImage) {
+                      e.currentTarget.src = encodeURI(item.fallbackImage);
+                    } else {
+                      e.currentTarget.src = '/cero-km.png';
+                    }
+                  }}
                 />
               </div>
 
@@ -420,30 +452,30 @@ export default function CeroKm() {
 
       {/* 4. BENEFICIOS */}
       <section style={{ maxWidth: '1540px', margin: '80px auto 0 auto', padding: '0 24px' }}>
-        <div style={{ textAlign: 'center', marginBottom: '36px' }}>
+        <div style={{ textAlign: 'center', marginBottom: '32px' }}>
           <span style={{ fontSize: '0.88rem', fontWeight: 700, color: '#ED1C24', letterSpacing: '2px', textTransform: 'uppercase' }}>VENTAJAS EXCLUSIVAS</span>
-          <h2 style={{ fontSize: '2.2rem', fontWeight: 600, margin: '6px 0 0 0' }}>¿Por qué elegirnos para tu proximo 0KM ?</h2>
+          <h2 className="benefits-title" style={{ fontSize: '2.2rem', fontWeight: 600, margin: '6px 0 0 0' }}>¿Por qué elegirnos para tu proximo 0KM ?</h2>
         </div>
 
         <div className="benefits-grid">
           
           <div className="benefit-card" style={{ display: 'flex', gap: '18px', alignItems: 'flex-start' }}>
-            <div style={{ width: '46px', height: '46px', borderRadius: '12px', backgroundColor: 'rgba(237, 28, 36, 0.12)', border: '1px solid rgba(237, 28, 36, 0.3)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#ED1C24', flexShrink: 0 }}>
+            <div className="benefit-icon-box" style={{ width: '46px', height: '46px', borderRadius: '12px', backgroundColor: 'rgba(237, 28, 36, 0.12)', border: '1px solid rgba(237, 28, 36, 0.3)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#ED1C24', flexShrink: 0 }}>
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <rect x="2" y="7" width="20" height="14" rx="2" ry="2" />
                 <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
               </svg>
             </div>
             <div>
-              <h3 style={{ fontSize: '1.2rem', fontWeight: 600, margin: '0 0 6px 0', color: '#ffffff' }}>Financiación a medida</h3>
-              <p style={{ fontSize: '0.98rem', color: '#E4E4E7', lineHeight: 1.6, margin: 0, fontWeight: 400 }}>
+              <h3 className="benefit-card-title" style={{ fontSize: '1.2rem', fontWeight: 600, margin: '0 0 6px 0', color: '#ffffff' }}>Financiación a medida</h3>
+              <p className="benefit-card-desc" style={{ fontSize: '0.98rem', color: '#E4E4E7', lineHeight: 1.6, margin: 0, fontWeight: 400 }}>
                 Accedé a créditos prendarios y opciones en cuotas fijas en pesos adaptadas a tu presupuesto.
               </p>
             </div>
           </div>
 
           <div className="benefit-card" style={{ display: 'flex', gap: '18px', alignItems: 'flex-start' }}>
-            <div style={{ width: '46px', height: '46px', borderRadius: '12px', backgroundColor: 'rgba(237, 28, 36, 0.12)', border: '1px solid rgba(237, 28, 36, 0.3)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#ED1C24', flexShrink: 0 }}>
+            <div className="benefit-icon-box" style={{ width: '46px', height: '46px', borderRadius: '12px', backgroundColor: 'rgba(237, 28, 36, 0.12)', border: '1px solid rgba(237, 28, 36, 0.3)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#ED1C24', flexShrink: 0 }}>
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M16 3h5v5" />
                 <path d="M4 20L21 3" />
@@ -453,15 +485,15 @@ export default function CeroKm() {
               </svg>
             </div>
             <div>
-              <h3 style={{ fontSize: '1.2rem', fontWeight: 600, margin: '0 0 6px 0', color: '#ffffff' }}>Toma de usado</h3>
-              <p style={{ fontSize: '0.98rem', color: '#E4E4E7', lineHeight: 1.6, margin: 0, fontWeight: 400 }}>
+              <h3 className="benefit-card-title" style={{ fontSize: '1.2rem', fontWeight: 600, margin: '0 0 6px 0', color: '#ffffff' }}>Toma de usado</h3>
+              <p className="benefit-card-desc" style={{ fontSize: '0.98rem', color: '#E4E4E7', lineHeight: 1.6, margin: 0, fontWeight: 400 }}>
                 Recibimos tu unidad usada como parte de pago con cotización transparente.
               </p>
             </div>
           </div>
 
           <div className="benefit-card" style={{ display: 'flex', gap: '18px', alignItems: 'flex-start' }}>
-            <div style={{ width: '46px', height: '46px', borderRadius: '12px', backgroundColor: 'rgba(237, 28, 36, 0.12)', border: '1px solid rgba(237, 28, 36, 0.3)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#ED1C24', flexShrink: 0 }}>
+            <div className="benefit-icon-box" style={{ width: '46px', height: '46px', borderRadius: '12px', backgroundColor: 'rgba(237, 28, 36, 0.12)', border: '1px solid rgba(237, 28, 36, 0.3)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#ED1C24', flexShrink: 0 }}>
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
                 <polyline points="14 2 14 8 20 8" />
@@ -471,8 +503,8 @@ export default function CeroKm() {
               </svg>
             </div>
             <div>
-              <h3 style={{ fontSize: '1.2rem', fontWeight: 600, margin: '0 0 6px 0', color: '#ffffff' }}>Gestoría propia</h3>
-              <p style={{ fontSize: '0.98rem', color: '#E4E4E7', lineHeight: 1.6, margin: 0, fontWeight: 400 }}>
+              <h3 className="benefit-card-title" style={{ fontSize: '1.2rem', fontWeight: 600, margin: '0 0 6px 0', color: '#ffffff' }}>Gestoría propia</h3>
+              <p className="benefit-card-desc" style={{ fontSize: '0.98rem', color: '#E4E4E7', lineHeight: 1.6, margin: 0, fontWeight: 400 }}>
                 Resolvemos toda la documentación y patentamiento sin demoras para que solo te preocupes por retirar la unidad.
               </p>
             </div>
