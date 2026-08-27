@@ -61,7 +61,7 @@ export default function Home() {
       <style>{`
         /* --- ESCRITORIO (ANCHO COMPLETO PANORÁMICO) --- */
         .hero-title {
-          font-size: 3.1rem;
+          font-size: 3.2rem;
           font-weight: 600;
           margin: 0 auto 20px auto;
           letter-spacing: -0.5px;
@@ -208,7 +208,7 @@ export default function Home() {
           padding: 15px;
           border-radius: 12px;
           font-weight: 700;
-          font-size: 0.98rem;
+          font-size: 1rem;
           text-decoration: none;
           transition: background-color 0.2s ease, transform 0.2s ease;
         }
@@ -224,13 +224,13 @@ export default function Home() {
           align-items: center;
         }
 
-    /* --- CELULARES (ADAPTACIÓN COMPACTA) --- */
+        /* --- CELULARES (ADAPTACIÓN COMPACTA) --- */
         @media (max-width: 768px) {
           .section-title {
             font-size: 1.35rem !important;
           }
           .hero-title {
-            font-size: 1.85rem !important;
+            font-size: 1.95rem !important;
             line-height: 1.25 !important;
           }
           .two-cards-grid {
@@ -253,16 +253,15 @@ export default function Home() {
             display: none !important;
           }
           .card-tag-badge {
-            font-size: 0.7rem !important;
+            font-size: 0.72rem !important;
             margin-bottom: 6px !important;
           }
           .action-btn-red {
             padding: 10px 6px !important;
-            font-size: 0.78rem !important;
+            font-size: 0.8rem !important;
             border-radius: 8px !important;
           }
           
-          /* Trayectoria / Identidad compacto en celular */
           .identity-grid {
             grid-template-columns: 1fr !important;
             gap: 12px !important;
@@ -278,7 +277,6 @@ export default function Home() {
             font-size: 0.95rem !important;
           }
 
-          /* Métricas compactas */
           .metrics-grid {
             grid-template-columns: 1fr 1fr !important;
             gap: 10px !important;
@@ -292,14 +290,13 @@ export default function Home() {
             margin-bottom: 4px !important;
           }
           .metric-label {
-            font-size: 0.82rem !important;
+            font-size: 0.84rem !important;
             margin-bottom: 2px !important;
           }
           .metric-sub {
-            font-size: 0.72rem !important;
+            font-size: 0.75rem !important;
           }
 
-          /* Financiación compacta */
           .finance-box {
             padding: 28px 16px !important;
             border-radius: 16px !important;
@@ -309,11 +306,10 @@ export default function Home() {
             margin-bottom: 10px !important;
           }
           .finance-desc {
-            font-size: 0.88rem !important;
+            font-size: 0.94rem !important;
             margin-bottom: 20px !important;
           }
 
-          /* Salón y mapa compacto */
           .salon-card-box {
             padding: 24px 16px !important;
             border-radius: 16px !important;
@@ -326,9 +322,8 @@ export default function Home() {
             font-size: 1.5rem !important;
           }
           .salon-map-container {
-  height: 220px !important;
-  border-radius: 14px !important;
-}
+            height: 220px !important;
+          }
         }
       `}</style>
 
@@ -338,7 +333,7 @@ export default function Home() {
           <img 
             src="/logo.png.png" 
             alt="Cogno Automotores" 
-            style={{ height: '75px', width: 'auto', margin: '0 auto', display: 'inline-block' }} 
+            style={{ height: '78px', width: 'auto', margin: '0 auto', display: 'inline-block' }} 
           />
         </div>
 
@@ -346,16 +341,16 @@ export default function Home() {
           Somos la <span style={{ color: '#ED1C24' }}>propuesta confiable</span> para tu próximo vehículo
         </h1>
 
-        <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', backgroundColor: 'rgba(237, 28, 36, 0.08)', border: '1px solid rgba(237, 28, 36, 0.4)', color: '#ED1C24', padding: '8px 20px', borderRadius: '30px', fontSize: '0.82rem', fontWeight: 700, letterSpacing: '0.8px', marginBottom: '20px', textTransform: 'uppercase' }}>
+        <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', backgroundColor: 'rgba(237, 28, 36, 0.08)', border: '1px solid rgba(237, 28, 36, 0.4)', color: '#ED1C24', padding: '9px 22px', borderRadius: '30px', fontSize: '0.85rem', fontWeight: 700, letterSpacing: '0.8px', marginBottom: '22px', textTransform: 'uppercase' }}>
           <span>🛡️</span>
           <span>TRAYECTORIA Y COMPROMISO</span>
         </div>
 
-        <p style={{ color: '#ffffff', fontSize: '1.05rem', maxWidth: '850px', margin: '0 auto 12px auto', lineHeight: 1.7, fontWeight: 300 }}>
+        <p style={{ color: '#F4F4F5', fontSize: '1.15rem', maxWidth: '860px', margin: '0 auto 14px auto', lineHeight: 1.7, fontWeight: 400 }}>
           Vehículos 0KM y usados seleccionados, con destacada variedad de pick-ups. Garantía propia y atención personalizada en cada etapa de la compra.
         </p>
 
-        <p style={{ color: '#a1a1aa', fontSize: '0.92rem', margin: '0 auto 30px auto', fontWeight: 400 }}>
+        <p style={{ color: '#d4d4d8', fontSize: '1.02rem', margin: '0 auto 32px auto', fontWeight: 400 }}>
           Elegí la categoría de tu interés para explorar nuestras unidades disponibles:
         </p>
       </section>
@@ -378,13 +373,13 @@ export default function Home() {
             </div>
             <div className="card-body-content">
               <div>
-                <h2 className="card-main-title" style={{ fontSize: '1.55rem', fontWeight: 700, color: '#ffffff', margin: '0 0 6px 0' }}>
+                <h2 className="card-main-title" style={{ fontSize: '1.6rem', fontWeight: 700, color: '#ffffff', margin: '0 0 6px 0' }}>
                   Unidades 0KM
                 </h2>
-                <div className="card-tag-badge" style={{ color: '#a1a1aa', fontSize: '0.82rem', fontWeight: 600, marginBottom: '10px' }}>
+                <div className="card-tag-badge" style={{ color: '#E4E4E7', fontSize: '0.9rem', fontWeight: 600, marginBottom: '12px' }}>
                   Multimarca Oficial
                 </div>
-                <p className="card-desc-text" style={{ fontSize: '0.96rem', color: '#a1a1aa', lineHeight: 1.6, margin: '0 0 24px 0', fontWeight: 300 }}>
+                <p className="card-desc-text" style={{ fontSize: '1.05rem', color: '#E4E4E7', lineHeight: 1.6, margin: '0 0 24px 0', fontWeight: 400 }}>
                   Comercializamos la gama completa de las principales marcas del país. Financiación directa de fábrica y entrega programada.
                 </p>
               </div>
@@ -408,13 +403,13 @@ export default function Home() {
             </div>
             <div className="card-body-content">
               <div>
-                <h2 className="card-main-title" style={{ fontSize: '1.55rem', fontWeight: 700, color: '#ffffff', margin: '0 0 6px 0' }}>
+                <h2 className="card-main-title" style={{ fontSize: '1.6rem', fontWeight: 700, color: '#ffffff', margin: '0 0 6px 0' }}>
                   Usados Seleccionados
                 </h2>
-                <div className="card-tag-badge" style={{ color: '#ED1C24', fontSize: '0.82rem', fontWeight: 700, marginBottom: '10px' }}>
-                  🛡️ 6 MESES DE GARANTÍA
+                <div className="card-tag-badge" style={{ color: '#ED1C24', fontSize: '0.88rem', fontWeight: 700, marginBottom: '12px' }}>
+                  🛡️ 6 MESES DE GARANTÍA ESCRITA
                 </div>
-                <p className="card-desc-text" style={{ fontSize: '0.96rem', color: '#a1a1aa', lineHeight: 1.6, margin: '0 0 24px 0', fontWeight: 300 }}>
+                <p className="card-desc-text" style={{ fontSize: '1.05rem', color: '#E4E4E7', lineHeight: 1.6, margin: '0 0 24px 0', fontWeight: 400 }}>
                   Unidades rigurosamente inspeccionadas, con historial verificado y entrega con toda la documentación lista para transferir.
                 </p>
               </div>
@@ -427,10 +422,10 @@ export default function Home() {
         </div>
       </section>
 
-   {/* 3. IDENTIDAD */}
+      {/* 3. IDENTIDAD */}
       <section style={{ maxWidth: '1540px', margin: '75px auto 0 auto', padding: '0 24px' }}>
         <div style={{ textAlign: 'center', marginBottom: '36px' }}>
-          <span style={{ fontSize: '0.85rem', fontWeight: 700, color: '#ED1C24', letterSpacing: '2px', textTransform: 'uppercase' }}>
+          <span style={{ fontSize: '0.88rem', fontWeight: 700, color: '#ED1C24', letterSpacing: '2px', textTransform: 'uppercase' }}>
             RESPALDO Y CONFIANZA
           </span>
           <h2 className="section-title" style={{ fontSize: '2.3rem', fontWeight: 600, margin: '6px 0 0 0' }}>
@@ -442,21 +437,21 @@ export default function Home() {
           <div className="identity-card">
             <img src="/calidad-usados.jpg.webp" alt="Garantía propia" />
             <div className="identity-overlay">
-              <h3 style={{ fontSize: '1.2rem', fontWeight: 600, margin: 0, color: '#ffffff', lineHeight: 1.4 }}>Garantía propia en las unidades usadas</h3>
+              <h3 style={{ fontSize: '1.25rem', fontWeight: 600, margin: 0, color: '#ffffff', lineHeight: 1.4 }}>Garantía propia en las unidades usadas</h3>
             </div>
           </div>
 
           <div className="identity-card">
             <img src="/frente-2026.jpg.jpg" alt="Atención personalizada" />
             <div className="identity-overlay">
-              <h3 style={{ fontSize: '1.2rem', fontWeight: 600, margin: 0, color: '#ffffff', lineHeight: 1.4 }}>Atención personalizada de principio a fin</h3>
+              <h3 style={{ fontSize: '1.25rem', fontWeight: 600, margin: 0, color: '#ffffff', lineHeight: 1.4 }}>Atención personalizada de principio a fin</h3>
             </div>
           </div>
 
           <div className="identity-card">
             <img src="/premios-trayectoria.jpg.webp" alt="Premios y trayectoria" />
             <div className="identity-overlay">
-              <h3 style={{ fontSize: '1.2rem', fontWeight: 600, margin: 0, color: '#ffffff', lineHeight: 1.4 }}>+35 años de trayectoria en el sector</h3>
+              <h3 style={{ fontSize: '1.25rem', fontWeight: 600, margin: 0, color: '#ffffff', lineHeight: 1.4 }}>+35 años de trayectoria en el sector</h3>
             </div>
           </div>
         </div>
@@ -467,26 +462,26 @@ export default function Home() {
         <div className="metrics-grid">
           <div className="metric-box">
             <div className="metric-num" style={{ fontSize: '2.6rem', fontWeight: 700, color: '#ED1C24', lineHeight: 1, marginBottom: '8px' }}>+35</div>
-            <div className="metric-label" style={{ fontSize: '1.02rem', fontWeight: 600, color: '#ffffff', marginBottom: '4px' }}>Años de Trayectoria</div>
-            <div className="metric-sub" style={{ fontSize: '0.85rem', color: '#71717a', fontWeight: 300 }}>Referente automotor familiar</div>
+            <div className="metric-label" style={{ fontSize: '1.05rem', fontWeight: 600, color: '#ffffff', marginBottom: '4px' }}>Años de Trayectoria</div>
+            <div className="metric-sub" style={{ fontSize: '0.9rem', color: '#d4d4d8', fontWeight: 400 }}>Referente automotor familiar</div>
           </div>
 
           <div className="metric-box">
             <div className="metric-num" style={{ fontSize: '2.6rem', fontWeight: 700, color: '#ED1C24', lineHeight: 1, marginBottom: '8px' }}>6 Meses</div>
-            <div className="metric-label" style={{ fontSize: '1.02rem', fontWeight: 600, color: '#ffffff', marginBottom: '4px' }}>Garantía Total Escrita</div>
-            <div className="metric-sub" style={{ fontSize: '0.85rem', color: '#71717a', fontWeight: 300 }}>En todos nuestros usados</div>
+            <div className="metric-label" style={{ fontSize: '1.05rem', fontWeight: 600, color: '#ffffff', marginBottom: '4px' }}>Garantía Total Escrita</div>
+            <div className="metric-sub" style={{ fontSize: '0.9rem', color: '#d4d4d8', fontWeight: 400 }}>En todos nuestros usados</div>
           </div>
 
           <div className="metric-box">
             <div className="metric-num" style={{ fontSize: '2.6rem', fontWeight: 700, color: '#ED1C24', lineHeight: 1, marginBottom: '8px' }}>100%</div>
-            <div className="metric-label" style={{ fontSize: '1.02rem', fontWeight: 600, color: '#ffffff', marginBottom: '4px' }}>Gestoría Propia</div>
-            <div className="metric-sub" style={{ fontSize: '0.85rem', color: '#71717a', fontWeight: 300 }}>Documentación al día</div>
+            <div className="metric-label" style={{ fontSize: '1.05rem', fontWeight: 600, color: '#ffffff', marginBottom: '4px' }}>Gestoría Propia</div>
+            <div className="metric-sub" style={{ fontSize: '0.9rem', color: '#d4d4d8', fontWeight: 400 }}>Documentación al día</div>
           </div>
 
           <div className="metric-box">
             <div className="metric-num" style={{ fontSize: '2.6rem', fontWeight: 700, color: '#ED1C24', lineHeight: 1, marginBottom: '8px' }}>16+</div>
-            <div className="metric-label" style={{ fontSize: '1.02rem', fontWeight: 600, color: '#ffffff', marginBottom: '4px' }}>Marcas Multimarca</div>
-            <div className="metric-sub" style={{ fontSize: '0.85rem', color: '#71717a', fontWeight: 300 }}>Gama 0km completa</div>
+            <div className="metric-label" style={{ fontSize: '1.05rem', fontWeight: 600, color: '#ffffff', marginBottom: '4px' }}>Marcas Multimarca</div>
+            <div className="metric-sub" style={{ fontSize: '0.9rem', color: '#d4d4d8', fontWeight: 400 }}>Gama 0km completa</div>
           </div>
         </div>
       </section>
@@ -494,35 +489,31 @@ export default function Home() {
       {/* 5. FINANCIACIÓN */}
       <section style={{ maxWidth: '1540px', margin: '75px auto 0 auto', padding: '0 24px' }}>
         <div className="finance-box" style={{ backgroundColor: '#141518', border: '1px solid #27272a', borderRadius: '24px', padding: '50px 36px', textAlign: 'center' }}>
-          <div style={{ display: 'inline-flex', alignItems: 'center', backgroundColor: 'rgba(237, 28, 36, 0.1)', border: '1px solid rgba(237, 28, 36, 0.3)', color: '#ED1C24', padding: '7px 20px', borderRadius: '30px', fontSize: '0.85rem', fontWeight: 700, letterSpacing: '1px', textTransform: 'uppercase', marginBottom: '16px' }}>
+          <div style={{ display: 'inline-flex', alignItems: 'center', backgroundColor: 'rgba(237, 28, 36, 0.1)', border: '1px solid rgba(237, 28, 36, 0.3)', color: '#ED1C24', padding: '7px 20px', borderRadius: '30px', fontSize: '0.88rem', fontWeight: 700, letterSpacing: '1px', textTransform: 'uppercase', marginBottom: '16px' }}>
             PLANES A MEDIDA
           </div>
           <h2 className="finance-title" style={{ fontSize: '2.3rem', fontWeight: 600, margin: '0 0 16px 0' }}>
             Financiación y Créditos Prendarios
           </h2>
-          <p className="finance-desc" style={{ fontSize: '1.02rem', color: '#a1a1aa', maxWidth: '780px', margin: '0 auto 30px auto', lineHeight: 1.6, fontWeight: 300 }}>
+          <p className="finance-desc" style={{ fontSize: '1.08rem', color: '#E4E4E7', maxWidth: '800px', margin: '0 auto 30px auto', lineHeight: 1.7, fontWeight: 400 }}>
             Te asesoramos para que encuentres la estructura de pago más conveniente: créditos prendarios bancarios, cuotas fijas en pesos y toma de tu vehículo usado como anticipo.
           </p>
           <a 
             href="https://wa.me/5493584029424?text=Hola!%20Quiero%20consultar%20por%20opciones%20de%20financiaci%C3%B3n" 
             target="_blank" 
             rel="noopener noreferrer" 
-            style={{ display: 'inline-block', backgroundColor: '#ED1C24', color: '#ffffff', padding: '14px 34px', borderRadius: '10px', fontWeight: 700, fontSize: '0.94rem', textDecoration: 'none' }}
+            style={{ display: 'inline-block', backgroundColor: '#ED1C24', color: '#ffffff', padding: '15px 36px', borderRadius: '10px', fontWeight: 700, fontSize: '0.98rem', textDecoration: 'none' }}
           >
             Consultar Financiación →
           </a>
         </div>
       </section>
 
-{/* 6. RESEÑAS */}
+      {/* 6. RESEÑAS */}
       <section style={{ maxWidth: '1540px', margin: '75px auto 0 auto', padding: '0 24px' }}>
         <div style={{ textAlign: 'center', marginBottom: '28px' }}>
-          <span style={{ fontSize: '0.85rem', fontWeight: 700, color: '#ED1C24', letterSpacing: '2px', textTransform: 'uppercase' }}>
-            TESTIMONIOS REALES
-          </span>
-          <h2 className="section-title" style={{ fontSize: '2.2rem', fontWeight: 600, margin: '6px 0 0 0' }}>
-            Opiniones de clientes
-          </h2>
+          <span style={{ fontSize: '0.88rem', fontWeight: 700, color: '#ED1C24', letterSpacing: '2px', textTransform: 'uppercase' }}>TESTIMONIOS REALES</span>
+          <h2 className="section-title" style={{ fontSize: '2.2rem', fontWeight: 600, margin: '6px 0 0 0' }}>Opiniones de clientes</h2>
 
           <div style={{ display: 'flex', justifyContent: 'center', gap: '10px', marginTop: '16px' }}>
             <button onClick={() => scroll('left')} className="scroll-btn" aria-label="Anterior">←</button>
@@ -538,10 +529,10 @@ export default function Home() {
           {reviews.map((r, i) => (
             <div key={i} className="review-carousel-item">
               <div>
-                <p style={{ fontSize: '0.94rem', color: '#d4d4d8', fontStyle: 'italic', lineHeight: 1.6, margin: '0 0 16px 0', fontWeight: 300 }}>
+                <p style={{ fontSize: '0.98rem', color: '#F4F4F5', fontStyle: 'italic', lineHeight: 1.6, margin: '0 0 16px 0', fontWeight: 400 }}>
                   "{r.text}"
                 </p>
-                <div style={{ color: '#F59E0B', fontSize: '0.95rem', marginBottom: '12px' }}>
+                <div style={{ color: '#F59E0B', fontSize: '1rem', marginBottom: '12px' }}>
                   {'★'.repeat(r.rating)}
                 </div>
               </div>
@@ -553,52 +544,47 @@ export default function Home() {
                   <path fill="#FBBC05" d="M5.28 14.27c-.25-.72-.38-1.49-.38-2.27s.13-1.55.38-2.27V6.58H1.25C.45 8.18 0 10.04 0 12s.45 3.82 1.25 5.42l4.03-3.15z"/>
                   <path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.33 0 3.26 2.64 1.25 6.58l4.03 3.15c.95-2.83 3.6-4.98 6.72-4.98z"/>
                 </svg>
-                <span style={{ fontSize: '0.92rem', fontWeight: 600, color: '#ffffff' }}>{r.name}</span>
+                <span style={{ fontSize: '0.95rem', fontWeight: 600, color: '#ffffff' }}>{r.name}</span>
               </div>
             </div>
           ))}
         </div>
       </section>
 
-     {/* 7. SALÓN COMERCIAL & HORARIOS */}
-      <section style={{ maxWidth: '1540px', margin: '70px auto 0 auto', padding: '0 20px' }}>
-        <div className="salon-card-box" style={{ backgroundColor: '#141518', border: '1px solid #27272a', borderRadius: '24px', padding: '36px 28px' }}>
+      {/* 7. SALÓN Y MAPA */}
+      <section style={{ maxWidth: '1540px', margin: '75px auto 0 auto', padding: '0 24px' }}>
+        <div className="salon-card-box" style={{ backgroundColor: '#141518', border: '1px solid #27272a', borderRadius: '26px', padding: '38px 30px' }}>
           <div className="salon-grid">
-            
-            {/* Información Izquierda */}
             <div>
-              <span style={{ color: '#ED1C24', fontSize: '0.78rem', fontWeight: 700, letterSpacing: '1px', textTransform: 'uppercase' }}>
+              <span style={{ color: '#ED1C24', fontSize: '0.8rem', fontWeight: 700, letterSpacing: '1px', textTransform: 'uppercase' }}>
                 SALÓN COMERCIAL
               </span>
-              <h2 className="salon-title" style={{ fontSize: '2.1rem', fontWeight: 600, margin: '6px 0 12px 0', lineHeight: 1.2 }}>
+              <h2 className="salon-title" style={{ fontSize: '2.2rem', fontWeight: 600, margin: '6px 0 12px 0', lineHeight: 1.2 }}>
                 Vení a conocer nuestro local
               </h2>
-              <p style={{ fontSize: '0.96rem', color: '#a1a1aa', lineHeight: 1.6, margin: '0 0 20px 0', fontWeight: 300 }}>
-                Te esperamos para conocer el stock en persona y asesorarte de forma personalizada.
+              <p style={{ fontSize: '1.05rem', color: '#E4E4E7', lineHeight: 1.6, margin: '0 0 20px 0', fontWeight: 400 }}>
+                Te esperamos en nuestro salón comercial para conocer el stock en persona, realizar un peritaje transparente de tu usado y asesorarte de forma personalizada.
               </p>
 
-              {/* Tarjeta combinada: Ubicación + Horarios */}
               <div style={{ backgroundColor: '#0B0C0E', border: '1px solid #27272a', padding: '16px 20px', borderRadius: '14px', marginBottom: '22px', display: 'flex', flexDirection: 'column', gap: '12px' }}>
                 <div>
-                  <div style={{ fontSize: '0.72rem', color: '#71717a', textTransform: 'uppercase', fontWeight: 600, letterSpacing: '0.8px' }}>UBICACIÓN</div>
-                  <div style={{ fontSize: '1rem', fontWeight: 600, color: '#ffffff' }}>Av. Marcelo T. de Alvear 1580</div>
-                  <div style={{ fontSize: '0.84rem', color: '#a1a1aa' }}>Río Cuarto, Córdoba, Argentina</div>
+                  <div style={{ fontSize: '0.75rem', color: '#a1a1aa', textTransform: 'uppercase', fontWeight: 600 }}>UBICACIÓN</div>
+                  <div style={{ fontSize: '1.08rem', fontWeight: 600, color: '#ffffff' }}>Av. Marcelo T. de Alvear 1580</div>
+                  <div style={{ fontSize: '0.9rem', color: '#d4d4d8' }}>Río Cuarto, Córdoba, Argentina</div>
                 </div>
 
                 <div style={{ borderTop: '1px solid #1F2024', paddingTop: '10px' }}>
-                  <div style={{ fontSize: '0.72rem', color: '#71717a', textTransform: 'uppercase', fontWeight: 600, letterSpacing: '0.8px' }}>HORARIOS DE ATENCIÓN</div>
-                  <div style={{ fontSize: '0.9rem', color: '#ffffff', fontWeight: 500, marginTop: '2px' }}>Lunes a Viernes: 09:00 a 18:00 hs</div>
-                
+                  <div style={{ fontSize: '0.75rem', color: '#a1a1aa', textTransform: 'uppercase', fontWeight: 600 }}>HORARIOS DE ATENCIÓN</div>
+                  <div style={{ fontSize: '0.96rem', color: '#ffffff', fontWeight: 500, marginTop: '2px' }}>Lunes a Viernes: 09:00 a 18:00 hs</div>
                 </div>
               </div>
 
-              {/* Botones de acción */}
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(170px, 1fr))', gap: '10px' }}>
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(170px, 1fr))', gap: '12px' }}>
                 <a 
                   href="https://www.google.com/maps/search/?api=1&query=Av.+Marcelo+T.+de+Alvear+1580,+Rio+Cuarto,+Cordoba" 
                   target="_blank" 
                   rel="noopener noreferrer" 
-                  style={{ backgroundColor: '#ED1C24', color: '#ffffff', padding: '12px', borderRadius: '10px', fontWeight: 700, fontSize: '0.88rem', textDecoration: 'none', textAlign: 'center' }}
+                  style={{ backgroundColor: '#ED1C24', color: '#ffffff', padding: '13px 24px', borderRadius: '10px', fontWeight: 700, fontSize: '0.92rem', textDecoration: 'none', textAlign: 'center' }}
                 >
                   Cómo llegar en Maps 
                 </a>
@@ -606,15 +592,14 @@ export default function Home() {
                   href="https://wa.me/5493584029424?text=Hola!%20Quiero%20coordinar%20una%20visita%20al%20sal%C3%B3n" 
                   target="_blank" 
                   rel="noopener noreferrer" 
-                  style={{ backgroundColor: '#1F2024', border: '1px solid #333', color: '#ffffff', padding: '12px', borderRadius: '10px', fontWeight: 600, fontSize: '0.88rem', textDecoration: 'none', textAlign: 'center' }}
+                  style={{ backgroundColor: '#1F2024', border: '1px solid #333', color: '#ffffff', padding: '13px 24px', borderRadius: '10px', fontWeight: 600, fontSize: '0.92rem', textDecoration: 'none', textAlign: 'center' }}
                 >
                   Hablar por WhatsApp
                 </a>
               </div>
             </div>
 
-            {/* Mapa Embebido (Visible en PC, estilizado en oscuro) */}
-            <div className="salon-map-container" style={{ height: '360px', borderRadius: '18px', overflow: 'hidden', border: '1px solid #27272a', backgroundColor: '#0B0C0E' }}>
+            <div className="salon-map-container" style={{ height: '340px', borderRadius: '18px', overflow: 'hidden', border: '1px solid #27272a', backgroundColor: '#0B0C0E' }}>
               <iframe
                 title="Ubicación Cogno Automotores"
                 width="100%"
@@ -626,11 +611,10 @@ export default function Home() {
                 src="https://maps.google.com/maps?q=Av.+Marcelo+T.+de+Alvear+1580,+Rio+Cuarto,+Cordoba&t=&z=16&ie=UTF8&iwloc=&output=embed"
               ></iframe>
             </div>
-
           </div>
         </div>
       </section>
-                  
+
     </div>
   );
 }
