@@ -2,68 +2,84 @@
 
 const BRANDS_DATA = [
   {
-    brand: 'TOYOTA',
-    image: '/sw4 diamond blanca 0KM TOYOTA.jpeg',
-  },
-  {
     brand: 'VOLKSWAGEN',
     image: '/VW AMAROK V6 GRIS VOLCÁN.jpg',
+    desc: 'Tecnología de avanzada, confort de marcha y robustez garantizada en cada modelo de la línea alemana.',
+  },
+  {
+    brand: 'TOYOTA',
+    image: '/sw4 diamond blanca 0KM TOYOTA.jpeg',
+    desc: 'Líder indiscutido en durabilidad, valor de reventa superior y la máxima confiabilidad mecánica del mercado.',
   },
   {
     brand: 'FORD',
     image: '/RANGER LTD+ ATRÁS 0KM FORD.jpg',
+    desc: 'Potencia pura, equipamiento de seguridad de última generación y toda la versatilidad de la Raza Fuerte.',
   },
   {
     brand: 'CHEVROLET',
     image: '/S10 HIGH CHEVROLET.avif',
+    desc: 'Conectividad total OnStar, diseño moderno y motores turbo altamente eficientes para todo tipo de uso.',
   },
   {
     brand: 'FIAT',
     image: '/FIAT TORO 0KM DUNA.jpg',
+    desc: 'Excelente relación precio-calidad, bajo costo de mantenimiento y opciones urbanas y utilitarias líderes.',
   },
   {
     brand: 'RENAULT',
     image: '/RENAULT KARDIAN 0KM.webp',
+    desc: 'Espacio interior, confort y soluciones prácticas e innovadoras para la familia y el trabajo diario.',
   },
   {
     brand: 'JEEP & RAM',
     image: '/jeep compass 0km.jpg',
+    desc: 'Capacidad off-road legendaria, lujo refinado y la máxima potencia de trabajo pesado en pickups.',
   },
   {
     brand: 'PEUGEOT',
     image: '/PEUGEOT 0KM.avif',
+    desc: 'Diseño europeo refinado, puesto de conducción i-Cockpit de vanguardia y altísimo nivel de confort.',
   },
   {
     brand: 'CITROËN',
     image: '/CITROEN C4 0KM.png',
+    desc: 'Suspensión de máxima suavidad, gran habitabilidad y propuestas modernas para disfrutar cada viaje.',
   },
   {
     brand: 'NISSAN',
     image: '/nissan frontier.jpg',
+    desc: 'Ingeniería japonesa, robustez comprobada en pick-ups y tecnología inteligente de asistencia al manejo.',
   },
   {
     brand: 'HONDA',
     image: '/honda wr v.jpg',
+    desc: 'Calidad constructiva de referencia, confiabilidad absoluta, eficiencia de consumo y seguridad integral.',
   },
   {
     brand: 'BMW',
     image: '/bmw x6 0km.webp',
+    desc: 'Rendimiento deportivo superior, diseño imponente y tecnología premium de vanguardia en cada trayecto.',
   },
   {
     brand: 'MERCEDES-BENZ',
     image: '/mercedez glc.avif',
+    desc: 'Excelencia automotriz, elegancia atemporal y los más altos estándares globales de confort y seguridad.',
   },
   {
     brand: 'AUDI',
     image: '/audi q5.avif',
+    desc: 'Innovación tecnológica de punta, tracción quattro y sofisticación en diseño interior y exterior.',
   },
   {
     brand: 'BYD',
     image: '/byd shark 0kmm.webp',
+    desc: 'Innovación en movilidad sustentable, pick-ups híbridas y la más avanzada tecnología eléctrica del mundo.',
   },
   {
     brand: 'BAIC',
     image: '/BAIC BJ30.webp',
+    desc: 'Equipamiento completo de serie, diseño SUV audaz y una sólida relación entre precio y prestaciones.',
   },
 ];
 
@@ -114,7 +130,7 @@ export default function CeroKm() {
           100% { transform: translateX(-50%); }
         }
 
-        /* HERO & GRILLA */
+        /* HERO & GRILLA SOFTR STYLE */
         .hero-title-0km {
           font-size: 3.2rem;
           font-weight: 600;
@@ -126,7 +142,7 @@ export default function CeroKm() {
         }
         .cars-grid-0km {
           display: grid;
-          grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+          grid-template-columns: repeat(4, 1fr);
           gap: 24px;
           max-width: 1540px;
           margin: 0 auto;
@@ -138,6 +154,7 @@ export default function CeroKm() {
           overflow: hidden;
           display: flex;
           flex-direction: column;
+          justify-content: space-between;
           transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease, box-shadow 0.3s ease;
           text-decoration: none;
         }
@@ -147,7 +164,7 @@ export default function CeroKm() {
           box-shadow: 0 16px 32px rgba(0,0,0,0.6), 0 0 20px rgba(237, 28, 36, 0.15);
         }
         .car-img-box {
-          height: 220px;
+          height: 200px;
           position: relative;
           background-color: #070709;
           overflow: hidden;
@@ -164,40 +181,48 @@ export default function CeroKm() {
         
         .badge-gama-completa {
           display: inline-block;
-          background-color: rgba(237, 28, 36, 0.12);
-          border: 1px solid rgba(237, 28, 36, 0.35);
+          background-color: rgba(237, 28, 36, 0.15);
+          border: 1px solid rgba(237, 28, 36, 0.4);
           color: #ED1C24;
           font-size: 0.72rem;
           font-weight: 700;
-          letter-spacing: 1px;
+          letter-spacing: 0.8px;
           padding: 4px 10px;
           border-radius: 6px;
-          margin-bottom: 8px;
         }
 
         .car-body-0km {
-          padding: 18px 20px 20px 20px;
+          padding: 20px 22px;
           display: flex;
           flex-direction: column;
           flex-grow: 1;
           justify-content: space-between;
-          text-align: center;
-          align-items: center;
+        }
+        .car-desc-0km {
+          font-size: 0.92rem;
+          color: #a1a1aa;
+          line-height: 1.55;
+          margin: 0 0 20px 0;
+          font-weight: 300;
         }
         .car-btn-action {
           width: 100%;
           background-color: #ED1C24;
           color: #ffffff;
           text-align: center;
-          padding: 11px 14px;
+          padding: 12px 14px;
           border-radius: 10px;
           font-weight: 700;
           font-size: 0.9rem;
+          box-sizing: border-box;
           transition: background-color 0.2s ease;
         }
         .car-card-0km:hover .car-btn-action {
           background-color: #c9141b;
         }
+
+        .btn-text-mobile { display: none; }
+        .btn-text-desktop { display: inline; }
 
         .benefits-grid {
           display: grid;
@@ -218,7 +243,13 @@ export default function CeroKm() {
           border-color: #ED1C24;
         }
 
-        /* CELULARES (ADAPTACIÓN COMPACTA) */
+        /* CELULARES (ADAPTACIÓN COMPACTA Y SIN TEXTO ROTO) */
+        @media (max-width: 1100px) {
+          .cars-grid-0km {
+            grid-template-columns: repeat(2, 1fr) !important;
+          }
+        }
+
         @media (max-width: 768px) {
           .hero-title-0km {
             font-size: 1.95rem !important;
@@ -242,26 +273,37 @@ export default function CeroKm() {
             border-radius: 14px !important;
           }
           .car-img-box {
-            height: 125px !important;
+            height: 115px !important;
           }
           .car-body-0km {
             padding: 12px 10px !important;
           }
           .badge-gama-completa {
-            font-size: 0.6rem !important;
+            font-size: 0.58rem !important;
             padding: 2px 6px !important;
-            letter-spacing: 0.5px !important;
-            margin-bottom: 4px !important;
+            letter-spacing: 0.4px !important;
           }
           .car-title-brand {
-            font-size: 0.98rem !important;
-            margin-bottom: 8px !important;
+            font-size: 0.95rem !important;
+            margin: 4px 0 6px 0 !important;
+          }
+          .car-desc-0km {
+            font-size: 0.76rem !important;
+            line-height: 1.35 !important;
+            margin-bottom: 12px !important;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
           }
           .car-btn-action {
             font-size: 0.76rem !important;
             padding: 8px 4px !important;
             border-radius: 8px !important;
           }
+          .btn-text-mobile { display: inline !important; }
+          .btn-text-desktop { display: none !important; }
+
           .benefits-grid {
             grid-template-columns: 1fr !important;
             gap: 12px !important;
@@ -332,7 +374,7 @@ export default function CeroKm() {
         </div>
       </div>
 
-    {/* 3. CATÁLOGO DE MARCAS 0KM - OPCIÓN A */}
+      {/* 3. CATÁLOGO ESTILO SOFTR REFINADO */}
       <section style={{ maxWidth: '1540px', margin: '0 auto', padding: '0 24px' }}>
         <div className="cars-grid-0km">
           {BRANDS_DATA.map((item, idx) => (
@@ -343,11 +385,7 @@ export default function CeroKm() {
               rel="noopener noreferrer"
               className="car-card-0km"
             >
-              {/* Foto Limpia */}
               <div className="car-img-box">
-                <span className="badge-gama-completa" style={{ position: 'absolute', top: '12px', left: '12px', margin: 0, zIndex: 2 }}>
-                  GAMA COMPLETA
-                </span>
                 <img 
                   src={encodeURI(item.image)} 
                   alt={`${item.brand} 0km`} 
@@ -355,30 +393,29 @@ export default function CeroKm() {
                 />
               </div>
 
-              {/* Fila única: Marca a la izquierda, Botón chico a la derecha */}
-              <div style={{ padding: '14px 18px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', backgroundColor: '#141518' }}>
-                <h3 style={{ fontSize: '1.2rem', fontWeight: 700, margin: 0, color: '#ffffff', letterSpacing: '0.5px' }}>
-                  {item.brand}
-                </h3>
+              <div className="car-body-0km">
+                <div>
+                  <div style={{ display: 'flex', justifyContent: 'flex-end', marginBottom: '8px' }}>
+                    <span className="badge-gama-completa">
+                      GAMA COMPLETA
+                    </span>
+                  </div>
+                  <h3 className="car-title-brand" style={{ fontSize: '1.25rem', fontWeight: 700, margin: '0 0 8px 0', color: '#ffffff', letterSpacing: '0.5px' }}>
+                    {item.brand}
+                  </h3>
+                  <p className="car-desc-0km">
+                    {item.desc}
+                  </p>
+                </div>
 
-                <div style={{ backgroundColor: '#ED1C24', color: '#ffffff', padding: '7px 16px', borderRadius: '8px', fontWeight: 700, fontSize: '0.82rem', display: 'inline-flex', alignItems: 'center', gap: '4px' }}>
-                  Consultar →
+                <div className="car-btn-action">
+                  <span className="btn-text-desktop">Consultar por {item.brand} →</span>
+                  <span className="btn-text-mobile">Consultar →</span>
                 </div>
               </div>
             </a>
           ))}
         </div>
-            {/* Pie compacto Opción B */}
-              <div style={{ padding: '16px 18px', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-                <div>
-                  <span style={{ fontSize: '0.7rem', color: '#ED1C24', fontWeight: 700, letterSpacing: '1px', display: 'block', marginBottom: '2px' }}>GAMA COMPLETA</span>
-                  <h3 style={{ fontSize: '1.25rem', fontWeight: 700, margin: 0, color: '#ffffff' }}>{item.brand}</h3>
-                </div>
-
-                <div style={{ backgroundColor: '#1F2024', border: '1px solid #333', color: '#ffffff', padding: '8px 16px', borderRadius: '8px', fontWeight: 600, fontSize: '0.85rem' }}>
-                  Consultar →
-                </div>
-              </div>
       </section>
 
       {/* 4. BENEFICIOS */}
