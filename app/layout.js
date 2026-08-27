@@ -1,133 +1,233 @@
-import { Inter } from 'next/font/google';
+'use client';
 
-const inter = Inter({
-  subsets: ['latin'],
-  weight: ['300', '400', '500', '600', '700', '800'],
-  display: 'swap',
-});
-
-export const metadata = {
-  title: 'Cogno Automotores — La propuesta confiable',
-  description: 'Venta de vehículos 0km multimarca y usados seleccionados garantizados.',
-};
+import { useState } from 'react';
+import './globals.css';
 
 export default function RootLayout({ children }) {
-  return (
-    <html lang="es" className={inter.className}>
-      <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <style>{`
-          * { box-sizing: border-box; margin: 0; padding: 0; }
-          body { font-family: inherit; background-color: #0B0C0E; color: #ffffff; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
-          a { text-decoration: none; }
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-          .nav-bar-container {
-            width: 100%;
-            max-width: 1480px;
-            margin: 0 auto;
-            padding: 16px 24px;
+  const toggleMenu = () => setMobileMenuOpen(!mobileMenuOpen);
+  const closeMenu = () => setMobileMenuOpen(false);
+
+  return (
+    <html lang="es">
+      <head>
+        <title>Cogno Automotores | Río Cuarto</title>
+        <meta name="description" content="Venta de vehículos 0km y usados seleccionados con garantía en Río Cuarto, Córdoba." />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      </head>
+      <body style={{ margin: 0, backgroundColor: '#0B0C0E', color: '#ffffff', fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif' }}>
+        
+        {/* ESTILOS GLOBALES DE NAVBAR Y FOOTER */}
+        <style>{`
+          .nav-container {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 16px;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 16px 24px;
           }
-
-          .nav-links-box {
+          .nav-links-desktop {
             display: flex;
             align-items: center;
-            gap: 28px;
-            flex-wrap: wrap;
+            gap: 32px;
           }
-
-          .nav-link {
-            color: #e4e4e7;
-            font-size: 0.98rem;
-            font-weight: 600;
+          .nav-item {
+            color: #d4d4d8;
+            text-decoration: none;
+            font-size: 1.05rem;
+            font-weight: 500;
             transition: color 0.2s ease;
           }
-          .nav-link:hover {
+          .nav-item:hover {
+            color: #ED1C24;
+          }
+          .hamburger-btn {
+            display: none;
+            background: transparent;
+            border: none;
+            color: #ffffff;
+            font-size: 1.8rem;
+            cursor: pointer;
+            padding: 4px;
+          }
+
+          /* FOOTER STYLES */
+          .footer-grid {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1fr;
+            gap: 40px;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 50px 24px 30px 24px;
+          }
+          .footer-link {
+            color: #a1a1aa;
+            text-decoration: none;
+            font-size: 0.95rem;
+            display: inline-block;
+            margin-bottom: 10px;
+            transition: color 0.2s ease;
+          }
+          .footer-link:hover {
             color: #ED1C24;
           }
 
-          @media (max-width: 768px) {
-            .nav-bar-container {
-              justify-content: center;
+          /* RESPONSIVE MÓVIL */
+          @media (max-width: 860px) {
+            .nav-links-desktop {
+              display: none;
+            }
+            .hamburger-btn {
+              display: block;
+            }
+            .mobile-menu-drawer {
+              display: flex;
               flex-direction: column;
-              text-align: center;
-              gap: 14px;
+              background-color: #141518;
+              border-bottom: 1px solid #27272a;
+              padding: 20px 24px;
+              gap: 18px;
             }
-            .nav-links-box {
-              justify-content: center;
-              gap: 16px;
+            .mobile-menu-drawer .nav-item {
+              font-size: 1.15rem;
+              padding: 8px 0;
+              border-bottom: 1px solid #1f2024;
             }
-            .nav-link {
-              font-size: 0.88rem;
+            .footer-grid {
+              grid-template-columns: 1fr;
+              gap: 30px;
+              padding: 40px 20px 30px 20px;
             }
-          }
-
-          .whatsapp-float {
-            position: fixed;
-            bottom: 24px;
-            right: 24px;
-            background-color: #25D366;
-            color: #ffffff;
-            width: 58px;
-            height: 58px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 8px 24px rgba(37, 211, 102, 0.45);
-            z-index: 9999;
           }
         `}</style>
-      </head>
-      <body>
-        
-        {/* NAVBAR */}
-        <header style={{ backgroundColor: '#0B0C0E', borderBottom: '1px solid #1F2024', position: 'sticky', top: 0, zIndex: 100 }}>
-          <div className="nav-bar-container">
-            <a href="/" style={{ display: 'inline-flex', alignItems: 'center' }}>
-              <img src="/logo.png.png" alt="Cogno Automotores" style={{ height: '48px', width: 'auto', objectFit: 'contain' }} />
+
+        {/* HEADER / NAVBAR */}
+        <header style={{ backgroundColor: 'rgba(11, 12, 14, 0.95)', borderBottom: '1px solid #27272a', position: 'sticky', top: 0, zIndex: 100, backdropFilter: 'blur(10px)' }}>
+          <div className="nav-container">
+            
+            {/* Logo Navbar */}
+            <a href="/" style={{ display: 'flex', alignItems: 'center', textDecoration: 'none' }}>
+              <img 
+                src="/logo.png.png" 
+                alt="Cogno Automotores" 
+                style={{ height: '42px', width: 'auto', display: 'block' }} 
+              />
             </a>
 
-            <nav className="nav-links-box">
-              <a href="/quienes-somos" className="nav-link">Quiénes somos</a>
-              <a href="/" className="nav-link">Elegí tu vehículo</a>
-              <a href="/0km" className="nav-link">Unidades 0Km</a>
-              <a href="/usados" className="nav-link">Inventario de Usados</a>
+            {/* Links de navegación en PC */}
+            <nav className="nav-links-desktop">
+              <a href="/" className="nav-item">Home</a>
+              <a href="/quienes-somos" className="nav-item">¿Quiénes somos?</a>
+              <a href="/0km" className="nav-item">Unidades 0KM</a>
+              <a href="/usados" className="nav-item">Inventario de Usados</a>
             </nav>
+
+            {/* Botón menú hamburguesa en celulares */}
+            <button className="hamburger-btn" onClick={toggleMenu} aria-label="Abrir Menú">
+              {mobileMenuOpen ? '✕' : '☰'}
+            </button>
+
           </div>
+
+          {/* Menú desplegable móvil */}
+          {mobileMenuOpen && (
+            <div className="mobile-menu-drawer">
+              <a href="/" className="nav-item" onClick={closeMenu}>Home</a>
+              <a href="/quienes-somos" className="nav-item" onClick={closeMenu}>¿Quiénes somos?</a>
+              <a href="/0km" className="nav-item" onClick={closeMenu}>Unidades 0KM</a>
+              <a href="/usados" className="nav-item" onClick={closeMenu}>Inventario de Usados</a>
+            </div>
+          )}
         </header>
 
+        {/* CONTENIDO DE LA PÁGINA */}
         <main>{children}</main>
 
-        {/* BOTÓN WHATSAPP FLOTANTE */}
-        <a href="https://wa.me/5493584029424?text=Hola!%20Quiero%20hacer%20una%20consulta" target="_blank" rel="noopener noreferrer" className="whatsapp-float">
-          <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.664-.699c.971.53 1.838.814 2.796.814 3.181 0 5.767-2.586 5.768-5.766 0-3.18-2.586-5.766-5.768-5.766zm9.969 5.766c0 5.485-4.467 9.949-9.97 9.949-1.677 0-3.25-.42-4.633-1.156l-5.397 1.413 1.442-5.263c-.834-1.441-1.312-3.109-1.312-4.943 0-5.485 4.467-9.949 9.97-9.949 5.503 0 9.97 4.464 9.97 9.949z" />
-          </svg>
-        </a>
+        {/* FOOTER GENERAL */}
+        <footer style={{ backgroundColor: '#070709', borderTop: '1px solid #27272a', marginTop: '40px' }}>
+          <div className="footer-grid">
+            
+            {/* Columna 1: Marca & Descripción */}
+            <div>
+              <img 
+                src="/logo.png.png" 
+                alt="Cogno Automotores" 
+                style={{ height: '48px', width: 'auto', marginBottom: '16px', display: 'block' }} 
+              />
+              <p style={{ color: '#a1a1aa', fontSize: '0.92rem', lineHeight: 1.6, maxWidth: '380px', margin: 0, fontWeight: 300 }}>
+                Más de 35 años brindando confianza, respaldo y garantía en la compra y venta de vehículos nuevos y usados seleccionados en Río Cuarto y la región.
+              </p>
+            </div>
 
-        {/* FOOTER */}
-        <footer style={{ backgroundColor: '#070709', borderTop: '1px solid #1F2024', padding: '40px 24px', marginTop: '70px' }}>
-          <div style={{ maxWidth: '1480px', margin: '0 auto', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '20px' }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
-              <img src="/logo.png.png" alt="Cogno" style={{ height: '48px', width: 'auto' }} />
-              <div>
-                <div style={{ fontWeight: 600, fontSize: '1.05rem', color: '#ffffff' }}>COGNO AUTOMOTORES S.A.</div>
-                <div style={{ fontWeight: 300, color: '#a1a1aa', fontSize: '0.88rem' }}>La propuesta confiable — Río Cuarto, Córdoba</div>
+            {/* Columna 2: Navegación Rápida */}
+            <div>
+              <div style={{ fontSize: '0.85rem', fontWeight: 700, color: '#ED1C24', letterSpacing: '1px', textTransform: 'uppercase', marginBottom: '16px' }}>
+                NAVEGACIÓN
+              </div>
+              <div style={{ display: 'flex', flexDirection: 'column' }}>
+                <a href="/" className="footer-link">Home</a>
+                <a href="/quienes-somos" className="footer-link">¿Quiénes somos?</a>
+                <a href="/0km" className="footer-link">Unidades 0KM</a>
+                <a href="/usados" className="footer-link">Catálogo de Usados</a>
               </div>
             </div>
 
-            <div style={{ textAlign: 'right' }}>
-              <div style={{ fontWeight: 700, fontSize: '0.8rem', letterSpacing: '1px', textTransform: 'uppercase', color: '#ffffff' }}>Contacto & Salón</div>
-              <div style={{ fontWeight: 300, color: '#a1a1aa', fontSize: '0.9rem' }}>Av. Marcelo T. de Alvear 1580</div>
-              <div style={{ color: '#ED1C24', fontWeight: 700, fontSize: '0.95rem' }}>+54 9 3584 02-9424</div>
+            {/* Columna 3: Contacto & Ubicación */}
+            <div>
+              <div style={{ fontSize: '0.85rem', fontWeight: 700, color: '#ED1C24', letterSpacing: '1px', textTransform: 'uppercase', marginBottom: '16px' }}>
+                CONTACTO
+              </div>
+              <p style={{ color: '#d4d4d8', fontSize: '0.92rem', margin: '0 0 8px 0' }}>
+                📍 Av. Marcelo T. de Alvear 1580
+              </p>
+              <p style={{ color: '#a1a1aa', fontSize: '0.86rem', margin: '0 0 14px 0' }}>
+                Río Cuarto, Córdoba, Argentina
+              </p>
+              <p style={{ color: '#d4d4d8', fontSize: '0.92rem', margin: '0 0 8px 0' }}>
+                📞 WhatsApp Comercial: +54 9 358 402-9424
+              </p>
+              <p style={{ color: '#a1a1aa', fontSize: '0.86rem', margin: 0 }}>
+                Lunes a Viernes de 8:30 a 12:30 y 16:00 a 20:00 hs
+              </p>
             </div>
+
+          </div>
+
+          {/* Barra inferior de Copyright */}
+          <div style={{ borderTop: '1px solid #1a1b1e', padding: '18px 24px', textAlign: 'center', color: '#71717a', fontSize: '0.82rem' }}>
+            © {new Date().getFullYear()} Cogno Automotores S.A. Todos los derechos reservados.
           </div>
         </footer>
+
+        {/* BOTÓN FLOTANTE WHATSAPP */}
+        <a 
+          href="https://wa.me/5493584029424?text=Hola!%20Quiero%20hacer%20una%20consulta" 
+          target="_blank" 
+          rel="noopener noreferrer" 
+          style={{
+            position: 'fixed',
+            bottom: '24px',
+            right: '24px',
+            backgroundColor: '#25D366',
+            color: '#ffffff',
+            width: '58px',
+            height: '58px',
+            borderRadius: '50%',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            boxShadow: '0 8px 24px rgba(37, 211, 102, 0.4)',
+            zIndex: 999,
+            textDecoration: 'none'
+          }}
+          aria-label="Contactar por WhatsApp"
+        >
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+          </svg>
+        </a>
 
       </body>
     </html>
