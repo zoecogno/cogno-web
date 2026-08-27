@@ -1,26 +1,152 @@
 'use client';
 
-const BRANDS = [
-  { name: 'Toyota', logo: 'https://www.carlogos.org/car-logos/toyota-logo-2020-europe-640.png' },
-  { name: 'Volkswagen', logo: 'https://www.carlogos.org/car-logos/volkswagen-logo-2019-640.png' },
-  { name: 'Ford', logo: 'https://www.carlogos.org/car-logos/ford-logo-2017-640.png' },
-  { name: 'Chevrolet', logo: 'https://www.carlogos.org/car-logos/chevrolet-logo-2013-640.png' },
-  { name: 'Fiat', logo: 'https://www.carlogos.org/car-logos/fiat-logo-2020-640.png' },
-  { name: 'Renault', logo: 'https://www.carlogos.org/car-logos/renault-logo-2021-640.png' },
-  { name: 'Jeep', logo: 'https://www.carlogos.org/car-logos/jeep-logo-1993-640.png' },
-  { name: 'RAM', logo: 'https://www.carlogos.org/car-logos/ram-logo-2009-640.png' },
-  { name: 'Peugeot', logo: 'https://www.carlogos.org/car-logos/peugeot-logo-2021-640.png' },
-  { name: 'Citroën', logo: 'https://www.carlogos.org/car-logos/citroen-logo-2022-640.png' },
-  { name: 'Nissan', logo: 'https://www.carlogos.org/car-logos/nissan-logo-2020-white-640.png' },
-  { name: 'Honda', logo: 'https://www.carlogos.org/car-logos/honda-logo-2000-640.png' },
+const BRANDS_DATA = [
+  {
+    brand: 'Toyota',
+    model: 'SW4 Diamond',
+    image: '/sw4 diamond blanca 0KM TOYOTA.jpeg',
+    query: 'Toyota SW4 Diamond',
+  },
+  {
+    brand: 'Volkswagen',
+    model: 'Amarok V6',
+    image: '/VW AMAROK V6 GRIS VOLCÁN.jpg',
+    query: 'Volkswagen Amarok V6',
+  },
+  {
+    brand: 'Ford',
+    model: 'Ranger Limited+',
+    image: '/RANGER LTD+ ATRÁS 0KM FORD.jpg',
+    query: 'Ford Ranger Limited+',
+  },
+  {
+    brand: 'Chevrolet',
+    model: 'S10 High Country',
+    image: '/S10 HIGH CHEVROLET.avif',
+    query: 'Chevrolet S10',
+  },
+  {
+    brand: 'Fiat',
+    model: 'Toro Volcano / Ultra',
+    image: '/FIAT TORO 0KM DUNA.jpg',
+    query: 'Fiat Toro',
+  },
+  {
+    brand: 'Renault',
+    model: 'Kardian Premiere',
+    image: '/RENAULT KARDIAN 0KM.webp',
+    query: 'Renault Kardian',
+  },
+  {
+    brand: 'Jeep & RAM',
+    model: 'Compass / Rampage',
+    image: '/jeep compass 0km.jpg',
+    query: 'Jeep y RAM',
+  },
+  {
+    brand: 'Peugeot',
+    model: '208 / 2008',
+    image: '/PEUGEOT 0KM.avif',
+    query: 'Peugeot',
+  },
+  {
+    brand: 'Citroën',
+    model: 'C4 Cactus / Basalt',
+    image: '/CITROEN C4 0KM.png',
+    query: 'Citroën',
+  },
+  {
+    brand: 'Nissan',
+    model: 'Frontier PRO-4X',
+    image: '/nissan frontier.jpg',
+    query: 'Nissan Frontier',
+  },
+  {
+    brand: 'Honda',
+    model: 'WR-V / HR-V',
+    image: '/honda wr v.jpg',
+    query: 'Honda',
+  },
+  {
+    brand: 'BMW',
+    model: 'Línea X',
+    image: '/bmw x6 0km.webp',
+    query: 'BMW',
+  },
+  {
+    brand: 'Mercedes-Benz',
+    model: 'GLC / Clase C',
+    image: '/mercedez glc.avif',
+    query: 'Mercedes-Benz',
+  },
+  {
+    brand: 'Audi',
+    model: 'Q5 / Q3',
+    image: '/audi q5.avif',
+    query: 'Audi',
+  },
+  {
+    brand: 'BYD',
+    model: 'Shark Híbrida',
+    image: '/byd shark 0kmm.webp',
+    query: 'BYD Shark',
+  },
+  {
+    brand: 'BAIC',
+    model: 'BJ30 / X55',
+    image: '/BAIC BJ30.webp',
+    query: 'BAIC',
+  },
+];
+
+const MARQUEE_ITEMS = [
+  'TOYOTA', 'VOLKSWAGEN', 'FORD', 'CHEVROLET', 'FIAT', 'RENAULT', 
+  'JEEP', 'RAM', 'PEUGEOT', 'CITROËN', 'NISSAN', 'HONDA', 
+  'BMW', 'MERCEDES-BENZ', 'AUDI', 'BYD', 'BAIC'
 ];
 
 export default function CeroKm() {
   return (
     <div style={{ backgroundColor: '#0B0C0E', minHeight: '100vh', color: '#ffffff', paddingBottom: '90px', overflowX: 'hidden' }}>
       
-      {/* ESTILOS INTERACTIVOS Y RESPONSIVE */}
+      {/* ESTILOS INTERACTIVOS, MARQUESINA Y RESPONSIVE */}
       <style>{`
+        /* MARQUESINA */
+        .marquee-wrapper {
+          overflow: hidden;
+          background-color: #070709;
+          border-top: 1px solid #1f2024;
+          border-bottom: 1px solid #1f2024;
+          padding: 14px 0;
+          white-space: nowrap;
+          position: relative;
+          margin-bottom: 45px;
+        }
+        .marquee-content {
+          display: inline-flex;
+          align-items: center;
+          animation: marqueeScroll 28s linear infinite;
+        }
+        .marquee-item {
+          font-size: 0.92rem;
+          font-weight: 700;
+          letter-spacing: 2px;
+          color: #a1a1aa;
+          padding: 0 24px;
+          display: inline-flex;
+          align-items: center;
+          gap: 24px;
+        }
+        .marquee-dot {
+          color: #ED1C24;
+          font-size: 0.75rem;
+        }
+        @keyframes marqueeScroll {
+          0% { transform: translateX(0%); }
+          100% { transform: translateX(-50%); }
+        }
+
+        /* HERO & GRILLA */
         .hero-title-0km {
           font-size: 3.2rem;
           font-weight: 600;
@@ -30,42 +156,62 @@ export default function CeroKm() {
           line-height: 1.2;
           max-width: 950px;
         }
-        .brands-grid {
+        .cars-grid-0km {
           display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-          gap: 20px;
+          grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+          gap: 28px;
           max-width: 1540px;
           margin: 0 auto;
         }
-        .brand-card {
+        .car-card-0km {
           background-color: #141518;
           border: 1px solid #27272a;
-          border-radius: 18px;
-          padding: 28px 20px;
+          border-radius: 22px;
+          overflow: hidden;
           display: flex;
           flex-direction: column;
-          align-items: center;
-          justify-content: center;
-          text-decoration: none;
           transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease, box-shadow 0.3s ease;
+          text-decoration: none;
         }
-        .brand-card:hover {
-          transform: translateY(-6px);
-          border-color: #ED1C24;
-          box-shadow: 0 14px 28px rgba(0,0,0,0.5), 0 0 15px rgba(237, 28, 36, 0.15);
+        .car-card-0km:hover {
+          transform: translateY(-7px);
+          border-color: rgba(237, 28, 36, 0.6);
+          box-shadow: 0 16px 32px rgba(0,0,0,0.6), 0 0 20px rgba(237, 28, 36, 0.15);
         }
-        .brand-logo-img {
-          height: 52px;
-          width: auto;
-          object-fit: contain;
-          margin-bottom: 14px;
-          filter: brightness(0) invert(1);
-          opacity: 0.85;
-          transition: transform 0.3s ease, opacity 0.3s ease;
+        .car-img-box {
+          height: 230px;
+          position: relative;
+          background-color: #070709;
+          overflow: hidden;
         }
-        .brand-card:hover .brand-logo-img {
-          transform: scale(1.1);
-          opacity: 1;
+        .car-img-box img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .car-card-0km:hover .car-img-box img {
+          transform: scale(1.08);
+        }
+        .car-badge-0km {
+          position: absolute;
+          top: 14px;
+          left: 14px;
+          background-color: #ED1C24;
+          color: #ffffff;
+          font-size: 0.78rem;
+          font-weight: 700;
+          padding: 4px 10px;
+          borderRadius: 6px;
+          letter-spacing: 0.5px;
+          z-index: 2;
+        }
+        .car-body-0km {
+          padding: 22px 24px;
+          display: flex;
+          flex-direction: column;
+          flex-grow: 1;
+          justify-content: space-between;
         }
         .benefits-grid {
           display: grid;
@@ -108,17 +254,30 @@ export default function CeroKm() {
             font-size: 0.75rem !important;
             margin-bottom: 14px !important;
           }
-          .brands-grid {
-            grid-template-columns: repeat(2, 1fr) !important;
+          .cars-grid-0km {
+            grid-template-columns: 1fr 1fr !important;
             gap: 12px !important;
           }
-          .brand-card {
-            padding: 20px 12px !important;
+          .car-card-0km {
             border-radius: 14px !important;
           }
-          .brand-logo-img {
-            height: 38px !important;
-            margin-bottom: 8px !important;
+          .car-img-box {
+            height: 120px !important;
+          }
+          .car-body-0km {
+            padding: 12px 10px !important;
+          }
+          .car-title-brand {
+            font-size: 1.05rem !important;
+            margin-bottom: 2px !important;
+          }
+          .car-title-model {
+            font-size: 0.78rem !important;
+            margin-bottom: 10px !important;
+          }
+          .car-btn-text {
+            font-size: 0.76rem !important;
+            padding: 8px 4px !important;
           }
           .benefits-grid {
             grid-template-columns: 1fr !important;
@@ -159,7 +318,7 @@ export default function CeroKm() {
           Estás a un click de tu próximo <span style={{ color: '#ED1C24' }}>0KM</span>
         </h1>
 
-        {/* Badge rojo tipo píldora */}
+        {/* Badge rojo */}
         <div className="hero-badge-0km" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', backgroundColor: 'rgba(237, 28, 36, 0.08)', border: '1px solid rgba(237, 28, 36, 0.4)', color: '#ED1C24', padding: '9px 22px', borderRadius: '30px', fontSize: '0.85rem', fontWeight: 700, letterSpacing: '0.8px', marginBottom: '20px', textTransform: 'uppercase' }}>
           <span>🛡️</span>
           <span>OPCIONES CON FINANCIACIÓN DIRECTA DE FÁBRICA</span>
@@ -170,31 +329,66 @@ export default function CeroKm() {
           Comercializamos la gama completa de las principales marcas del país. Asesoramiento comercial personalizado, financiación a medida, gestoría propia y toma de tu vehículo usado.
         </p>
 
-        <p style={{ color: '#d4d4d8', fontSize: '1.02rem', margin: '0 auto 30px auto', fontWeight: 400 }}>
-          Hacé click en la marca de tu interés para consultar unidades disponibles y cotización:
+        <p style={{ color: '#d4d4d8', fontSize: '1.02rem', margin: '0 auto 28px auto', fontWeight: 400 }}>
+          Elegí la marca o modelo de tu interés para consultar versiones y cotización oficial:
         </p>
       </section>
 
-      {/* 2. GRILLA DE MARCAS 0KM */}
+      {/* 2. MARQUESINA INFINITA DE MARCAS */}
+      <div className="marquee-wrapper">
+        <div className="marquee-content">
+          {[...MARQUEE_ITEMS, ...MARQUEE_ITEMS].map((name, i) => (
+            <span key={i} className="marquee-item">
+              <span>{name}</span>
+              <span className="marquee-dot">●</span>
+            </span>
+          ))}
+        </div>
+      </div>
+
+      {/* 3. CATÁLOGO CON FOTOS REALES 0KM */}
       <section style={{ maxWidth: '1540px', margin: '0 auto', padding: '0 24px' }}>
-        <div className="brands-grid">
-          {BRANDS.map((brand, i) => (
-            <a 
-              key={i} 
-              href={`https://wa.me/5493584029424?text=Hola!%20Quiero%20consultar%20por%20la%20gama%20de%200KM%20${brand.name}`}
+        <div className="cars-grid-0km">
+          {BRANDS_DATA.map((item, idx) => (
+            <a
+              key={idx}
+              href={`https://wa.me/5493584029424?text=Hola!%20Quiero%20consultar%20por%20la%20gama%20de%200KM%20${encodeURIComponent(item.query)}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="brand-card"
+              className="car-card-0km"
             >
-              <img src={brand.logo} alt={brand.name} className="brand-logo-img" />
-              <span style={{ fontSize: '1.05rem', fontWeight: 600, color: '#ffffff', letterSpacing: '0.5px' }}>{brand.name}</span>
-              <span style={{ fontSize: '0.78rem', color: '#ED1C24', fontWeight: 600, marginTop: '4px' }}>Consultar modelos →</span>
+              <div className="car-img-box">
+                <span className="car-badge-0km">0 KM</span>
+                <img 
+                  src={item.image} 
+                  alt={`${item.brand} 0km`} 
+                  onError={(e) => { e.currentTarget.src = '/cero-km.png'; }}
+                />
+              </div>
+
+              <div className="car-body-0km">
+                <div>
+                  <h3 className="car-title-brand" style={{ fontSize: '1.35rem', fontWeight: 700, margin: '0 0 4px 0', color: '#ffffff' }}>
+                    {item.brand}
+                  </h3>
+                  <div className="car-title-model" style={{ fontSize: '0.92rem', color: '#ED1C24', fontWeight: 600, marginBottom: '16px' }}>
+                    {item.model}
+                  </div>
+                </div>
+
+                <div 
+                  className="car-btn-text" 
+                  style={{ backgroundColor: 'rgba(237, 28, 36, 0.12)', border: '1px solid rgba(237, 28, 36, 0.35)', color: '#ffffff', textAlign: 'center', padding: '10px 14px', borderRadius: '10px', fontWeight: 600, fontSize: '0.88rem' }}
+                >
+                  Consultar Gama →
+                </div>
+              </div>
             </a>
           ))}
         </div>
       </section>
 
-      {/* 3. BENEFICIOS Y CONDICIONES COMERCIALES */}
+      {/* 4. BENEFICIOS */}
       <section style={{ maxWidth: '1540px', margin: '80px auto 0 auto', padding: '0 24px' }}>
         <div style={{ textAlign: 'center', marginBottom: '36px' }}>
           <span style={{ fontSize: '0.88rem', fontWeight: 700, color: '#ED1C24', letterSpacing: '2px', textTransform: 'uppercase' }}>VENTAJAS EXCLUSIVAS</span>
@@ -251,7 +445,7 @@ export default function CeroKm() {
         </div>
       </section>
 
-      {/* 4. SALÓN COMERCIAL & HORARIOS */}
+      {/* 5. SALÓN COMERCIAL & HORARIOS */}
       <section style={{ maxWidth: '1540px', margin: '80px auto 0 auto', padding: '0 24px' }}>
         <div className="salon-card-box" style={{ backgroundColor: '#141518', border: '1px solid #27272a', borderRadius: '26px', padding: '38px 30px' }}>
           
