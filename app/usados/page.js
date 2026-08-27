@@ -12,6 +12,10 @@ function CatalogoContent() {
   const [maxAvailableYear, setMaxAvailableYear] = useState(new Date().getFullYear());
   const [yearRange, setYearRange] = useState([2010, new Date().getFullYear()]);
 
+  // Estados para acordeones móviles
+  const [openBrandMobile, setOpenBrandMobile] = useState(false);
+  const [openYearMobile, setOpenYearMobile] = useState(false);
+
   const [selectedVehicle, setSelectedVehicle] = useState(null);
   const [activePhotoIdx, setActivePhotoIdx] = useState(0);
 
@@ -150,7 +154,7 @@ function CatalogoContent() {
           align-items: flex-start;
         }
 
-        /* SLIDER DUAL EN UNA SOLA BARRA */
+        /* DUAL SLIDER */
         .dual-slider-wrapper {
           position: relative;
           height: 36px;
@@ -209,7 +213,7 @@ function CatalogoContent() {
           box-shadow: 0 2px 6px rgba(0,0,0,0.5);
         }
 
-        /* CHIPS MULTI-MARCA */
+        /* CHIPS MARCAS */
         .brand-chip {
           padding: 7px 14px;
           border-radius: 8px;
@@ -231,7 +235,7 @@ function CatalogoContent() {
           border-color: #ED1C24;
         }
 
-        /* GRILLA Y TARJETAS */
+        /* GRILLA */
         .usados-grid {
           display: grid;
           grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
@@ -268,7 +272,7 @@ function CatalogoContent() {
           transform: scale(1.06);
         }
 
-        /* MODAL SIN SCROLLBAR VISIBLE */
+        /* MODAL */
         .modal-box-inner {
           scrollbar-width: none;
           -ms-overflow-style: none;
@@ -302,15 +306,53 @@ function CatalogoContent() {
           transform: translateY(-50%) scale(1.08);
         }
 
-        /* CELULARES (ADAPTACIÓN COMPACTA) */
-        @media (max-width: 860px) {
-          .filter-main-grid {
-            grid-template-columns: 1fr !important;
-            gap: 20px !important;
-          }
+        /* ELEMENTOS ACORDEÓN MÓVIL (OCULTOS EN ESCRITORIO) */
+        .mobile-accordion-toggle {
+          display: none;
+        }
+        .desktop-filter-header {
+          display: block;
         }
 
-        @media (max-width: 768px) {
+        /* CELULARES (ADAPTACIÓN COMPACTA CON BOTONES DE FILTRO) */
+        @media (max-width: 860px) {
+          .desktop-filter-header {
+            display: none !important;
+          }
+          .mobile-accordion-toggle {
+            display: flex !important;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            background-color: #0B0C0E;
+            border: 1px solid #27272a;
+            border-radius: 10px;
+            padding: 12px 16px;
+            color: #ffffff;
+            font-size: 0.88rem;
+            font-weight: 600;
+            cursor: pointer;
+          }
+          .mobile-accordion-toggle.active {
+            border-color: #ED1C24;
+            color: #ED1C24;
+          }
+          .filter-main-grid {
+            grid-template-columns: 1fr !important;
+            gap: 12px !important;
+          }
+          .filter-section-desktop {
+            display: none;
+          }
+          .filter-section-desktop.show-mobile {
+            display: block !important;
+            margin-top: 10px;
+          }
+          .filter-container {
+            padding: 14px !important;
+            border-radius: 16px !important;
+            margin-bottom: 24px !important;
+          }
           .hero-title-usados {
             font-size: 1.95rem !important;
             line-height: 1.25 !important;
@@ -324,11 +366,6 @@ function CatalogoContent() {
             padding: 6px 16px !important;
             font-size: 0.72rem !important;
             margin-bottom: 14px !important;
-          }
-          .filter-container {
-            padding: 16px !important;
-            border-radius: 16px !important;
-            margin-bottom: 28px !important;
           }
           .usados-grid {
             grid-template-columns: 1fr 1fr !important;
@@ -408,100 +445,134 @@ function CatalogoContent() {
         </p>
       </section>
 
-      {/* 2. BUSCADOR MULTI-PALABRA, CHIPS Y SLIDER DUAL LADO A LADO */}
+      {/* 2. FILTROS CON ACORDEÓN INTELIGENTE PARA MÓVILES */}
       <div className="filter-container">
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
           
-          {/* Input Buscador */}
+          {/* Buscador */}
           <input
             type="text"
-            placeholder="🔍 Buscá por marca, modelo o versión (ej: Chevrolet Cruze, Amarok V6, Hilux)..."
+            placeholder="🔍 Buscá por marca, modelo o versión (ej: Chevrolet Cruze, Amarok, Hilux)..."
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            style={{ width: '100%', boxSizing: 'border-box', padding: '15px 20px', backgroundColor: '#0B0C0E', border: '1px solid #27272a', borderRadius: '12px', color: '#ffffff', fontSize: '1rem', outline: 'none' }}
+            style={{ width: '100%', boxSizing: 'border-box', padding: '14px 18px', backgroundColor: '#0B0C0E', border: '1px solid #27272a', borderRadius: '12px', color: '#ffffff', fontSize: '0.98rem', outline: 'none' }}
           />
 
-          {/* Grilla: Marcas a la Izquierda (Verde) y Slider de Años a la Derecha (Azul) */}
+          {/* Grilla de Filtros */}
           <div className="filter-main-grid">
             
-            {/* Lado Izquierdo: Chips de Marcas */}
+            {/* 1. SECCIÓN MARCAS */}
             <div>
-              <div style={{ fontSize: '0.78rem', color: '#a1a1aa', fontWeight: 600, letterSpacing: '0.5px', textTransform: 'uppercase', marginBottom: '10px' }}>
-                FILTRAR POR MARCAS (SELECCIÓN MÚLTIPLE):
+              {/* Título en PC */}
+              <div className="desktop-filter-header" style={{ fontSize: '0.78rem', color: '#a1a1aa', fontWeight: 600, letterSpacing: '0.5px', textTransform: 'uppercase', marginBottom: '10px' }}>
+                FILTRAR POR MARCA:
               </div>
-              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
-                <button
-                  type="button"
-                  onClick={() => toggleBrand('TODAS')}
-                  className={`brand-chip ${selectedBrands.length === 0 ? 'active' : ''}`}
-                >
-                  TODAS
-                </button>
-                {allBrands.map((b) => {
-                  const isActive = selectedBrands.includes(b);
-                  return (
-                    <button
-                      key={b}
-                      type="button"
-                      onClick={() => toggleBrand(b)}
-                      className={`brand-chip ${isActive ? 'active' : ''}`}
-                    >
-                      {b} {isActive ? '✓' : ''}
-                    </button>
-                  );
-                })}
+
+              {/* Botón desplegable solo en celular */}
+              <button
+                type="button"
+                onClick={() => setOpenBrandMobile(!openBrandMobile)}
+                className={`mobile-accordion-toggle ${selectedBrands.length > 0 || openBrandMobile ? 'active' : ''}`}
+              >
+                <span>
+                  🏷️ Filtrar por Marca {selectedBrands.length > 0 ? `(${selectedBrands.length})` : ''}
+                </span>
+                <span>{openBrandMobile ? '▲' : '▼'}</span>
+              </button>
+
+              {/* Contenido Chips */}
+              <div className={`filter-section-desktop ${openBrandMobile ? 'show-mobile' : ''}`}>
+                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
+                  <button
+                    type="button"
+                    onClick={() => toggleBrand('TODAS')}
+                    className={`brand-chip ${selectedBrands.length === 0 ? 'active' : ''}`}
+                  >
+                    TODAS
+                  </button>
+                  {allBrands.map((b) => {
+                    const isActive = selectedBrands.includes(b);
+                    return (
+                      <button
+                        key={b}
+                        type="button"
+                        onClick={() => toggleBrand(b)}
+                        className={`brand-chip ${isActive ? 'active' : ''}`}
+                      >
+                        {b} {isActive ? '✓' : ''}
+                      </button>
+                    );
+                  })}
+                </div>
               </div>
             </div>
 
-            {/* Lado Derecho: Slider de Años */}
-            <div style={{ backgroundColor: '#0B0C0E', border: '1px solid #27272a', borderRadius: '14px', padding: '14px 18px' }}>
-              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '6px' }}>
-                <span style={{ fontSize: '0.78rem', color: '#a1a1aa', fontWeight: 600, letterSpacing: '0.5px', textTransform: 'uppercase' }}>
-                  AÑO / MODELO
+            {/* 2. SECCIÓN AÑOS */}
+            <div>
+              {/* Botón desplegable solo en celular */}
+              <button
+                type="button"
+                onClick={() => setOpenYearMobile(!openYearMobile)}
+                className={`mobile-accordion-toggle ${yearRange[0] !== minAvailableYear || yearRange[1] !== maxAvailableYear || openYearMobile ? 'active' : ''}`}
+              >
+                <span>
+                  📅 Filtrar por Año ({yearRange[0]} — {yearRange[1]})
                 </span>
-                <span style={{ fontSize: '0.92rem', color: '#ED1C24', fontWeight: 700 }}>
-                  {yearRange[0]} — {yearRange[1]}
-                </span>
-              </div>
+                <span>{openYearMobile ? '▲' : '▼'}</span>
+              </button>
 
-              <div className="dual-slider-wrapper">
-                <div className="dual-slider-track"></div>
-                <div 
-                  className="dual-slider-highlight"
-                  style={{
-                    left: `${minPercent}%`,
-                    width: `${Math.max(0, maxPercent - minPercent)}%`
-                  }}
-                ></div>
-                <input
-                  type="range"
-                  min={minAvailableYear}
-                  max={maxAvailableYear}
-                  value={yearRange[0]}
-                  onChange={(e) => {
-                    const val = Number(e.target.value);
-                    setYearRange([Math.min(val, yearRange[1]), yearRange[1]]);
-                  }}
-                  className="dual-range-input"
-                />
-                <input
-                  type="range"
-                  min={minAvailableYear}
-                  max={maxAvailableYear}
-                  value={yearRange[1]}
-                  onChange={(e) => {
-                    const val = Number(e.target.value);
-                    setYearRange([yearRange[0], Math.max(val, yearRange[0])]);
-                  }}
-                  className="dual-range-input"
-                />
+              {/* Contenido Slider Dual */}
+              <div className={`filter-section-desktop ${openYearMobile ? 'show-mobile' : ''}`}>
+                <div style={{ backgroundColor: '#0B0C0E', border: '1px solid #27272a', borderRadius: '14px', padding: '14px 18px' }}>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '6px' }}>
+                    <span style={{ fontSize: '0.78rem', color: '#a1a1aa', fontWeight: 600, letterSpacing: '0.5px', textTransform: 'uppercase' }}>
+                      AÑO / MODELO
+                    </span>
+                    <span style={{ fontSize: '0.92rem', color: '#ED1C24', fontWeight: 700 }}>
+                      {yearRange[0]} — {yearRange[1]}
+                    </span>
+                  </div>
+
+                  <div className="dual-slider-wrapper">
+                    <div className="dual-slider-track"></div>
+                    <div 
+                      className="dual-slider-highlight"
+                      style={{
+                        left: `${minPercent}%`,
+                        width: `${Math.max(0, maxPercent - minPercent)}%`
+                      }}
+                    ></div>
+                    <input
+                      type="range"
+                      min={minAvailableYear}
+                      max={maxAvailableYear}
+                      value={yearRange[0]}
+                      onChange={(e) => {
+                        const val = Number(e.target.value);
+                        setYearRange([Math.min(val, yearRange[1]), yearRange[1]]);
+                      }}
+                      className="dual-range-input"
+                    />
+                    <input
+                      type="range"
+                      min={minAvailableYear}
+                      max={maxAvailableYear}
+                      value={yearRange[1]}
+                      onChange={(e) => {
+                        const val = Number(e.target.value);
+                        setYearRange([yearRange[0], Math.max(val, yearRange[0])]);
+                      }}
+                      className="dual-range-input"
+                    />
+                  </div>
+                </div>
               </div>
             </div>
 
           </div>
 
-          {/* Contador de resultados */}
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderTop: '1px solid #1f2024', paddingTop: '12px', fontSize: '0.85rem', color: '#a1a1aa' }}>
+          {/* Contador y Limpiar */}
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderTop: '1px solid #1f2024', paddingTop: '10px', fontSize: '0.84rem', color: '#a1a1aa' }}>
             <span>Mostrando <strong style={{ color: '#ffffff' }}>{filtered.length}</strong> {filtered.length === 1 ? 'unidad' : 'unidades disponibles'}</span>
             {(search || selectedBrands.length > 0 || yearRange[0] !== minAvailableYear || yearRange[1] !== maxAvailableYear) && (
               <button
@@ -509,6 +580,8 @@ function CatalogoContent() {
                   setSearch('');
                   setSelectedBrands([]);
                   setYearRange([minAvailableYear, maxAvailableYear]);
+                  setOpenBrandMobile(false);
+                  setOpenYearMobile(false);
                 }}
                 style={{ background: 'transparent', border: 'none', color: '#ED1C24', fontWeight: 600, cursor: 'pointer', fontSize: '0.82rem' }}
               >
@@ -680,7 +753,7 @@ function CatalogoContent() {
               </div>
             )}
 
-            {/* Ficha Técnica Estilo Softr con Datos Alineados a la Izquierda */}
+            {/* Ficha Técnica Estilo Softr */}
             <div style={{ backgroundColor: '#0B0C0E', border: '1px solid #27272a', borderRadius: '16px', padding: '20px 22px', marginBottom: '26px' }}>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
                 
@@ -771,7 +844,7 @@ function CatalogoContent() {
               </div>
             </div>
 
-            {/* Botón de WhatsApp Directo */}
+            {/* Botón WhatsApp */}
             <a
               href={`https://wa.me/5493584029424?text=${encodeURIComponent(`Hola! Quiero consultar por el ${selectedVehicle.brand} ${selectedVehicle.line} ${selectedVehicle.version || ''} (${selectedVehicle.year || ''})`)}`}
               target="_blank"
