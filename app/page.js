@@ -600,7 +600,7 @@ export default function Home() {
                   rel="noopener noreferrer" 
                   style={{ backgroundColor: '#ED1C24', color: '#ffffff', padding: '12px', borderRadius: '10px', fontWeight: 700, fontSize: '0.88rem', textDecoration: 'none', textAlign: 'center' }}
                 >
-                  Cómo llegar en Maps →
+                  Cómo llegar en Maps 
                 </a>
                 <a 
                   href="https://wa.me/5493584029424?text=Hola!%20Quiero%20coordinar%20una%20visita%20al%20sal%C3%B3n" 
