@@ -23,7 +23,7 @@ export default function RootLayout({ children }) {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            max-width: 1400px;
+            max-width: 1540px;
             margin: 0 auto;
             padding: 16px 24px;
           }
@@ -179,16 +179,16 @@ export default function RootLayout({ children }) {
                 CONTACTO
               </div>
               <p style={{ color: '#d4d4d8', fontSize: '0.92rem', margin: '0 0 8px 0' }}>
-                📍 Av. Marcelo T. de Alvear 1580
+                 Av. Marcelo T. de Alvear 1580
               </p>
               <p style={{ color: '#a1a1aa', fontSize: '0.86rem', margin: '0 0 14px 0' }}>
                 Río Cuarto, Córdoba, Argentina
               </p>
               <p style={{ color: '#d4d4d8', fontSize: '0.92rem', margin: '0 0 8px 0' }}>
-                📞 WhatsApp Comercial: +54 9 358 402-9424
+                 WhatsApp Comercial: +54 9 358 402-9424
               </p>
               <p style={{ color: '#a1a1aa', fontSize: '0.86rem', margin: 0 }}>
-                Lunes a Viernes de 8:30 a 12:30 y 16:00 a 20:00 hs
+                Lunes a Viernes de 9:00 a 18:00 hs
               </p>
             </div>
 
