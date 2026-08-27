@@ -368,6 +368,17 @@ export default function CeroKm() {
             </a>
           ))}
         </div>
+            {/* Pie compacto Opción B */}
+              <div style={{ padding: '16px 18px', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+                <div>
+                  <span style={{ fontSize: '0.7rem', color: '#ED1C24', fontWeight: 700, letterSpacing: '1px', display: 'block', marginBottom: '2px' }}>GAMA COMPLETA</span>
+                  <h3 style={{ fontSize: '1.25rem', fontWeight: 700, margin: 0, color: '#ffffff' }}>{item.brand}</h3>
+                </div>
+
+                <div style={{ backgroundColor: '#1F2024', border: '1px solid #333', color: '#ffffff', padding: '8px 16px', borderRadius: '8px', fontWeight: 600, fontSize: '0.85rem' }}>
+                  Consultar →
+                </div>
+              </div>
       </section>
 
       {/* 4. BENEFICIOS */}
