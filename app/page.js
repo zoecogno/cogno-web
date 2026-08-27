@@ -55,10 +55,27 @@ export default function Home() {
   };
 
   return (
-    <div style={{ backgroundColor: '#0B0C0E', minHeight: '100vh', color: '#ffffff', paddingBottom: '100px' }}>
+    <div style={{ backgroundColor: '#0B0C0E', minHeight: '100vh', color: '#ffffff', paddingBottom: '100px', overflowX: 'hidden' }}>
       
-      {/* ESTILOS INTERACTIVOS */}
+      {/* ESTILOS INTERACTIVOS Y RESPONSIVE */}
       <style>{`
+        .hero-title {
+          font-size: 3rem;
+          font-weight: 600;
+          margin: 0 auto 20px auto;
+          letter-spacing: -0.5px;
+          color: #ffffff;
+          line-height: 1.25;
+          max-width: 900px;
+        }
+        .two-cards-grid {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 36px;
+          width: 100%;
+          max-width: 1300px;
+          margin: 0 auto;
+        }
         .interactive-card {
           background-color: #141518;
           border: 1px solid #27272a;
@@ -75,7 +92,7 @@ export default function Home() {
         }
         .card-img-container {
           position: relative;
-          height: 460px;
+          height: 380px;
           background-color: #070709;
           overflow: hidden;
         }
@@ -88,9 +105,20 @@ export default function Home() {
         .interactive-card:hover .card-img-container img {
           transform: scale(1.06);
         }
+        .card-body-content {
+          padding: 32px;
+          display: flex;
+          flex-direction: column;
+          flex-grow: 1;
+        }
+        .identity-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+          gap: 26px;
+        }
         .identity-card {
           position: relative;
-          height: 340px;
+          height: 320px;
           border-radius: 20px;
           overflow: hidden;
           border: 1px solid #27272a;
@@ -122,6 +150,11 @@ export default function Home() {
           width: 100%;
           padding: 26px 22px 20px 22px;
           background: linear-gradient(180deg, rgba(11,12,14,0) 0%, rgba(11,12,14,0.7) 40%, rgba(11,12,14,0.95) 100%);
+        }
+        .metrics-grid {
+          display: grid;
+          grid-template-columns: repeat(4, 1fr);
+          gap: 24px;
         }
         .metric-box {
           background-color: #141518;
@@ -186,6 +219,7 @@ export default function Home() {
           border-radius: 12px;
           font-weight: 600;
           font-size: 1rem;
+          text-decoration: none;
           transition: background-color 0.2s ease, transform 0.2s ease;
         }
         .action-btn-red:hover {
@@ -198,14 +232,59 @@ export default function Home() {
           gap: 32px;
           align-items: center;
         }
-        @media (max-width: 960px) {
+
+        /* REGLAS EXCLUSIVAS PARA CELULARES */
+        @media (max-width: 768px) {
+          .hero-title {
+            font-size: 1.85rem !important;
+            line-height: 1.25 !important;
+          }
+          .two-cards-grid {
+            gap: 14px !important;
+          }
+          .interactive-card {
+            border-radius: 16px !important;
+          }
+          .card-img-container {
+            height: 150px !important;
+          }
+          .card-body-content {
+            padding: 14px !important;
+          }
+          .card-main-title {
+            font-size: 1.1rem !important;
+            margin-bottom: 4px !important;
+          }
+          .card-desc-text {
+            display: none !important;
+          }
+          .card-tag-badge {
+            font-size: 0.72rem !important;
+            margin-bottom: 8px !important;
+          }
+          .action-btn-red {
+            padding: 10px !important;
+            font-size: 0.82rem !important;
+            border-radius: 8px !important;
+          }
+          .identity-grid {
+            grid-template-columns: 1fr !important;
+          }
+          .metrics-grid {
+            grid-template-columns: 1fr 1fr !important;
+            gap: 12px !important;
+          }
+          .metric-box {
+            padding: 20px 14px !important;
+          }
           .salon-grid {
-            grid-template-columns: 1fr;
+            grid-template-columns: 1fr !important;
+            gap: 20px !important;
           }
         }
       `}</style>
 
-{/* 1. HERO INSTITUCIONAL ESTANDARIZADO */}
+      {/* 1. HERO INSTITUCIONAL ESTANDARIZADO */}
       <section style={{ padding: '50px 20px 24px 20px', textAlign: 'center', maxWidth: '1050px', margin: '0 auto' }}>
         
         {/* Logo superior */}
@@ -218,7 +297,7 @@ export default function Home() {
         </div>
 
         {/* Título en 2 renglones armónicos */}
-        <h1 style={{ fontSize: '3rem', fontWeight: 600, margin: '0 auto 20px auto', letterSpacing: '-0.5px', color: '#ffffff', lineHeight: 1.25, maxWidth: '900px' }}>
+        <h1 className="hero-title">
           Somos la <span style={{ color: '#ED1C24' }}>propuesta confiable</span> para tu próximo vehículo
         </h1>
 
@@ -240,26 +319,26 @@ export default function Home() {
 
       </section>
 
-      {/* TARJETAS 0KM Y USADOS */}
-      <section style={{ maxWidth: '1500px', margin: '0 auto', padding: '0 24px' }}>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(420px, 1fr))', gap: '40px', textAlign: 'left' }}>
+      {/* 2. TARJETAS 0KM Y USADOS */}
+      <section style={{ maxWidth: '1400px', margin: '0 auto', padding: '0 20px' }}>
+        <div className="two-cards-grid">
 
           {/* 0KM */}
           <div className="interactive-card">
             <div className="card-img-container">
-              <span style={{ position: 'absolute', top: '16px', left: '16px', backgroundColor: '#ED1C24', color: '#ffffff', fontSize: '0.88rem', fontWeight: 700, padding: '6px 14px', borderRadius: '6px', letterSpacing: '0.5px', zIndex: 2 }}>
+              <span style={{ position: 'absolute', top: '14px', left: '14px', backgroundColor: '#ED1C24', color: '#ffffff', fontSize: '0.8rem', fontWeight: 700, padding: '5px 12px', borderRadius: '6px', letterSpacing: '0.5px', zIndex: 2 }}>
                 0 KM
               </span>
               <img 
-                src="https://lh3.googleusercontent.com/d/1t2g4CyQTMlnMiD9sOd13_cwBE1M_bCBD" 
+                src="/local-2026.jpg.webp" 
                 alt="Unidades 0km" 
               />
             </div>
-            <div style={{ padding: '32px', display: 'flex', flexDirection: 'column', flexGrow: 1 }}>
-              <h2 style={{ fontSize: '1.55rem', fontWeight: 600, color: '#ffffff', margin: '0 0 12px 0', letterSpacing: '0.3px' }}>
+            <div className="card-body-content">
+              <h2 className="card-main-title" style={{ fontSize: '1.55rem', fontWeight: 600, color: '#ffffff', margin: '0 0 10px 0', letterSpacing: '0.3px' }}>
                 Unidades 0KM
               </h2>
-              <p style={{ fontSize: '1rem', color: '#a1a1aa', lineHeight: 1.6, margin: '0 0 28px 0', flexGrow: 1, fontWeight: 300 }}>
+              <p className="card-desc-text" style={{ fontSize: '1rem', color: '#a1a1aa', lineHeight: 1.6, margin: '0 0 26px 0', flexGrow: 1, fontWeight: 300 }}>
                 Comercializamos la gama completa de las principales marcas del país. Financiación directa de fábrica y entrega programada.
               </p>
               <a href="/0km" className="action-btn-red">
@@ -271,22 +350,22 @@ export default function Home() {
           {/* Usados */}
           <div className="interactive-card">
             <div className="card-img-container">
-              <span style={{ position: 'absolute', top: '16px', left: '16px', backgroundColor: '#ED1C24', color: '#ffffff', fontSize: '0.88rem', fontWeight: 700, padding: '6px 14px', borderRadius: '6px', letterSpacing: '0.5px', zIndex: 2 }}>
+              <span style={{ position: 'absolute', top: '14px', left: '14px', backgroundColor: '#ED1C24', color: '#ffffff', fontSize: '0.8rem', fontWeight: 700, padding: '5px 12px', borderRadius: '6px', letterSpacing: '0.5px', zIndex: 2 }}>
                 SELECCIONADOS
               </span>
               <img 
-                src="https://lh3.googleusercontent.com/d/1O1Z7NUU5ULEMQuldROYqvUJgnHKRyeAe" 
+                src="/calidad-usados.jpg.webp" 
                 alt="Usados Seleccionados" 
               />
             </div>
-            <div style={{ padding: '32px', display: 'flex', flexDirection: 'column', flexGrow: 1 }}>
-              <h2 style={{ fontSize: '1.55rem', fontWeight: 600, color: '#ffffff', margin: '0 0 8px 0', letterSpacing: '0.3px' }}>
+            <div className="card-body-content">
+              <h2 className="card-main-title" style={{ fontSize: '1.55rem', fontWeight: 600, color: '#ffffff', margin: '0 0 6px 0', letterSpacing: '0.3px' }}>
                 Usados Seleccionados
               </h2>
-              <div style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', color: '#ED1C24', fontSize: '0.82rem', fontWeight: 600, marginBottom: '12px' }}>
+              <div className="card-tag-badge" style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', color: '#ED1C24', fontSize: '0.82rem', fontWeight: 600, marginBottom: '12px' }}>
                 🛡️ 6 MESES DE GARANTÍA ESCRITA
               </div>
-              <p style={{ fontSize: '1rem', color: '#a1a1aa', lineHeight: 1.6, margin: '0 0 28px 0', flexGrow: 1, fontWeight: 300 }}>
+              <p className="card-desc-text" style={{ fontSize: '1rem', color: '#a1a1aa', lineHeight: 1.6, margin: '0 0 26px 0', flexGrow: 1, fontWeight: 300 }}>
                 Unidades rigurosamente inspeccionadas, con historial verificado y entrega con toda la documentación lista para transferir.
               </p>
               <a href="/usados" className="action-btn-red">
@@ -298,7 +377,7 @@ export default function Home() {
         </div>
       </section>
 
-        {/* 2. IDENTIDAD */}
+      {/* 3. IDENTIDAD */}
       <section style={{ maxWidth: '1200px', margin: '70px auto 0 auto', padding: '0 20px' }}>
         <div style={{ textAlign: 'center', marginBottom: '36px' }}>
           <span style={{ fontSize: '0.86rem', fontWeight: 700, color: '#ED1C24', letterSpacing: '2px', textTransform: 'uppercase' }}>
@@ -309,8 +388,7 @@ export default function Home() {
           </h2>
         </div>
 
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(340px, 1fr))', gap: '26px' }}>
-          
+        <div className="identity-grid">
           <div className="identity-card">
             <img src="/calidad-usados.jpg.webp" alt="Garantía propia" />
             <div className="identity-overlay">
@@ -319,7 +397,7 @@ export default function Home() {
           </div>
 
           <div className="identity-card">
-            <img src="/local-frente.jpg.webp" alt="Atención personalizada" />
+            <img src="/frente-2026.jpg.jpg" alt="Atención personalizada" />
             <div className="identity-overlay">
               <h3 style={{ fontSize: '1.2rem', fontWeight: 600, margin: 0, color: '#ffffff', lineHeight: 1.4 }}>Atención personalizada de principio a fin</h3>
             </div>
@@ -331,14 +409,12 @@ export default function Home() {
               <h3 style={{ fontSize: '1.2rem', fontWeight: 600, margin: 0, color: '#ffffff', lineHeight: 1.4 }}>+35 años de trayectoria en el sector automotor</h3>
             </div>
           </div>
-
         </div>
       </section>
 
-      {/* 3. MÉTRICAS */}
-      <section style={{ maxWidth: '1500px', margin: '60px auto 0 auto', padding: '0 24px' }}>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '24px' }}>
-          
+      {/* 4. MÉTRICAS */}
+      <section style={{ maxWidth: '1400px', margin: '60px auto 0 auto', padding: '0 20px' }}>
+        <div className="metrics-grid">
           <div className="metric-box">
             <div style={{ fontSize: '2.8rem', fontWeight: 700, color: '#ED1C24', lineHeight: 1, marginBottom: '10px' }}>+35</div>
             <div style={{ fontSize: '1.05rem', fontWeight: 600, color: '#ffffff', marginBottom: '6px' }}>Años de Trayectoria</div>
@@ -362,12 +438,11 @@ export default function Home() {
             <div style={{ fontSize: '1.05rem', fontWeight: 600, color: '#ffffff', marginBottom: '6px' }}>Marcas Multimarca</div>
             <div style={{ fontSize: '0.88rem', color: '#71717a', fontWeight: 300 }}>Gama 0km completa disponible</div>
           </div>
-
         </div>
       </section>
 
-      {/* 4. FINANCIACIÓN */}
-      <section style={{ maxWidth: '1200px', margin: '80px auto 0 auto', padding: '0 24px' }}>
+      {/* 5. FINANCIACIÓN */}
+      <section style={{ maxWidth: '1200px', margin: '80px auto 0 auto', padding: '0 20px' }}>
         <div style={{ backgroundColor: '#141518', border: '1px solid #27272a', borderRadius: '26px', padding: '54px 36px', textAlign: 'center' }}>
           <div style={{ display: 'inline-flex', alignItems: 'center', backgroundColor: 'rgba(237, 28, 36, 0.1)', border: '1px solid rgba(237, 28, 36, 0.3)', color: '#ED1C24', padding: '7px 22px', borderRadius: '30px', fontSize: '0.92rem', fontWeight: 600, letterSpacing: '1.5px', textTransform: 'uppercase', marginBottom: '18px' }}>
             PLANES A MEDIDA
@@ -382,15 +457,15 @@ export default function Home() {
             href="https://wa.me/5493584029424?text=Hola!%20Quiero%20consultar%20por%20opciones%20de%20financiaci%C3%B3n" 
             target="_blank" 
             rel="noopener noreferrer" 
-            style={{ display: 'inline-block', backgroundColor: '#ED1C24', color: '#ffffff', padding: '15px 36px', borderRadius: '12px', fontWeight: 600, fontSize: '0.96rem' }}
+            style={{ display: 'inline-block', backgroundColor: '#ED1C24', color: '#ffffff', padding: '15px 36px', borderRadius: '12px', fontWeight: 600, fontSize: '0.96rem', textDecoration: 'none' }}
           >
             Consultar Opciones de Financiación →
           </a>
         </div>
       </section>
 
-      {/* 5. RESEÑAS */}
-      <section style={{ maxWidth: '1500px', margin: '80px auto 0 auto', padding: '0 24px' }}>
+      {/* 6. RESEÑAS */}
+      <section style={{ maxWidth: '1400px', margin: '80px auto 0 auto', padding: '0 20px' }}>
         <div style={{ textAlign: 'center', marginBottom: '32px', position: 'relative' }}>
           <div>
             <span style={{ fontSize: '0.92rem', fontWeight: 600, color: '#ED1C24', letterSpacing: '2px', textTransform: 'uppercase' }}>TESTIMONIOS REALES</span>
@@ -437,15 +512,15 @@ export default function Home() {
             href="https://maps.app.goo.gl/GUH2QAShLm4LVHGU6" 
             target="_blank" 
             rel="noopener noreferrer" 
-            style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', backgroundColor: '#141518', border: '1px solid #27272a', color: '#a1a1aa', padding: '12px 26px', borderRadius: '10px', fontSize: '0.88rem', fontWeight: 500 }}
+            style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', backgroundColor: '#141518', border: '1px solid #27272a', color: '#a1a1aa', padding: '12px 26px', borderRadius: '10px', fontSize: '0.88rem', fontWeight: 500, textDecoration: 'none' }}
           >
             Ver más opiniones en Google Maps ↗
           </a>
         </div>
       </section>
 
-      {/* 6. SECCIÓN SALÓN + MAPA GOOGLE EMBEBIDO */}
-      <section style={{ maxWidth: '1500px', margin: '90px auto 0 auto', padding: '0 24px' }}>
+      {/* 7. SECCIÓN SALÓN + MAPA GOOGLE EMBEBIDO */}
+      <section style={{ maxWidth: '1400px', margin: '90px auto 0 auto', padding: '0 20px' }}>
         <div style={{ backgroundColor: '#141518', border: '1px solid #27272a', borderRadius: '28px', padding: '48px 36px', overflow: 'hidden' }}>
           
           <div className="salon-grid">
@@ -473,7 +548,7 @@ export default function Home() {
                   href="https://www.google.com/maps/search/?api=1&query=Av.+Marcelo+T.+de+Alvear+1580,+Rio+Cuarto,+Cordoba" 
                   target="_blank" 
                   rel="noopener noreferrer" 
-                  style={{ backgroundColor: '#ED1C24', color: '#ffffff', padding: '13px 26px', borderRadius: '10px', fontWeight: 600, fontSize: '0.92rem' }}
+                  style={{ backgroundColor: '#ED1C24', color: '#ffffff', padding: '13px 26px', borderRadius: '10px', fontWeight: 600, fontSize: '0.92rem', textDecoration: 'none' }}
                 >
                   Cómo llegar en Google Maps →
                 </a>
@@ -481,7 +556,7 @@ export default function Home() {
                   href="https://wa.me/5493584029424?text=Hola!%20Quiero%20coordinar%20una%20visita%20al%20sal%C3%B3n" 
                   target="_blank" 
                   rel="noopener noreferrer" 
-                  style={{ backgroundColor: '#1F2024', border: '1px solid #333', color: '#ffffff', padding: '13px 26px', borderRadius: '10px', fontWeight: 600, fontSize: '0.92rem' }}
+                  style={{ backgroundColor: '#1F2024', border: '1px solid #333', color: '#ffffff', padding: '13px 26px', borderRadius: '10px', fontWeight: 600, fontSize: '0.92rem', textDecoration: 'none' }}
                 >
                   Hablar por WhatsApp
                 </a>
