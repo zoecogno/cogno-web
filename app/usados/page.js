@@ -440,9 +440,6 @@ function CatalogoContent() {
           Explorá nuestro catálogo de unidades seleccionadas con historial verificado y entrega con documentación lista para salir a la calle.
         </p>
 
-        <p style={{ color: '#d4d4d8', fontSize: '1rem', margin: '0 auto 28px auto', fontWeight: 400 }}>
-          Utilizá los filtros para encontrar el auto o pickup que mejor se adapta a tus necesidades:
-        </p>
       </section>
 
       {/* 2. FILTROS CON ACORDEÓN INTELIGENTE PARA MÓVILES */}
@@ -475,7 +472,7 @@ function CatalogoContent() {
                 className={`mobile-accordion-toggle ${selectedBrands.length > 0 || openBrandMobile ? 'active' : ''}`}
               >
                 <span>
-                  🏷️ Filtrar por Marca {selectedBrands.length > 0 ? `(${selectedBrands.length})` : ''}
+                   Filtrar por Marca {selectedBrands.length > 0 ? `(${selectedBrands.length})` : ''}
                 </span>
                 <span>{openBrandMobile ? '▲' : '▼'}</span>
               </button>
@@ -516,7 +513,7 @@ function CatalogoContent() {
                 className={`mobile-accordion-toggle ${yearRange[0] !== minAvailableYear || yearRange[1] !== maxAvailableYear || openYearMobile ? 'active' : ''}`}
               >
                 <span>
-                  📅 Filtrar por Año ({yearRange[0]} — {yearRange[1]})
+                   Filtrar por Año ({yearRange[0]} — {yearRange[1]})
                 </span>
                 <span>{openYearMobile ? '▲' : '▼'}</span>
               </button>
