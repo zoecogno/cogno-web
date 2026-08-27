@@ -1,144 +1,12 @@
-'use client';
-
-const valuesData = [
-  {
-    id: 'honestidad',
-    title: 'Honestidad y Transparencia',
-    desc: 'Claridad absoluta en el estado de cada vehículo, precios y condiciones comerciales desde el primer contacto.',
-  },
-  {
-    id: 'confianza',
-    title: 'Confianza y Cercanía',
-    desc: 'Trato personalizado y humano. Generaciones de clientes nos siguen eligiendo para renovar su unidad.',
-  },
-  {
-    id: 'responsabilidad',
-    title: 'Responsabilidad',
-    desc: 'Asumimos con seriedad cada compromiso, cumpliendo con lo prometido en tiempo y forma.',
-  },
-  {
-    id: 'posventa',
-    title: 'Compromiso Post Venta',
-    desc: 'Sostenemos un estándar de respuesta ágil y eficiente para cualquier necesidad posterior a la operación.',
-  },
-];
-
-function ValueIcon({ id }) {
-  if (id === 'honestidad') {
-    return (
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <path d="m11 17 2 2a1 1 0 0 0 1.42 0l6.58-6.59a1 1 0 0 0 0-1.41l-2.58-2.59a1 1 0 0 0-1.42 0L15 10.41" />
-        <path d="m18 13-1.5-1.5" />
-        <path d="M14 6.5 12.5 5" />
-        <path d="M2 13v7a2 2 0 0 0 2 2h7l9-9-4.5-4.5z" />
-        <path d="M6 18h.01" />
-      </svg>
-    );
-  }
-  if (id === 'confianza') {
-    return (
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-      </svg>
-    );
-  }
-  if (id === 'responsabilidad') {
-    return (
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
-        <polyline points="22 4 12 14.01 9 11.01" />
-      </svg>
-    );
-  }
-  return (
-    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" />
-    </svg>
-  );
-}
+export const metadata = {
+  title: 'Quiénes Somos | Cogno Automotores',
+  description: 'Más de 35 años de trayectoria en el sector automotor en Río Cuarto.',
+};
 
 export default function QuienesSomos() {
   return (
     <div style={{ backgroundColor: '#0B0C0E', minHeight: '100vh', color: '#ffffff', paddingBottom: '100px' }}>
       
-      {/* ESTILOS INTERACTIVOS & RESPONSIVE */}
-      <style>{`
-        .values-grid {
-          display: grid;
-          grid-template-columns: 1fr 1fr;
-          gap: 26px;
-        }
-        @media (max-width: 860px) {
-          .values-grid {
-            grid-template-columns: 1fr;
-          }
-        }
-        .value-card {
-          background-color: #141518;
-          border: 1px solid #27272a;
-          border-radius: 20px;
-          padding: 34px 28px;
-          display: flex;
-          gap: 22px;
-          align-items: flex-start;
-          transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
-        }
-        .value-card:hover {
-          transform: translateY(-5px);
-          border-color: rgba(237, 28, 36, 0.4);
-          box-shadow: 0 14px 30px rgba(0,0,0,0.5);
-        }
-        .vision-card {
-          position: relative;
-          min-height: 280px;
-          border-radius: 22px;
-          overflow: hidden;
-          border: 1px solid #27272a;
-          padding: 38px 32px;
-          display: flex;
-          flex-direction: column;
-          justify-content: flex-end;
-          transition: transform 0.3s ease, border-color 0.3s ease;
-        }
-        .vision-card img {
-          position: absolute;
-          inset: 0;
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-          transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-          z-index: 1;
-        }
-        .vision-card:hover img {
-          transform: scale(1.08);
-        }
-        .vision-card:hover {
-          border-color: #ED1C24;
-          transform: translateY(-4px);
-        }
-        .vision-overlay {
-          position: absolute;
-          inset: 0;
-          background: linear-gradient(180deg, rgba(11,12,14,0.4) 0%, rgba(11,12,14,0.85) 45%, rgba(11,12,14,0.98) 100%);
-          z-index: 2;
-        }
-        .vision-content {
-          position: relative;
-          z-index: 3;
-        }
-        .salon-grid {
-          display: grid;
-          grid-template-columns: 1fr 1.2fr;
-          gap: 32px;
-          align-items: center;
-        }
-        @media (max-width: 960px) {
-          .salon-grid {
-            grid-template-columns: 1fr;
-          }
-        }
-      `}</style>
-
       {/* 1. ENCABEZADO INSTITUCIONAL */}
       <section style={{ padding: '50px 20px 24px 20px', textAlign: 'center', maxWidth: '1000px', margin: '0 auto' }}>
         
@@ -179,7 +47,6 @@ export default function QuienesSomos() {
         <div style={{ borderRadius: '24px', overflow: 'hidden', border: '1px solid #27272a', backgroundColor: '#070709', boxShadow: '0 24px 50px rgba(0,0,0,0.7)' }}>
           <img 
             src="/frente-2026.jpg.jpg" 
-            onError={(e) => { e.currentTarget.src = '/local-2026.jpg.webp'; }}
             alt="Salón Cogno Automotores" 
             style={{ width: '100%', height: 'auto', display: 'block' }}
           />
@@ -199,12 +66,12 @@ export default function QuienesSomos() {
 
       {/* 2. PROPÓSITO & VISIÓN */}
       <section style={{ maxWidth: '1440px', margin: '70px auto 0 auto', padding: '0 24px' }}>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(400px, 1fr))', gap: '26px' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(340px, 1fr))', gap: '26px' }}>
           
-          <div className="vision-card">
-            <img src="/calidad-usados.jpg.webp" alt="Propósito" />
-            <div className="vision-overlay"></div>
-            <div className="vision-content">
+          <div style={{ position: 'relative', minHeight: '280px', borderRadius: '22px', overflow: 'hidden', border: '1px solid #27272a', padding: '38px 32px', display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', backgroundColor: '#141518' }}>
+            <img src="/calidad-usados.jpg.webp" alt="Propósito" style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover' }} />
+            <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, rgba(11,12,14,0.4) 0%, rgba(11,12,14,0.85) 45%, rgba(11,12,14,0.98) 100%)' }}></div>
+            <div style={{ position: 'relative', zIndex: 3 }}>
               <span style={{ fontSize: '0.8rem', fontWeight: 700, color: '#ED1C24', letterSpacing: '1.5px', textTransform: 'uppercase' }}>NUESTRO PROPÓSITO</span>
               <h3 style={{ fontSize: '1.6rem', fontWeight: 600, margin: '8px 0 12px 0', color: '#ffffff' }}>Seguridad, respaldo y tranquilidad</h3>
               <p style={{ fontSize: '1.02rem', color: '#d4d4d8', lineHeight: 1.6, margin: 0, fontWeight: 300 }}>
@@ -213,10 +80,10 @@ export default function QuienesSomos() {
             </div>
           </div>
 
-          <div className="vision-card">
-            <img src="/premios-trayectoria.jpg.webp" alt="Visión" />
-            <div className="vision-overlay"></div>
-            <div className="vision-content">
+          <div style={{ position: 'relative', minHeight: '280px', borderRadius: '22px', overflow: 'hidden', border: '1px solid #27272a', padding: '38px 32px', display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', backgroundColor: '#141518' }}>
+            <img src="/premios-trayectoria.jpg.webp" alt="Visión" style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover' }} />
+            <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, rgba(11,12,14,0.4) 0%, rgba(11,12,14,0.85) 45%, rgba(11,12,14,0.98) 100%)' }}></div>
+            <div style={{ position: 'relative', zIndex: 3 }}>
               <span style={{ fontSize: '0.8rem', fontWeight: 700, color: '#ED1C24', letterSpacing: '1.5px', textTransform: 'uppercase' }}>HACIA DÓNDE VAMOS</span>
               <h3 style={{ fontSize: '1.6rem', fontWeight: 600, margin: '8px 0 12px 0', color: '#ffffff' }}>El referente indiscutido en la región</h3>
               <p style={{ fontSize: '1.02rem', color: '#d4d4d8', lineHeight: 1.6, margin: 0, fontWeight: 300 }}>
@@ -235,22 +102,69 @@ export default function QuienesSomos() {
           <h2 style={{ fontSize: '2.4rem', fontWeight: 600, margin: '6px 0 0 0' }}>Nuestros Valores</h2>
         </div>
 
-        <div className="values-grid">
-          {valuesData.map((v) => (
-            <div key={v.id} className="value-card">
-              <div style={{ width: '50px', height: '50px', borderRadius: '14px', backgroundColor: 'rgba(237, 28, 36, 0.12)', border: '1px solid rgba(237, 28, 36, 0.3)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, color: '#ED1C24' }}>
-                <ValueIcon id={v.id} />
-              </div>
-              <div>
-                <h3 style={{ fontSize: '1.25rem', fontWeight: 600, color: '#ffffff', margin: '0 0 8px 0' }}>
-                  {v.title}
-                </h3>
-                <p style={{ fontSize: '0.96rem', color: '#a1a1aa', lineHeight: 1.6, margin: 0, fontWeight: 300 }}>
-                  {v.desc}
-                </p>
-              </div>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '26px' }}>
+          
+          <div style={{ backgroundColor: '#141518', border: '1px solid #27272a', borderRadius: '20px', padding: '34px 28px', display: 'flex', gap: '22px', alignItems: 'flex-start' }}>
+            <div style={{ width: '50px', height: '50px', borderRadius: '14px', backgroundColor: 'rgba(237, 28, 36, 0.12)', border: '1px solid rgba(237, 28, 36, 0.3)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, color: '#ED1C24' }}>
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="m11 17 2 2a1 1 0 0 0 1.42 0l6.58-6.59a1 1 0 0 0 0-1.41l-2.58-2.59a1 1 0 0 0-1.42 0L15 10.41" />
+                <path d="m18 13-1.5-1.5" />
+                <path d="M14 6.5 12.5 5" />
+                <path d="M2 13v7a2 2 0 0 0 2 2h7l9-9-4.5-4.5z" />
+                <path d="M6 18h.01" />
+              </svg>
             </div>
-          ))}
+            <div>
+              <h3 style={{ fontSize: '1.25rem', fontWeight: 600, color: '#ffffff', margin: '0 0 8px 0' }}>Honestidad y Transparencia</h3>
+              <p style={{ fontSize: '0.96rem', color: '#a1a1aa', lineHeight: 1.6, margin: 0, fontWeight: 300 }}>
+                Claridad absoluta en el estado de cada vehículo, precios y condiciones comerciales desde el primer contacto.
+              </p>
+            </div>
+          </div>
+
+          <div style={{ backgroundColor: '#141518', border: '1px solid #27272a', borderRadius: '20px', padding: '34px 28px', display: 'flex', gap: '22px', alignItems: 'flex-start' }}>
+            <div style={{ width: '50px', height: '50px', borderRadius: '14px', backgroundColor: 'rgba(237, 28, 36, 0.12)', border: '1px solid rgba(237, 28, 36, 0.3)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, color: '#ED1C24' }}>
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+              </svg>
+            </div>
+            <div>
+              <h3 style={{ fontSize: '1.25rem', fontWeight: 600, color: '#ffffff', margin: '0 0 8px 0' }}>Confianza y Cercanía</h3>
+              <p style={{ fontSize: '0.96rem', color: '#a1a1aa', lineHeight: 1.6, margin: 0, fontWeight: 300 }}>
+                Trato personalizado y humano. Generaciones de clientes nos siguen eligiendo para renovar su unidad.
+              </p>
+            </div>
+          </div>
+
+          <div style={{ backgroundColor: '#141518', border: '1px solid #27272a', borderRadius: '20px', padding: '34px 28px', display: 'flex', gap: '22px', alignItems: 'flex-start' }}>
+            <div style={{ width: '50px', height: '50px', borderRadius: '14px', backgroundColor: 'rgba(237, 28, 36, 0.12)', border: '1px solid rgba(237, 28, 36, 0.3)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, color: '#ED1C24' }}>
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                <polyline points="22 4 12 14.01 9 11.01" />
+              </svg>
+            </div>
+            <div>
+              <h3 style={{ fontSize: '1.25rem', fontWeight: 600, color: '#ffffff', margin: '0 0 8px 0' }}>Responsabilidad</h3>
+              <p style={{ fontSize: '0.96rem', color: '#a1a1aa', lineHeight: 1.6, margin: 0, fontWeight: 300 }}>
+                Asumimos con seriedad cada compromiso, cumpliendo con lo prometido en tiempo y forma.
+              </p>
+            </div>
+          </div>
+
+          <div style={{ backgroundColor: '#141518', border: '1px solid #27272a', borderRadius: '20px', padding: '34px 28px', display: 'flex', gap: '22px', alignItems: 'flex-start' }}>
+            <div style={{ width: '50px', height: '50px', borderRadius: '14px', backgroundColor: 'rgba(237, 28, 36, 0.12)', border: '1px solid rgba(237, 28, 36, 0.3)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, color: '#ED1C24' }}>
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" />
+              </svg>
+            </div>
+            <div>
+              <h3 style={{ fontSize: '1.25rem', fontWeight: 600, color: '#ffffff', margin: '0 0 8px 0' }}>Compromiso Post Venta</h3>
+              <p style={{ fontSize: '0.96rem', color: '#a1a1aa', lineHeight: 1.6, margin: 0, fontWeight: 300 }}>
+                Sostenemos un estándar de respuesta ágil y eficiente para cualquier necesidad posterior a la operación.
+              </p>
+            </div>
+          </div>
+
         </div>
       </section>
 
@@ -258,7 +172,7 @@ export default function QuienesSomos() {
       <section style={{ maxWidth: '1440px', margin: '90px auto 0 auto', padding: '0 24px' }}>
         <div style={{ backgroundColor: '#141518', border: '1px solid #27272a', borderRadius: '28px', padding: '48px 36px', overflow: 'hidden' }}>
           
-          <div className="salon-grid">
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '32px', alignItems: 'center' }}>
             
             {/* Información Izquierda */}
             <div>
@@ -283,7 +197,7 @@ export default function QuienesSomos() {
                   href="https://www.google.com/maps/search/?api=1&query=Av.+Marcelo+T.+de+Alvear+1580,+Rio+Cuarto,+Cordoba" 
                   target="_blank" 
                   rel="noopener noreferrer" 
-                  style={{ backgroundColor: '#ED1C24', color: '#ffffff', padding: '13px 26px', borderRadius: '10px', fontWeight: 700, fontSize: '0.92rem' }}
+                  style={{ backgroundColor: '#ED1C24', color: '#ffffff', padding: '13px 26px', borderRadius: '10px', fontWeight: 700, fontSize: '0.92rem', textDecoration: 'none' }}
                 >
                   Cómo llegar en Google Maps →
                 </a>
@@ -291,7 +205,7 @@ export default function QuienesSomos() {
                   href="https://wa.me/5493584029424?text=Hola!%20Quiero%20coordinar%20una%20visita%20al%20sal%C3%B3n" 
                   target="_blank" 
                   rel="noopener noreferrer" 
-                  style={{ backgroundColor: '#1F2024', border: '1px solid #333', color: '#ffffff', padding: '13px 26px', borderRadius: '10px', fontWeight: 600, fontSize: '0.92rem' }}
+                  style={{ backgroundColor: '#1F2024', border: '1px solid #333', color: '#ffffff', padding: '13px 26px', borderRadius: '10px', fontWeight: 600, fontSize: '0.92rem', textDecoration: 'none' }}
                 >
                   Hablar por WhatsApp
                 </a>
