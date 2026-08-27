@@ -332,7 +332,7 @@ export default function CeroKm() {
         </div>
       </div>
 
-    {/* 3. CATÁLOGO DE MARCAS 0KM */}
+    {/* 3. CATÁLOGO DE MARCAS 0KM - OPCIÓN A */}
       <section style={{ maxWidth: '1540px', margin: '0 auto', padding: '0 24px' }}>
         <div className="cars-grid-0km">
           {BRANDS_DATA.map((item, idx) => (
@@ -343,18 +343,11 @@ export default function CeroKm() {
               rel="noopener noreferrer"
               className="car-card-0km"
             >
-              {/* Cabecera superior: Marca + Badge */}
-              <div style={{ padding: '16px 20px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', borderBottom: '1px solid #1f2024' }}>
-                <h3 className="car-title-brand" style={{ fontSize: '1.25rem', fontWeight: 700, margin: 0, color: '#ffffff', letterSpacing: '0.5px' }}>
-                  {item.brand}
-                </h3>
-                <span className="badge-gama-completa" style={{ margin: 0 }}>
+              {/* Foto Limpia */}
+              <div className="car-img-box">
+                <span className="badge-gama-completa" style={{ position: 'absolute', top: '12px', left: '12px', margin: 0, zIndex: 2 }}>
                   GAMA COMPLETA
                 </span>
-              </div>
-
-              {/* Foto centrada */}
-              <div className="car-img-box">
                 <img 
                   src={encodeURI(item.image)} 
                   alt={`${item.brand} 0km`} 
@@ -362,10 +355,14 @@ export default function CeroKm() {
                 />
               </div>
 
-              {/* Botón inferior limpio */}
-              <div style={{ padding: '14px 20px' }}>
-                <div className="car-btn-action">
-                  Consultar Disponibilidad →
+              {/* Fila única: Marca a la izquierda, Botón chico a la derecha */}
+              <div style={{ padding: '14px 18px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', backgroundColor: '#141518' }}>
+                <h3 style={{ fontSize: '1.2rem', fontWeight: 700, margin: 0, color: '#ffffff', letterSpacing: '0.5px' }}>
+                  {item.brand}
+                </h3>
+
+                <div style={{ backgroundColor: '#ED1C24', color: '#ffffff', padding: '7px 16px', borderRadius: '8px', fontWeight: 700, fontSize: '0.82rem', display: 'inline-flex', alignItems: 'center', gap: '4px' }}>
+                  Consultar →
                 </div>
               </div>
             </a>
