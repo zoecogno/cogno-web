@@ -224,7 +224,7 @@ export default function Home() {
           align-items: center;
         }
 
-     /* --- CELULARES (ADAPTACIÓN COMPACTA) --- */
+        /* --- CELULARES (ADAPTACIÓN COMPACTA) --- */
         @media (max-width: 768px) {
           .section-title {
             font-size: 1.35rem !important;
@@ -339,8 +339,9 @@ export default function Home() {
             height: 220px !important;
           }
         }
+      `}</style>
 
-  {/* 1. HERO INSTITUCIONAL */}
+      {/* 1. HERO INSTITUCIONAL */}
       <section style={{ padding: '35px 20px 15px 20px', textAlign: 'center', maxWidth: '1100px', margin: '0 auto' }}>
         <div style={{ marginBottom: '14px' }}>
           <img 
@@ -372,7 +373,7 @@ export default function Home() {
       <section style={{ maxWidth: '1540px', margin: '0 auto', padding: '0 24px' }}>
         <div className="two-cards-grid">
 
-         {/* 0KM */}
+          {/* 0KM */}
           <div className="interactive-card">
             <div className="card-img-container">
               <span style={{ position: 'absolute', top: '14px', left: '14px', backgroundColor: '#ED1C24', color: '#ffffff', fontSize: '0.82rem', fontWeight: 700, padding: '5px 12px', borderRadius: '6px', zIndex: 2 }}>
@@ -425,7 +426,9 @@ export default function Home() {
               </a>
             </div>
           </div>
- </section>
+
+        </div>
+      </section>
 
       {/* 3. IDENTIDAD */}
       <section style={{ maxWidth: '1540px', margin: '75px auto 0 auto', padding: '0 24px' }}>
@@ -584,14 +587,14 @@ export default function Home() {
                 </div>
               </div>
 
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(170px, 1fr))', gap: '12px' }}>
+              <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
                 <a 
                   href="https://www.google.com/maps/search/?api=1&query=Av.+Marcelo+T.+de+Alvear+1580,+Rio+Cuarto,+Cordoba" 
                   target="_blank" 
                   rel="noopener noreferrer" 
                   style={{ backgroundColor: '#ED1C24', color: '#ffffff', padding: '13px 24px', borderRadius: '10px', fontWeight: 700, fontSize: '0.92rem', textDecoration: 'none', textAlign: 'center' }}
                 >
-                  Cómo llegar en Maps 
+                  Cómo llegar en Maps →
                 </a>
                 <a 
                   href="https://wa.me/5493584029424?text=Hola!%20Quiero%20coordinar%20una%20visita%20al%20sal%C3%B3n" 
