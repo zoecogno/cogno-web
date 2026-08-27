@@ -205,11 +205,11 @@ export default function Home() {
         }
       `}</style>
 
-{/* 1. HERO INSTITUCIONAL INTERMEDIO */}
-      <section style={{ padding: '50px 20px 20px 20px', textAlign: 'center', maxWidth: '1100px', margin: '0 auto' }}>
+{/* 1. HERO INSTITUCIONAL ESTANDARIZADO */}
+      <section style={{ padding: '50px 20px 24px 20px', textAlign: 'center', maxWidth: '1050px', margin: '0 auto' }}>
         
         {/* Logo superior */}
-        <div style={{ marginBottom: '20px' }}>
+        <div style={{ marginBottom: '18px' }}>
           <img 
             src="/logo.png.png" 
             alt="Cogno Automotores" 
@@ -217,24 +217,24 @@ export default function Home() {
           />
         </div>
 
-        {/* Título de bienvenida institucional */}
-        <h1 style={{ fontSize: '3rem', fontWeight: 600, margin: '0 auto 18px auto', letterSpacing: '-0.5px', color: '#ffffff', lineHeight: 1.2, maxWidth: '980px' }}>
-          Trayectoria y compromiso: somos la <span style={{ color: '#ED1C24' }}>propuesta confiable</span> para tu próximo vehículo
+        {/* Título en 2 renglones armónicos */}
+        <h1 style={{ fontSize: '3rem', fontWeight: 600, margin: '0 auto 20px auto', letterSpacing: '-0.5px', color: '#ffffff', lineHeight: 1.25, maxWidth: '900px' }}>
+          Somos la <span style={{ color: '#ED1C24' }}>propuesta confiable</span> para tu próximo vehículo
         </h1>
 
-        {/* Badge rojo tipo píldora */}
-        <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', backgroundColor: 'rgba(237, 28, 36, 0.08)', border: '1px solid rgba(237, 28, 36, 0.4)', color: '#ED1C24', padding: '9px 22px', borderRadius: '30px', fontSize: '0.86rem', fontWeight: 700, letterSpacing: '0.8px', marginBottom: '22px', textTransform: 'uppercase' }}>
+        {/* Badge rojo con Trayectoria y Compromiso */}
+        <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', backgroundColor: 'rgba(237, 28, 36, 0.08)', border: '1px solid rgba(237, 28, 36, 0.4)', color: '#ED1C24', padding: '9px 22px', borderRadius: '30px', fontSize: '0.86rem', fontWeight: 700, letterSpacing: '0.8px', marginBottom: '24px', textTransform: 'uppercase' }}>
           <span>🛡️</span>
-          <span>TU PRÓXIMO VEHÍCULO TE ESPERA</span>
+          <span>TRAYECTORIA Y COMPROMISO</span>
         </div>
 
-        {/* Bajada con propuesta de valor */}
-        <p style={{ color: '#ffffff', fontSize: '1.08rem', maxWidth: '850px', margin: '0 auto 16px auto', lineHeight: 1.7, fontWeight: 300 }}>
+        {/* Bajada */}
+        <p style={{ color: '#ffffff', fontSize: '1.05rem', maxWidth: '820px', margin: '0 auto 14px auto', lineHeight: 1.7, fontWeight: 300 }}>
           Vehículos 0KM y usados seleccionados, con destacada variedad de pick-ups. Garantía propia y atención personalizada en cada etapa de la compra.
         </p>
 
-        {/* Llamado a la acción previo a las tarjetas */}
-        <p style={{ color: '#a1a1aa', fontSize: '0.96rem', margin: '0 auto 35px auto', fontWeight: 400 }}>
+        {/* Llamado a la acción */}
+        <p style={{ color: '#a1a1aa', fontSize: '0.95rem', margin: '0 auto 35px auto', fontWeight: 400 }}>
           Elegí la categoría de tu interés para explorar nuestras unidades disponibles:
         </p>
 
