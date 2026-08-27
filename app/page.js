@@ -205,33 +205,35 @@ export default function Home() {
         }
       `}</style>
 
-      {/* 1. ENCABEZADO INSTITUCIONAL ESTANDARIZADO */}
+    {/* 1. ENCABEZADO INSTITUCIONAL ESTANDARIZADO */}
       <section style={{ padding: '50px 20px 24px 20px', textAlign: 'center', maxWidth: '1000px', margin: '0 auto' }}>
         
-        {/* Logo centrado */}
-        <div style={{ marginBottom: '16px' }}>
+        {/* Logo ampliado */}
+        <div style={{ marginBottom: '18px' }}>
           <img 
             src="/logo.png.png" 
             alt="Cogno Automotores" 
-            style={{ height: '75px', width: 'auto', margin: '0 auto', display: 'inline-block' }} 
+            style={{ height: '85px', width: 'auto', margin: '0 auto', display: 'inline-block' }} 
           />
         </div>
 
-        {/* Título principal estilizado todo en blanco */}
-        <h1 style={{ fontSize: '2.75rem', fontWeight: 600, margin: '0 0 20px 0', letterSpacing: '-0.5px', color: '#ffffff' }}>
-          ¿Qué estás buscando?
+        {/* Título principal con buscando? en rojo */}
+        <h1 style={{ fontSize: '3.2rem', fontWeight: 600, margin: '0 0 18px 0', letterSpacing: '-0.5px', color: '#ffffff', lineHeight: 1.15 }}>
+          ¿Qué estás <span style={{ color: '#ED1C24' }}>buscando?</span>
         </h1>
 
         {/* Badge rojo tipo píldora */}
-        <div style={{ display: 'inline-flex', alignItems: 'center', gap: '10px', backgroundColor: 'rgba(237, 28, 36, 0.08)', border: '1px solid rgba(237, 28, 36, 0.4)', color: '#ED1C24', padding: '10px 24px', borderRadius: '40px', fontSize: '0.88rem', fontWeight: 700, letterSpacing: '0.8px', marginBottom: '24px', textTransform: 'uppercase' }}>
+        <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', backgroundColor: 'rgba(237, 28, 36, 0.08)', border: '1px solid rgba(237, 28, 36, 0.4)', color: '#ED1C24', padding: '9px 22px', borderRadius: '30px', fontSize: '0.86rem', fontWeight: 700, letterSpacing: '0.8px', marginBottom: '28px', textTransform: 'uppercase' }}>
           <span>🛡️</span>
           <span>TU PRÓXIMO VEHÍCULO TE ESPERA</span>
         </div>
 
-        {/* Bajada */}
-        <p style={{ color: '#ffffff', fontSize: '1.05rem', maxWidth: '850px', margin: '0 auto 40px auto', lineHeight: 1.6, fontWeight: 300 }}>
+        {/* Bajada con tipografía unificada en blanco */}
+        <p style={{ color: '#ffffff', fontSize: '1.05rem', maxWidth: '850px', margin: '0 auto 35px auto', lineHeight: 1.7, fontWeight: 300 }}>
           Elegí la categoría de tu interés para explorar nuestras unidades disponibles, opciones de financiación directa y propuestas a medida.
         </p>
+
+      </section>
 
       </section>
 
