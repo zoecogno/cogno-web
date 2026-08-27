@@ -587,8 +587,8 @@ export default function Home() {
 
                 <div style={{ borderTop: '1px solid #1F2024', paddingTop: '10px' }}>
                   <div style={{ fontSize: '0.72rem', color: '#71717a', textTransform: 'uppercase', fontWeight: 600, letterSpacing: '0.8px' }}>HORARIOS DE ATENCIÓN</div>
-                  <div style={{ fontSize: '0.9rem', color: '#ffffff', fontWeight: 500, marginTop: '2px' }}>Lunes a Viernes: 8:30 a 12:30 y 16:00 a 20:00 hs</div>
-                  <div style={{ fontSize: '0.84rem', color: '#a1a1aa' }}>Sábados: 9:00 a 12:30 hs</div>
+                  <div style={{ fontSize: '0.9rem', color: '#ffffff', fontWeight: 500, marginTop: '2px' }}>Lunes a Viernes: 09:00 a 18:00 hs</div>
+                
                 </div>
               </div>
 
