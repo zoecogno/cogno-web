@@ -226,6 +226,9 @@ export default function Home() {
 
         /* --- CELULARES (ADAPTACIÓN COMPACTA) --- */
         @media (max-width: 768px) {
+        .section-title {
+  font-size: 1.35rem !important;
+}
           .hero-title {
             font-size: 1.85rem !important;
             line-height: 1.25 !important;
@@ -424,6 +427,9 @@ export default function Home() {
       </section>
 
       {/* 3. IDENTIDAD */}
+<h2 className="section-title" style={{ fontSize: '2.3rem', fontWeight: 600, margin: '6px 0 0 0' }}>
+  El valor de una trayectoria real
+</h2>
       <section style={{ maxWidth: '1540px', margin: '75px auto 0 auto', padding: '0 24px' }}>
         <div style={{ textAlign: 'center', marginBottom: '36px' }}>
           <span style={{ fontSize: '0.85rem', fontWeight: 700, color: '#ED1C24', letterSpacing: '2px', textTransform: 'uppercase' }}>
@@ -511,6 +517,9 @@ export default function Home() {
       </section>
 
       {/* 6. RESEÑAS (ANCHO PANORÁMICO) */}
+<h2 className="section-title" style={{ fontSize: '2.2rem', fontWeight: 600, margin: '6px 0 0 0' }}>
+  Opiniones de clientes
+</h2>
       <section style={{ maxWidth: '1540px', margin: '75px auto 0 auto', padding: '0 24px' }}>
         <div style={{ textAlign: 'center', marginBottom: '28px' }}>
           <span style={{ fontSize: '0.85rem', fontWeight: 700, color: '#ED1C24', letterSpacing: '2px', textTransform: 'uppercase' }}>TESTIMONIOS REALES</span>
