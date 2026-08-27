@@ -326,8 +326,9 @@ export default function Home() {
             font-size: 1.5rem !important;
           }
           .salon-map-container {
-            height: 230px !important;
-          }
+  height: 220px !important;
+  border-radius: 14px !important;
+}
         }
       `}</style>
 
@@ -559,10 +560,12 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 7. SALÓN Y MAPA */}
-      <section style={{ maxWidth: '1540px', margin: '75px auto 0 auto', padding: '0 24px' }}>
-        <div className="salon-card-box" style={{ backgroundColor: '#141518', border: '1px solid #27272a', borderRadius: '26px', padding: '38px 30px' }}>
+     {/* 7. SALÓN COMERCIAL & HORARIOS */}
+      <section style={{ maxWidth: '1540px', margin: '70px auto 0 auto', padding: '0 20px' }}>
+        <div className="salon-card-box" style={{ backgroundColor: '#141518', border: '1px solid #27272a', borderRadius: '24px', padding: '36px 28px' }}>
           <div className="salon-grid">
+            
+            {/* Información Izquierda */}
             <div>
               <span style={{ color: '#ED1C24', fontSize: '0.78rem', fontWeight: 700, letterSpacing: '1px', textTransform: 'uppercase' }}>
                 SALÓN COMERCIAL
@@ -570,37 +573,48 @@ export default function Home() {
               <h2 className="salon-title" style={{ fontSize: '2.1rem', fontWeight: 600, margin: '6px 0 12px 0', lineHeight: 1.2 }}>
                 Vení a conocer nuestro local
               </h2>
-              <p style={{ fontSize: '0.98rem', color: '#a1a1aa', lineHeight: 1.6, margin: '0 0 20px 0', fontWeight: 300 }}>
-                Te esperamos en nuestro salón comercial para conocer el stock en persona, realizar un peritaje transparente de tu usado y asesorarte de forma personalizada.
+              <p style={{ fontSize: '0.96rem', color: '#a1a1aa', lineHeight: 1.6, margin: '0 0 20px 0', fontWeight: 300 }}>
+                Te esperamos para conocer el stock en persona y asesorarte de forma personalizada.
               </p>
 
-              <div style={{ backgroundColor: '#0B0C0E', border: '1px solid #27272a', padding: '14px 18px', borderRadius: '12px', marginBottom: '22px' }}>
-                <div style={{ fontSize: '0.75rem', color: '#71717a', textTransform: 'uppercase', fontWeight: 600 }}>UBICACIÓN</div>
-                <div style={{ fontSize: '1.02rem', fontWeight: 600, color: '#ffffff' }}>Av. Marcelo T. de Alvear 1580</div>
-                <div style={{ fontSize: '0.88rem', color: '#a1a1aa' }}>Río Cuarto, Córdoba, Argentina</div>
+              {/* Tarjeta combinada: Ubicación + Horarios */}
+              <div style={{ backgroundColor: '#0B0C0E', border: '1px solid #27272a', padding: '16px 20px', borderRadius: '14px', marginBottom: '22px', display: 'flex', flexDirection: 'column', gap: '12px' }}>
+                <div>
+                  <div style={{ fontSize: '0.72rem', color: '#71717a', textTransform: 'uppercase', fontWeight: 600, letterSpacing: '0.8px' }}>UBICACIÓN</div>
+                  <div style={{ fontSize: '1rem', fontWeight: 600, color: '#ffffff' }}>Av. Marcelo T. de Alvear 1580</div>
+                  <div style={{ fontSize: '0.84rem', color: '#a1a1aa' }}>Río Cuarto, Córdoba, Argentina</div>
+                </div>
+
+                <div style={{ borderTop: '1px solid #1F2024', paddingTop: '10px' }}>
+                  <div style={{ fontSize: '0.72rem', color: '#71717a', textTransform: 'uppercase', fontWeight: 600, letterSpacing: '0.8px' }}>HORARIOS DE ATENCIÓN</div>
+                  <div style={{ fontSize: '0.9rem', color: '#ffffff', fontWeight: 500, marginTop: '2px' }}>Lunes a Viernes: 8:30 a 12:30 y 16:00 a 20:00 hs</div>
+                  <div style={{ fontSize: '0.84rem', color: '#a1a1aa' }}>Sábados: 9:00 a 12:30 hs</div>
+                </div>
               </div>
 
-              <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
+              {/* Botones de acción */}
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(170px, 1fr))', gap: '10px' }}>
                 <a 
                   href="https://www.google.com/maps/search/?api=1&query=Av.+Marcelo+T.+de+Alvear+1580,+Rio+Cuarto,+Cordoba" 
                   target="_blank" 
                   rel="noopener noreferrer" 
-                  style={{ backgroundColor: '#ED1C24', color: '#ffffff', padding: '12px 24px', borderRadius: '10px', fontWeight: 700, fontSize: '0.9rem', textDecoration: 'none' }}
+                  style={{ backgroundColor: '#ED1C24', color: '#ffffff', padding: '12px', borderRadius: '10px', fontWeight: 700, fontSize: '0.88rem', textDecoration: 'none', textAlign: 'center' }}
                 >
-                  Cómo llegar en Google Maps →
+                  Cómo llegar en Maps →
                 </a>
                 <a 
                   href="https://wa.me/5493584029424?text=Hola!%20Quiero%20coordinar%20una%20visita%20al%20sal%C3%B3n" 
                   target="_blank" 
                   rel="noopener noreferrer" 
-                  style={{ backgroundColor: '#1F2024', border: '1px solid #333', color: '#ffffff', padding: '12px 24px', borderRadius: '10px', fontWeight: 600, fontSize: '0.9rem', textDecoration: 'none' }}
+                  style={{ backgroundColor: '#1F2024', border: '1px solid #333', color: '#ffffff', padding: '12px', borderRadius: '10px', fontWeight: 600, fontSize: '0.88rem', textDecoration: 'none', textAlign: 'center' }}
                 >
                   Hablar por WhatsApp
                 </a>
               </div>
             </div>
 
-            <div className="salon-map-container" style={{ height: '340px', borderRadius: '18px', overflow: 'hidden', border: '1px solid #27272a', backgroundColor: '#0B0C0E' }}>
+            {/* Mapa Embebido (Visible en PC, estilizado en oscuro) */}
+            <div className="salon-map-container" style={{ height: '360px', borderRadius: '18px', overflow: 'hidden', border: '1px solid #27272a', backgroundColor: '#0B0C0E' }}>
               <iframe
                 title="Ubicación Cogno Automotores"
                 width="100%"
@@ -612,10 +626,11 @@ export default function Home() {
                 src="https://maps.google.com/maps?q=Av.+Marcelo+T.+de+Alvear+1580,+Rio+Cuarto,+Cordoba&t=&z=16&ie=UTF8&iwloc=&output=embed"
               ></iframe>
             </div>
+
           </div>
         </div>
       </section>
-
+                  
     </div>
   );
 }
