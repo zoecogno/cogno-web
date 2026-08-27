@@ -298,11 +298,15 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 2. IDENTIDAD */}
-      <section style={{ maxWidth: '1500px', margin: '60px auto 0 auto', padding: '0 24px' }}>
-        <div style={{ textAlign: 'center', marginBottom: '38px' }}>
-          <span style={{ fontSize: '0.92rem', fontWeight: 600, color: '#ED1C24', letterSpacing: '2px', textTransform: 'uppercase' }}>IDENTIDAD Y COMPROMISO</span>
-          <h2 style={{ fontSize: '2.3rem', fontWeight: 600, margin: '8px 0 0 0' }}>El respaldo de una trayectoria real</h2>
+        {/* 2. IDENTIDAD */}
+      <section style={{ maxWidth: '1200px', margin: '70px auto 0 auto', padding: '0 20px' }}>
+        <div style={{ textAlign: 'center', marginBottom: '36px' }}>
+          <span style={{ fontSize: '0.86rem', fontWeight: 700, color: '#ED1C24', letterSpacing: '2px', textTransform: 'uppercase' }}>
+            RESPALDO Y CONFIANZA
+          </span>
+          <h2 style={{ fontSize: '2.3rem', fontWeight: 600, margin: '6px 0 0 0' }}>
+            El valor de una trayectoria real
+          </h2>
         </div>
 
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(340px, 1fr))', gap: '26px' }}>
