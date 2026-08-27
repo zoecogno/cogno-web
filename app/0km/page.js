@@ -126,15 +126,15 @@ export default function CeroKm() {
         }
         .cars-grid-0km {
           display: grid;
-          grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-          gap: 28px;
+          grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+          gap: 24px;
           max-width: 1540px;
           margin: 0 auto;
         }
         .car-card-0km {
           background-color: #141518;
           border: 1px solid #27272a;
-          border-radius: 22px;
+          border-radius: 20px;
           overflow: hidden;
           display: flex;
           flex-direction: column;
@@ -142,12 +142,12 @@ export default function CeroKm() {
           text-decoration: none;
         }
         .car-card-0km:hover {
-          transform: translateY(-7px);
+          transform: translateY(-6px);
           border-color: rgba(237, 28, 36, 0.6);
           box-shadow: 0 16px 32px rgba(0,0,0,0.6), 0 0 20px rgba(237, 28, 36, 0.15);
         }
         .car-img-box {
-          height: 240px;
+          height: 220px;
           position: relative;
           background-color: #070709;
           overflow: hidden;
@@ -159,31 +159,46 @@ export default function CeroKm() {
           transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
         }
         .car-card-0km:hover .car-img-box img {
-          transform: scale(1.08);
+          transform: scale(1.06);
         }
         
-        /* BADGE GAMA COMPLETA */
         .badge-gama-completa {
-          display: inline-flex;
-          align-items: center;
-          background-color: rgba(237, 28, 36, 0.14);
-          border: 1px solid rgba(237, 28, 36, 0.4);
+          display: inline-block;
+          background-color: rgba(237, 28, 36, 0.12);
+          border: 1px solid rgba(237, 28, 36, 0.35);
           color: #ED1C24;
-          font-size: 0.74rem;
+          font-size: 0.72rem;
           font-weight: 700;
-          letter-spacing: 0.8px;
-          padding: 5px 12px;
-          border-radius: 8px;
-          margin-bottom: 12px;
+          letter-spacing: 1px;
+          padding: 4px 10px;
+          border-radius: 6px;
+          margin-bottom: 8px;
         }
 
         .car-body-0km {
-          padding: 22px 24px;
+          padding: 18px 20px 20px 20px;
           display: flex;
           flex-direction: column;
           flex-grow: 1;
           justify-content: space-between;
+          text-align: center;
+          align-items: center;
         }
+        .car-btn-action {
+          width: 100%;
+          background-color: #ED1C24;
+          color: #ffffff;
+          text-align: center;
+          padding: 11px 14px;
+          border-radius: 10px;
+          font-weight: 700;
+          font-size: 0.9rem;
+          transition: background-color 0.2s ease;
+        }
+        .car-card-0km:hover .car-btn-action {
+          background-color: #c9141b;
+        }
+
         .benefits-grid {
           display: grid;
           grid-template-columns: repeat(3, 1fr);
@@ -195,7 +210,7 @@ export default function CeroKm() {
           background-color: #141518;
           border: 1px solid #27272a;
           border-radius: 20px;
-          padding: 32px 24px;
+          padding: 30px 24px;
           transition: transform 0.3s ease, border-color 0.3s ease;
         }
         .benefit-card:hover {
@@ -229,21 +244,21 @@ export default function CeroKm() {
           .car-img-box {
             height: 125px !important;
           }
-          .badge-gama-completa {
-            font-size: 0.62rem !important;
-            padding: 3px 7px !important;
-            border-radius: 6px !important;
-            margin-bottom: 6px !important;
-          }
           .car-body-0km {
             padding: 12px 10px !important;
           }
+          .badge-gama-completa {
+            font-size: 0.6rem !important;
+            padding: 2px 6px !important;
+            letter-spacing: 0.5px !important;
+            margin-bottom: 4px !important;
+          }
           .car-title-brand {
-            font-size: 1.02rem !important;
+            font-size: 0.98rem !important;
             margin-bottom: 8px !important;
           }
-          .car-btn-text {
-            font-size: 0.75rem !important;
+          .car-btn-action {
+            font-size: 0.76rem !important;
             padding: 8px 4px !important;
             border-radius: 8px !important;
           }
@@ -320,7 +335,7 @@ export default function CeroKm() {
       {/* 3. CATÁLOGO DE MARCAS 0KM */}
       <section style={{ maxWidth: '1540px', margin: '0 auto', padding: '0 24px' }}>
         <div className="cars-grid-0km">
-         {BRANDS_DATA.map((item, idx) => (
+          {BRANDS_DATA.map((item, idx) => (
             <a
               key={idx}
               href={`https://wa.me/5493584029424?text=Hola!%20Quiero%20consultar%20por%20un%200km%20${encodeURIComponent(item.brand)}`}
@@ -329,25 +344,22 @@ export default function CeroKm() {
               className="car-card-0km"
             >
               <div className="car-img-box">
-                <span className="badge-gama-completa" style={{ position: 'absolute', top: '12px', right: '12px', margin: 0, zIndex: 2 }}>
-                  GAMA COMPLETA
-                </span>
                 <img 
-                  src={item.image} 
+                  src={encodeURI(item.image)} 
                   alt={`${item.brand} 0km`} 
                   onError={(e) => { e.currentTarget.src = '/cero-km.png'; }}
                 />
               </div>
 
-              <div className="car-body-0km" style={{ padding: '16px 20px', textAlign: 'center' }}>
+              <div className="car-body-0km">
+                <span className="badge-gama-completa">
+                  GAMA COMPLETA
+                </span>
                 <h3 className="car-title-brand" style={{ fontSize: '1.35rem', fontWeight: 700, margin: '0 0 12px 0', color: '#ffffff', letterSpacing: '0.5px' }}>
                   {item.brand}
                 </h3>
 
-                <div 
-                  className="car-btn-text" 
-                  style={{ backgroundColor: 'rgba(237, 28, 36, 0.12)', border: '1px solid rgba(237, 28, 36, 0.35)', color: '#ffffff', textAlign: 'center', padding: '10px 14px', borderRadius: '10px', fontWeight: 600, fontSize: '0.88rem' }}
-                >
+                <div className="car-btn-action">
                   Consultar {item.brand} →
                 </div>
               </div>
