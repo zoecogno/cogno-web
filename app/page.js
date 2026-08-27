@@ -224,14 +224,29 @@ export default function Home() {
           align-items: center;
         }
 
-        /* --- CELULARES (ADAPTACIÓN COMPACTA) --- */
+     /* --- CELULARES (ADAPTACIÓN COMPACTA) --- */
         @media (max-width: 768px) {
           .section-title {
             font-size: 1.35rem !important;
           }
           .hero-title {
-            font-size: 1.95rem !important;
-            line-height: 1.25 !important;
+            font-size: 1.6rem !important;
+            line-height: 1.22 !important;
+            margin-bottom: 12px !important;
+          }
+          .hero-desc {
+            font-size: 0.9rem !important;
+            line-height: 1.45 !important;
+            margin-bottom: 10px !important;
+          }
+          .hero-sub {
+            font-size: 0.8rem !important;
+            margin-bottom: 18px !important;
+          }
+          .hero-badge {
+            padding: 6px 16px !important;
+            font-size: 0.75rem !important;
+            margin-bottom: 14px !important;
           }
           .two-cards-grid {
             gap: 12px !important;
@@ -240,24 +255,23 @@ export default function Home() {
             border-radius: 16px !important;
           }
           .card-img-container {
-            height: 130px !important;
+            height: 125px !important;
           }
           .card-body-content {
-            padding: 12px !important;
+            padding: 10px !important;
           }
           .card-main-title {
             font-size: 1.05rem !important;
-            margin-bottom: 2px !important;
+            margin-bottom: 4px !important;
           }
           .card-desc-text {
             display: none !important;
           }
           .card-tag-badge {
-            font-size: 0.72rem !important;
-            margin-bottom: 6px !important;
+            display: none !important;
           }
           .action-btn-red {
-            padding: 10px 6px !important;
+            padding: 9px 4px !important;
             font-size: 0.8rem !important;
             border-radius: 8px !important;
           }
@@ -325,15 +339,14 @@ export default function Home() {
             height: 220px !important;
           }
         }
-      `}</style>
 
-      {/* 1. HERO INSTITUCIONAL */}
-      <section style={{ padding: '45px 20px 20px 20px', textAlign: 'center', maxWidth: '1100px', margin: '0 auto' }}>
-        <div style={{ marginBottom: '16px' }}>
+  {/* 1. HERO INSTITUCIONAL */}
+      <section style={{ padding: '35px 20px 15px 20px', textAlign: 'center', maxWidth: '1100px', margin: '0 auto' }}>
+        <div style={{ marginBottom: '14px' }}>
           <img 
             src="/logo.png.png" 
             alt="Cogno Automotores" 
-            style={{ height: '78px', width: 'auto', margin: '0 auto', display: 'inline-block' }} 
+            style={{ height: '70px', width: 'auto', margin: '0 auto', display: 'inline-block' }} 
           />
         </div>
 
@@ -341,16 +354,16 @@ export default function Home() {
           Somos la <span style={{ color: '#ED1C24' }}>propuesta confiable</span> para tu próximo vehículo
         </h1>
 
-        <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', backgroundColor: 'rgba(237, 28, 36, 0.08)', border: '1px solid rgba(237, 28, 36, 0.4)', color: '#ED1C24', padding: '9px 22px', borderRadius: '30px', fontSize: '0.85rem', fontWeight: 700, letterSpacing: '0.8px', marginBottom: '22px', textTransform: 'uppercase' }}>
+        <div className="hero-badge" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', backgroundColor: 'rgba(237, 28, 36, 0.08)', border: '1px solid rgba(237, 28, 36, 0.4)', color: '#ED1C24', padding: '9px 22px', borderRadius: '30px', fontSize: '0.85rem', fontWeight: 700, letterSpacing: '0.8px', marginBottom: '20px', textTransform: 'uppercase' }}>
           <span>🛡️</span>
           <span>TRAYECTORIA Y COMPROMISO</span>
         </div>
 
-        <p style={{ color: '#F4F4F5', fontSize: '1.15rem', maxWidth: '860px', margin: '0 auto 14px auto', lineHeight: 1.7, fontWeight: 400 }}>
+        <p className="hero-desc" style={{ color: '#F4F4F5', fontSize: '1.15rem', maxWidth: '860px', margin: '0 auto 12px auto', lineHeight: 1.7, fontWeight: 400 }}>
           Vehículos 0KM y usados seleccionados, con destacada variedad de pick-ups. Garantía propia y atención personalizada en cada etapa de la compra.
         </p>
 
-        <p style={{ color: '#d4d4d8', fontSize: '1.02rem', margin: '0 auto 32px auto', fontWeight: 400 }}>
+        <p className="hero-sub" style={{ color: '#d4d4d8', fontSize: '1.02rem', margin: '0 auto 28px auto', fontWeight: 400 }}>
           Elegí la categoría de tu interés para explorar nuestras unidades disponibles:
         </p>
       </section>
@@ -359,7 +372,7 @@ export default function Home() {
       <section style={{ maxWidth: '1540px', margin: '0 auto', padding: '0 24px' }}>
         <div className="two-cards-grid">
 
-          {/* 0KM */}
+         {/* 0KM */}
           <div className="interactive-card">
             <div className="card-img-container">
               <span style={{ position: 'absolute', top: '14px', left: '14px', backgroundColor: '#ED1C24', color: '#ffffff', fontSize: '0.82rem', fontWeight: 700, padding: '5px 12px', borderRadius: '6px', zIndex: 2 }}>
@@ -373,12 +386,9 @@ export default function Home() {
             </div>
             <div className="card-body-content">
               <div>
-                <h2 className="card-main-title" style={{ fontSize: '1.6rem', fontWeight: 700, color: '#ffffff', margin: '0 0 6px 0' }}>
+                <h2 className="card-main-title" style={{ fontSize: '1.6rem', fontWeight: 700, color: '#ffffff', margin: '0 0 10px 0' }}>
                   Unidades 0KM
                 </h2>
-                <div className="card-tag-badge" style={{ color: '#E4E4E7', fontSize: '0.9rem', fontWeight: 600, marginBottom: '12px' }}>
-                  Multimarca Oficial
-                </div>
                 <p className="card-desc-text" style={{ fontSize: '1.05rem', color: '#E4E4E7', lineHeight: 1.6, margin: '0 0 24px 0', fontWeight: 400 }}>
                   Comercializamos la gama completa de las principales marcas del país. Financiación directa de fábrica y entrega programada.
                 </p>
@@ -403,12 +413,9 @@ export default function Home() {
             </div>
             <div className="card-body-content">
               <div>
-                <h2 className="card-main-title" style={{ fontSize: '1.6rem', fontWeight: 700, color: '#ffffff', margin: '0 0 6px 0' }}>
+                <h2 className="card-main-title" style={{ fontSize: '1.6rem', fontWeight: 700, color: '#ffffff', margin: '0 0 10px 0' }}>
                   Usados Seleccionados
                 </h2>
-                <div className="card-tag-badge" style={{ color: '#ED1C24', fontSize: '0.88rem', fontWeight: 700, marginBottom: '12px' }}>
-                  🛡️ 6 MESES DE GARANTÍA ESCRITA
-                </div>
                 <p className="card-desc-text" style={{ fontSize: '1.05rem', color: '#E4E4E7', lineHeight: 1.6, margin: '0 0 24px 0', fontWeight: 400 }}>
                   Unidades rigurosamente inspeccionadas, con historial verificado y entrega con toda la documentación lista para transferir.
                 </p>
@@ -418,9 +425,7 @@ export default function Home() {
               </a>
             </div>
           </div>
-
-        </div>
-      </section>
+ </section>
 
       {/* 3. IDENTIDAD */}
       <section style={{ maxWidth: '1540px', margin: '75px auto 0 auto', padding: '0 24px' }}>
