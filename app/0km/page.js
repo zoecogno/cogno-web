@@ -400,15 +400,12 @@ export default function CeroKm() {
         </div>
       </div>
 
-      {/* 3. CATÁLOGO ESTILO SOFTR REFINADO */}
+     {/* 3. CATÁLOGO ESTILO SOFTR REFINADO */}
       <section style={{ maxWidth: '1540px', margin: '0 auto', padding: '0 24px' }}>
         <div className="cars-grid-0km">
           {BRANDS_DATA.map((item, idx) => (
-            <a
+            <div
               key={idx}
-              href={`https://wa.me/5493584029424?text=Hola!%20Quiero%20consultar%20por%20un%200km%20${encodeURIComponent(item.brand)}`}
-              target="_blank"
-              rel="noopener noreferrer"
               className="car-card-0km"
             >
               <div className="car-img-box">
@@ -440,12 +437,18 @@ export default function CeroKm() {
                   </p>
                 </div>
 
-                <div className="car-btn-action">
+                <a
+                  href={`https://wa.me/5493584029424?text=Hola!%20Quiero%20consultar%20por%20un%200km%20${encodeURIComponent(item.brand)}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="car-btn-action"
+                  style={{ textDecoration: 'none', display: 'block' }}
+                >
                   <span className="btn-text-desktop">Consultar por {item.brand} →</span>
                   <span className="btn-text-mobile">Consultar →</span>
-                </div>
+                </a>
               </div>
-            </a>
+            </div>
           ))}
         </div>
       </section>
