@@ -338,6 +338,14 @@ export default function Home() {
           .salon-map-container {
             height: 220px !important;
           }
+
+          /* TESTIMONIOS CENTRADOS EN CELULARES */
+          .review-carousel-item {
+            width: 86vw !important;
+            padding: 20px 18px !important;
+            border-radius: 16px !important;
+            flex-shrink: 0 !important;
+          }
         }
       `}</style>
 
@@ -395,7 +403,7 @@ export default function Home() {
                 </p>
               </div>
               <a href="/0km" className="action-btn-red">
-                Explorar 0KM →
+                Explorar 0KM 
               </a>
             </div>
           </div>
@@ -418,11 +426,11 @@ export default function Home() {
                   Usados Seleccionados
                 </h2>
                 <p className="card-desc-text" style={{ fontSize: '1.05rem', color: '#E4E4E7', lineHeight: 1.6, margin: '0 0 24px 0', fontWeight: 400 }}>
-                  Unidades rigurosamente inspeccionadas, con historial verificado y entrega con toda la documentación lista para transferir.
+                  Unidades con historial verificado y entrega con toda la documentación lista para salir a la calle.
                 </p>
               </div>
               <a href="/usados" className="action-btn-red">
-                Ver Catálogo Usados →
+                Ver Catálogo Usados 
               </a>
             </div>
           </div>
@@ -488,8 +496,8 @@ export default function Home() {
 
           <div className="metric-box">
             <div className="metric-num" style={{ fontSize: '2.6rem', fontWeight: 700, color: '#ED1C24', lineHeight: 1, marginBottom: '8px' }}>16+</div>
-            <div className="metric-label" style={{ fontSize: '1.05rem', fontWeight: 600, color: '#ffffff', marginBottom: '4px' }}>Marcas Multimarca</div>
-            <div className="metric-sub" style={{ fontSize: '0.9rem', color: '#d4d4d8', fontWeight: 400 }}>Gama 0km completa</div>
+            <div className="metric-label" style={{ fontSize: '1.05rem', fontWeight: 600, color: '#ffffff', marginBottom: '4px' }}>Marcas 0km</div>
+            <div className="metric-sub" style={{ fontSize: '0.9rem', color: '#d4d4d8', fontWeight: 400 }}>Gama completa</div>
           </div>
         </div>
       </section>
@@ -516,12 +524,15 @@ export default function Home() {
           </a>
         </div>
       </section>
-
-      {/* 6. RESEÑAS */}
-      <section style={{ maxWidth: '1540px', margin: '75px auto 0 auto', padding: '0 24px' }}>
+{/* 6. RESEÑAS */}
+      <section style={{ maxWidth: '1540px', margin: '75px auto 0 auto', padding: '0 24px', boxSizing: 'border-box' }}>
         <div style={{ textAlign: 'center', marginBottom: '28px' }}>
-          <span style={{ fontSize: '0.88rem', fontWeight: 700, color: '#ED1C24', letterSpacing: '2px', textTransform: 'uppercase' }}>TESTIMONIOS REALES</span>
-          <h2 className="section-title" style={{ fontSize: '2.2rem', fontWeight: 600, margin: '6px 0 0 0' }}>Opiniones de clientes</h2>
+          <span style={{ fontSize: '0.88rem', fontWeight: 700, color: '#ED1C24', letterSpacing: '2px', textTransform: 'uppercase' }}>
+            TESTIMONIOS REALES
+          </span>
+          <h2 className="section-title" style={{ fontSize: '2.2rem', fontWeight: 600, margin: '6px 0 0 0', color: '#ffffff' }}>
+            Opiniones de clientes
+          </h2>
 
           <div style={{ display: 'flex', justifyContent: 'center', gap: '10px', marginTop: '16px' }}>
             <button onClick={() => scroll('left')} className="scroll-btn" aria-label="Anterior">←</button>
@@ -532,10 +543,10 @@ export default function Home() {
         <div 
           ref={scrollRef} 
           className="no-scrollbar" 
-          style={{ display: 'flex', gap: '22px', overflowX: 'auto', scrollSnapType: 'x mandatory', paddingBottom: '16px' }}
+          style={{ display: 'flex', gap: '16px', overflowX: 'auto', scrollSnapType: 'x mandatory', paddingBottom: '16px' }}
         >
           {reviews.map((r, i) => (
-            <div key={i} className="review-carousel-item">
+            <div key={i} className="review-carousel-item" style={{ boxSizing: 'border-box' }}>
               <div>
                 <p style={{ fontSize: '0.98rem', color: '#F4F4F5', fontStyle: 'italic', lineHeight: 1.6, margin: '0 0 16px 0', fontWeight: 400 }}>
                   "{r.text}"
