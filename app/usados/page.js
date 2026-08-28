@@ -58,7 +58,7 @@ function CatalogoContent() {
         <meta charset="UTF-8">
         <title>${selectedVehicle.brand} ${selectedVehicle.line} - Ficha Técnica</title>
         <style>
-          @page { size: A4 portrait; margin: 10mm 15mm 10mm 15mm; }
+          @page { size: A4 portrait; margin: 10mm 14mm 10mm 14mm; }
           *, *::before, *::after { box-sizing: border-box; }
           body { 
             margin: 0; 
@@ -74,15 +74,15 @@ function CatalogoContent() {
             align-items: center; 
             justify-content: flex-start;
             border-bottom: 2px solid #ED1C24; 
-            padding-bottom: 10px; 
+            padding-bottom: 8px; 
             margin-bottom: 12px; 
           }
-          .logo-svg-black {
-            height: 52px;
+          .logo-img-black {
+            height: 64px;
             width: auto;
             display: block;
+            object-fit: contain;
           }
-          
           .badge-bar { 
             background-color: #f4f4f5; 
             border: 1px solid #e4e4e7; 
@@ -90,45 +90,42 @@ function CatalogoContent() {
             border-radius: 6px; 
             padding: 7px 12px; 
             margin-bottom: 14px; 
-            font-size: 8pt; 
+            font-size: 8.5pt; 
             font-weight: 700; 
             color: #18181b; 
             text-transform: uppercase; 
             letter-spacing: 0.5px;
           }
-
-          /* SECCIÓN 1: FOTO ARRIBA */
           .photo-box-full { 
             background-color: #f8fafc; 
             border: 1px solid #e2e8f0; 
             border-radius: 12px; 
-            padding: 12px; 
+            padding: 14px; 
             text-align: center; 
             margin-bottom: 14px;
           }
           .car-title-main { 
-            font-size: 15pt; 
+            font-size: 16pt; 
             font-weight: 800; 
             color: #0f172a; 
-            margin: 0 0 10px 0; 
+            margin: 0 0 12px 0; 
             text-transform: uppercase; 
             letter-spacing: 0.5px;
           }
           .car-img-full { 
             width: 100%; 
-            max-height: 290px; 
-            object-fit: cover; 
+            height: 380px; 
+            object-fit: contain; 
+            background-color: #f1f5f9;
             border-radius: 8px; 
             border: 1px solid #e2e8f0;
           }
-
-          /* SECCIÓN 2: FICHA TÉCNICA ABAJO */
           .specs-card-full { 
             background-color: #f8fafc; 
             border: 1px solid #e2e8f0; 
             border-radius: 12px; 
-            padding: 14px 18px; 
-            margin-bottom: 12px;
+            padding: 16px 20px; 
+            margin-bottom: 14px;
           }
           .specs-title { 
             font-size: 10.5pt; 
@@ -136,16 +133,14 @@ function CatalogoContent() {
             color: #ED1C24; 
             letter-spacing: 0.8px; 
             text-transform: uppercase; 
-            margin: 0 0 8px 0; 
+            margin: 0 0 10px 0; 
             border-bottom: 1px solid #e2e8f0; 
             padding-bottom: 6px; 
           }
           .specs-table { width: 100%; border-collapse: collapse; }
-          .specs-table td { padding: 7px 0; font-size: 9pt; border-bottom: 1px solid #e2e8f0; }
+          .specs-table td { padding: 8px 0; font-size: 9pt; border-bottom: 1px solid #e2e8f0; }
           .specs-table td.label { color: #64748b; width: 35%; font-weight: 500; }
           .specs-table td.val { color: #0f172a; font-weight: 700; text-align: right; }
-
-          /* PIE LEGAL AL FINAL */
           .footer-box-full { 
             background-color: #f8fafc; 
             border: 1px solid #e2e8f0; 
@@ -159,28 +154,19 @@ function CatalogoContent() {
         </style>
       </head>
       <body>
-        
-        {/* HEADER CON LOGO EN NEGRO NÍTIDO */}
         <div class="header-box">
-          <div style="font-size: 24pt; font-weight: 900; letter-spacing: -0.5px; color: #000000; display: flex; align-items: center; gap: 8px;">
-            <svg width="42" height="28" viewBox="0 0 100 60" fill="none">
-              <path d="M5 45 C35 5, 65 5, 95 45 C75 25, 40 25, 20 40 Z" fill="#ED1C24"/>
-            </svg>
-            <span>COGNO <span style="font-size: 13pt; font-weight: 700; color: #52525b; letter-spacing: 1px; display: block; line-height: 0.8;">AUTOMOTORES S.A.</span></span>
-          </div>
+          <img src="/logo-black.png" class="logo-img-black" alt="Cogno Automotores" />
         </div>
 
         <div class="badge-bar">
           🛡️ Unidad Seleccionada • Incluye 6 Meses de Garantía Total
         </div>
 
-        {/* 1. FOTO ARRIBA */}
         <div class="photo-box-full">
           <div class="car-title-main">${selectedVehicle.brand} ${selectedVehicle.line}</div>
-          ${mainImg ? `<img src="${mainImg}" class="car-img-full" alt="Foto unidad" />` : `<div style="height: 240px; line-height: 240px; background:#e2e8f0; color:#64748b; border-radius:8px;">Sin foto disponible</div>`}
+          ${mainImg ? `<img src="${mainImg}" class="car-img-full" alt="Foto unidad" />` : `<div style="height: 300px; line-height: 300px; background:#e2e8f0; color:#64748b; border-radius:8px;">Sin foto disponible</div>`}
         </div>
 
-        {/* 2. FICHA TÉCNICA ABAJO */}
         <div class="specs-card-full">
           <div class="specs-title">Ficha de la Unidad</div>
           <table class="specs-table">
@@ -201,7 +187,6 @@ function CatalogoContent() {
           </div>
         ` : ''}
 
-        {/* 3. PIE LEGAL */}
         <div class="footer-box-full">
           <strong>Cogno Automotores</strong> — Unidad verificada física y documentalmente. Cotizaciones y disponibilidad sujetas a confirmación comercial al momento de la consulta.
         </div>
@@ -210,7 +195,10 @@ function CatalogoContent() {
           window.onload = function() {
             setTimeout(function() {
               window.print();
-            }, 350);
+            }, 300);
+          };
+          window.onafterprint = function() {
+            window.close();
           };
         </script>
       </body>
@@ -218,7 +206,6 @@ function CatalogoContent() {
     `);
     printWindow.document.close();
   };
- 
 
   useEffect(() => {
     fetch('/api/vehicles')
