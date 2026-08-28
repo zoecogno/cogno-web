@@ -44,25 +44,23 @@ function CatalogoContent() {
   };
 
   // Generador de Ficha Vertical (Foto arriba, Ficha abajo, Logo negro)
-  const handlePrintPdf = () => {
+ const handlePrintPdf = () => {
     if (!selectedVehicle) return;
     const mainImg = selectedVehicle.photos && selectedVehicle.photos.length > 0 ? selectedVehicle.photos[0] : '';
     
-    const printWindow = window.open('', '_blank');
-    if (!printWindow) return;
-
-    printWindow.document.write(`
+    const htmlContent = `
       <!DOCTYPE html>
       <html lang="es">
       <head>
         <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>${selectedVehicle.brand} ${selectedVehicle.line} - Ficha Técnica</title>
         <style>
           @page { size: A4 portrait; margin: 10mm 14mm 10mm 14mm; }
           *, *::before, *::after { box-sizing: border-box; }
           body { 
             margin: 0; 
-            padding: 0; 
+            padding: 12px; 
             font-family: 'Helvetica Neue', Arial, sans-serif; 
             background-color: #ffffff; 
             color: #18181b; 
@@ -78,7 +76,7 @@ function CatalogoContent() {
           }
           .header-table td { vertical-align: middle; }
           .logo-img-black {
-            height: 62px;
+            height: 55px;
             width: auto;
             display: block;
             object-fit: contain;
@@ -87,7 +85,7 @@ function CatalogoContent() {
             text-align: right;
             font-size: 8.5pt;
             color: #52525b;
-            line-height: 1.5;
+            line-height: 1.4;
             font-weight: 500;
           }
           .badge-bar { 
@@ -96,7 +94,7 @@ function CatalogoContent() {
             border-left: 4px solid #ED1C24; 
             border-radius: 6px; 
             padding: 7px 12px; 
-            margin-bottom: 14px; 
+            margin-bottom: 12px; 
             font-size: 8.5pt; 
             font-weight: 700; 
             color: #18181b; 
@@ -107,21 +105,21 @@ function CatalogoContent() {
             background-color: #f8fafc; 
             border: 1px solid #e2e8f0; 
             border-radius: 12px; 
-            padding: 14px; 
+            padding: 12px; 
             text-align: center; 
-            margin-bottom: 14px;
+            margin-bottom: 12px;
           }
           .car-title-main { 
-            font-size: 16pt; 
+            font-size: 15pt; 
             font-weight: 800; 
             color: #0f172a; 
-            margin: 0 0 12px 0; 
+            margin: 0 0 10px 0; 
             text-transform: uppercase; 
             letter-spacing: 0.5px;
           }
           .car-img-full { 
             width: 100%; 
-            height: 380px; 
+            height: 320px; 
             object-fit: contain; 
             background-color: #f1f5f9;
             border-radius: 8px; 
@@ -131,21 +129,21 @@ function CatalogoContent() {
             background-color: #f8fafc; 
             border: 1px solid #e2e8f0; 
             border-radius: 12px; 
-            padding: 16px 20px; 
-            margin-bottom: 14px;
+            padding: 14px 18px; 
+            margin-bottom: 12px;
           }
           .specs-title { 
-            font-size: 10.5pt; 
+            font-size: 10pt; 
             font-weight: 800; 
             color: #ED1C24; 
             letter-spacing: 0.8px; 
             text-transform: uppercase; 
-            margin: 0 0 10px 0; 
+            margin: 0 0 8px 0; 
             border-bottom: 1px solid #e2e8f0; 
             padding-bottom: 6px; 
           }
           .specs-table { width: 100%; border-collapse: collapse; }
-          .specs-table td { padding: 8px 0; font-size: 9pt; border-bottom: 1px solid #e2e8f0; }
+          .specs-table td { padding: 7px 0; font-size: 8.8pt; border-bottom: 1px solid #e2e8f0; }
           .specs-table td.label { color: #64748b; width: 35%; font-weight: 500; }
           .specs-table td.val { color: #0f172a; font-weight: 700; text-align: right; }
           .footer-box-full { 
@@ -164,7 +162,7 @@ function CatalogoContent() {
         <table class="header-table">
           <tr>
             <td style="width: 45%;">
-              <img src="/logo-black.png" class="logo-img-black" alt="Cogno Automotores" />
+              <img src="/logo-black.jpg" class="logo-img-black" alt="Cogno Automotores" />
             </td>
             <td class="contact-info-clean" style="width: 55%;">
               <div>Av. Marcelo T. de Alvear 1580, Río Cuarto</div>
@@ -180,7 +178,7 @@ function CatalogoContent() {
 
         <div class="photo-box-full">
           <div class="car-title-main">${selectedVehicle.brand} ${selectedVehicle.line}</div>
-          ${mainImg ? `<img src="${mainImg}" class="car-img-full" alt="Foto unidad" />` : `<div style="height: 300px; line-height: 300px; background:#e2e8f0; color:#64748b; border-radius:8px;">Sin foto disponible</div>`}
+          ${mainImg ? `<img src="${mainImg}" class="car-img-full" alt="Foto unidad" />` : `<div style="height: 240px; line-height: 240px; background:#e2e8f0; color:#64748b; border-radius:8px;">Sin foto disponible</div>`}
         </div>
 
         <div class="specs-card-full">
@@ -219,8 +217,31 @@ function CatalogoContent() {
         </script>
       </body>
       </html>
-    `);
-    printWindow.document.close();
+    `;
+
+    // Detección: si es celular, escribe en el documento actual o abre sin bloqueo
+    const printWindow = window.open('', '_blank');
+    if (printWindow) {
+      printWindow.document.write(htmlContent);
+      printWindow.document.close();
+    } else {
+      // Fallback para Safari Mobile si bloqueó la pestaña emergente
+      const iframe = document.createElement('iframe');
+      iframe.style.position = 'fixed';
+      iframe.style.right = '0';
+      iframe.style.bottom = '0';
+      iframe.style.width = '0';
+      iframe.style.height = '0';
+      iframe.style.border = '0';
+      document.body.appendChild(iframe);
+      iframe.contentWindow.document.write(htmlContent);
+      iframe.contentWindow.document.close();
+      setTimeout(() => {
+        iframe.contentWindow.focus();
+        iframe.contentWindow.print();
+        document.body.removeChild(iframe);
+      }, 500);
+    }
   };
 
   useEffect(() => {
@@ -264,7 +285,21 @@ function CatalogoContent() {
         setLoading(false);
       });
   }, []);
-
+// Bloqueo total del fondo en celulares para que no scrollee el catálogo
+  useEffect(() => {
+    if (selectedVehicle) {
+      document.body.style.overflow = 'hidden';
+      document.body.style.touchAction = 'none';
+    } else {
+      document.body.style.overflow = '';
+      document.body.style.touchAction = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+      document.body.style.touchAction = '';
+    };
+  }, [selectedVehicle]);
+  
   const openModal = (vehicle) => {
     setSelectedVehicle(vehicle);
     setActivePhotoIdx(0);
