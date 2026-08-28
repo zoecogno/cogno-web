@@ -164,7 +164,7 @@ function CatalogoContent() {
         <table class="header-table">
           <tr>
             <td style="width: 45%;">
-              <img src="/logo-black.jpg" class="logo-img-black" alt="Cogno Automotores" />
+              <img src="/logo-black.png" class="logo-img-black" alt="Cogno Automotores" />
             </td>
             <td class="contact-info-clean" style="width: 55%;">
               <div>Av. Marcelo T. de Alvear 1580, Río Cuarto</div>
