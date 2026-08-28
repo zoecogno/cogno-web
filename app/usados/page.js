@@ -18,6 +18,30 @@ function CatalogoContent() {
 
   const [selectedVehicle, setSelectedVehicle] = useState(null);
   const [activePhotoIdx, setActivePhotoIdx] = useState(0);
+  const [copied, setCopied] = useState(false);
+
+const handleShare = async () => {
+  if (!selectedVehicle) return;
+  const shareUrl = `${window.location.origin}/usados?auto=${selectedVehicle.id}`;
+  const shareData = {
+    title: `${selectedVehicle.brand} ${selectedVehicle.line} | Cogno Automotores`,
+    text: `Mirá este ${selectedVehicle.brand} ${selectedVehicle.line} ${selectedVehicle.version || ''} (${selectedVehicle.year}) en Cogno Automotores:`,
+    url: shareUrl,
+  };
+
+  if (navigator.share) {
+    try {
+      await navigator.share(shareData);
+    } catch (err) {
+      // Si el usuario cancela la ventana de compartir, no hace nada
+    }
+  } else {
+    // Si está en PC, copia el link directo al portapapeles
+    navigator.clipboard.writeText(shareUrl);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2500);
+  }
+};
 
   useEffect(() => {
     fetch('/api/vehicles')
@@ -841,17 +865,36 @@ function CatalogoContent() {
               </div>
             </div>
 
-            {/* Botón WhatsApp */}
-            <a
-              href={`https://wa.me/5493584029424?text=${encodeURIComponent(`Hola! Quiero consultar por el ${selectedVehicle.brand} ${selectedVehicle.line} ${selectedVehicle.version || ''} (${selectedVehicle.year || ''})`)}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{ display: 'block', textAlign: 'center', backgroundColor: '#ED1C24', color: '#ffffff', padding: '15px', borderRadius: '12px', fontWeight: 700, fontSize: '1rem', textDecoration: 'none', transition: 'background-color 0.2s ease', boxShadow: '0 8px 20px rgba(237, 28, 36, 0.35)' }}
-            >
-              Consultar por este vehículo →
-            </a>
+        {/* Botones de Acción del Modal */}
+<div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+  
+  {/* Botón Rojo Principal */}
+  <a
+    href={`https://wa.me/5493584029424?text=${encodeURIComponent(`Hola! Quiero consultar por el ${selectedVehicle.brand} ${selectedVehicle.line} ${selectedVehicle.version || ''} (${selectedVehicle.year || ''})`)}`}
+    target="_blank"
+    rel="noopener noreferrer"
+    style={{ display: 'block', textAlign: 'center', backgroundColor: '#ED1C24', color: '#ffffff', padding: '15px', borderRadius: '12px', fontWeight: 700, fontSize: '1rem', textDecoration: 'none', transition: 'background-color 0.2s ease', boxShadow: '0 8px 20px rgba(237, 28, 36, 0.35)' }}
+  >
+    Consultar por este vehículo →
+  </a>
 
-          </div>
+  {/* Botón Secundario: Compartir */}
+  <button
+    type="button"
+    onClick={handleShare}
+    style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px', width: '100%', backgroundColor: '#0B0C0E', border: '1px solid #27272a', color: '#ffffff', padding: '12px', borderRadius: '12px', fontWeight: 600, fontSize: '0.88rem', cursor: 'pointer', transition: 'border-color 0.2s' }}
+  >
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <circle cx="18" cy="5" r="3"></circle>
+      <circle cx="6" cy="12" r="3"></circle>
+      <circle cx="18" cy="19" r="3"></circle>
+      <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
+      <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
+    </svg>
+    <span>{copied ? '✓ ¡Enlace copiado al portapapeles!' : 'Compartir esta unidad'}</span>
+  </button>
+
+</div>
         </div>
       )}
 
