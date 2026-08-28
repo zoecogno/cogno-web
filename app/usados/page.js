@@ -69,19 +69,26 @@ function CatalogoContent() {
             -webkit-print-color-adjust: exact; 
             print-color-adjust: exact; 
           }
-          .header-box { 
-            display: flex; 
-            align-items: center; 
-            justify-content: flex-start;
+          .header-table { 
+            width: 100%; 
+            border-collapse: collapse; 
             border-bottom: 2px solid #ED1C24; 
             padding-bottom: 8px; 
             margin-bottom: 12px; 
           }
+          .header-table td { vertical-align: middle; }
           .logo-img-black {
-            height: 64px;
+            height: 62px;
             width: auto;
             display: block;
             object-fit: contain;
+          }
+          .contact-info-clean {
+            text-align: right;
+            font-size: 8.5pt;
+            color: #52525b;
+            line-height: 1.5;
+            font-weight: 500;
           }
           .badge-bar { 
             background-color: #f4f4f5; 
@@ -154,9 +161,18 @@ function CatalogoContent() {
         </style>
       </head>
       <body>
-        <div class="header-box">
-          <img src="/logo-black.png" class="logo-img-black" alt="Cogno Automotores" />
-        </div>
+        <table class="header-table">
+          <tr>
+            <td style="width: 45%;">
+              <img src="/logo-black.jpg" class="logo-img-black" alt="Cogno Automotores" />
+            </td>
+            <td class="contact-info-clean" style="width: 55%;">
+              <div>Av. Marcelo T. de Alvear 1580, Río Cuarto</div>
+              <div>+54 9 358 402-9424</div>
+              <div>cognoautomotores.com.ar</div>
+            </td>
+          </tr>
+        </table>
 
         <div class="badge-bar">
           🛡️ Unidad Seleccionada • Incluye 6 Meses de Garantía Total
