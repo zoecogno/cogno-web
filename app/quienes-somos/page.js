@@ -78,7 +78,7 @@ export default function QuienesSomos() {
           align-items: center;
         }
 
-        /* --- CELULARES (ADAPTACIÓN COMPACTA) --- */
+       /* --- CELULARES (ADAPTACIÓN COMPACTA) --- */
         @media (max-width: 768px) {
           .section-title {
             font-size: 1.35rem !important;
@@ -99,35 +99,62 @@ export default function QuienesSomos() {
           }
           .vision-grid {
             grid-template-columns: 1fr !important;
-            gap: 16px !important;
+            gap: 12px !important;
           }
           .vision-card {
-            min-height: 220px !important;
-            padding: 22px 18px !important;
-            border-radius: 16px !important;
+            min-height: auto !important;
+            padding: 16px 16px !important;
+            border-radius: 14px !important;
           }
           .vision-card h3 {
-            font-size: 1.25rem !important;
+            font-size: 1.15rem !important;
+            margin-bottom: 4px !important;
           }
+          .vision-card p {
+            font-size: 0.86rem !important;
+            line-height: 1.45 !important;
+          }
+          
+          /* VALORES COMPACTOS (IGUAL A 0KM) */
           .values-grid-2x2 {
             grid-template-columns: 1fr !important;
-            gap: 14px !important;
+            gap: 10px !important;
           }
           .value-card {
-            padding: 20px 16px !important;
-            border-radius: 16px !important;
-            gap: 14px !important;
+            padding: 14px 16px !important;
+            border-radius: 14px !important;
+            gap: 12px !important;
           }
+          .value-icon-box {
+            width: 38px !important;
+            height: 38px !important;
+            border-radius: 10px !important;
+            flex-shrink: 0 !important;
+          }
+          .value-icon-box svg {
+            width: 18px !important;
+            height: 18px !important;
+          }
+          .value-card h3 {
+            font-size: 1.05rem !important;
+            margin-bottom: 3px !important;
+          }
+          .value-card p {
+            font-size: 0.85rem !important;
+            line-height: 1.45 !important;
+          }
+
+          /* SALÓN COMERCIAL */
           .salon-card-box {
-            padding: 24px 16px !important;
+            padding: 22px 16px !important;
             border-radius: 16px !important;
           }
           .salon-grid {
             grid-template-columns: 1fr !important;
-            gap: 18px !important;
+            gap: 16px !important;
           }
           .salon-title {
-            font-size: 1.5rem !important;
+            font-size: 1.45rem !important;
           }
           .salon-map-container {
             height: 220px !important;
