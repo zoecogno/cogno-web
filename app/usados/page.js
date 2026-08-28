@@ -865,36 +865,52 @@ const handleShare = async () => {
               </div>
             </div>
 
-        {/* Botones de Acción del Modal */}
-<div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
-  
-  {/* Botón Rojo Principal */}
-  <a
-    href={`https://wa.me/5493584029424?text=${encodeURIComponent(`Hola! Quiero consultar por el ${selectedVehicle.brand} ${selectedVehicle.line} ${selectedVehicle.version || ''} (${selectedVehicle.year || ''})`)}`}
-    target="_blank"
-    rel="noopener noreferrer"
-    style={{ display: 'block', textAlign: 'center', backgroundColor: '#ED1C24', color: '#ffffff', padding: '15px', borderRadius: '12px', fontWeight: 700, fontSize: '1rem', textDecoration: 'none', transition: 'background-color 0.2s ease', boxShadow: '0 8px 20px rgba(237, 28, 36, 0.35)' }}
-  >
-    Consultar por este vehículo →
-  </a>
+ {/* Botones de Acción del Modal */}
+            <div className="modal-actions-box" style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+              
+              {/* WhatsApp Principal */}
+              <a
+                href={`https://wa.me/5493584029424?text=${encodeURIComponent(`Hola! Quiero consultar por el ${selectedVehicle.brand} ${selectedVehicle.line} ${selectedVehicle.version || ''} (${selectedVehicle.year || ''})`)}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{ display: 'block', textAlign: 'center', backgroundColor: '#ED1C24', color: '#ffffff', padding: '14px', borderRadius: '12px', fontWeight: 700, fontSize: '0.96rem', textDecoration: 'none', boxShadow: '0 6px 18px rgba(237, 28, 36, 0.3)' }}
+              >
+                Consultar por este vehículo en WhatsApp →
+              </a>
 
-  {/* Botón Secundario: Compartir */}
-  <button
-    type="button"
-    onClick={handleShare}
-    style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px', width: '100%', backgroundColor: '#0B0C0E', border: '1px solid #27272a', color: '#ffffff', padding: '12px', borderRadius: '12px', fontWeight: 600, fontSize: '0.88rem', cursor: 'pointer', transition: 'border-color 0.2s' }}
-  >
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-      <circle cx="18" cy="5" r="3"></circle>
-      <circle cx="6" cy="12" r="3"></circle>
-      <circle cx="18" cy="19" r="3"></circle>
-      <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
-      <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
-    </svg>
-    <span>{copied ? '✓ ¡Enlace copiado al portapapeles!' : 'Compartir esta unidad'}</span>
-  </button>
+              {/* Botón Compartir */}
+              <button
+                type="button"
+                onClick={handleShare}
+                style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px', width: '100%', backgroundColor: '#0B0C0E', border: '1px solid #27272a', color: '#ffffff', padding: '12px', borderRadius: '12px', fontWeight: 600, fontSize: '0.88rem', cursor: 'pointer', transition: 'border-color 0.2s' }}
+              >
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <circle cx="18" cy="5" r="3"></circle>
+                  <circle cx="6" cy="12" r="3"></circle>
+                  <circle cx="18" cy="19" r="3"></circle>
+                  <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
+                  <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
+                </svg>
+                <span>{copied ? '✓ ¡Enlace copiado al portapapeles!' : 'Compartir esta unidad'}</span>
+              </button>
 
-</div>
+              {/* Botón Descargar / Imprimir Ficha */}
+              <button
+                type="button"
+                onClick={() => window.print()}
+                style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px', width: '100%', backgroundColor: '#0B0C0E', border: '1px solid #27272a', color: '#ffffff', padding: '12px', borderRadius: '12px', fontWeight: 600, fontSize: '0.88rem', cursor: 'pointer', transition: 'border-color 0.2s' }}
+              >
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                  <polyline points="7 10 12 15 17 10"></polyline>
+                  <line x1="12" y1="15" x2="12" y2="3"></line>
+                </svg>
+                <span>Descargar / Imprimir Ficha Técnica</span>
+              </button>
+
+            </div>
+
+          </div>
         </div>
       )}
 
