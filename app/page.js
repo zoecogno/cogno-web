@@ -340,9 +340,11 @@ export default function Home() {
           }
 
           /* TESTIMONIOS CENTRADOS EN CELULARES */
-          .review-carousel-item {
-            width: 86vw !important;
-            padding: 20px 18px !important;
+        .review-carousel-item {
+            width: 100% !important;
+            min-width: 100% !important;
+            box-sizing: border-box !important;
+            padding: 24px 18px !important;
             border-radius: 16px !important;
             flex-shrink: 0 !important;
           }
@@ -543,7 +545,7 @@ export default function Home() {
         <div 
           ref={scrollRef} 
           className="no-scrollbar" 
-          style={{ display: 'flex', gap: '16px', overflowX: 'auto', scrollSnapType: 'x mandatory', paddingBottom: '16px' }}
+          style={{ display: 'flex', gap: '16px', overflowX: 'auto', scrollSnapType: 'x mandatory', paddingBottom: '16px', width: '100%', boxSizing: 'border-box' }}
         >
           {reviews.map((r, i) => (
             <div key={i} className="review-carousel-item" style={{ boxSizing: 'border-box' }}>
