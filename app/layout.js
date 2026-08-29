@@ -16,7 +16,7 @@ export default function RootLayout({ children }) {
         <meta name="description" content="Concesionaria líder en Río Cuarto. Venta y entrega de 0km de todas las marcas y amplia selección de usados garantizados por 6 meses. Financiación a medida y toma de usados." />
         <meta name="keywords" content="Cogno Automotores, Autos 0km Río Cuarto, 0km multimarca Río Cuarto, Camionetas 0km Río Cuarto, Comprar 0km Río Cuarto, Pickups 0km Río Cuarto, Autos usados Río Cuarto, Usados seleccionados Río Cuarto, Concesionaria Río Cuarto, Venta de autos 0km y usados" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<link rel="icon" href="/icon.png?v=5" type="image/png" />
+<link rel="icon" href="/icon.png?v=6" type="image/png" />
 
         {/* OpenGraph / WhatsApp / Redes Sociales */}
         <meta property="og:type" content="website" />
