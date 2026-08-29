@@ -43,204 +43,158 @@ function CatalogoContent() {
     }
   };
 
-  // Generador de Ficha Vertical (Foto arriba, Ficha abajo, Logo negro)
- const handlePrintPdf = () => {
+// Generador de Ficha Técnica (Imagen compatible con Móviles y PC)
+  const handlePrintPdf = async () => {
     if (!selectedVehicle) return;
-    const mainImg = selectedVehicle.photos && selectedVehicle.photos.length > 0 ? selectedVehicle.photos[0] : '';
-    
-    const htmlContent = `
-      <!DOCTYPE html>
-      <html lang="es">
-      <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>${selectedVehicle.brand} ${selectedVehicle.line} - Ficha Técnica</title>
-        <style>
-          @page { size: A4 portrait; margin: 10mm 14mm 10mm 14mm; }
-          *, *::before, *::after { box-sizing: border-box; }
-          body { 
-            margin: 0; 
-            padding: 12px; 
-            font-family: 'Helvetica Neue', Arial, sans-serif; 
-            background-color: #ffffff; 
-            color: #18181b; 
-            -webkit-print-color-adjust: exact; 
-            print-color-adjust: exact; 
-          }
-          .header-table { 
-            width: 100%; 
-            border-collapse: collapse; 
-            border-bottom: 2px solid #ED1C24; 
-            padding-bottom: 8px; 
-            margin-bottom: 12px; 
-          }
-          .header-table td { vertical-align: middle; }
-          .logo-img-black {
-            height: 55px;
-            width: auto;
-            display: block;
-            object-fit: contain;
-          }
-          .contact-info-clean {
-            text-align: right;
-            font-size: 8.5pt;
-            color: #52525b;
-            line-height: 1.4;
-            font-weight: 500;
-          }
-          .badge-bar { 
-            background-color: #f4f4f5; 
-            border: 1px solid #e4e4e7; 
-            border-left: 4px solid #ED1C24; 
-            border-radius: 6px; 
-            padding: 7px 12px; 
-            margin-bottom: 12px; 
-            font-size: 8.5pt; 
-            font-weight: 700; 
-            color: #18181b; 
-            text-transform: uppercase; 
-            letter-spacing: 0.5px;
-          }
-          .photo-box-full { 
-            background-color: #f8fafc; 
-            border: 1px solid #e2e8f0; 
-            border-radius: 12px; 
-            padding: 12px; 
-            text-align: center; 
-            margin-bottom: 12px;
-          }
-          .car-title-main { 
-            font-size: 15pt; 
-            font-weight: 800; 
-            color: #0f172a; 
-            margin: 0 0 10px 0; 
-            text-transform: uppercase; 
-            letter-spacing: 0.5px;
-          }
-          .car-img-full { 
-            width: 100%; 
-            height: 320px; 
-            object-fit: contain; 
-            background-color: #f1f5f9;
-            border-radius: 8px; 
-            border: 1px solid #e2e8f0;
-          }
-          .specs-card-full { 
-            background-color: #f8fafc; 
-            border: 1px solid #e2e8f0; 
-            border-radius: 12px; 
-            padding: 14px 18px; 
-            margin-bottom: 12px;
-          }
-          .specs-title { 
-            font-size: 10pt; 
-            font-weight: 800; 
-            color: #ED1C24; 
-            letter-spacing: 0.8px; 
-            text-transform: uppercase; 
-            margin: 0 0 8px 0; 
-            border-bottom: 1px solid #e2e8f0; 
-            padding-bottom: 6px; 
-          }
-          .specs-table { width: 100%; border-collapse: collapse; }
-          .specs-table td { padding: 7px 0; font-size: 8.8pt; border-bottom: 1px solid #e2e8f0; }
-          .specs-table td.label { color: #64748b; width: 35%; font-weight: 500; }
-          .specs-table td.val { color: #0f172a; font-weight: 700; text-align: right; }
-          .footer-box-full { 
-            background-color: #f8fafc; 
-            border: 1px solid #e2e8f0; 
-            border-radius: 8px; 
-            padding: 10px 14px; 
-            font-size: 7.8pt; 
-            color: #64748b; 
-            line-height: 1.4;
-            text-align: center;
-          }
-        </style>
-      </head>
-      <body>
-        <table class="header-table">
-          <tr>
-            <td style="width: 45%;">
-              <img src="/logo-black.jpg" class="logo-img-black" alt="Cogno Automotores" />
-            </td>
-            <td class="contact-info-clean" style="width: 55%;">
-              <div>Av. Marcelo T. de Alvear 1580, Río Cuarto</div>
-              <div>+54 9 358 402-9424</div>
-              <div>cognoautomotores.com.ar</div>
-            </td>
-          </tr>
-        </table>
 
-        <div class="badge-bar">
-          🛡️ Unidad Seleccionada • Incluye 6 Meses de Garantía Total
-        </div>
+    try {
+      const canvas = document.createElement('canvas');
+      const ctx = canvas.getContext('2d');
+      canvas.width = 1080;
+      canvas.height = 1350;
 
-        <div class="photo-box-full">
-          <div class="car-title-main">${selectedVehicle.brand} ${selectedVehicle.line}</div>
-          ${mainImg ? `<img src="${mainImg}" class="car-img-full" alt="Foto unidad" />` : `<div style="height: 240px; line-height: 240px; background:#e2e8f0; color:#64748b; border-radius:8px;">Sin foto disponible</div>`}
-        </div>
+      // Fondo principal
+      ctx.fillStyle = '#0B0C0E';
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-        <div class="specs-card-full">
-          <div class="specs-title">Ficha de la Unidad</div>
-          <table class="specs-table">
-            <tr><td class="label">Marca</td><td class="val">${selectedVehicle.brand}</td></tr>
-            <tr><td class="label">Línea / Modelo</td><td class="val">${selectedVehicle.line}</td></tr>
-            <tr><td class="label">Versión</td><td class="val">${selectedVehicle.version || 'Estándar'}</td></tr>
-            <tr><td class="label">Año / Modelo</td><td class="val">${selectedVehicle.year || '—'}</td></tr>
-            <tr><td class="label">Kilometraje</td><td class="val">${selectedVehicle.km ? Number(selectedVehicle.km).toLocaleString('es-AR') + ' km' : 'Consultar'}</td></tr>
-            <tr><td class="label">Documentación</td><td class="val" style="color:#16a34a;">Lista para salir a la calle</td></tr>
-            <tr><td class="label">Garantía</td><td class="val" style="color:#ED1C24;">6 Meses</td></tr>
-          </table>
-        </div>
+      // Card interior
+      ctx.fillStyle = '#14171C';
+      if (ctx.roundRect) {
+        ctx.roundRect(40, 40, 1000, 1270, 24);
+      } else {
+        ctx.fillRect(40, 40, 1000, 1270);
+      }
+      ctx.fill();
 
-        ${selectedVehicle.equipment ? `
-          <div style="background-color: #f8fafc; border: 1px solid #e2e8f0; border-radius: 10px; padding: 10px 14px; margin-bottom: 12px;">
-            <div style="font-size: 8.5pt; font-weight: 800; color: #ED1C24; text-transform: uppercase; margin-bottom: 3px;">Equipamiento Destacado</div>
-            <div style="font-size: 8pt; color: #334155; line-height: 1.4;">${selectedVehicle.equipment}</div>
-          </div>
-        ` : ''}
+      // Cabecera institucional
+      ctx.fillStyle = '#C59A53';
+      ctx.font = 'bold 34px sans-serif';
+      ctx.fillText('COGNO AUTOMOTORES', 80, 120);
 
-        <div class="footer-box-full">
-          <strong>Cogno Automotores</strong> — Unidad verificada física y documentalmente. Cotizaciones y disponibilidad sujetas a confirmación comercial al momento de la consulta.
-        </div>
+      ctx.fillStyle = '#A0AAB5';
+      ctx.font = '500 24px sans-serif';
+      ctx.fillText('FICHA TÉCNICA OFICIAL', 80, 160);
 
-        <script>
-          window.onload = function() {
-            setTimeout(function() {
-              window.print();
-            }, 300);
-          };
-          window.onafterprint = function() {
-            window.close();
-          };
-        </script>
-      </body>
-      </html>
-    `;
+      // Título del vehículo
+      ctx.fillStyle = '#FFFFFF';
+      ctx.font = 'bold 44px sans-serif';
+      const title = `${selectedVehicle.brand || ''} ${selectedVehicle.line || ''}`.toUpperCase();
+      ctx.fillText(title, 80, 230);
 
-    // Detección: si es celular, escribe en el documento actual o abre sin bloqueo
-    const printWindow = window.open('', '_blank');
-    if (printWindow) {
-      printWindow.document.write(htmlContent);
-      printWindow.document.close();
-    } else {
-      // Fallback para Safari Mobile si bloqueó la pestaña emergente
-      const iframe = document.createElement('iframe');
-      iframe.style.position = 'fixed';
-      iframe.style.right = '0';
-      iframe.style.bottom = '0';
-      iframe.style.width = '0';
-      iframe.style.height = '0';
-      iframe.style.border = '0';
-      document.body.appendChild(iframe);
-      iframe.contentWindow.document.write(htmlContent);
-      iframe.contentWindow.document.close();
-      setTimeout(() => {
-        iframe.contentWindow.focus();
-        iframe.contentWindow.print();
-        document.body.removeChild(iframe);
-      }, 500);
+      if (selectedVehicle.version) {
+        ctx.fillStyle = '#8E9BAE';
+        ctx.font = '500 28px sans-serif';
+        ctx.fillText(selectedVehicle.version, 80, 275);
+      }
+
+      // Línea divisoria
+      ctx.strokeStyle = '#232936';
+      ctx.lineWidth = 2;
+      ctx.beginPath();
+      ctx.moveTo(80, 315);
+      ctx.lineTo(1000, 315);
+      ctx.stroke();
+
+      // Grilla de datos técnicos
+      const drawItem = (label, val, x, y) => {
+        ctx.fillStyle = '#717E91';
+        ctx.font = 'bold 22px sans-serif';
+        ctx.fillText(label.toUpperCase(), x, y);
+
+        ctx.fillStyle = '#FFFFFF';
+        ctx.font = 'bold 32px sans-serif';
+        ctx.fillText(val || '-', x, y + 42);
+      };
+
+      const formatKm = selectedVehicle.km ? `${Number(selectedVehicle.km).toLocaleString('es-AR')} km` : 'Consultar';
+      const formatPrice = selectedVehicle.price ? `$ ${Number(selectedVehicle.price).toLocaleString('es-AR')}` : 'Consultar';
+
+      drawItem('Año / Modelo', String(selectedVehicle.year || '-'), 80, 390);
+      drawItem('Kilometraje', formatKm, 560, 390);
+      drawItem('Transmisión', selectedVehicle.gearbox || 'Manual', 80, 500);
+      drawItem('Combustible', selectedVehicle.fuel || 'Nafta', 560, 500);
+      drawItem('Garantía', '6 Meses Total', 80, 610);
+      drawItem('Precio', formatPrice, 560, 610);
+
+      // Equipamiento destacado
+      const equipText = selectedVehicle.equipment || selectedVehicle.features || '';
+      if (equipText) {
+        ctx.fillStyle = '#717E91';
+        ctx.font = 'bold 22px sans-serif';
+        ctx.fillText('EQUIPAMIENTO DESTACADO', 80, 730);
+
+        ctx.fillStyle = '#CBD5E1';
+        ctx.font = '24px sans-serif';
+        
+        const words = String(equipText).split(' ');
+        let line = '';
+        let posY = 775;
+        for (let n = 0; n < words.length; n++) {
+          let testLine = line + words[n] + ' ';
+          let metrics = ctx.measureText(testLine);
+          if (metrics.width > 900 && n > 0) {
+            ctx.fillText(line, 80, posY);
+            line = words[n] + ' ';
+            posY += 36;
+            if (posY > 1050) break;
+          } else {
+            line = testLine;
+          }
+        }
+        ctx.fillText(line, 80, posY);
+      }
+
+      // Pie institucional
+      ctx.fillStyle = '#1B212D';
+      if (ctx.roundRect) {
+        ctx.roundRect(80, 1140, 920, 120, 16);
+      } else {
+        ctx.fillRect(80, 1140, 920, 120);
+      }
+      ctx.fill();
+
+      ctx.fillStyle = '#FFFFFF';
+      ctx.font = 'bold 24px sans-serif';
+      ctx.fillText('Av. Marcelo T. de Alvear 1580 — Río Cuarto, Cba.', 110, 1190);
+      
+      ctx.fillStyle = '#C59A53';
+      ctx.font = 'bold 22px sans-serif';
+      ctx.fillText('cognoautomotores.com.ar', 110, 1230);
+
+      // Descarga / Compartir compatible con Móviles
+      canvas.toBlob(async (blob) => {
+        if (!blob) return;
+        const fileName = `Ficha-${selectedVehicle.brand || 'Auto'}-${selectedVehicle.line || 'Modelo'}-${selectedVehicle.year || ''}.png`.replace(/\s+/g, '-');
+        const file = new File([blob], fileName, { type: 'image/png' });
+
+        if (navigator.canShare && navigator.canShare({ files: [file] })) {
+          try {
+            await navigator.share({
+              files: [file],
+              title: `Ficha Técnica ${selectedVehicle.brand} ${selectedVehicle.line}`,
+              text: `Ficha técnica oficial de ${selectedVehicle.brand} ${selectedVehicle.line} en Cogno Automotores.`,
+            });
+            return;
+          } catch (err) {
+            if (err.name !== 'AbortError') {
+              console.log('Error compartiendo:', err);
+            }
+          }
+        }
+
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = fileName;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        setTimeout(() => URL.revokeObjectURL(url), 1000);
+      }, 'image/png');
+
+    } catch (error) {
+      console.error('Error generando ficha técnica:', error);
+      alert('No se pudo generar la ficha técnica. Intenta nuevamente.');
     }
   };
 
