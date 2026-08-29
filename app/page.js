@@ -1,13 +1,6 @@
 'use client';
 
 import { useRef } from 'react';
-export const metadata = {
-  title: 'Cogno Automotores S.A.| 0km y Usados Seleccionados',
-  description: 'Encontrá tu próximo 0km o tu usado seleccionado en Río Cuarto. Entrega inmediata, financiación a tu medida y toma de tu unidad.',
-  alternates: {
-    canonical: 'https://cognoautomotores.com.ar',
-  },
-};
 
 const reviews = [
   {
