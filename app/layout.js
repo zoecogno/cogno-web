@@ -10,31 +10,31 @@ export default function RootLayout({ children }) {
 
   return (
     <html lang="es">
-      <head>
+   <head>
+  <title>Cogno Automotores | 0km y Usados Seleccionados en Río Cuarto</title>
+  <meta name="description" content="Concesionaria líder en Río Cuarto. Venta y entrega de 0km de todas las marcas y amplia selección de usados garantizados por 6 meses. Financiación a medida y toma de usados." />
+  <meta name="google-site-verification" content="h7YIJ4ZDqRDbo5yc44yJp6MzjsIerURzPM12F00fl9k" />
+  <meta name="keywords" content="Cogno Automotores, Autos 0km Río Cuarto, 0km multimarca Río Cuarto, Camionetas 0km Río Cuarto, Comprar 0km Río Cuarto, Pickups 0km Río Cuarto, Autos usados Río Cuarto, Usados seleccionados Río Cuarto, Concesionaria Río Cuarto, Venta de autos 0km y usados" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="/icon.png?v=6" type="image/png" />
 
-    <title>Cogno Automotores | 0km y Usados Seleccionados en Río Cuarto</title>
-        <meta name="description" content="Concesionaria líder en Río Cuarto. Venta y entrega de 0km de todas las marcas y amplia selección de usados garantizados por 6 meses. Financiación a medida y toma de usados." />
-        <meta name="keywords" content="Cogno Automotores, Autos 0km Río Cuarto, 0km multimarca Río Cuarto, Camionetas 0km Río Cuarto, Comprar 0km Río Cuarto, Pickups 0km Río Cuarto, Autos usados Río Cuarto, Usados seleccionados Río Cuarto, Concesionaria Río Cuarto, Venta de autos 0km y usados" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<link rel="icon" href="/icon.png?v=6" type="image/png" />
+  {/* OpenGraph / WhatsApp / Redes Sociales */}
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="es_AR" />
+  <meta property="og:url" content="https://cognoautomotores.com.ar" />
+  <meta property="og:site_name" content="Cogno Automotores" />
+  <meta property="og:title" content="Cogno Automotores | 0km y Usados Seleccionados" />
+  <meta property="og:description" content="Tu próximo 0km o usado seleccionado está en Cogno Automotores. Entrega inmediata, financiación y 6 meses de garantía en usados." />
+  <meta property="og:image" content="https://cognoautomotores.com.ar/logo-black.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
 
-        {/* OpenGraph / WhatsApp / Redes Sociales */}
-        <meta property="og:type" content="website" />
-        <meta property="og:locale" content="es_AR" />
-        <meta property="og:url" content="https://cognoautomotores.com.ar" />
-        <meta property="og:site_name" content="Cogno Automotores" />
-        <meta property="og:title" content="Cogno Automotores | 0km y Usados Seleccionados" />
-        <meta property="og:description" content="Tu próximo 0km o usado seleccionado está en Cogno Automotores. Entrega inmediata, financiación y 6 meses de garantía en usados." />
-        <meta property="og:image" content="https://cognoautomotores.com.ar/logo-black.png" />
-        <meta property="og:image:width" content="1200" />
-        <meta property="og:image:height" content="630" />
-
-        {/* Twitter Card */}
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Cogno Automotores | 0km y Usados Seleccionados en Río Cuarto" />
-        <meta name="twitter:description" content="Venta de vehículos 0km de todas las marcas y usados garantizados en Río Cuarto." />
-        <meta name="twitter:image" content="https://cognoautomotores.com.ar/logo-black.png" />
-      </head>
+  {/* Twitter Card */}
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Cogno Automotores | 0km y Usados Seleccionados en Río Cuarto" />
+  <meta name="twitter:description" content="Venta de vehículos 0km de todas las marcas y usados garantizados en Río Cuarto." />
+  <meta name="twitter:image" content="https://cognoautomotores.com.ar/logo-black.png" />
+</head>
       <body style={{ margin: 0, backgroundColor: '#0B0C0E', color: '#ffffff', fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif' }}>
         
         {/* ESTILOS GLOBALES DE NAVBAR Y FOOTER */}
