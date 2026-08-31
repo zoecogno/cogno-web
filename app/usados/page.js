@@ -12,7 +12,6 @@ function CatalogoContent() {
   const [maxAvailableYear, setMaxAvailableYear] = useState(new Date().getFullYear());
   const [yearRange, setYearRange] = useState([2010, new Date().getFullYear()]);
 
-  // Estados para acordeones móviles
   const [openBrandMobile, setOpenBrandMobile] = useState(false);
   const [openYearMobile, setOpenYearMobile] = useState(false);
 
@@ -32,9 +31,7 @@ function CatalogoContent() {
     if (navigator.share) {
       try {
         await navigator.share(shareData);
-      } catch (err) {
-        // Cancelado por el usuario
-      }
+      } catch (err) {}
     } else {
       navigator.clipboard.writeText(shareUrl);
       setCopied(true);
@@ -42,7 +39,6 @@ function CatalogoContent() {
     }
   };
 
-  // Generador de Ficha Técnica
   const handlePrintPdf = async () => {
     if (!selectedVehicle) return;
 
@@ -230,18 +226,6 @@ function CatalogoContent() {
       });
   }, []);
 
-  // Bloqueo limpio del fondo sin romper el scroll táctil del modal
-  useEffect(() => {
-    if (selectedVehicle) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = '';
-    }
-    return () => {
-      document.body.style.overflow = '';
-    };
-  }, [selectedVehicle]);
-  
   const openModal = (vehicle) => {
     setSelectedVehicle(vehicle);
     setActivePhotoIdx(0);
@@ -309,7 +293,6 @@ function CatalogoContent() {
   return (
     <div style={{ maxWidth: '1540px', margin: '0 auto', padding: '0 24px' }}>
       
-      {/* ESTILOS INTERACTIVOS Y RESPONSIVE */}
       <style>{`
         .hero-title-usados {
           font-size: 3.2rem;
@@ -335,7 +318,6 @@ function CatalogoContent() {
           align-items: flex-start;
         }
 
-        /* DUAL SLIDER */
         .dual-slider-wrapper {
           position: relative;
           height: 36px;
@@ -394,7 +376,6 @@ function CatalogoContent() {
           box-shadow: 0 2px 6px rgba(0,0,0,0.5);
         }
 
-        /* CHIPS MARCAS */
         .brand-chip {
           padding: 7px 14px;
           border-radius: 8px;
@@ -416,7 +397,6 @@ function CatalogoContent() {
           border-color: #ED1C24;
         }
 
-        /* GRILLA */
         .usados-grid {
           display: grid;
           grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
@@ -453,37 +433,36 @@ function CatalogoContent() {
           transform: scale(1.06);
         }
 
-        /* MODAL OVERLAY & CARD */
-        .modal-overlay-full {
+        /* MODAL RESPONSIVE COMPLETO */
+        .modal-overlay {
           position: fixed;
           top: 0;
           left: 0;
-          right: 0;
-          bottom: 0;
           width: 100vw;
           height: 100vh;
-          background-color: rgba(0, 0, 0, 0.92);
+          background-color: rgba(0, 0, 0, 0.88);
+          backdrop-filter: blur(8px);
+          -webkit-backdrop-filter: blur(8px);
           display: flex;
           justify-content: center;
           align-items: flex-start;
-          padding: 20px 14px 40px 14px;
-          z-index: 9999;
-          backdrop-filter: blur(8px);
+          z-index: 99999;
           overflow-y: auto;
-          overflow-x: hidden;
           -webkit-overflow-scrolling: touch;
+          padding: 24px 16px 60px 16px;
+          box-sizing: border-box;
         }
-        .modal-box-inner {
+        .modal-card {
           background-color: #141518;
           border: 1px solid #27272a;
           border-radius: 24px;
           max-width: 820px;
           width: 100%;
-          margin: auto 0;
+          box-sizing: border-box;
           padding: 34px 28px;
           position: relative;
-          box-shadow: 0 25px 60px rgba(0,0,0,0.85);
-          flex-shrink: 0;
+          box-shadow: 0 25px 60px rgba(0,0,0,0.9);
+          margin: 0 auto;
         }
 
         .gallery-arrow-btn {
@@ -518,7 +497,6 @@ function CatalogoContent() {
           display: block;
         }
 
-        /* CELULARES */
         @media (max-width: 860px) {
           .desktop-filter-header {
             display: none !important;
@@ -608,13 +586,12 @@ function CatalogoContent() {
             padding: 8px 4px !important;
             border-radius: 8px !important;
           }
-          .modal-overlay-full {
-            padding: 12px 10px 40px 10px !important;
+          .modal-overlay {
+            padding: 16px 12px 60px 12px !important;
           }
-          .modal-box-inner {
-            padding: 24px 16px 20px 16px !important;
-            border-radius: 20px !important;
-            margin: 0 !important;
+          .modal-card {
+            padding: 24px 16px !important;
+            border-radius: 18px !important;
           }
           .modal-main-img-box {
             height: 230px !important;
@@ -650,11 +627,10 @@ function CatalogoContent() {
 
       </section>
 
-      {/* 2. FILTROS CON ACORDEÓN INTELIGENTE PARA MÓVILES */}
+      {/* 2. FILTROS */}
       <div className="filter-container">
         <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
           
-          {/* Buscador */}
           <input
             type="text"
             placeholder="🔍 Buscá por marca, modelo o versión (ej: Chevrolet Cruze, Amarok, Hilux)..."
@@ -663,10 +639,9 @@ function CatalogoContent() {
             style={{ width: '100%', boxSizing: 'border-box', padding: '14px 18px', backgroundColor: '#0B0C0E', border: '1px solid #27272a', borderRadius: '12px', color: '#ffffff', fontSize: '0.98rem', outline: 'none' }}
           />
 
-          {/* Grilla de Filtros */}
           <div className="filter-main-grid">
             
-            {/* 1. SECCIÓN MARCAS */}
+            {/* MARCAS */}
             <div>
               <div className="desktop-filter-header" style={{ fontSize: '0.78rem', color: '#a1a1aa', fontWeight: 600, letterSpacing: '0.5px', textTransform: 'uppercase', marginBottom: '10px' }}>
                 FILTRAR POR MARCA:
@@ -709,7 +684,7 @@ function CatalogoContent() {
               </div>
             </div>
 
-            {/* 2. SECCIÓN AÑOS */}
+            {/* AÑOS */}
             <div>
               <button
                 type="button"
@@ -771,7 +746,7 @@ function CatalogoContent() {
 
           </div>
 
-          {/* Contador y Limpiar */}
+          {/* Contador */}
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderTop: '1px solid #1f2024', paddingTop: '10px', fontSize: '0.84rem', color: '#a1a1aa' }}>
             <span>Mostrando <strong style={{ color: '#ffffff' }}>{filtered.length}</strong> {filtered.length === 1 ? 'unidad' : 'unidades disponibles'}</span>
             {(search || selectedBrands.length > 0 || yearRange[0] !== minAvailableYear || yearRange[1] !== maxAvailableYear) && (
@@ -793,7 +768,7 @@ function CatalogoContent() {
         </div>
       </div>
 
-      {/* 3. GRILLA DE TARJETAS DE USADOS */}
+      {/* 3. GRILLA */}
       {loading ? (
         <div style={{ textAlign: 'center', padding: '90px 20px', color: '#a1a1aa', fontSize: '1.1rem' }}>
           Cargando catálogo actualizado de unidades...
@@ -861,18 +836,18 @@ function CatalogoContent() {
         </div>
       )}
 
-      {/* 4. MODAL DETALLE FLUIDO EN IPHONE / ANDROID / PC */}
+      {/* 4. MODAL LIMPIO Y 100% SCROLLEABLE */}
       {selectedVehicle && (
         <div 
           onClick={closeModal}
-          className="modal-overlay-full"
+          className="modal-overlay"
         >
           <div 
             onClick={(e) => e.stopPropagation()}
-            className="modal-box-inner"
+            className="modal-card"
           >
             
-            {/* Botón Cerrar Accesible */}
+            {/* Botón Cerrar */}
             <button 
               onClick={closeModal} 
               style={{ position: 'absolute', top: '16px', right: '16px', backgroundColor: '#1f2024', border: '1px solid #444', color: '#ffffff', width: '38px', height: '38px', borderRadius: '50%', fontSize: '1.2rem', display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer', zIndex: 30 }}
@@ -881,8 +856,8 @@ function CatalogoContent() {
               ✕
             </button>
 
-            {/* Logo Centrado Arriba */}
-            <div style={{ textAlign: 'center', marginBottom: '12px', paddingRight: '20px' }}>
+            {/* Logo Centrado */}
+            <div style={{ textAlign: 'center', marginBottom: '12px' }}>
               <img 
                 src="/logo.png.png" 
                 alt="Cogno Automotores" 
@@ -903,7 +878,7 @@ function CatalogoContent() {
               </span>
             </div>
 
-            {/* Título Principal del Auto */}
+            {/* Título Principal */}
             <div style={{ marginBottom: '18px' }}>
               <h2 className="modal-title-text" style={{ fontSize: '1.8rem', fontWeight: 700, margin: '0 0 4px 0', textTransform: 'uppercase', color: '#ffffff', letterSpacing: '-0.3px', lineHeight: 1.2 }}>
                 {selectedVehicle.brand} {selectedVehicle.line} {selectedVehicle.version || ''}
@@ -915,7 +890,7 @@ function CatalogoContent() {
               )}
             </div>
 
-            {/* Galería Interactiva */}
+            {/* Galería */}
             {selectedVehicle.photos && selectedVehicle.photos.length > 0 && (
               <div style={{ marginBottom: '22px' }}>
                 <div className="modal-main-img-box" style={{ height: '400px', borderRadius: '18px', overflow: 'hidden', backgroundColor: '#070709', position: 'relative', border: '1px solid #27272a' }}>
@@ -953,13 +928,16 @@ function CatalogoContent() {
               </div>
             )}
 
-            {/* Ficha Técnica */}
+            {/* Ficha Técnica con ICONOS SVG */}
             <div style={{ backgroundColor: '#0B0C0E', border: '1px solid #27272a', borderRadius: '16px', padding: '18px 20px', marginBottom: '22px' }}>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
                 
+                {/* Marca */}
                 <div style={{ display: 'flex', alignItems: 'center', borderBottom: '1px solid #191a1d', paddingBottom: '10px' }}>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: '#a1a1aa', fontSize: '0.9rem', width: '140px', flexShrink: 0 }}>
-                    <span>★</span>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '10px', color: '#a1a1aa', fontSize: '0.9rem', width: '140px', flexShrink: 0 }}>
+                    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                    </svg>
                     <span>Marca</span>
                   </div>
                   <strong style={{ color: '#ffffff', fontSize: '0.94rem', textTransform: 'uppercase' }}>
@@ -967,9 +945,13 @@ function CatalogoContent() {
                   </strong>
                 </div>
 
+                {/* Línea */}
                 <div style={{ display: 'flex', alignItems: 'center', borderBottom: '1px solid #191a1d', paddingBottom: '10px' }}>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: '#a1a1aa', fontSize: '0.9rem', width: '140px', flexShrink: 0 }}>
-                    <span>👜</span>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '10px', color: '#a1a1aa', fontSize: '0.9rem', width: '140px', flexShrink: 0 }}>
+                    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                      <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+                    </svg>
                     <span>Línea</span>
                   </div>
                   <strong style={{ color: '#ffffff', fontSize: '0.94rem', textTransform: 'uppercase' }}>
@@ -977,10 +959,13 @@ function CatalogoContent() {
                   </strong>
                 </div>
 
+                {/* Versión */}
                 {selectedVehicle.version && (
                   <div style={{ display: 'flex', alignItems: 'center', borderBottom: '1px solid #191a1d', paddingBottom: '10px' }}>
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: '#a1a1aa', fontSize: '0.9rem', width: '140px', flexShrink: 0 }}>
-                      <span>⚡</span>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '10px', color: '#a1a1aa', fontSize: '0.9rem', width: '140px', flexShrink: 0 }}>
+                      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+                      </svg>
                       <span>Versión</span>
                     </div>
                     <strong style={{ color: '#ffffff', fontSize: '0.94rem' }}>
@@ -989,9 +974,15 @@ function CatalogoContent() {
                   </div>
                 )}
 
+                {/* Modelo / Año */}
                 <div style={{ display: 'flex', alignItems: 'center', borderBottom: '1px solid #191a1d', paddingBottom: '10px' }}>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: '#a1a1aa', fontSize: '0.9rem', width: '140px', flexShrink: 0 }}>
-                    <span>📅</span>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '10px', color: '#a1a1aa', fontSize: '0.9rem', width: '140px', flexShrink: 0 }}>
+                    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                      <line x1="16" y1="2" x2="16" y2="6"></line>
+                      <line x1="8" y1="2" x2="8" y2="6"></line>
+                      <line x1="3" y1="10" x2="21" y2="10"></line>
+                    </svg>
                     <span>Modelo / Año</span>
                   </div>
                   <strong style={{ color: '#ffffff', fontSize: '0.94rem' }}>
@@ -999,9 +990,13 @@ function CatalogoContent() {
                   </strong>
                 </div>
 
+                {/* Kilometraje */}
                 <div style={{ display: 'flex', alignItems: 'center' }}>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: '#a1a1aa', fontSize: '0.9rem', width: '140px', flexShrink: 0 }}>
-                    <span>⏱️</span>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '10px', color: '#a1a1aa', fontSize: '0.9rem', width: '140px', flexShrink: 0 }}>
+                    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <circle cx="12" cy="12" r="10"></circle>
+                      <polyline points="12 6 12 12 16 14"></polyline>
+                    </svg>
                     <span>Kilometraje</span>
                   </div>
                   <strong style={{ color: '#ffffff', fontSize: '0.94rem' }}>
@@ -1009,6 +1004,7 @@ function CatalogoContent() {
                   </strong>
                 </div>
 
+                {/* Equipamiento */}
                 {selectedVehicle.equipment && (
                   <div style={{ borderTop: '1px solid #191a1d', paddingTop: '12px', marginTop: '4px' }}>
                     <span style={{ color: '#a1a1aa', fontSize: '0.84rem', fontWeight: 600, display: 'block', marginBottom: '4px' }}>
@@ -1040,7 +1036,14 @@ function CatalogoContent() {
                 onClick={handleShare}
                 style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px', width: '100%', backgroundColor: '#0B0C0E', border: '1px solid #27272a', color: '#ffffff', padding: '12px', borderRadius: '12px', fontWeight: 600, fontSize: '0.88rem', cursor: 'pointer' }}
               >
-                <span>{copied ? '✓ ¡Enlace copiado al portapapeles!' : '🔗 Compartir esta unidad'}</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <circle cx="18" cy="5" r="3"></circle>
+                  <circle cx="6" cy="12" r="3"></circle>
+                  <circle cx="18" cy="19" r="3"></circle>
+                  <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
+                  <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
+                </svg>
+                <span>{copied ? '✓ ¡Enlace copiado al portapapeles!' : 'Compartir esta unidad'}</span>
               </button>
 
               <button
@@ -1048,7 +1051,12 @@ function CatalogoContent() {
                 onClick={handlePrintPdf}
                 style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px', width: '100%', backgroundColor: '#0B0C0E', border: '1px solid #27272a', color: '#ffffff', padding: '12px', borderRadius: '12px', fontWeight: 600, fontSize: '0.88rem', cursor: 'pointer' }}
               >
-                <span>📥 Descargar / Imprimir Ficha Técnica</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                  <polyline points="7 10 12 15 17 10"></polyline>
+                  <line x1="12" y1="15" x2="12" y2="3"></line>
+                </svg>
+                <span>Descargar / Imprimir Ficha Técnica</span>
               </button>
 
             </div>
