@@ -18,10 +18,11 @@ function CatalogoContent() {
   const [selectedVehicle, setSelectedVehicle] = useState(null);
   const [activePhotoIdx, setActivePhotoIdx] = useState(0);
   const [copied, setCopied] = useState(false);
+  const [fullscreenPhoto, setFullscreenPhoto] = useState(false);
 
   // Bloqueo estricto del fondo para móviles y PC
   useEffect(() => {
-    if (selectedVehicle) {
+    if (selectedVehicle || fullscreenPhoto) {
       const scrollY = window.scrollY;
       document.body.style.position = 'fixed';
       document.body.style.top = `-${scrollY}px`;
@@ -37,7 +38,7 @@ function CatalogoContent() {
         window.scrollTo(0, parseInt(scrollY || '0') * -1);
       }
     }
-  }, [selectedVehicle]);
+  }, [selectedVehicle, fullscreenPhoto]);
 
   const handleShare = async () => {
     if (!selectedVehicle) return;
@@ -104,6 +105,7 @@ function CatalogoContent() {
   const openModal = (vehicle) => {
     setSelectedVehicle(vehicle);
     setActivePhotoIdx(0);
+    setFullscreenPhoto(false);
     if (typeof window !== 'undefined') {
       window.history.pushState(null, '', `/usados?auto=${vehicle.id}`);
       document.title = `${vehicle.brand} ${vehicle.line} | Cogno Automotores`;
@@ -112,6 +114,7 @@ function CatalogoContent() {
 
   const closeModal = () => {
     setSelectedVehicle(null);
+    setFullscreenPhoto(false);
     if (typeof window !== 'undefined') {
       window.history.pushState(null, '', '/usados');
       document.title = 'Inventario de Usados Seleccionados | Cogno Automotores';
@@ -765,15 +768,28 @@ function CatalogoContent() {
               )}
             </div>
 
-            {/* Galería */}
+            {/* Galería con Click para Pantalla Completa */}
             {selectedVehicle.photos && selectedVehicle.photos.length > 0 && (
               <div style={{ marginBottom: '22px' }}>
-                <div className="modal-main-img-box" style={{ height: '400px', borderRadius: '18px', overflow: 'hidden', backgroundColor: '#070709', position: 'relative', border: '1px solid #27272a' }}>
+                <div 
+                  onClick={() => setFullscreenPhoto(true)}
+                  className="modal-main-img-box" 
+                  style={{ height: '400px', borderRadius: '18px', overflow: 'hidden', backgroundColor: '#070709', position: 'relative', border: '1px solid #27272a', cursor: 'zoom-in' }}
+                  title="Hacé clic para ver en pantalla completa"
+                >
                   <img 
                     src={selectedVehicle.photos[activePhotoIdx] || selectedVehicle.photos[0]} 
                     alt={`${selectedVehicle.brand} ${selectedVehicle.line}`} 
                     style={{ width: '100%', height: '100%', objectFit: 'contain' }} 
                   />
+
+                  {/* Indicador visual de pantalla completa */}
+                  <div style={{ position: 'absolute', bottom: '12px', right: '12px', backgroundColor: 'rgba(11, 12, 14, 0.85)', border: '1px solid rgba(255, 255, 255, 0.2)', padding: '6px 12px', borderRadius: '20px', fontSize: '0.76rem', color: '#ffffff', display: 'flex', alignItems: 'center', gap: '6px', backdropFilter: 'blur(4px)', pointerEvents: 'none' }}>
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/>
+                    </svg>
+                    <span>Ver pantalla completa</span>
+                  </div>
 
                   {selectedVehicle.photos.length > 1 && (
                     <>
@@ -917,6 +933,105 @@ function CatalogoContent() {
             </div>
 
           </div>
+        </div>
+      )}
+
+      {/* 5. LIGHTBOX / PANTALLA COMPLETA */}
+      {fullscreenPhoto && selectedVehicle?.photos && (
+        <div 
+          onClick={() => setFullscreenPhoto(false)}
+          style={{
+            position: 'fixed',
+            top: 0,
+            left: 0,
+            width: '100vw',
+            height: '100vh',
+            backgroundColor: 'rgba(0, 0, 0, 0.96)',
+            zIndex: 100000,
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            backdropFilter: 'blur(10px)',
+            cursor: 'zoom-out',
+            padding: '20px',
+            boxSizing: 'border-box'
+          }}
+        >
+          {/* Botón Cerrar Pantalla Completa */}
+          <button 
+            onClick={(e) => { e.stopPropagation(); setFullscreenPhoto(false); }}
+            style={{
+              position: 'absolute',
+              top: '20px',
+              right: '20px',
+              backgroundColor: 'rgba(255, 255, 255, 0.15)',
+              border: '1px solid rgba(255, 255, 255, 0.3)',
+              color: '#ffffff',
+              width: '46px',
+              height: '46px',
+              borderRadius: '50%',
+              fontSize: '1.4rem',
+              cursor: 'pointer',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              zIndex: 100010
+            }}
+          >
+            ✕
+          </button>
+
+          {/* Imagen Fullscreen */}
+          <img 
+            src={selectedVehicle.photos[activePhotoIdx] || selectedVehicle.photos[0]} 
+            alt={`${selectedVehicle.brand} ${selectedVehicle.line}`}
+            onClick={(e) => e.stopPropagation()}
+            style={{
+              maxWidth: '92vw',
+              maxHeight: '88vh',
+              objectFit: 'contain',
+              borderRadius: '12px',
+              boxShadow: '0 20px 50px rgba(0,0,0,0.8)',
+              cursor: 'default'
+            }}
+          />
+
+          {/* Flechas Fullscreen */}
+          {selectedVehicle.photos.length > 1 && (
+            <>
+              <button 
+                onClick={prevPhoto} 
+                className="gallery-arrow-btn" 
+                style={{ left: '20px', width: '52px', height: '52px', fontSize: '1.6rem' }}
+                aria-label="Foto anterior"
+              >
+                ‹
+              </button>
+              <button 
+                onClick={nextPhoto} 
+                className="gallery-arrow-btn" 
+                style={{ right: '20px', width: '52px', height: '52px', fontSize: '1.6rem' }}
+                aria-label="Foto siguiente"
+              >
+                ›
+              </button>
+              <div 
+                onClick={(e) => e.stopPropagation()}
+                style={{
+                  position: 'absolute',
+                  bottom: '24px',
+                  backgroundColor: 'rgba(0, 0, 0, 0.75)',
+                  padding: '6px 16px',
+                  borderRadius: '20px',
+                  border: '1px solid #333',
+                  fontSize: '0.85rem',
+                  color: '#ffffff'
+                }}
+              >
+                Foto {activePhotoIdx + 1} de {selectedVehicle.photos.length}
+              </div>
+            </>
+          )}
         </div>
       )}
 
