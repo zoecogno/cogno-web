@@ -981,19 +981,19 @@ function CatalogoContent() {
             ✕
           </button>
 
- {/* Imagen Fullscreen Equilibrada */}
+{/* Imagen Fullscreen con el tamaño exacto del recuadro */}
           <img 
             src={selectedVehicle.photos[activePhotoIdx] || selectedVehicle.photos[0]} 
             alt={`${selectedVehicle.brand} ${selectedVehicle.line}`}
             onClick={(e) => e.stopPropagation()}
             style={{
-              maxWidth: '85vw',
-              maxHeight: '80vh',
+              maxWidth: '92vw',
+              maxHeight: '92vh',
               width: 'auto',
-              height: 'auto',
+              height: '90vh',
               objectFit: 'contain',
-              borderRadius: '16px',
-              boxShadow: '0 25px 60px rgba(0,0,0,0.85)',
+              borderRadius: '14px',
+              boxShadow: '0 20px 50px rgba(0,0,0,0.9)',
               cursor: 'default'
             }}
           />
