@@ -59,28 +59,28 @@ export default function Home() {
       
       {/* ESTILOS INTERACTIVOS Y RESPONSIVE MÓVIL */}
       <style>{`
-        /* --- ESCRITORIO (ANCHO COMPLETO PANORÁMICO) --- */
+      /* --- ESCRITORIO (ESCALA INTERMEDIA CALIBRADA) --- */
         .hero-title {
-          font-size: 3.2rem;
+          font-size: 2.35rem;
           font-weight: 600;
-          margin: 0 auto 20px auto;
-          letter-spacing: -0.5px;
+          margin: 0 auto 10px auto;
+          letter-spacing: -0.4px;
           color: #ffffff;
-          line-height: 1.25;
-          max-width: 950px;
+          line-height: 1.2;
+          max-width: 820px;
         }
         .two-cards-grid {
           display: grid;
           grid-template-columns: 1fr 1fr;
-          gap: 36px;
+          gap: 24px;
           width: 100%;
-          max-width: 1540px;
+          max-width: 1280px;
           margin: 0 auto;
         }
         .interactive-card {
           background-color: #141518;
           border: 1px solid #27272a;
-          border-radius: 24px;
+          border-radius: 20px;
           overflow: hidden;
           display: flex;
           flex-direction: column;
@@ -88,13 +88,13 @@ export default function Home() {
           transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease, box-shadow 0.3s ease;
         }
         .interactive-card:hover {
-          transform: translateY(-8px);
+          transform: translateY(-6px);
           border-color: rgba(237, 28, 36, 0.5);
           box-shadow: 0 16px 32px rgba(0, 0, 0, 0.6), 0 0 20px rgba(237, 28, 36, 0.15);
         }
         .card-img-container {
           position: relative;
-          height: 440px;
+          height: 250px;
           background-color: #070709;
           overflow: hidden;
         }
@@ -108,7 +108,7 @@ export default function Home() {
           transform: scale(1.06);
         }
         .card-body-content {
-          padding: 32px;
+          padding: 20px 24px 24px 24px;
           display: flex;
           flex-direction: column;
           flex-grow: 1;
@@ -351,13 +351,13 @@ export default function Home() {
         }
       `}</style>
 
-      {/* 1. HERO INSTITUCIONAL */}
-      <section style={{ padding: '35px 20px 15px 20px', textAlign: 'center', maxWidth: '1100px', margin: '0 auto' }}>
-        <div style={{ marginBottom: '14px' }}>
+ {/* 1. HERO INSTITUCIONAL */}
+      <section style={{ padding: '20px 20px 10px 20px', textAlign: 'center', maxWidth: '980px', margin: '0 auto' }}>
+        <div style={{ marginBottom: '10px' }}>
           <img 
             src="/logo.png.png" 
             alt="Cogno Automotores" 
-            style={{ height: '70px', width: 'auto', margin: '0 auto', display: 'inline-block' }} 
+            style={{ height: '52px', width: 'auto', margin: '0 auto', display: 'inline-block' }} 
           />
         </div>
 
@@ -365,28 +365,28 @@ export default function Home() {
           Somos la <span style={{ color: '#ED1C24' }}>propuesta confiable</span> para tu próximo vehículo
         </h1>
 
-        <div className="hero-badge" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', backgroundColor: 'rgba(237, 28, 36, 0.08)', border: '1px solid rgba(237, 28, 36, 0.4)', color: '#ED1C24', padding: '9px 22px', borderRadius: '30px', fontSize: '0.85rem', fontWeight: 700, letterSpacing: '0.8px', marginBottom: '20px', textTransform: 'uppercase' }}>
+        <div className="hero-badge" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', backgroundColor: 'rgba(237, 28, 36, 0.08)', border: '1px solid rgba(237, 28, 36, 0.4)', color: '#ED1C24', padding: '6px 16px', borderRadius: '30px', fontSize: '0.78rem', fontWeight: 700, letterSpacing: '0.6px', marginBottom: '12px', textTransform: 'uppercase' }}>
           <span>🛡️</span>
           <span>TRAYECTORIA Y COMPROMISO</span>
         </div>
 
-        <p className="hero-desc" style={{ color: '#F4F4F5', fontSize: '1.15rem', maxWidth: '860px', margin: '0 auto 12px auto', lineHeight: 1.7, fontWeight: 400 }}>
+        <p className="hero-desc" style={{ color: '#F4F4F5', fontSize: '1rem', maxWidth: '780px', margin: '0 auto 8px auto', lineHeight: 1.5, fontWeight: 400 }}>
           Vehículos 0KM y usados seleccionados, con destacada variedad de pick-ups. Garantía propia y atención personalizada en cada etapa de la compra.
         </p>
 
-        <p className="hero-sub" style={{ color: '#d4d4d8', fontSize: '1.02rem', margin: '0 auto 28px auto', fontWeight: 400 }}>
+        <p className="hero-sub" style={{ color: '#a1a1aa', fontSize: '0.9rem', margin: '0 auto 16px auto', fontWeight: 400 }}>
           Elegí la categoría de tu interés para explorar nuestras unidades disponibles:
         </p>
       </section>
 
-      {/* 2. TARJETAS 0KM Y USADOS (ANCHO COMPLETO) */}
-      <section style={{ maxWidth: '1540px', margin: '0 auto', padding: '0 24px' }}>
+     {/* 2. TARJETAS 0KM Y USADOS */}
+      <section style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 24px' }}>
         <div className="two-cards-grid">
 
           {/* 0KM */}
           <div className="interactive-card">
             <div className="card-img-container">
-              <span style={{ position: 'absolute', top: '14px', left: '14px', backgroundColor: '#ED1C24', color: '#ffffff', fontSize: '0.82rem', fontWeight: 700, padding: '5px 12px', borderRadius: '6px', zIndex: 2 }}>
+              <span style={{ position: 'absolute', top: '12px', left: '12px', backgroundColor: '#ED1C24', color: '#ffffff', fontSize: '0.78rem', fontWeight: 700, padding: '4px 10px', borderRadius: '6px', zIndex: 2 }}>
                 0 KM
               </span>
               <img 
@@ -397,14 +397,14 @@ export default function Home() {
             </div>
             <div className="card-body-content">
               <div>
-                <h2 className="card-main-title" style={{ fontSize: '1.6rem', fontWeight: 700, color: '#ffffff', margin: '0 0 10px 0' }}>
+                <h2 className="card-main-title" style={{ fontSize: '1.35rem', fontWeight: 700, color: '#ffffff', margin: '0 0 6px 0' }}>
                   Unidades 0KM
                 </h2>
-                <p className="card-desc-text" style={{ fontSize: '1.05rem', color: '#E4E4E7', lineHeight: 1.6, margin: '0 0 24px 0', fontWeight: 400 }}>
+                <p className="card-desc-text" style={{ fontSize: '0.92rem', color: '#E4E4E7', lineHeight: 1.5, margin: '0 0 16px 0', fontWeight: 400 }}>
                   Comercializamos la gama completa de las principales marcas del país. Financiación directa de fábrica y entrega programada.
                 </p>
               </div>
-              <a href="/0km" className="action-btn-red">
+              <a href="/0km" className="action-btn-red" style={{ padding: '12px', fontSize: '0.92rem' }}>
                 Explorar 0KM 
               </a>
             </div>
@@ -413,7 +413,7 @@ export default function Home() {
           {/* Usados */}
           <div className="interactive-card">
             <div className="card-img-container">
-              <span style={{ position: 'absolute', top: '14px', left: '14px', backgroundColor: '#ED1C24', color: '#ffffff', fontSize: '0.82rem', fontWeight: 700, padding: '5px 12px', borderRadius: '6px', zIndex: 2 }}>
+              <span style={{ position: 'absolute', top: '12px', left: '12px', backgroundColor: '#ED1C24', color: '#ffffff', fontSize: '0.78rem', fontWeight: 700, padding: '4px 10px', borderRadius: '6px', zIndex: 2 }}>
                 SELECCIONADOS
               </span>
               <img 
@@ -424,14 +424,14 @@ export default function Home() {
             </div>
             <div className="card-body-content">
               <div>
-                <h2 className="card-main-title" style={{ fontSize: '1.6rem', fontWeight: 700, color: '#ffffff', margin: '0 0 10px 0' }}>
+                <h2 className="card-main-title" style={{ fontSize: '1.35rem', fontWeight: 700, color: '#ffffff', margin: '0 0 6px 0' }}>
                   Usados Seleccionados
                 </h2>
-                <p className="card-desc-text" style={{ fontSize: '1.05rem', color: '#E4E4E7', lineHeight: 1.6, margin: '0 0 24px 0', fontWeight: 400 }}>
+                <p className="card-desc-text" style={{ fontSize: '0.92rem', color: '#E4E4E7', lineHeight: 1.5, margin: '0 0 16px 0', fontWeight: 400 }}>
                   Unidades con historial verificado y entrega con toda la documentación lista para salir a la calle.
                 </p>
               </div>
-              <a href="/usados" className="action-btn-red">
+              <a href="/usados" className="action-btn-red" style={{ padding: '12px', fontSize: '0.92rem' }}>
                 Ver Catálogo Usados 
               </a>
             </div>
