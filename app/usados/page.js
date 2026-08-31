@@ -33,17 +33,16 @@ function CatalogoContent() {
       try {
         await navigator.share(shareData);
       } catch (err) {
-        // Si el usuario cancela la ventana de compartir, no hace nada
+        // Cancelado por el usuario
       }
     } else {
-      // Si está en PC, copia el link directo al portapapeles
       navigator.clipboard.writeText(shareUrl);
       setCopied(true);
       setTimeout(() => setCopied(false), 2500);
     }
   };
 
-// Generador de Ficha Técnica (Imagen compatible con Móviles y PC)
+  // Generador de Ficha Técnica
   const handlePrintPdf = async () => {
     if (!selectedVehicle) return;
 
@@ -53,11 +52,9 @@ function CatalogoContent() {
       canvas.width = 1080;
       canvas.height = 1350;
 
-      // Fondo principal
       ctx.fillStyle = '#0B0C0E';
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-      // Card interior
       ctx.fillStyle = '#14171C';
       if (ctx.roundRect) {
         ctx.roundRect(40, 40, 1000, 1270, 24);
@@ -66,7 +63,6 @@ function CatalogoContent() {
       }
       ctx.fill();
 
-      // Cabecera institucional
       ctx.fillStyle = '#C59A53';
       ctx.font = 'bold 34px sans-serif';
       ctx.fillText('COGNO AUTOMOTORES', 80, 120);
@@ -75,7 +71,6 @@ function CatalogoContent() {
       ctx.font = '500 24px sans-serif';
       ctx.fillText('FICHA TÉCNICA OFICIAL', 80, 160);
 
-      // Título del vehículo
       ctx.fillStyle = '#FFFFFF';
       ctx.font = 'bold 44px sans-serif';
       const title = `${selectedVehicle.brand || ''} ${selectedVehicle.line || ''}`.toUpperCase();
@@ -87,7 +82,6 @@ function CatalogoContent() {
         ctx.fillText(selectedVehicle.version, 80, 275);
       }
 
-      // Línea divisoria
       ctx.strokeStyle = '#232936';
       ctx.lineWidth = 2;
       ctx.beginPath();
@@ -95,7 +89,6 @@ function CatalogoContent() {
       ctx.lineTo(1000, 315);
       ctx.stroke();
 
-      // Grilla de datos técnicos
       const drawItem = (label, val, x, y) => {
         ctx.fillStyle = '#717E91';
         ctx.font = 'bold 22px sans-serif';
@@ -116,7 +109,6 @@ function CatalogoContent() {
       drawItem('Garantía', '6 Meses Total', 80, 610);
       drawItem('Precio', formatPrice, 560, 610);
 
-      // Equipamiento destacado
       const equipText = selectedVehicle.equipment || selectedVehicle.features || '';
       if (equipText) {
         ctx.fillStyle = '#717E91';
@@ -144,7 +136,6 @@ function CatalogoContent() {
         ctx.fillText(line, 80, posY);
       }
 
-      // Pie institucional
       ctx.fillStyle = '#1B212D';
       if (ctx.roundRect) {
         ctx.roundRect(80, 1140, 920, 120, 16);
@@ -161,7 +152,6 @@ function CatalogoContent() {
       ctx.font = 'bold 22px sans-serif';
       ctx.fillText('cognoautomotores.com.ar', 110, 1230);
 
-      // Descarga / Compartir compatible con Móviles
       canvas.toBlob(async (blob) => {
         if (!blob) return;
         const fileName = `Ficha-${selectedVehicle.brand || 'Auto'}-${selectedVehicle.line || 'Modelo'}-${selectedVehicle.year || ''}.png`.replace(/\s+/g, '-');
@@ -239,18 +229,16 @@ function CatalogoContent() {
         setLoading(false);
       });
   }, []);
-// Bloqueo total del fondo en celulares para que no scrollee el catálogo
+
+  // Bloqueo limpio del fondo sin romper el scroll táctil del modal
   useEffect(() => {
     if (selectedVehicle) {
       document.body.style.overflow = 'hidden';
-      document.body.style.touchAction = 'none';
     } else {
       document.body.style.overflow = '';
-      document.body.style.touchAction = '';
     }
     return () => {
       document.body.style.overflow = '';
-      document.body.style.touchAction = '';
     };
   }, [selectedVehicle]);
   
@@ -465,13 +453,37 @@ function CatalogoContent() {
           transform: scale(1.06);
         }
 
-        /* MODAL */
-        .modal-box-inner {
-          scrollbar-width: none;
-          -ms-overflow-style: none;
+        /* MODAL OVERLAY & CARD */
+        .modal-overlay-full {
+          position: fixed;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          width: 100vw;
+          height: 100vh;
+          background-color: rgba(0, 0, 0, 0.92);
+          display: flex;
+          justify-content: center;
+          align-items: flex-start;
+          padding: 20px 14px 40px 14px;
+          z-index: 9999;
+          backdrop-filter: blur(8px);
+          overflow-y: auto;
+          overflow-x: hidden;
+          -webkit-overflow-scrolling: touch;
         }
-        .modal-box-inner::-webkit-scrollbar {
-          display: none;
+        .modal-box-inner {
+          background-color: #141518;
+          border: 1px solid #27272a;
+          border-radius: 24px;
+          max-width: 820px;
+          width: 100%;
+          margin: auto 0;
+          padding: 34px 28px;
+          position: relative;
+          box-shadow: 0 25px 60px rgba(0,0,0,0.85);
+          flex-shrink: 0;
         }
 
         .gallery-arrow-btn {
@@ -499,7 +511,6 @@ function CatalogoContent() {
           transform: translateY(-50%) scale(1.08);
         }
 
-        /* ELEMENTOS ACORDEÓN MÓVIL (OCULTOS EN ESCRITORIO) */
         .mobile-accordion-toggle {
           display: none;
         }
@@ -507,7 +518,7 @@ function CatalogoContent() {
           display: block;
         }
 
-        /* CELULARES (ADAPTACIÓN COMPACTA CON BOTONES DE FILTRO) */
+        /* CELULARES */
         @media (max-width: 860px) {
           .desktop-filter-header {
             display: none !important;
@@ -597,9 +608,13 @@ function CatalogoContent() {
             padding: 8px 4px !important;
             border-radius: 8px !important;
           }
+          .modal-overlay-full {
+            padding: 12px 10px 40px 10px !important;
+          }
           .modal-box-inner {
-            padding: 20px 16px !important;
-            border-radius: 16px !important;
+            padding: 24px 16px 20px 16px !important;
+            border-radius: 20px !important;
+            margin: 0 !important;
           }
           .modal-main-img-box {
             height: 230px !important;
@@ -653,12 +668,10 @@ function CatalogoContent() {
             
             {/* 1. SECCIÓN MARCAS */}
             <div>
-              {/* Título en PC */}
               <div className="desktop-filter-header" style={{ fontSize: '0.78rem', color: '#a1a1aa', fontWeight: 600, letterSpacing: '0.5px', textTransform: 'uppercase', marginBottom: '10px' }}>
                 FILTRAR POR MARCA:
               </div>
 
-              {/* Botón desplegable solo en celular */}
               <button
                 type="button"
                 onClick={() => setOpenBrandMobile(!openBrandMobile)}
@@ -670,7 +683,6 @@ function CatalogoContent() {
                 <span>{openBrandMobile ? '▲' : '▼'}</span>
               </button>
 
-              {/* Contenido Chips */}
               <div className={`filter-section-desktop ${openBrandMobile ? 'show-mobile' : ''}`}>
                 <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
                   <button
@@ -699,7 +711,6 @@ function CatalogoContent() {
 
             {/* 2. SECCIÓN AÑOS */}
             <div>
-              {/* Botón desplegable solo en celular */}
               <button
                 type="button"
                 onClick={() => setOpenYearMobile(!openYearMobile)}
@@ -711,7 +722,6 @@ function CatalogoContent() {
                 <span>{openYearMobile ? '▲' : '▼'}</span>
               </button>
 
-              {/* Contenido Slider Dual */}
               <div className={`filter-section-desktop ${openYearMobile ? 'show-mobile' : ''}`}>
                 <div style={{ backgroundColor: '#0B0C0E', border: '1px solid #27272a', borderRadius: '14px', padding: '14px 18px' }}>
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '6px' }}>
@@ -851,50 +861,50 @@ function CatalogoContent() {
         </div>
       )}
 
-      {/* 4. MODAL DETALLE IDÉNTICO A SOFTR (DATOS ALINEADOS A LA IZQUIERDA) */}
+      {/* 4. MODAL DETALLE FLUIDO EN IPHONE / ANDROID / PC */}
       {selectedVehicle && (
         <div 
           onClick={closeModal}
-          style={{ position: 'fixed', inset: 0, backgroundColor: 'rgba(0, 0, 0, 0.92)', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '16px', zIndex: 1000, backdropFilter: 'blur(8px)' }}
+          className="modal-overlay-full"
         >
           <div 
             onClick={(e) => e.stopPropagation()}
             className="modal-box-inner"
-            style={{ backgroundColor: '#141518', border: '1px solid #27272a', borderRadius: '24px', maxWidth: '820px', width: '100%', maxHeight: '92vh', overflowY: 'auto', padding: '34px 28px', position: 'relative', boxShadow: '0 25px 60px rgba(0,0,0,0.85)' }}
           >
             
-            {/* Botón Cerrar */}
+            {/* Botón Cerrar Accesible */}
             <button 
               onClick={closeModal} 
-              style={{ position: 'absolute', top: '18px', right: '18px', backgroundColor: '#1f2024', border: '1px solid #333', color: '#ffffff', width: '36px', height: '36px', borderRadius: '50%', fontSize: '1.1rem', display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer', zIndex: 20 }}
+              style={{ position: 'absolute', top: '16px', right: '16px', backgroundColor: '#1f2024', border: '1px solid #444', color: '#ffffff', width: '38px', height: '38px', borderRadius: '50%', fontSize: '1.2rem', display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer', zIndex: 30 }}
+              aria-label="Cerrar modal"
             >
               ✕
             </button>
 
             {/* Logo Centrado Arriba */}
-            <div style={{ textAlign: 'center', marginBottom: '14px' }}>
+            <div style={{ textAlign: 'center', marginBottom: '12px', paddingRight: '20px' }}>
               <img 
                 src="/logo.png.png" 
                 alt="Cogno Automotores" 
-                style={{ height: '58px', width: 'auto', margin: '0 auto', display: 'inline-block' }} 
+                style={{ height: '52px', width: 'auto', margin: '0 auto', display: 'inline-block' }} 
               />
             </div>
 
-            {/* Título Institucional Softr */}
-            <h1 style={{ textAlign: 'center', fontSize: '1.9rem', fontWeight: 600, color: '#ffffff', margin: '0 0 14px 0', letterSpacing: '-0.3px' }}>
+            {/* Título Institucional */}
+            <h1 style={{ textAlign: 'center', fontSize: '1.6rem', fontWeight: 600, color: '#ffffff', margin: '0 0 12px 0', letterSpacing: '-0.3px' }}>
               Tu próximo vehículo lo encontrás acá
             </h1>
 
             {/* Badge de Garantía */}
-            <div style={{ textAlign: 'center', marginBottom: '22px' }}>
-              <span style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', backgroundColor: 'rgba(237, 28, 36, 0.12)', border: '1px solid rgba(237, 28, 36, 0.35)', color: '#ED1C24', padding: '6px 16px', borderRadius: '30px', fontSize: '0.75rem', fontWeight: 700, letterSpacing: '0.6px', textTransform: 'uppercase' }}>
+            <div style={{ textAlign: 'center', marginBottom: '18px' }}>
+              <span style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', backgroundColor: 'rgba(237, 28, 36, 0.12)', border: '1px solid rgba(237, 28, 36, 0.35)', color: '#ED1C24', padding: '6px 14px', borderRadius: '30px', fontSize: '0.74rem', fontWeight: 700, letterSpacing: '0.6px', textTransform: 'uppercase' }}>
                 <span>🛡️</span>
                 <span>TODOS NUESTROS USADOS CUENTAN CON 6 MESES DE GARANTÍA TOTAL</span>
               </span>
             </div>
 
             {/* Título Principal del Auto */}
-            <div style={{ marginBottom: '20px' }}>
+            <div style={{ marginBottom: '18px' }}>
               <h2 className="modal-title-text" style={{ fontSize: '1.8rem', fontWeight: 700, margin: '0 0 4px 0', textTransform: 'uppercase', color: '#ffffff', letterSpacing: '-0.3px', lineHeight: 1.2 }}>
                 {selectedVehicle.brand} {selectedVehicle.line} {selectedVehicle.version || ''}
               </h2>
@@ -907,8 +917,8 @@ function CatalogoContent() {
 
             {/* Galería Interactiva */}
             {selectedVehicle.photos && selectedVehicle.photos.length > 0 && (
-              <div style={{ marginBottom: '24px' }}>
-                <div className="modal-main-img-box" style={{ height: '420px', borderRadius: '18px', overflow: 'hidden', backgroundColor: '#070709', position: 'relative', border: '1px solid #27272a' }}>
+              <div style={{ marginBottom: '22px' }}>
+                <div className="modal-main-img-box" style={{ height: '400px', borderRadius: '18px', overflow: 'hidden', backgroundColor: '#070709', position: 'relative', border: '1px solid #27272a' }}>
                   <img 
                     src={selectedVehicle.photos[activePhotoIdx] || selectedVehicle.photos[0]} 
                     alt={`${selectedVehicle.brand} ${selectedVehicle.line}`} 
@@ -917,10 +927,10 @@ function CatalogoContent() {
 
                   {selectedVehicle.photos.length > 1 && (
                     <>
-                      <button onClick={prevPhoto} className="gallery-arrow-btn" style={{ left: '14px' }} aria-label="Foto anterior">
+                      <button onClick={prevPhoto} className="gallery-arrow-btn" style={{ left: '12px' }} aria-label="Foto anterior">
                         ‹
                       </button>
-                      <button onClick={nextPhoto} className="gallery-arrow-btn" style={{ right: '14px' }} aria-label="Foto siguiente">
+                      <button onClick={nextPhoto} className="gallery-arrow-btn" style={{ right: '12px' }} aria-label="Foto siguiente">
                         ›
                       </button>
                     </>
@@ -928,12 +938,12 @@ function CatalogoContent() {
                 </div>
 
                 {selectedVehicle.photos.length > 1 && (
-                  <div style={{ display: 'flex', gap: '10px', overflowX: 'auto', padding: '12px 0 4px 0' }}>
+                  <div style={{ display: 'flex', gap: '8px', overflowX: 'auto', padding: '10px 0 2px 0' }}>
                     {selectedVehicle.photos.map((p, idx) => (
                       <button 
                         key={idx} 
                         onClick={() => setActivePhotoIdx(idx)} 
-                        style={{ border: activePhotoIdx === idx ? '2px solid #ED1C24' : '1px solid #27272a', padding: 0, borderRadius: '10px', overflow: 'hidden', width: '82px', height: '58px', flexShrink: 0, cursor: 'pointer', backgroundColor: '#070709' }}
+                        style={{ border: activePhotoIdx === idx ? '2px solid #ED1C24' : '1px solid #27272a', padding: 0, borderRadius: '8px', overflow: 'hidden', width: '74px', height: '52px', flexShrink: 0, cursor: 'pointer', backgroundColor: '#070709' }}
                       >
                         <img src={p} alt={`Foto ${idx+1}`} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                       </button>
@@ -943,89 +953,68 @@ function CatalogoContent() {
               </div>
             )}
 
-            {/* Ficha Técnica Estilo Softr */}
-            <div style={{ backgroundColor: '#0B0C0E', border: '1px solid #27272a', borderRadius: '16px', padding: '20px 22px', marginBottom: '26px' }}>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
+            {/* Ficha Técnica */}
+            <div style={{ backgroundColor: '#0B0C0E', border: '1px solid #27272a', borderRadius: '16px', padding: '18px 20px', marginBottom: '22px' }}>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
                 
-                {/* Marca */}
-                <div style={{ display: 'flex', alignItems: 'center', borderBottom: '1px solid #191a1d', paddingBottom: '12px' }}>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '10px', color: '#a1a1aa', fontSize: '0.92rem', width: '180px', flexShrink: 0 }}>
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                      <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                    </svg>
+                <div style={{ display: 'flex', alignItems: 'center', borderBottom: '1px solid #191a1d', paddingBottom: '10px' }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: '#a1a1aa', fontSize: '0.9rem', width: '140px', flexShrink: 0 }}>
+                    <span>★</span>
                     <span>Marca</span>
                   </div>
-                  <strong style={{ color: '#ffffff', fontSize: '0.96rem', textTransform: 'uppercase', textAlign: 'left' }}>
+                  <strong style={{ color: '#ffffff', fontSize: '0.94rem', textTransform: 'uppercase' }}>
                     {selectedVehicle.brand}
                   </strong>
                 </div>
 
-                {/* Línea */}
-                <div style={{ display: 'flex', alignItems: 'center', borderBottom: '1px solid #191a1d', paddingBottom: '12px' }}>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '10px', color: '#a1a1aa', fontSize: '0.92rem', width: '180px', flexShrink: 0 }}>
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                      <rect x="2" y="7" width="20" height="14" rx="2" ry="2"/>
-                      <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>
-                    </svg>
+                <div style={{ display: 'flex', alignItems: 'center', borderBottom: '1px solid #191a1d', paddingBottom: '10px' }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: '#a1a1aa', fontSize: '0.9rem', width: '140px', flexShrink: 0 }}>
+                    <span>👜</span>
                     <span>Línea</span>
                   </div>
-                  <strong style={{ color: '#ffffff', fontSize: '0.96rem', textTransform: 'uppercase', textAlign: 'left' }}>
+                  <strong style={{ color: '#ffffff', fontSize: '0.94rem', textTransform: 'uppercase' }}>
                     {selectedVehicle.line}
                   </strong>
                 </div>
 
-                {/* Versión */}
                 {selectedVehicle.version && (
-                  <div style={{ display: 'flex', alignItems: 'center', borderBottom: '1px solid #191a1d', paddingBottom: '12px' }}>
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '10px', color: '#a1a1aa', fontSize: '0.92rem', width: '180px', flexShrink: 0 }}>
-                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                        <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
-                      </svg>
+                  <div style={{ display: 'flex', alignItems: 'center', borderBottom: '1px solid #191a1d', paddingBottom: '10px' }}>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: '#a1a1aa', fontSize: '0.9rem', width: '140px', flexShrink: 0 }}>
+                      <span>⚡</span>
                       <span>Versión</span>
                     </div>
-                    <strong style={{ color: '#ffffff', fontSize: '0.96rem', textAlign: 'left' }}>
+                    <strong style={{ color: '#ffffff', fontSize: '0.94rem' }}>
                       {selectedVehicle.version}
                     </strong>
                   </div>
                 )}
 
-                {/* Modelo / Año */}
-                <div style={{ display: 'flex', alignItems: 'center', borderBottom: '1px solid #191a1d', paddingBottom: '12px' }}>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '10px', color: '#a1a1aa', fontSize: '0.92rem', width: '180px', flexShrink: 0 }}>
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                      <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
-                      <line x1="16" y1="2" x2="16" y2="6"/>
-                      <line x1="8" y1="2" x2="8" y2="6"/>
-                      <line x1="3" y1="10" x2="21" y2="10"/>
-                    </svg>
+                <div style={{ display: 'flex', alignItems: 'center', borderBottom: '1px solid #191a1d', paddingBottom: '10px' }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: '#a1a1aa', fontSize: '0.9rem', width: '140px', flexShrink: 0 }}>
+                    <span>📅</span>
                     <span>Modelo / Año</span>
                   </div>
-                  <strong style={{ color: '#ffffff', fontSize: '0.96rem', textAlign: 'left' }}>
+                  <strong style={{ color: '#ffffff', fontSize: '0.94rem' }}>
                     {selectedVehicle.year || '—'}
                   </strong>
                 </div>
 
-                {/* Kilometraje */}
                 <div style={{ display: 'flex', alignItems: 'center' }}>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '10px', color: '#a1a1aa', fontSize: '0.92rem', width: '180px', flexShrink: 0 }}>
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                      <circle cx="12" cy="12" r="10"/>
-                      <polyline points="12 6 12 12 16 14"/>
-                    </svg>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: '#a1a1aa', fontSize: '0.9rem', width: '140px', flexShrink: 0 }}>
+                    <span>⏱️</span>
                     <span>Kilometraje</span>
                   </div>
-                  <strong style={{ color: '#ffffff', fontSize: '0.96rem', textAlign: 'left' }}>
+                  <strong style={{ color: '#ffffff', fontSize: '0.94rem' }}>
                     {selectedVehicle.km ? `${Number(selectedVehicle.km).toLocaleString('es-AR')} km` : 'Consultar'}
                   </strong>
                 </div>
 
-                {/* Equipamiento */}
                 {selectedVehicle.equipment && (
-                  <div style={{ borderTop: '1px solid #191a1d', paddingTop: '14px', marginTop: '4px' }}>
-                    <span style={{ color: '#a1a1aa', fontSize: '0.85rem', fontWeight: 600, display: 'block', marginBottom: '6px' }}>
+                  <div style={{ borderTop: '1px solid #191a1d', paddingTop: '12px', marginTop: '4px' }}>
+                    <span style={{ color: '#a1a1aa', fontSize: '0.84rem', fontWeight: 600, display: 'block', marginBottom: '4px' }}>
                       Equipamiento destacado:
                     </span>
-                    <span style={{ color: '#E4E4E7', fontSize: '0.9rem', lineHeight: 1.6 }}>
+                    <span style={{ color: '#E4E4E7', fontSize: '0.88rem', lineHeight: 1.5 }}>
                       {selectedVehicle.equipment}
                     </span>
                   </div>
@@ -1034,10 +1023,9 @@ function CatalogoContent() {
               </div>
             </div>
 
-            {/* Botones de Acción del Modal */}
-            <div className="modal-actions-box" style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+            {/* Botones de Acción */}
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
               
-              {/* WhatsApp Principal */}
               <a
                 href={`https://wa.me/5493584029424?text=${encodeURIComponent(`Hola! Quiero consultar por el ${selectedVehicle.brand} ${selectedVehicle.line} ${selectedVehicle.version || ''} (${selectedVehicle.year || ''})`)}`}
                 target="_blank"
@@ -1047,34 +1035,20 @@ function CatalogoContent() {
                 Consultar por este vehículo
               </a>
 
-              {/* Botón Compartir */}
               <button
                 type="button"
                 onClick={handleShare}
-                style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px', width: '100%', backgroundColor: '#0B0C0E', border: '1px solid #27272a', color: '#ffffff', padding: '12px', borderRadius: '12px', fontWeight: 600, fontSize: '0.88rem', cursor: 'pointer', transition: 'border-color 0.2s' }}
+                style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px', width: '100%', backgroundColor: '#0B0C0E', border: '1px solid #27272a', color: '#ffffff', padding: '12px', borderRadius: '12px', fontWeight: 600, fontSize: '0.88rem', cursor: 'pointer' }}
               >
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <circle cx="18" cy="5" r="3"></circle>
-                  <circle cx="6" cy="12" r="3"></circle>
-                  <circle cx="18" cy="19" r="3"></circle>
-                  <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
-                  <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
-                </svg>
-                <span>{copied ? '✓ ¡Enlace copiado al portapapeles!' : 'Compartir esta unidad'}</span>
+                <span>{copied ? '✓ ¡Enlace copiado al portapapeles!' : '🔗 Compartir esta unidad'}</span>
               </button>
 
-              {/* Botón Descargar / Imprimir Ficha */}
               <button
                 type="button"
                 onClick={handlePrintPdf}
-                style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px', width: '100%', backgroundColor: '#0B0C0E', border: '1px solid #27272a', color: '#ffffff', padding: '12px', borderRadius: '12px', fontWeight: 600, fontSize: '0.88rem', cursor: 'pointer', transition: 'border-color 0.2s' }}
+                style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px', width: '100%', backgroundColor: '#0B0C0E', border: '1px solid #27272a', color: '#ffffff', padding: '12px', borderRadius: '12px', fontWeight: 600, fontSize: '0.88rem', cursor: 'pointer' }}
               >
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                  <polyline points="7 10 12 15 17 10"></polyline>
-                  <line x1="12" y1="15" x2="12" y2="3"></line>
-                </svg>
-                <span>Descargar / Imprimir Ficha Técnica</span>
+                <span>📥 Descargar / Imprimir Ficha Técnica</span>
               </button>
 
             </div>
