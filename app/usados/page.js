@@ -936,7 +936,7 @@ function CatalogoContent() {
         </div>
       )}
 
-      {/* 5. LIGHTBOX / PANTALLA COMPLETA */}
+     {/* 5. LIGHTBOX / PANTALLA COMPLETA */}
       {fullscreenPhoto && selectedVehicle?.photos && (
         <div 
           onClick={() => setFullscreenPhoto(false)}
@@ -946,25 +946,24 @@ function CatalogoContent() {
             left: 0,
             width: '100vw',
             height: '100vh',
-            backgroundColor: 'rgba(0, 0, 0, 0.96)',
+            backgroundColor: 'rgba(0, 0, 0, 0.98)',
             zIndex: 100000,
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
             backdropFilter: 'blur(10px)',
             cursor: 'zoom-out',
-            padding: '20px',
+            padding: 0,
             boxSizing: 'border-box'
           }}
         >
-          {/* Botón Cerrar Pantalla Completa */}
           <button 
             onClick={(e) => { e.stopPropagation(); setFullscreenPhoto(false); }}
             style={{
               position: 'absolute',
               top: '20px',
               right: '20px',
-              backgroundColor: 'rgba(255, 255, 255, 0.15)',
+              backgroundColor: 'rgba(11, 12, 14, 0.85)',
               border: '1px solid rgba(255, 255, 255, 0.3)',
               color: '#ffffff',
               width: '46px',
@@ -975,34 +974,34 @@ function CatalogoContent() {
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              zIndex: 100010
+              zIndex: 100010,
+              boxShadow: '0 4px 12px rgba(0,0,0,0.5)'
             }}
           >
             ✕
           </button>
 
-          {/* Imagen Fullscreen */}
           <img 
             src={selectedVehicle.photos[activePhotoIdx] || selectedVehicle.photos[0]} 
             alt={`${selectedVehicle.brand} ${selectedVehicle.line}`}
             onClick={(e) => e.stopPropagation()}
             style={{
-              maxWidth: '92vw',
-              maxHeight: '88vh',
+              width: '100vw',
+              height: '100vh',
+              maxWidth: '100vw',
+              maxHeight: '100vh',
               objectFit: 'contain',
-              borderRadius: '12px',
-              boxShadow: '0 20px 50px rgba(0,0,0,0.8)',
+              borderRadius: 0,
               cursor: 'default'
             }}
           />
 
-          {/* Flechas Fullscreen */}
           {selectedVehicle.photos.length > 1 && (
             <>
               <button 
                 onClick={prevPhoto} 
                 className="gallery-arrow-btn" 
-                style={{ left: '20px', width: '52px', height: '52px', fontSize: '1.6rem' }}
+                style={{ left: '20px', width: '56px', height: '56px', fontSize: '1.8rem' }}
                 aria-label="Foto anterior"
               >
                 ‹
@@ -1010,7 +1009,7 @@ function CatalogoContent() {
               <button 
                 onClick={nextPhoto} 
                 className="gallery-arrow-btn" 
-                style={{ right: '20px', width: '52px', height: '52px', fontSize: '1.6rem' }}
+                style={{ right: '20px', width: '56px', height: '56px', fontSize: '1.8rem' }}
                 aria-label="Foto siguiente"
               >
                 ›
@@ -1020,12 +1019,13 @@ function CatalogoContent() {
                 style={{
                   position: 'absolute',
                   bottom: '24px',
-                  backgroundColor: 'rgba(0, 0, 0, 0.75)',
-                  padding: '6px 16px',
+                  backgroundColor: 'rgba(0, 0, 0, 0.8)',
+                  padding: '8px 20px',
                   borderRadius: '20px',
-                  border: '1px solid #333',
-                  fontSize: '0.85rem',
-                  color: '#ffffff'
+                  border: '1px solid rgba(255, 255, 255, 0.2)',
+                  fontSize: '0.88rem',
+                  color: '#ffffff',
+                  letterSpacing: '0.5px'
                 }}
               >
                 Foto {activePhotoIdx + 1} de {selectedVehicle.photos.length}
@@ -1034,7 +1034,6 @@ function CatalogoContent() {
           )}
         </div>
       )}
-
     </div>
   );
 }
