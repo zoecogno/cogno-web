@@ -19,6 +19,26 @@ function CatalogoContent() {
   const [activePhotoIdx, setActivePhotoIdx] = useState(0);
   const [copied, setCopied] = useState(false);
 
+  // Bloqueo estricto del fondo para móviles y escritorio
+  useEffect(() => {
+    if (selectedVehicle) {
+      const scrollY = window.scrollY;
+      document.body.style.position = 'fixed';
+      document.body.style.top = `-${scrollY}px`;
+      document.body.style.width = '100%';
+      document.body.style.overflow = 'hidden';
+    } else {
+      const scrollY = document.body.style.top;
+      document.body.style.position = '';
+      document.body.style.top = '';
+      document.body.style.width = '';
+      document.body.style.overflow = '';
+      if (scrollY) {
+        window.scrollTo(0, parseInt(scrollY || '0') * -1);
+      }
+    }
+  }, [selectedVehicle]);
+
   const handleShare = async () => {
     if (!selectedVehicle) return;
     const shareUrl = `${window.location.origin}/usados?auto=${selectedVehicle.id}`;
@@ -39,149 +59,121 @@ function CatalogoContent() {
     }
   };
 
-  const handlePrintPdf = async () => {
+  // Generador de Ficha Técnica en PDF formal blanco
+  const handlePrintPdf = () => {
     if (!selectedVehicle) return;
 
-    try {
-      const canvas = document.createElement('canvas');
-      const ctx = canvas.getContext('2d');
-      canvas.width = 1080;
-      canvas.height = 1350;
-
-      ctx.fillStyle = '#0B0C0E';
-      ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-      ctx.fillStyle = '#14171C';
-      if (ctx.roundRect) {
-        ctx.roundRect(40, 40, 1000, 1270, 24);
-      } else {
-        ctx.fillRect(40, 40, 1000, 1270);
-      }
-      ctx.fill();
-
-      ctx.fillStyle = '#C59A53';
-      ctx.font = 'bold 34px sans-serif';
-      ctx.fillText('COGNO AUTOMOTORES', 80, 120);
-
-      ctx.fillStyle = '#A0AAB5';
-      ctx.font = '500 24px sans-serif';
-      ctx.fillText('FICHA TÉCNICA OFICIAL', 80, 160);
-
-      ctx.fillStyle = '#FFFFFF';
-      ctx.font = 'bold 44px sans-serif';
-      const title = `${selectedVehicle.brand || ''} ${selectedVehicle.line || ''}`.toUpperCase();
-      ctx.fillText(title, 80, 230);
-
-      if (selectedVehicle.version) {
-        ctx.fillStyle = '#8E9BAE';
-        ctx.font = '500 28px sans-serif';
-        ctx.fillText(selectedVehicle.version, 80, 275);
-      }
-
-      ctx.strokeStyle = '#232936';
-      ctx.lineWidth = 2;
-      ctx.beginPath();
-      ctx.moveTo(80, 315);
-      ctx.lineTo(1000, 315);
-      ctx.stroke();
-
-      const drawItem = (label, val, x, y) => {
-        ctx.fillStyle = '#717E91';
-        ctx.font = 'bold 22px sans-serif';
-        ctx.fillText(label.toUpperCase(), x, y);
-
-        ctx.fillStyle = '#FFFFFF';
-        ctx.font = 'bold 32px sans-serif';
-        ctx.fillText(val || '-', x, y + 42);
-      };
-
-      const formatKm = selectedVehicle.km ? `${Number(selectedVehicle.km).toLocaleString('es-AR')} km` : 'Consultar';
-      const formatPrice = selectedVehicle.price ? `$ ${Number(selectedVehicle.price).toLocaleString('es-AR')}` : 'Consultar';
-
-      drawItem('Año / Modelo', String(selectedVehicle.year || '-'), 80, 390);
-      drawItem('Kilometraje', formatKm, 560, 390);
-      drawItem('Transmisión', selectedVehicle.gearbox || 'Manual', 80, 500);
-      drawItem('Combustible', selectedVehicle.fuel || 'Nafta', 560, 500);
-      drawItem('Garantía', '6 Meses Total', 80, 610);
-      drawItem('Precio', formatPrice, 560, 610);
-
-      const equipText = selectedVehicle.equipment || selectedVehicle.features || '';
-      if (equipText) {
-        ctx.fillStyle = '#717E91';
-        ctx.font = 'bold 22px sans-serif';
-        ctx.fillText('EQUIPAMIENTO DESTACADO', 80, 730);
-
-        ctx.fillStyle = '#CBD5E1';
-        ctx.font = '24px sans-serif';
-        
-        const words = String(equipText).split(' ');
-        let line = '';
-        let posY = 775;
-        for (let n = 0; n < words.length; n++) {
-          let testLine = line + words[n] + ' ';
-          let metrics = ctx.measureText(testLine);
-          if (metrics.width > 900 && n > 0) {
-            ctx.fillText(line, 80, posY);
-            line = words[n] + ' ';
-            posY += 36;
-            if (posY > 1050) break;
-          } else {
-            line = testLine;
-          }
-        }
-        ctx.fillText(line, 80, posY);
-      }
-
-      ctx.fillStyle = '#1B212D';
-      if (ctx.roundRect) {
-        ctx.roundRect(80, 1140, 920, 120, 16);
-      } else {
-        ctx.fillRect(80, 1140, 920, 120);
-      }
-      ctx.fill();
-
-      ctx.fillStyle = '#FFFFFF';
-      ctx.font = 'bold 24px sans-serif';
-      ctx.fillText('Av. Marcelo T. de Alvear 1580 — Río Cuarto, Cba.', 110, 1190);
-      
-      ctx.fillStyle = '#C59A53';
-      ctx.font = 'bold 22px sans-serif';
-      ctx.fillText('cognoautomotores.com.ar', 110, 1230);
-
-      canvas.toBlob(async (blob) => {
-        if (!blob) return;
-        const fileName = `Ficha-${selectedVehicle.brand || 'Auto'}-${selectedVehicle.line || 'Modelo'}-${selectedVehicle.year || ''}.png`.replace(/\s+/g, '-');
-        const file = new File([blob], fileName, { type: 'image/png' });
-
-        if (navigator.canShare && navigator.canShare({ files: [file] })) {
-          try {
-            await navigator.share({
-              files: [file],
-              title: `Ficha Técnica ${selectedVehicle.brand} ${selectedVehicle.line}`,
-              text: `Ficha técnica oficial de ${selectedVehicle.brand} ${selectedVehicle.line} en Cogno Automotores.`,
-            });
-            return;
-          } catch (err) {
-            if (err.name !== 'AbortError') {
-              console.log('Error compartiendo:', err);
-            }
-          }
-        }
-
-        const url = URL.createObjectURL(blob);
-        const a = document.createElement('a');
-        a.href = url;
-        a.download = fileName;
-        document.body.appendChild(a);
-        a.click();
-        document.body.removeChild(a);
-        setTimeout(() => URL.revokeObjectURL(url), 1000);
-      }, 'image/png');
-
-    } catch (error) {
-      console.error('Error generando ficha técnica:', error);
-      alert('No se pudo generar la ficha técnica. Intenta nuevamente.');
+    const printWindow = window.open('', '_blank');
+    if (!printWindow) {
+      alert('Por favor habilitá las ventanas emergentes para descargar la ficha.');
+      return;
     }
+
+    const mainPhoto = selectedVehicle.photos && selectedVehicle.photos.length > 0 ? selectedVehicle.photos[0] : '';
+    const formatKm = selectedVehicle.km ? `${Number(selectedVehicle.km).toLocaleString('es-AR')} km` : 'Consultar';
+    const formatPrice = selectedVehicle.price ? `$ ${Number(selectedVehicle.price).toLocaleString('es-AR')}` : 'Consultar';
+
+    const htmlContent = `
+      <!DOCTYPE html>
+      <html lang="es">
+      <head>
+        <meta charset="utf-8" />
+        <title>Ficha Técnica - ${selectedVehicle.brand} ${selectedVehicle.line}</title>
+        <style>
+          @page { size: A4; margin: 20mm; }
+          * { box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+          body { margin: 0; padding: 20px; color: #1a1a1a; background: #ffffff; }
+          .header { display: flex; justify-content: space-between; align-items: center; border-bottom: 3px solid #ED1C24; padding-bottom: 16px; margin-bottom: 24px; }
+          .logo-title { font-size: 24px; font-weight: 800; color: #111; letter-spacing: 0.5px; text-transform: uppercase; }
+          .badge { font-size: 12px; font-weight: 700; color: #ED1C24; text-transform: uppercase; letter-spacing: 1px; }
+          .title-area { margin-bottom: 24px; }
+          .car-brand { font-size: 14px; font-weight: 700; color: #ED1C24; text-transform: uppercase; margin-bottom: 4px; }
+          .car-name { font-size: 28px; font-weight: 800; margin: 0 0 6px 0; text-transform: uppercase; color: #111; }
+          .car-version { font-size: 16px; color: #555; margin: 0; }
+          .main-img { width: 100%; height: 320px; object-fit: cover; border-radius: 12px; margin-bottom: 24px; border: 1px solid #e5e7eb; }
+          .grid-specs { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 24px; }
+          .spec-card { background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 8px; padding: 12px 16px; }
+          .spec-label { font-size: 11px; font-weight: 700; color: #6b7280; text-transform: uppercase; margin-bottom: 4px; }
+          .spec-val { font-size: 16px; font-weight: 700; color: #111; }
+          .equipment-box { background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 8px; padding: 16px; margin-bottom: 24px; }
+          .equipment-title { font-size: 12px; font-weight: 700; color: #6b7280; text-transform: uppercase; margin-bottom: 8px; }
+          .equipment-content { font-size: 14px; line-height: 1.6; color: #374151; }
+          .footer { border-top: 1px solid #e5e7eb; padding-top: 16px; display: flex; justify-content: space-between; align-items: center; font-size: 12px; color: #6b7280; }
+          .footer-bold { font-weight: 700; color: #111; }
+        </style>
+      </head>
+      <body>
+        <div class="header">
+          <div>
+            <div class="logo-title">COGNO AUTOMOTORES</div>
+            <div class="badge">Unidad Seleccionada — Garantía 6 Meses</div>
+          </div>
+          <div style="text-align: right; font-size: 13px; color: #555;">
+            Río Cuarto, Córdoba<br /><strong>cognoautomotores.com.ar</strong>
+          </div>
+        </div>
+
+        <div class="title-area">
+          <div class="car-brand">${selectedVehicle.brand || ''}</div>
+          <h1 class="car-name">${selectedVehicle.brand || ''} ${selectedVehicle.line || ''}</h1>
+          <p class="car-version">${selectedVehicle.version || ''}</p>
+        </div>
+
+        ${mainPhoto ? `<img src="${mainPhoto}" class="main-img" alt="Foto del vehículo" />` : ''}
+
+        <div class="grid-specs">
+          <div class="spec-card">
+            <div class="spec-label">Año / Modelo</div>
+            <div class="spec-val">${selectedVehicle.year || '—'}</div>
+          </div>
+          <div class="spec-card">
+            <div class="spec-label">Kilometraje</div>
+            <div class="spec-val">${formatKm}</div>
+          </div>
+          <div class="spec-card">
+            <div class="spec-label">Transmisión</div>
+            <div class="spec-val">${selectedVehicle.gearbox || 'Manual'}</div>
+          </div>
+          <div class="spec-card">
+            <div class="spec-label">Combustible</div>
+            <div class="spec-val">${selectedVehicle.fuel || 'Nafta'}</div>
+          </div>
+          <div class="spec-card">
+            <div class="spec-label">Garantía</div>
+            <div class="spec-val">6 Meses Total</div>
+          </div>
+          <div class="spec-card">
+            <div class="spec-label">Precio</div>
+            <div class="spec-val">${formatPrice}</div>
+          </div>
+        </div>
+
+        ${selectedVehicle.equipment ? `
+          <div class="equipment-box">
+            <div class="equipment-title">Equipamiento Destacado</div>
+            <div class="equipment-content">${selectedVehicle.equipment}</div>
+          </div>
+        ` : ''}
+
+        <div class="footer">
+          <div>Av. Marcelo T. de Alvear 1580 — Tel: +54 9 358 402-9424</div>
+          <div class="footer-bold">Documento Informativo Oficial</div>
+        </div>
+
+        <script>
+          window.onload = function() {
+            setTimeout(function() {
+              window.print();
+            }, 300);
+          };
+        </script>
+      </body>
+      </html>
+    `;
+
+    printWindow.document.open();
+    printWindow.document.write(htmlContent);
+    printWindow.document.close();
   };
 
   useEffect(() => {
@@ -433,7 +425,7 @@ function CatalogoContent() {
           transform: scale(1.06);
         }
 
-        /* MODAL RESPONSIVE COMPLETO */
+        /* MODAL RESPONSIVE */
         .modal-overlay {
           position: fixed;
           top: 0;
@@ -602,7 +594,7 @@ function CatalogoContent() {
         }
       `}</style>
 
-      {/* 1. ENCABEZADO INSTITUCIONAL */}
+      {/* ENCABEZADO INSTITUCIONAL */}
       <section style={{ padding: '35px 20px 15px 20px', textAlign: 'center', maxWidth: '1100px', margin: '0 auto' }}>
         <div style={{ marginBottom: '14px' }}>
           <img 
@@ -624,10 +616,9 @@ function CatalogoContent() {
         <p className="hero-desc-usados" style={{ color: '#F4F4F5', fontSize: '1.15rem', maxWidth: '880px', margin: '0 auto 12px auto', lineHeight: 1.7, fontWeight: 400 }}>
           Explorá nuestro catálogo de unidades seleccionadas con historial verificado y entrega con documentación lista para salir a la calle.
         </p>
-
       </section>
 
-      {/* 2. FILTROS */}
+      {/* FILTROS */}
       <div className="filter-container">
         <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
           
@@ -768,7 +759,7 @@ function CatalogoContent() {
         </div>
       </div>
 
-      {/* 3. GRILLA */}
+      {/* GRILLA */}
       {loading ? (
         <div style={{ textAlign: 'center', padding: '90px 20px', color: '#a1a1aa', fontSize: '1.1rem' }}>
           Cargando catálogo actualizado de unidades...
@@ -836,7 +827,7 @@ function CatalogoContent() {
         </div>
       )}
 
-      {/* 4. MODAL LIMPIO Y 100% SCROLLEABLE */}
+      {/* MODAL DETALLE */}
       {selectedVehicle && (
         <div 
           onClick={closeModal}
@@ -928,11 +919,10 @@ function CatalogoContent() {
               </div>
             )}
 
-            {/* Ficha Técnica con ICONOS SVG */}
+            {/* Ficha Técnica */}
             <div style={{ backgroundColor: '#0B0C0E', border: '1px solid #27272a', borderRadius: '16px', padding: '18px 20px', marginBottom: '22px' }}>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
                 
-                {/* Marca */}
                 <div style={{ display: 'flex', alignItems: 'center', borderBottom: '1px solid #191a1d', paddingBottom: '10px' }}>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '10px', color: '#a1a1aa', fontSize: '0.9rem', width: '140px', flexShrink: 0 }}>
                     <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -945,7 +935,6 @@ function CatalogoContent() {
                   </strong>
                 </div>
 
-                {/* Línea */}
                 <div style={{ display: 'flex', alignItems: 'center', borderBottom: '1px solid #191a1d', paddingBottom: '10px' }}>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '10px', color: '#a1a1aa', fontSize: '0.9rem', width: '140px', flexShrink: 0 }}>
                     <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -959,7 +948,6 @@ function CatalogoContent() {
                   </strong>
                 </div>
 
-                {/* Versión */}
                 {selectedVehicle.version && (
                   <div style={{ display: 'flex', alignItems: 'center', borderBottom: '1px solid #191a1d', paddingBottom: '10px' }}>
                     <div style={{ display: 'flex', alignItems: 'center', gap: '10px', color: '#a1a1aa', fontSize: '0.9rem', width: '140px', flexShrink: 0 }}>
@@ -974,7 +962,6 @@ function CatalogoContent() {
                   </div>
                 )}
 
-                {/* Modelo / Año */}
                 <div style={{ display: 'flex', alignItems: 'center', borderBottom: '1px solid #191a1d', paddingBottom: '10px' }}>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '10px', color: '#a1a1aa', fontSize: '0.9rem', width: '140px', flexShrink: 0 }}>
                     <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -990,7 +977,6 @@ function CatalogoContent() {
                   </strong>
                 </div>
 
-                {/* Kilometraje */}
                 <div style={{ display: 'flex', alignItems: 'center' }}>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '10px', color: '#a1a1aa', fontSize: '0.9rem', width: '140px', flexShrink: 0 }}>
                     <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -1004,7 +990,6 @@ function CatalogoContent() {
                   </strong>
                 </div>
 
-                {/* Equipamiento */}
                 {selectedVehicle.equipment && (
                   <div style={{ borderTop: '1px solid #191a1d', paddingTop: '12px', marginTop: '4px' }}>
                     <span style={{ color: '#a1a1aa', fontSize: '0.84rem', fontWeight: 600, display: 'block', marginBottom: '4px' }}>
