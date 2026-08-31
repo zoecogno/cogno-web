@@ -981,7 +981,7 @@ function CatalogoContent() {
             ✕
           </button>
 
-    {/* Imagen Fullscreen Equilibrada */}
+ {/* Imagen Fullscreen Equilibrada */}
           <img 
             src={selectedVehicle.photos[activePhotoIdx] || selectedVehicle.photos[0]} 
             alt={`${selectedVehicle.brand} ${selectedVehicle.line}`}
