@@ -202,18 +202,18 @@ export default function QuienesSomos() {
 
       </section>
 
-      {/* FOTO SALÓN PANORÁMICA */}
-      <div style={{ maxWidth: '1280px', margin: '28px auto 0 auto', padding: '0 24px' }}>
-        <div style={{ borderRadius: '20px', overflow: 'hidden', border: '1px solid #27272a', backgroundColor: '#070709', boxShadow: '0 20px 45px rgba(0,0,0,0.65)' }}>
+   {/* FOTO SALÓN PANORÁMICA COMPACTA */}
+      <div style={{ maxWidth: '1050px', margin: '24px auto 0 auto', padding: '0 24px' }}>
+        <div style={{ height: '380px', borderRadius: '18px', overflow: 'hidden', border: '1px solid #27272a', backgroundColor: '#070709', boxShadow: '0 16px 36px rgba(0,0,0,0.6)' }}>
           <img 
             src="/frente-2026.jpg.jpg" 
             alt="Salón Cogno Automotores" 
-            style={{ width: '100%', height: 'auto', display: 'block' }}
+            style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
           />
         </div>
 
         {/* Párrafos secundarios */}
-        <div style={{ maxWidth: '820px', margin: '30px auto 0 auto', textAlign: 'center', display: 'flex', flexDirection: 'column', gap: '10px' }}>
+        <div style={{ maxWidth: '820px', margin: '24px auto 0 auto', textAlign: 'center', display: 'flex', flexDirection: 'column', gap: '10px' }}>
           <p style={{ fontSize: '0.98rem', color: '#E4E4E7', lineHeight: 1.6, margin: 0, fontWeight: 400 }}>
             A lo largo de los años, nos hemos consolidado como un referente en el mercado local, elegidos por generaciones de clientes que valoran nuestro compromiso, la atención personalizada y la confianza construida en cada paso.
           </p>
