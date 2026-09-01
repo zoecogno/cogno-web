@@ -33,9 +33,14 @@ const BRANDS_DATA = [
     desc: 'Espacio interior, confort y soluciones prácticas e innovadoras para la familia y el trabajo diario.',
   },
   {
-    brand: 'JEEP & RAM',
+    brand: 'JEEP',
     image: '/jeep compass 0km.jpg',
-    desc: 'Capacidad off-road legendaria, lujo refinado y la máxima potencia de trabajo pesado en pickups.',
+    desc: 'Capacidad off-road legendaria, diseño icónico y tecnología de vanguardia en toda la gama SUV.',
+  },
+  {
+    brand: 'RAM',
+    image: '/ram 0km.webp', // o foto disponible
+    desc: 'Potencia extrema, lujo superior y la máxima capacidad de carga y remolque en pick-ups full-size.',
   },
   {
     brand: 'PEUGEOT',
@@ -82,14 +87,18 @@ const BRANDS_DATA = [
     image: '/BAIC BJ30.webp',
     desc: 'Equipamiento completo de serie, diseño SUV audaz y una sólida relación entre precio y prestaciones.',
   },
+  {
+    brand: 'HYUNDAI',
+    image: '/hyundai 0km.webp',
+    desc: 'Diseño vanguardista, altísimo nivel de equipamiento tecnológico y destacada confiabilidad mecánica.',
+  },
 ];
 
 const MARQUEE_ITEMS = [
   'TOYOTA', 'VOLKSWAGEN', 'FORD', 'CHEVROLET', 'FIAT', 'RENAULT', 
   'JEEP', 'RAM', 'PEUGEOT', 'CITROËN', 'NISSAN', 'HONDA', 
-  'BMW', 'MERCEDES-BENZ', 'AUDI', 'BYD', 'BAIC'
+  'BMW', 'MERCEDES-BENZ', 'AUDI', 'BYD', 'BAIC', 'HYUNDAI'
 ];
-
 export default function CeroKm() {
   return (
     <div style={{ backgroundColor: '#0B0C0E', minHeight: '100vh', color: '#ffffff', paddingBottom: '80px', overflowX: 'hidden' }}>
