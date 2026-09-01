@@ -169,30 +169,30 @@ function CatalogoContent() {
   const maxPercent = ((yearRange[1] - minAvailableYear) / (maxAvailableYear - minAvailableYear || 1)) * 100;
 
   return (
-    <div style={{ maxWidth: '1540px', margin: '0 auto', padding: '0 24px' }}>
+    <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 24px' }}>
       
       <style>{`
         .hero-title-usados {
-          font-size: 3.2rem;
+          font-size: 2.35rem;
           font-weight: 600;
-          margin: 0 auto 18px auto;
-          letter-spacing: -0.5px;
+          margin: 0 auto 10px auto;
+          letter-spacing: -0.4px;
           color: #ffffff;
           line-height: 1.2;
-          max-width: 950px;
+          max-width: 820px;
         }
         .filter-container {
           background-color: #141518;
           border: 1px solid #27272a;
-          border-radius: 20px;
-          padding: 24px 28px;
-          margin: 0 auto 45px auto;
-          max-width: 1540px;
+          border-radius: 18px;
+          padding: 20px 24px;
+          margin: 0 auto 36px auto;
+          max-width: 1280px;
         }
         .filter-main-grid {
           display: grid;
           grid-template-columns: 1.6fr 1fr;
-          gap: 32px;
+          gap: 28px;
           align-items: flex-start;
         }
 
@@ -255,9 +255,9 @@ function CatalogoContent() {
         }
 
         .brand-chip {
-          padding: 7px 14px;
+          padding: 6px 12px;
           border-radius: 8px;
-          font-size: 0.82rem;
+          font-size: 0.8rem;
           font-weight: 600;
           cursor: pointer;
           border: 1px solid #27272a;
@@ -275,15 +275,16 @@ function CatalogoContent() {
           border-color: #ED1C24;
         }
 
+        /* 3 COLUMNAS FIJAS EN ESCRITORIO */
         .usados-grid {
           display: grid;
-          grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
-          gap: 26px;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 22px;
         }
         .card-usado {
           background-color: #141518;
           border: 1px solid #27272a;
-          border-radius: 20px;
+          border-radius: 18px;
           overflow: hidden;
           display: flex;
           flex-direction: column;
@@ -296,7 +297,7 @@ function CatalogoContent() {
           box-shadow: 0 16px 32px rgba(0,0,0,0.6), 0 0 20px rgba(237, 28, 36, 0.15);
         }
         .card-usado-img-box {
-          height: 230px;
+          height: 200px;
           background-color: #070709;
           position: relative;
           overflow: hidden;
@@ -333,11 +334,11 @@ function CatalogoContent() {
         .modal-card {
           background-color: #141518;
           border: 1px solid #27272a;
-          border-radius: 24px;
-          max-width: 820px;
+          border-radius: 22px;
+          max-width: 800px;
           width: 100%;
           box-sizing: border-box;
-          padding: 34px 28px;
+          padding: 30px 24px;
           position: relative;
           box-shadow: 0 25px 60px rgba(0,0,0,0.9);
           margin: 0 auto;
@@ -375,7 +376,14 @@ function CatalogoContent() {
           display: block;
         }
 
-        @media (max-width: 860px) {
+        @media (max-width: 960px) {
+          .usados-grid {
+            grid-template-columns: repeat(2, 1fr) !important;
+            gap: 16px !important;
+          }
+        }
+
+        @media (max-width: 768px) {
           .desktop-filter-header {
             display: none !important;
           }
@@ -414,43 +422,43 @@ function CatalogoContent() {
             margin-bottom: 24px !important;
           }
           .hero-title-usados {
-            font-size: 1.95rem !important;
+            font-size: 1.75rem !important;
             line-height: 1.25 !important;
-            margin-bottom: 12px !important;
+            margin-bottom: 10px !important;
           }
           .hero-desc-usados {
-            font-size: 0.94rem !important;
-            line-height: 1.5 !important;
+            font-size: 0.9rem !important;
+            line-height: 1.45 !important;
           }
           .hero-badge-usados {
-            padding: 6px 16px !important;
+            padding: 6px 14px !important;
             font-size: 0.72rem !important;
-            margin-bottom: 14px !important;
+            margin-bottom: 12px !important;
           }
           .usados-grid {
             grid-template-columns: 1fr 1fr !important;
-            gap: 12px !important;
+            gap: 10px !important;
           }
           .card-usado {
             border-radius: 14px !important;
           }
           .card-usado-img-box {
-            height: 125px !important;
+            height: 120px !important;
           }
           .card-usado-body {
-            padding: 12px 10px !important;
+            padding: 10px !important;
           }
           .card-usado-brand {
-            font-size: 0.68rem !important;
+            font-size: 0.66rem !important;
             margin-bottom: 2px !important;
           }
           .card-usado-line {
-            font-size: 0.95rem !important;
-            margin-bottom: 4px !important;
+            font-size: 0.92rem !important;
+            margin-bottom: 3px !important;
           }
           .card-usado-version {
-            font-size: 0.78rem !important;
-            margin-bottom: 10px !important;
+            font-size: 0.75rem !important;
+            margin-bottom: 8px !important;
             display: -webkit-box;
             -webkit-line-clamp: 2;
             -webkit-box-orient: vertical;
@@ -460,7 +468,7 @@ function CatalogoContent() {
             display: none !important;
           }
           .card-usado-btn {
-            font-size: 0.76rem !important;
+            font-size: 0.75rem !important;
             padding: 8px 4px !important;
             border-radius: 8px !important;
           }
@@ -468,25 +476,25 @@ function CatalogoContent() {
             padding: 16px 12px 60px 12px !important;
           }
           .modal-card {
-            padding: 24px 16px !important;
+            padding: 22px 14px !important;
             border-radius: 18px !important;
           }
           .modal-main-img-box {
-            height: 230px !important;
+            height: 220px !important;
           }
           .modal-title-text {
-            font-size: 1.35rem !important;
+            font-size: 1.3rem !important;
           }
         }
       `}</style>
 
       {/* 1. ENCABEZADO INSTITUCIONAL */}
-      <section style={{ padding: '35px 20px 15px 20px', textAlign: 'center', maxWidth: '1100px', margin: '0 auto' }}>
-        <div style={{ marginBottom: '14px' }}>
+      <section style={{ padding: '20px 20px 10px 20px', textAlign: 'center', maxWidth: '980px', margin: '0 auto' }}>
+        <div style={{ marginBottom: '10px' }}>
           <img 
             src="/logo.png.png" 
             alt="Cogno Automotores" 
-            style={{ height: '70px', width: 'auto', margin: '0 auto', display: 'inline-block' }} 
+            style={{ height: '52px', width: 'auto', margin: '0 auto', display: 'inline-block' }} 
           />
         </div>
 
@@ -494,12 +502,12 @@ function CatalogoContent() {
           Tu próximo vehículo <span style={{ color: '#ED1C24' }}>lo encontrás acá</span>
         </h1>
 
-        <div className="hero-badge-usados" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', backgroundColor: 'rgba(237, 28, 36, 0.08)', border: '1px solid rgba(237, 28, 36, 0.4)', color: '#ED1C24', padding: '9px 22px', borderRadius: '30px', fontSize: '0.82rem', fontWeight: 700, letterSpacing: '0.8px', marginBottom: '20px', textTransform: 'uppercase' }}>
+        <div className="hero-badge-usados" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', backgroundColor: 'rgba(237, 28, 36, 0.08)', border: '1px solid rgba(237, 28, 36, 0.4)', color: '#ED1C24', padding: '6px 16px', borderRadius: '30px', fontSize: '0.78rem', fontWeight: 700, letterSpacing: '0.6px', marginBottom: '14px', textTransform: 'uppercase' }}>
           <span>🛡️</span>
           <span>TODOS NUESTROS USADOS CUENTAN CON 6 MESES DE GARANTÍA TOTAL</span>
         </div>
 
-        <p className="hero-desc-usados" style={{ color: '#F4F4F5', fontSize: '1.15rem', maxWidth: '880px', margin: '0 auto 12px auto', lineHeight: 1.7, fontWeight: 400 }}>
+        <p className="hero-desc-usados" style={{ color: '#F4F4F5', fontSize: '1rem', maxWidth: '780px', margin: '0 auto 16px auto', lineHeight: 1.6, fontWeight: 400 }}>
           Explorá nuestro catálogo de unidades seleccionadas con historial verificado y entrega con documentación lista para salir a la calle.
         </p>
 
@@ -507,21 +515,21 @@ function CatalogoContent() {
 
       {/* 2. FILTROS */}
       <div className="filter-container">
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
           
           <input
             type="text"
             placeholder="🔍 Buscá por marca, modelo o versión (ej: Chevrolet Cruze, Amarok, Hilux)..."
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            style={{ width: '100%', boxSizing: 'border-box', padding: '14px 18px', backgroundColor: '#0B0C0E', border: '1px solid #27272a', borderRadius: '12px', color: '#ffffff', fontSize: '0.98rem', outline: 'none' }}
+            style={{ width: '100%', boxSizing: 'border-box', padding: '12px 16px', backgroundColor: '#0B0C0E', border: '1px solid #27272a', borderRadius: '10px', color: '#ffffff', fontSize: '0.92rem', outline: 'none' }}
           />
 
           <div className="filter-main-grid">
             
             {/* MARCAS */}
             <div>
-              <div className="desktop-filter-header" style={{ fontSize: '0.78rem', color: '#a1a1aa', fontWeight: 600, letterSpacing: '0.5px', textTransform: 'uppercase', marginBottom: '10px' }}>
+              <div className="desktop-filter-header" style={{ fontSize: '0.75rem', color: '#a1a1aa', fontWeight: 600, letterSpacing: '0.5px', textTransform: 'uppercase', marginBottom: '8px' }}>
                 FILTRAR POR MARCA:
               </div>
 
@@ -537,7 +545,7 @@ function CatalogoContent() {
               </button>
 
               <div className={`filter-section-desktop ${openBrandMobile ? 'show-mobile' : ''}`}>
-                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
+                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px' }}>
                   <button
                     type="button"
                     onClick={() => toggleBrand('TODAS')}
@@ -576,12 +584,12 @@ function CatalogoContent() {
               </button>
 
               <div className={`filter-section-desktop ${openYearMobile ? 'show-mobile' : ''}`}>
-                <div style={{ backgroundColor: '#0B0C0E', border: '1px solid #27272a', borderRadius: '14px', padding: '14px 18px' }}>
-                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '6px' }}>
-                    <span style={{ fontSize: '0.78rem', color: '#a1a1aa', fontWeight: 600, letterSpacing: '0.5px', textTransform: 'uppercase' }}>
+                <div style={{ backgroundColor: '#0B0C0E', border: '1px solid #27272a', borderRadius: '12px', padding: '12px 16px' }}>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '4px' }}>
+                    <span style={{ fontSize: '0.75rem', color: '#a1a1aa', fontWeight: 600, letterSpacing: '0.5px', textTransform: 'uppercase' }}>
                       AÑO / MODELO
                     </span>
-                    <span style={{ fontSize: '0.92rem', color: '#ED1C24', fontWeight: 700 }}>
+                    <span style={{ fontSize: '0.88rem', color: '#ED1C24', fontWeight: 700 }}>
                       {yearRange[0]} — {yearRange[1]}
                     </span>
                   </div>
@@ -625,7 +633,7 @@ function CatalogoContent() {
           </div>
 
           {/* Contador */}
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderTop: '1px solid #1f2024', paddingTop: '10px', fontSize: '0.84rem', color: '#a1a1aa' }}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderTop: '1px solid #1f2024', paddingTop: '8px', fontSize: '0.82rem', color: '#a1a1aa' }}>
             <span>Mostrando <strong style={{ color: '#ffffff' }}>{filtered.length}</strong> {filtered.length === 1 ? 'unidad' : 'unidades disponibles'}</span>
             {(search || selectedBrands.length > 0 || yearRange[0] !== minAvailableYear || yearRange[1] !== maxAvailableYear) && (
               <button
@@ -636,7 +644,7 @@ function CatalogoContent() {
                   setOpenBrandMobile(false);
                   setOpenYearMobile(false);
                 }}
-                style={{ background: 'transparent', border: 'none', color: '#ED1C24', fontWeight: 600, cursor: 'pointer', fontSize: '0.82rem' }}
+                style={{ background: 'transparent', border: 'none', color: '#ED1C24', fontWeight: 600, cursor: 'pointer', fontSize: '0.8rem' }}
               >
                 Limpiar filtros ✕
               </button>
@@ -646,22 +654,22 @@ function CatalogoContent() {
         </div>
       </div>
 
-      {/* 3. GRILLA */}
+      {/* 3. GRILLA (3 COLUMNAS) */}
       {loading ? (
-        <div style={{ textAlign: 'center', padding: '90px 20px', color: '#a1a1aa', fontSize: '1.1rem' }}>
+        <div style={{ textAlign: 'center', padding: '80px 20px', color: '#a1a1aa', fontSize: '1rem' }}>
           Cargando catálogo actualizado de unidades...
         </div>
       ) : filtered.length === 0 ? (
-        <div style={{ backgroundColor: '#141518', border: '1px solid #27272a', borderRadius: '20px', padding: '60px 20px', textAlign: 'center', maxWidth: '650px', margin: '0 auto' }}>
-          <h3 style={{ fontSize: '1.3rem', margin: '0 0 10px 0', color: '#ffffff' }}>No se encontraron unidades con esos criterios</h3>
-          <p style={{ color: '#a1a1aa', fontSize: '0.95rem', margin: '0 0 20px 0' }}>Probá ajustando la búsqueda o ampliando el rango de años.</p>
+        <div style={{ backgroundColor: '#141518', border: '1px solid #27272a', borderRadius: '18px', padding: '50px 20px', textAlign: 'center', maxWidth: '600px', margin: '0 auto' }}>
+          <h3 style={{ fontSize: '1.2rem', margin: '0 0 8px 0', color: '#ffffff' }}>No se encontraron unidades con esos criterios</h3>
+          <p style={{ color: '#a1a1aa', fontSize: '0.9rem', margin: '0 0 16px 0' }}>Probá ajustando la búsqueda o ampliando el rango de años.</p>
           <button
             onClick={() => {
               setSearch('');
               setSelectedBrands([]);
               setYearRange([minAvailableYear, maxAvailableYear]);
             }}
-            style={{ backgroundColor: '#ED1C24', color: '#ffffff', border: 'none', padding: '10px 22px', borderRadius: '8px', fontWeight: 700, cursor: 'pointer' }}
+            style={{ backgroundColor: '#ED1C24', color: '#ffffff', border: 'none', padding: '9px 20px', borderRadius: '8px', fontWeight: 700, cursor: 'pointer', fontSize: '0.9rem' }}
           >
             Ver todos los vehículos
           </button>
@@ -676,25 +684,25 @@ function CatalogoContent() {
                   {mainPhoto ? (
                     <img src={mainPhoto} alt={`${v.brand} ${v.line}`} loading="lazy" />
                   ) : (
-                    <div style={{ width: '100%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#71717a' }}>
+                    <div style={{ width: '100%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#71717a', fontSize: '0.85rem' }}>
                       Sin foto disponible
                     </div>
                   )}
                 </div>
 
-                <div className="card-usado-body" style={{ padding: '22px 20px', display: 'flex', flexDirection: 'column', flexGrow: 1, justifyContent: 'space-between' }}>
+                <div className="card-usado-body" style={{ padding: '18px 16px', display: 'flex', flexDirection: 'column', flexGrow: 1, justifyContent: 'space-between' }}>
                   <div>
-                    <span className="card-usado-brand" style={{ fontSize: '0.76rem', fontWeight: 700, color: '#ED1C24', letterSpacing: '1px', textTransform: 'uppercase', display: 'block', marginBottom: '4px' }}>
+                    <span className="card-usado-brand" style={{ fontSize: '0.72rem', fontWeight: 700, color: '#ED1C24', letterSpacing: '1px', textTransform: 'uppercase', display: 'block', marginBottom: '3px' }}>
                       {v.brand}
                     </span>
-                    <h3 className="card-usado-line" style={{ fontSize: '1.3rem', fontWeight: 600, margin: '0 0 6px 0', textTransform: 'uppercase', color: '#ffffff', letterSpacing: '-0.3px' }}>
+                    <h3 className="card-usado-line" style={{ fontSize: '1.15rem', fontWeight: 600, margin: '0 0 4px 0', textTransform: 'uppercase', color: '#ffffff', letterSpacing: '-0.3px' }}>
                       {v.line}
                     </h3>
-                    <p className="card-usado-version" style={{ color: '#a1a1aa', fontSize: '0.9rem', margin: '0 0 16px 0', lineHeight: 1.45, fontWeight: 300, minHeight: '38px' }}>
+                    <p className="card-usado-version" style={{ color: '#a1a1aa', fontSize: '0.84rem', margin: '0 0 14px 0', lineHeight: 1.4, fontWeight: 300, minHeight: '34px' }}>
                       {v.version || 'Versión estándar'}
                     </p>
 
-                    <div className="card-usado-specs" style={{ borderTop: '1px solid #27272a', paddingTop: '12px', marginBottom: '18px', display: 'flex', justifyContent: 'space-between', fontSize: '0.88rem', color: '#E4E4E7' }}>
+                    <div className="card-usado-specs" style={{ borderTop: '1px solid #27272a', paddingTop: '10px', marginBottom: '14px', display: 'flex', justifyContent: 'space-between', fontSize: '0.84rem', color: '#E4E4E7' }}>
                       <div><strong style={{ color: '#71717a', fontWeight: 400 }}>Año:</strong> {v.year || '—'}</div>
                       <div><strong style={{ color: '#71717a', fontWeight: 400 }}>KM:</strong> {v.km ? `${Number(v.km).toLocaleString('es-AR')} km` : 'Consultar'}</div>
                     </div>
@@ -703,7 +711,7 @@ function CatalogoContent() {
                   <button
                     onClick={() => openModal(v)}
                     className="card-usado-btn"
-                    style={{ width: '100%', backgroundColor: '#ED1C24', color: '#ffffff', border: 'none', padding: '12px', borderRadius: '10px', fontWeight: 700, fontSize: '0.9rem', cursor: 'pointer', transition: 'background-color 0.2s ease' }}
+                    style={{ width: '100%', backgroundColor: '#ED1C24', color: '#ffffff', border: 'none', padding: '10px', borderRadius: '8px', fontWeight: 700, fontSize: '0.85rem', cursor: 'pointer', transition: 'background-color 0.2s ease' }}
                   >
                     Ver Detalle y Fotos →
                   </button>
@@ -728,41 +736,41 @@ function CatalogoContent() {
             {/* Botón Cerrar */}
             <button 
               onClick={closeModal} 
-              style={{ position: 'absolute', top: '16px', right: '16px', backgroundColor: '#1f2024', border: '1px solid #444', color: '#ffffff', width: '38px', height: '38px', borderRadius: '50%', fontSize: '1.2rem', display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer', zIndex: 30 }}
+              style={{ position: 'absolute', top: '14px', right: '14px', backgroundColor: '#1f2024', border: '1px solid #444', color: '#ffffff', width: '34px', height: '34px', borderRadius: '50%', fontSize: '1.1rem', display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer', zIndex: 30 }}
               aria-label="Cerrar modal"
             >
               ✕
             </button>
 
             {/* Logo Centrado */}
-            <div style={{ textAlign: 'center', marginBottom: '12px' }}>
+            <div style={{ textAlign: 'center', marginBottom: '10px' }}>
               <img 
                 src="/logo.png.png" 
                 alt="Cogno Automotores" 
-                style={{ height: '52px', width: 'auto', margin: '0 auto', display: 'inline-block' }} 
+                style={{ height: '46px', width: 'auto', margin: '0 auto', display: 'inline-block' }} 
               />
             </div>
 
             {/* Título Institucional */}
-            <h1 style={{ textAlign: 'center', fontSize: '1.6rem', fontWeight: 600, color: '#ffffff', margin: '0 0 12px 0', letterSpacing: '-0.3px' }}>
+            <h1 style={{ textAlign: 'center', fontSize: '1.4rem', fontWeight: 600, color: '#ffffff', margin: '0 0 10px 0', letterSpacing: '-0.3px' }}>
               Tu próximo vehículo lo encontrás acá
             </h1>
 
             {/* Badge de Garantía */}
-            <div style={{ textAlign: 'center', marginBottom: '18px' }}>
-              <span style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', backgroundColor: 'rgba(237, 28, 36, 0.12)', border: '1px solid rgba(237, 28, 36, 0.35)', color: '#ED1C24', padding: '6px 14px', borderRadius: '30px', fontSize: '0.74rem', fontWeight: 700, letterSpacing: '0.6px', textTransform: 'uppercase' }}>
+            <div style={{ textAlign: 'center', marginBottom: '14px' }}>
+              <span style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', backgroundColor: 'rgba(237, 28, 36, 0.12)', border: '1px solid rgba(237, 28, 36, 0.35)', color: '#ED1C24', padding: '5px 12px', borderRadius: '30px', fontSize: '0.72rem', fontWeight: 700, letterSpacing: '0.5px', textTransform: 'uppercase' }}>
                 <span>🛡️</span>
                 <span>TODOS NUESTROS USADOS CUENTAN CON 6 MESES DE GARANTÍA TOTAL</span>
               </span>
             </div>
 
             {/* Título Principal */}
-            <div style={{ marginBottom: '18px' }}>
-              <h2 className="modal-title-text" style={{ fontSize: '1.8rem', fontWeight: 700, margin: '0 0 4px 0', textTransform: 'uppercase', color: '#ffffff', letterSpacing: '-0.3px', lineHeight: 1.2 }}>
+            <div style={{ marginBottom: '16px' }}>
+              <h2 className="modal-title-text" style={{ fontSize: '1.55rem', fontWeight: 700, margin: '0 0 3px 0', textTransform: 'uppercase', color: '#ffffff', letterSpacing: '-0.3px', lineHeight: 1.2 }}>
                 {selectedVehicle.brand} {selectedVehicle.line} {selectedVehicle.version || ''}
               </h2>
               {selectedVehicle.version && (
-                <p style={{ color: '#a1a1aa', fontSize: '0.92rem', margin: 0, fontWeight: 400 }}>
+                <p style={{ color: '#a1a1aa', fontSize: '0.88rem', margin: 0, fontWeight: 400 }}>
                   {selectedVehicle.version}
                 </p>
               )}
@@ -770,11 +778,11 @@ function CatalogoContent() {
 
             {/* Galería con Click para Pantalla Completa */}
             {selectedVehicle.photos && selectedVehicle.photos.length > 0 && (
-              <div style={{ marginBottom: '22px' }}>
+              <div style={{ marginBottom: '18px' }}>
                 <div 
                   onClick={() => setFullscreenPhoto(true)}
                   className="modal-main-img-box" 
-                  style={{ height: '400px', borderRadius: '18px', overflow: 'hidden', backgroundColor: '#070709', position: 'relative', border: '1px solid #27272a', cursor: 'zoom-in' }}
+                  style={{ height: '360px', borderRadius: '16px', overflow: 'hidden', backgroundColor: '#070709', position: 'relative', border: '1px solid #27272a', cursor: 'zoom-in' }}
                   title="Hacé clic para ver en pantalla completa"
                 >
                   <img 
@@ -783,9 +791,8 @@ function CatalogoContent() {
                     style={{ width: '100%', height: '100%', objectFit: 'contain' }} 
                   />
 
-                  {/* Indicador visual de pantalla completa */}
-                  <div style={{ position: 'absolute', bottom: '12px', right: '12px', backgroundColor: 'rgba(11, 12, 14, 0.85)', border: '1px solid rgba(255, 255, 255, 0.2)', padding: '6px 12px', borderRadius: '20px', fontSize: '0.76rem', color: '#ffffff', display: 'flex', alignItems: 'center', gap: '6px', backdropFilter: 'blur(4px)', pointerEvents: 'none' }}>
-                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                  <div style={{ position: 'absolute', bottom: '10px', right: '10px', backgroundColor: 'rgba(11, 12, 14, 0.85)', border: '1px solid rgba(255, 255, 255, 0.2)', padding: '5px 10px', borderRadius: '20px', fontSize: '0.72rem', color: '#ffffff', display: 'flex', alignItems: 'center', gap: '5px', backdropFilter: 'blur(4px)', pointerEvents: 'none' }}>
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                       <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/>
                     </svg>
                     <span>Ver pantalla completa</span>
@@ -793,10 +800,10 @@ function CatalogoContent() {
 
                   {selectedVehicle.photos.length > 1 && (
                     <>
-                      <button onClick={prevPhoto} className="gallery-arrow-btn" style={{ left: '12px' }} aria-label="Foto anterior">
+                      <button onClick={prevPhoto} className="gallery-arrow-btn" style={{ left: '10px' }} aria-label="Foto anterior">
                         ‹
                       </button>
-                      <button onClick={nextPhoto} className="gallery-arrow-btn" style={{ right: '12px' }} aria-label="Foto siguiente">
+                      <button onClick={nextPhoto} className="gallery-arrow-btn" style={{ right: '10px' }} aria-label="Foto siguiente">
                         ›
                       </button>
                     </>
@@ -804,12 +811,12 @@ function CatalogoContent() {
                 </div>
 
                 {selectedVehicle.photos.length > 1 && (
-                  <div style={{ display: 'flex', gap: '8px', overflowX: 'auto', padding: '10px 0 2px 0' }}>
+                  <div style={{ display: 'flex', gap: '8px', overflowX: 'auto', padding: '8px 0 2px 0' }}>
                     {selectedVehicle.photos.map((p, idx) => (
                       <button 
                         key={idx} 
                         onClick={() => setActivePhotoIdx(idx)} 
-                        style={{ border: activePhotoIdx === idx ? '2px solid #ED1C24' : '1px solid #27272a', padding: 0, borderRadius: '8px', overflow: 'hidden', width: '74px', height: '52px', flexShrink: 0, cursor: 'pointer', backgroundColor: '#070709' }}
+                        style={{ border: activePhotoIdx === idx ? '2px solid #ED1C24' : '1px solid #27272a', padding: 0, borderRadius: '6px', overflow: 'hidden', width: '68px', height: '48px', flexShrink: 0, cursor: 'pointer', backgroundColor: '#070709' }}
                       >
                         <img src={p} alt={`Foto ${idx+1}`} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                       </button>
@@ -820,51 +827,51 @@ function CatalogoContent() {
             )}
 
             {/* Ficha Técnica con ICONOS SVG Originales */}
-            <div style={{ backgroundColor: '#0B0C0E', border: '1px solid #27272a', borderRadius: '16px', padding: '18px 20px', marginBottom: '22px' }}>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+            <div style={{ backgroundColor: '#0B0C0E', border: '1px solid #27272a', borderRadius: '14px', padding: '16px 18px', marginBottom: '18px' }}>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
                 
-                <div style={{ display: 'flex', alignItems: 'center', borderBottom: '1px solid #191a1d', paddingBottom: '10px' }}>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '10px', color: '#a1a1aa', fontSize: '0.9rem', width: '140px', flexShrink: 0 }}>
-                    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <div style={{ display: 'flex', alignItems: 'center', borderBottom: '1px solid #191a1d', paddingBottom: '8px' }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: '#a1a1aa', fontSize: '0.85rem', width: '130px', flexShrink: 0 }}>
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                       <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
                     </svg>
                     <span>Marca</span>
                   </div>
-                  <strong style={{ color: '#ffffff', fontSize: '0.94rem', textTransform: 'uppercase' }}>
+                  <strong style={{ color: '#ffffff', fontSize: '0.9rem', textTransform: 'uppercase' }}>
                     {selectedVehicle.brand}
                   </strong>
                 </div>
 
-                <div style={{ display: 'flex', alignItems: 'center', borderBottom: '1px solid #191a1d', paddingBottom: '10px' }}>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '10px', color: '#a1a1aa', fontSize: '0.9rem', width: '140px', flexShrink: 0 }}>
-                    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <div style={{ display: 'flex', alignItems: 'center', borderBottom: '1px solid #191a1d', paddingBottom: '8px' }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: '#a1a1aa', fontSize: '0.85rem', width: '130px', flexShrink: 0 }}>
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                       <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
                       <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
                     </svg>
                     <span>Línea</span>
                   </div>
-                  <strong style={{ color: '#ffffff', fontSize: '0.94rem', textTransform: 'uppercase' }}>
+                  <strong style={{ color: '#ffffff', fontSize: '0.9rem', textTransform: 'uppercase' }}>
                     {selectedVehicle.line}
                   </strong>
                 </div>
 
                 {selectedVehicle.version && (
-                  <div style={{ display: 'flex', alignItems: 'center', borderBottom: '1px solid #191a1d', paddingBottom: '10px' }}>
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '10px', color: '#a1a1aa', fontSize: '0.9rem', width: '140px', flexShrink: 0 }}>
-                      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <div style={{ display: 'flex', alignItems: 'center', borderBottom: '1px solid #191a1d', paddingBottom: '8px' }}>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: '#a1a1aa', fontSize: '0.85rem', width: '130px', flexShrink: 0 }}>
+                      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                         <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
                       </svg>
                       <span>Versión</span>
                     </div>
-                    <strong style={{ color: '#ffffff', fontSize: '0.94rem' }}>
+                    <strong style={{ color: '#ffffff', fontSize: '0.9rem' }}>
                       {selectedVehicle.version}
                     </strong>
                   </div>
                 )}
 
-                <div style={{ display: 'flex', alignItems: 'center', borderBottom: '1px solid #191a1d', paddingBottom: '10px' }}>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '10px', color: '#a1a1aa', fontSize: '0.9rem', width: '140px', flexShrink: 0 }}>
-                    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <div style={{ display: 'flex', alignItems: 'center', borderBottom: '1px solid #191a1d', paddingBottom: '8px' }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: '#a1a1aa', fontSize: '0.85rem', width: '130px', flexShrink: 0 }}>
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                       <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
                       <line x1="16" y1="2" x2="16" y2="6"></line>
                       <line x1="8" y1="2" x2="8" y2="6"></line>
@@ -872,30 +879,30 @@ function CatalogoContent() {
                     </svg>
                     <span>Modelo / Año</span>
                   </div>
-                  <strong style={{ color: '#ffffff', fontSize: '0.94rem' }}>
+                  <strong style={{ color: '#ffffff', fontSize: '0.9rem' }}>
                     {selectedVehicle.year || '—'}
                   </strong>
                 </div>
 
                 <div style={{ display: 'flex', alignItems: 'center' }}>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '10px', color: '#a1a1aa', fontSize: '0.9rem', width: '140px', flexShrink: 0 }}>
-                    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: '#a1a1aa', fontSize: '0.85rem', width: '130px', flexShrink: 0 }}>
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                       <circle cx="12" cy="12" r="10"></circle>
                       <polyline points="12 6 12 12 16 14"></polyline>
                     </svg>
                     <span>Kilometraje</span>
                   </div>
-                  <strong style={{ color: '#ffffff', fontSize: '0.94rem' }}>
+                  <strong style={{ color: '#ffffff', fontSize: '0.9rem' }}>
                     {selectedVehicle.km ? `${Number(selectedVehicle.km).toLocaleString('es-AR')} km` : 'Consultar'}
                   </strong>
                 </div>
 
                 {selectedVehicle.equipment && (
-                  <div style={{ borderTop: '1px solid #191a1d', paddingTop: '12px', marginTop: '4px' }}>
-                    <span style={{ color: '#a1a1aa', fontSize: '0.84rem', fontWeight: 600, display: 'block', marginBottom: '4px' }}>
+                  <div style={{ borderTop: '1px solid #191a1d', paddingTop: '10px', marginTop: '2px' }}>
+                    <span style={{ color: '#a1a1aa', fontSize: '0.78rem', fontWeight: 600, display: 'block', marginBottom: '3px' }}>
                       Equipamiento destacado:
                     </span>
-                    <span style={{ color: '#E4E4E7', fontSize: '0.88rem', lineHeight: 1.5 }}>
+                    <span style={{ color: '#E4E4E7', fontSize: '0.84rem', lineHeight: 1.45 }}>
                       {selectedVehicle.equipment}
                     </span>
                   </div>
@@ -905,13 +912,13 @@ function CatalogoContent() {
             </div>
 
             {/* Botones de Acción */}
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
               
               <a
                 href={`https://wa.me/5493584029424?text=${encodeURIComponent(`Hola! Quiero consultar por el ${selectedVehicle.brand} ${selectedVehicle.line} ${selectedVehicle.version || ''} (${selectedVehicle.year || ''})`)}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                style={{ display: 'block', textAlign: 'center', backgroundColor: '#ED1C24', color: '#ffffff', padding: '14px', borderRadius: '12px', fontWeight: 700, fontSize: '0.96rem', textDecoration: 'none', boxShadow: '0 6px 18px rgba(237, 28, 36, 0.3)' }}
+                style={{ display: 'block', textAlign: 'center', backgroundColor: '#ED1C24', color: '#ffffff', padding: '12px', borderRadius: '10px', fontWeight: 700, fontSize: '0.92rem', textDecoration: 'none', boxShadow: '0 4px 14px rgba(237, 28, 36, 0.3)' }}
               >
                 Consultar por este vehículo
               </a>
@@ -919,9 +926,9 @@ function CatalogoContent() {
               <button
                 type="button"
                 onClick={handleShare}
-                style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px', width: '100%', backgroundColor: '#0B0C0E', border: '1px solid #27272a', color: '#ffffff', padding: '12px', borderRadius: '12px', fontWeight: 600, fontSize: '0.88rem', cursor: 'pointer' }}
+                style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px', width: '100%', backgroundColor: '#0B0C0E', border: '1px solid #27272a', color: '#ffffff', padding: '10px', borderRadius: '10px', fontWeight: 600, fontSize: '0.84rem', cursor: 'pointer' }}
               >
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <circle cx="18" cy="5" r="3"></circle>
                   <circle cx="6" cy="12" r="3"></circle>
                   <circle cx="18" cy="19" r="3"></circle>
@@ -936,7 +943,7 @@ function CatalogoContent() {
         </div>
       )}
 
-     {/* 5. LIGHTBOX / PANTALLA COMPLETA */}
+      {/* 5. LIGHTBOX / PANTALLA COMPLETA */}
       {fullscreenPhoto && selectedVehicle?.photos && (
         <div 
           onClick={() => setFullscreenPhoto(false)}
@@ -981,7 +988,6 @@ function CatalogoContent() {
             ✕
           </button>
 
-{/* Imagen Fullscreen con el tamaño exacto del recuadro */}
           <img 
             src={selectedVehicle.photos[activePhotoIdx] || selectedVehicle.photos[0]} 
             alt={`${selectedVehicle.brand} ${selectedVehicle.line}`}
@@ -1042,7 +1048,7 @@ function CatalogoContent() {
 
 export default function CatalogoUsados() {
   return (
-    <div style={{ backgroundColor: '#0B0C0E', minHeight: '100vh', color: '#ffffff', paddingBottom: '90px' }}>
+    <div style={{ backgroundColor: '#0B0C0E', minHeight: '100vh', color: '#ffffff', paddingBottom: '80px' }}>
       <Suspense fallback={<div style={{ textAlign: 'center', padding: '80px', color: '#a1a1aa' }}>Cargando catálogo...</div>}>
         <CatalogoContent />
       </Suspense>
