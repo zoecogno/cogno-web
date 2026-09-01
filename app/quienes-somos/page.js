@@ -202,13 +202,13 @@ export default function QuienesSomos() {
 
       </section>
 
-   {/* FOTO SALÓN PANORÁMICA COMPACTA */}
-      <div style={{ maxWidth: '1050px', margin: '24px auto 0 auto', padding: '0 24px' }}>
-        <div style={{ height: '380px', borderRadius: '18px', overflow: 'hidden', border: '1px solid #27272a', backgroundColor: '#070709', boxShadow: '0 16px 36px rgba(0,0,0,0.6)' }}>
+  {/* FOTO SALÓN PANORÁMICA PROPORCIONAL */}
+      <div style={{ maxWidth: '1000px', margin: '24px auto 0 auto', padding: '0 24px' }}>
+        <div style={{ borderRadius: '18px', overflow: 'hidden', border: '1px solid #27272a', backgroundColor: '#070709', boxShadow: '0 16px 36px rgba(0,0,0,0.6)' }}>
           <img 
             src="/frente-2026.jpg.jpg" 
             alt="Salón Cogno Automotores" 
-            style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+            style={{ width: '100%', height: 'auto', display: 'block' }}
           />
         </div>
 
@@ -222,7 +222,6 @@ export default function QuienesSomos() {
           </p>
         </div>
       </div>
-
       {/* 2. PROPÓSITO & VISIÓN */}
       <section style={{ maxWidth: '1280px', margin: '50px auto 0 auto', padding: '0 24px' }}>
         <div className="vision-grid">
