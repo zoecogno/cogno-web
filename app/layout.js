@@ -12,7 +12,7 @@ export default function RootLayout({ children }) {
     <html lang="es">
    <head>
   <title>Cogno Automotores | 0km y Usados Seleccionados en Río Cuarto</title>
-  <meta name="description" content="Concesionaria líder en Río Cuarto. Venta y entrega de 0km de todas las marcas y amplia selección de usados garantizados por 6 meses. Financiación a medida y toma de usados." />
+  <meta name="description" content="Concesionaria líder en Río Cuarto. Venta de 0km de todas las marcas y amplia selección de usados garantizados por 6 meses. Financiación a medida y toma de usados." />
   <meta name="google-site-verification" content="h7YIJ4ZDqRDbo5yc44yJp6MzjsIerURzPM12F00fl9k" />
   <meta name="keywords" content="Cogno Automotores, Autos 0km Río Cuarto, 0km multimarca Río Cuarto, Camionetas 0km Río Cuarto, Comprar 0km Río Cuarto, Pickups 0km Río Cuarto, Autos usados Río Cuarto, Usados seleccionados Río Cuarto, Concesionaria Río Cuarto, Venta de autos 0km y usados, Venta de autos Río Cuarto,Comprar autos Río Cuarto, Financiación de autos Río Cuarto, Toma de usados Río Cuarto, Permuta de autos Río Cuarto, Autos con garantía Río Cuarto, Pickups Río Cuarto, Toyota Río Cuarto, Ford Río Cuarto, Volkswagen Río Cuarto, Chevrolet Río Cuarto, Fiat Río Cuarto, Peugeot Río Cuarto, Concesionarias en Córdoba, Autos usados Córdoba sur" /> 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -24,7 +24,7 @@ export default function RootLayout({ children }) {
   <meta property="og:url" content="https://cognoautomotores.com.ar" />
   <meta property="og:site_name" content="Cogno Automotores" />
   <meta property="og:title" content="Cogno Automotores | 0km y Usados Seleccionados" />
-  <meta property="og:description" content="Tu próximo 0km o usado seleccionado está en Cogno Automotores. Entrega inmediata, financiación y 6 meses de garantía en usados." />
+  <meta property="og:description" content="Tu próximo vehículo lo encontrás acá. Entrega inmediata, financiación y 6 meses de garantía en usados." />
   <meta property="og:image" content="https://cognoautomotores.com.ar/logo-black.png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
