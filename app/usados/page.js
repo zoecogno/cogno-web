@@ -49,14 +49,28 @@ function CatalogoContent() {
       url: shareUrl,
     };
 
-    if (navigator.share) {
+    if (navigator.share && navigator.canShare && navigator.canShare(shareData)) {
       try {
         await navigator.share(shareData);
-      } catch (err) {}
+      } catch (err) {
+        if (err.name !== 'AbortError') {
+          try {
+            await navigator.clipboard.writeText(shareUrl);
+            setCopied(true);
+            setTimeout(() => setCopied(false), 2500);
+          } catch (clipboardErr) {
+            console.error(clipboardErr);
+          }
+        }
+      }
     } else {
-      navigator.clipboard.writeText(shareUrl);
-      setCopied(true);
-      setTimeout(() => setCopied(false), 2500);
+      try {
+        await navigator.clipboard.writeText(shareUrl);
+        setCopied(true);
+        setTimeout(() => setCopied(false), 2500);
+      } catch (clipboardErr) {
+        console.error(clipboardErr);
+      }
     }
   };
 
@@ -319,6 +333,7 @@ function CatalogoContent() {
           left: 0;
           width: 100vw;
           height: 100vh;
+          height: 100dvh;
           background-color: rgba(0, 0, 0, 0.88);
           backdrop-filter: blur(8px);
           -webkit-backdrop-filter: blur(8px);
@@ -328,7 +343,8 @@ function CatalogoContent() {
           z-index: 99999;
           overflow-y: auto;
           -webkit-overflow-scrolling: touch;
-          padding: 24px 16px 60px 16px;
+          overscroll-behavior: contain;
+          padding: 24px 16px calc(60px + env(safe-area-inset-bottom, 0px)) 16px;
           box-sizing: border-box;
         }
         .modal-card {
@@ -338,7 +354,7 @@ function CatalogoContent() {
           max-width: 800px;
           width: 100%;
           box-sizing: border-box;
-          padding: 30px 24px;
+          padding: 30px 24px calc(30px + env(safe-area-inset-bottom, 0px)) 24px;
           position: relative;
           box-shadow: 0 25px 60px rgba(0,0,0,0.9);
           margin: 0 auto;
@@ -473,10 +489,10 @@ function CatalogoContent() {
             border-radius: 8px !important;
           }
           .modal-overlay {
-            padding: 16px 12px 60px 12px !important;
+            padding: 16px 12px calc(60px + env(safe-area-inset-bottom, 0px)) 12px !important;
           }
           .modal-card {
-            padding: 22px 14px !important;
+            padding: 22px 14px calc(24px + env(safe-area-inset-bottom, 0px)) 14px !important;
             border-radius: 18px !important;
           }
           .modal-main-img-box {
@@ -953,6 +969,7 @@ function CatalogoContent() {
             left: 0,
             width: '100vw',
             height: '100vh',
+            height: '100dvh',
             backgroundColor: 'rgba(0, 0, 0, 0.98)',
             zIndex: 100000,
             display: 'flex',
