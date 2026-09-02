@@ -3,7 +3,7 @@ export const metadata = {
   description: 'Conocé nuestra gama de 0 KM de todas las marcas con entrega inmediata, la mejor toma de usados y financiación en Río Cuarto.',
   openGraph: {
     title: 'Vehículos 0 KM | Cogno Automotores',
-    description: 'Todas las marcas en un solo lugar. Encontrá tu próximo 0 KM acá, con entrega inmediata y asesoramiento personalizado.',
+    description: 'Todas las marcas en un solo lugar. Encontrá tu próximo 0 KM, con entrega inmediata y asesoramiento personalizado.',
     url: 'https://www.cognoautomotores.com.ar/0km',
     siteName: 'Cogno Automotores',
     images: [
