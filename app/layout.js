@@ -205,7 +205,7 @@ export default function RootLayout({ children }) {
                 Río Cuarto, Córdoba, Argentina
               </p>
               <p style={{ color: '#d4d4d8', fontSize: '0.92rem', margin: '0 0 8px 0' }}>
-                 WhatsApp Comercial: +54 9 358 402-9424
+                 Contacto: +54 9 358 402-9424
               </p>
               <p style={{ color: '#a1a1aa', fontSize: '0.86rem', margin: 0 }}>
                 Lunes a Viernes de 9:00 a 18:00 hs
