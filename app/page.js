@@ -493,19 +493,19 @@ export default function Home() {
           <div className="metric-box">
             <div className="metric-num" style={{ fontWeight: 700, color: '#ED1C24', lineHeight: 1, marginBottom: '6px' }}>+35</div>
             <div className="metric-label" style={{ fontSize: '0.98rem', fontWeight: 600, color: '#ffffff', marginBottom: '3px' }}>Años de Trayectoria</div>
-            <div className="metric-sub" style={{ fontSize: '0.84rem', color: '#d4d4d8', fontWeight: 400 }}>Referente automotor familiar</div>
+            <div className="metric-sub" style={{ fontSize: '0.84rem', color: '#d4d4d8', fontWeight: 400 }}>Referente automotor</div>
           </div>
 
           <div className="metric-box">
             <div className="metric-num" style={{ fontWeight: 700, color: '#ED1C24', lineHeight: 1, marginBottom: '6px' }}>6 Meses</div>
-            <div className="metric-label" style={{ fontSize: '0.98rem', fontWeight: 600, color: '#ffffff', marginBottom: '3px' }}>Garantía Total Escrita</div>
+            <div className="metric-label" style={{ fontSize: '0.98rem', fontWeight: 600, color: '#ffffff', marginBottom: '3px' }}>Garantía Total</div>
             <div className="metric-sub" style={{ fontSize: '0.84rem', color: '#d4d4d8', fontWeight: 400 }}>En todos nuestros usados</div>
           </div>
 
           <div className="metric-box">
             <div className="metric-num" style={{ fontWeight: 700, color: '#ED1C24', lineHeight: 1, marginBottom: '6px' }}>100%</div>
             <div className="metric-label" style={{ fontSize: '0.98rem', fontWeight: 600, color: '#ffffff', marginBottom: '3px' }}>Gestoría Propia</div>
-            <div className="metric-sub" style={{ fontSize: '0.84rem', color: '#d4d4d8', fontWeight: 400 }}>Documentación al día</div>
+            <div className="metric-sub" style={{ fontSize: '0.84rem', color: '#d4d4d8', fontWeight: 400 }}>Entregas inmediatas</div>
           </div>
 
           <div className="metric-box">
@@ -526,7 +526,7 @@ export default function Home() {
             Financiación y Créditos Prendarios
           </h2>
           <p className="finance-desc" style={{ fontSize: '0.98rem', color: '#E4E4E7', maxWidth: '750px', margin: '0 auto 24px auto', lineHeight: 1.6, fontWeight: 400 }}>
-            Te asesoramos para que encuentres la estructura de pago más conveniente: créditos prendarios bancarios, cuotas fijas en pesos y toma de tu vehículo usado como anticipo.
+            Te asesoramos para que encuentres la estructura de pago más conveniente: créditos prendarios bancarios, cuotas fijas en pesos y toma de tu vehículo usado.
           </p>
           <a 
             href="https://wa.me/5493584029424?text=Hola!%20Quiero%20consultar%20por%20opciones%20de%20financiaci%C3%B3n" 
