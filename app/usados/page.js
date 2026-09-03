@@ -332,7 +332,6 @@ function CatalogoContent() {
           top: 0;
           left: 0;
           width: 100vw;
-          height: 100vh;
           height: 100dvh;
           background-color: rgba(0, 0, 0, 0.88);
           backdrop-filter: blur(8px);
@@ -344,6 +343,7 @@ function CatalogoContent() {
           overflow-y: auto;
           -webkit-overflow-scrolling: touch;
           overscroll-behavior: contain;
+          touch-action: pan-y;
           padding: 24px 16px calc(60px + env(safe-area-inset-bottom, 0px)) 16px;
           box-sizing: border-box;
         }
@@ -358,6 +358,8 @@ function CatalogoContent() {
           position: relative;
           box-shadow: 0 25px 60px rgba(0,0,0,0.9);
           margin: 0 auto;
+          overscroll-behavior: contain;
+touch-action: pan-y;
         }
 
         .gallery-arrow-btn {
