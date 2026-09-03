@@ -20,23 +20,12 @@ function CatalogoContent() {
   const [copied, setCopied] = useState(false);
   const [fullscreenPhoto, setFullscreenPhoto] = useState(false);
 
-  // Bloqueo estricto del fondo para móviles y PC
+ // Bloqueo estricto del fondo sin romper el touch en Chrome
   useEffect(() => {
     if (selectedVehicle || fullscreenPhoto) {
-      const scrollY = window.scrollY;
-      document.body.style.position = 'fixed';
-      document.body.style.top = `-${scrollY}px`;
-      document.body.style.width = '100%';
       document.body.style.overflow = 'hidden';
     } else {
-      const scrollY = document.body.style.top;
-      document.body.style.position = '';
-      document.body.style.top = '';
-      document.body.style.width = '';
       document.body.style.overflow = '';
-      if (scrollY) {
-        window.scrollTo(0, parseInt(scrollY || '0') * -1);
-      }
     }
   }, [selectedVehicle, fullscreenPhoto]);
 
@@ -325,8 +314,7 @@ function CatalogoContent() {
         .card-usado:hover .card-usado-img-box img {
           transform: scale(1.06);
         }
-
-      /* MODAL OVERLAY & CARD OPTIMIZADO PARA CHROME / SAFARI */
+/* MODAL OVERLAY & CARD */
 .modal-overlay {
   position: fixed;
   top: 0;
@@ -340,9 +328,12 @@ function CatalogoContent() {
   -webkit-backdrop-filter: blur(8px);
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   z-index: 99999;
-  padding: 16px;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior-y: contain;
+  padding: 24px 16px calc(60px + env(safe-area-inset-bottom, 0px)) 16px;
   box-sizing: border-box;
 }
 
@@ -352,14 +343,11 @@ function CatalogoContent() {
   border-radius: 22px;
   max-width: 800px;
   width: 100%;
-  max-height: 88dvh;
-  overflow-y: auto;
-  -webkit-overflow-scrolling: touch;
-  overscroll-behavior: contain;
   box-sizing: border-box;
   padding: 30px 24px calc(30px + env(safe-area-inset-bottom, 0px)) 24px;
   position: relative;
   box-shadow: 0 25px 60px rgba(0,0,0,0.9);
+  margin: 0 auto;
 }
 
         .gallery-arrow-btn {
