@@ -264,11 +264,14 @@ export default function QuienesSomos() {
           
           <div className="value-card">
             <div style={{ width: '42px', height: '42px', borderRadius: '10px', backgroundColor: 'rgba(237, 28, 36, 0.12)', border: '1px solid rgba(237, 28, 36, 0.3)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, color: '#ED1C24' }}>
-         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ED1C24" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-  <path d="m11 17 2 2a1 1 0 0 0 1.4 0l6.6-6.6a2 2 0 0 0 0-2.8l-1.4-1.4a2 2 0 0 0-2.8 0L14 11" />
-  <path d="m13 7 1.4-1.4a2 2 0 0 0 0-2.8l-1.4-1.4a2 2 0 0 0-2.8 0L3.6 8a2 2 0 0 0 0 2.8l1.4 1.4a2 2 0 0 0 2.8 0L10 10" />
-  <path d="m6 13 3 3" />
-  <path d="m15 8 3 3" />
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ED1C24" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+  <line x1="12" y1="3" x2="12" y2="21" />
+  <polyline points="4 7 12 5 20 7" />
+  <polyline points="1 13 4 7 7 13" />
+  <path d="M1 13a3 3 0 0 0 6 0" />
+  <polyline points="17 13 20 7 23 13" />
+  <path d="M17 13a3 3 0 0 0 6 0" />
+  <line x1="8" y1="21" x2="16" y2="21" />
 </svg>
             </div>
             <div>
