@@ -264,11 +264,11 @@ export default function QuienesSomos() {
           
           <div className="value-card">
             <div style={{ width: '42px', height: '42px', borderRadius: '10px', backgroundColor: 'rgba(237, 28, 36, 0.12)', border: '1px solid rgba(237, 28, 36, 0.3)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, color: '#ED1C24' }}>
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ED1C24" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-  <path d="M11 15h2a2 2 0 1 0 0-4h-3c-.6 0-1.1.2-1.4.6L3 17" />
-  <path d="m7 21 1.6-1.4c.3-.4.8-.6 1.4-.6h4c1.1 0 2.1-.4 2.8-1.2l4.6-4.4a2 2 0 0 0-2.7-2.9l-3.2 2.5" />
-  <path d="M2 13a6 6 0 0 1 10.5-4L14 10" />
-  <path d="m19 7 2-2" />
+         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ED1C24" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+  <path d="m11 17 2 2a1 1 0 0 0 1.4 0l6.6-6.6a2 2 0 0 0 0-2.8l-1.4-1.4a2 2 0 0 0-2.8 0L14 11" />
+  <path d="m13 7 1.4-1.4a2 2 0 0 0 0-2.8l-1.4-1.4a2 2 0 0 0-2.8 0L3.6 8a2 2 0 0 0 0 2.8l1.4 1.4a2 2 0 0 0 2.8 0L10 10" />
+  <path d="m6 13 3 3" />
+  <path d="m15 8 3 3" />
 </svg>
             </div>
             <div>
