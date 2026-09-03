@@ -326,41 +326,41 @@ function CatalogoContent() {
           transform: scale(1.06);
         }
 
-        /* MODAL OVERLAY & CARD */
-        .modal-overlay {
-          position: fixed;
-          top: 0;
-          left: 0;
-          width: 100vw;
-          height: 100dvh;
-          background-color: rgba(0, 0, 0, 0.88);
-          backdrop-filter: blur(8px);
-          -webkit-backdrop-filter: blur(8px);
-          display: flex;
-          justify-content: center;
-          align-items: flex-start;
-          z-index: 99999;
-          overflow-y: auto;
-          -webkit-overflow-scrolling: touch;
-          overscroll-behavior: contain;
-          touch-action: pan-y;
-          padding: 24px 16px calc(60px + env(safe-area-inset-bottom, 0px)) 16px;
-          box-sizing: border-box;
-        }
-        .modal-card {
-          background-color: #141518;
-          border: 1px solid #27272a;
-          border-radius: 22px;
-          max-width: 800px;
-          width: 100%;
-          box-sizing: border-box;
-          padding: 30px 24px calc(30px + env(safe-area-inset-bottom, 0px)) 24px;
-          position: relative;
-          box-shadow: 0 25px 60px rgba(0,0,0,0.9);
-          margin: 0 auto;
-          overscroll-behavior: contain;
-touch-action: pan-y;
-        }
+      /* MODAL OVERLAY & CARD OPTIMIZADO PARA CHROME / SAFARI */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100vw;
+  height: 100dvh;
+  background-color: rgba(0, 0, 0, 0.88);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 99999;
+  padding: 16px;
+  box-sizing: border-box;
+}
+
+.modal-card {
+  background-color: #141518;
+  border: 1px solid #27272a;
+  border-radius: 22px;
+  max-width: 800px;
+  width: 100%;
+  max-height: 88dvh;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
+  box-sizing: border-box;
+  padding: 30px 24px calc(30px + env(safe-area-inset-bottom, 0px)) 24px;
+  position: relative;
+  box-shadow: 0 25px 60px rgba(0,0,0,0.9);
+}
 
         .gallery-arrow-btn {
           position: absolute;
