@@ -660,7 +660,7 @@ function CatalogoContent() {
         </div>
       </div>
 
-      {/* 3. GRILLA (3 COLUMNAS) */}
+   {/* 3. GRILLA (3 COLUMNAS) */}
       {loading ? (
         <div style={{ textAlign: 'center', padding: '80px 20px', color: '#a1a1aa', fontSize: '1rem' }}>
           Cargando catálogo actualizado de unidades...
@@ -686,7 +686,7 @@ function CatalogoContent() {
             const mainPhoto = v.photos && v.photos.length > 0 ? v.photos[0] : null;
             return (
               <div key={v.id} className="card-usado">
-                <div className="card-usado-img-box">
+                <div className="card-usado-img-box" style={{ position: 'relative' }}>
                   {mainPhoto ? (
                     <img src={mainPhoto} alt={`${v.brand} ${v.line}`} loading="lazy" />
                   ) : (
@@ -694,6 +694,44 @@ function CatalogoContent() {
                       Sin foto disponible
                     </div>
                   )}
+
+                  {/* CHIP AÑO FLOTANTE (Arriba Izquierda) */}
+                  {v.year && (
+                    <div style={{
+                      position: 'absolute',
+                      top: '8px',
+                      left: '8px',
+                      backgroundColor: 'rgba(11, 12, 14, 0.85)',
+                      border: '1px solid rgba(255, 255, 255, 0.15)',
+                      color: '#ffffff',
+                      padding: '3px 8px',
+                      borderRadius: '6px',
+                      fontSize: '0.72rem',
+                      fontWeight: 700,
+                      backdropFilter: 'blur(4px)',
+                      zIndex: 2
+                    }}>
+                      {v.year}
+                    </div>
+                  )}
+
+                  {/* CHIP KM FLOTANTE (Arriba Derecha) */}
+                  <div style={{
+                    position: 'absolute',
+                    top: '8px',
+                    right: '8px',
+                    backgroundColor: 'rgba(11, 12, 14, 0.85)',
+                    border: '1px solid rgba(255, 255, 255, 0.15)',
+                    color: '#E4E4E7',
+                    padding: '3px 8px',
+                    borderRadius: '6px',
+                    fontSize: '0.70rem',
+                    fontWeight: 600,
+                    backdropFilter: 'blur(4px)',
+                    zIndex: 2
+                  }}>
+                    {v.km ? `${Number(v.km).toLocaleString('es-AR')} km` : 'Consultar'}
+                  </div>
                 </div>
 
                 <div className="card-usado-body" style={{ padding: '18px 16px', display: 'flex', flexDirection: 'column', flexGrow: 1, justifyContent: 'space-between' }}>
