@@ -28,12 +28,9 @@ export async function GET() {
 
     const vehicles = data.records
       .filter((record) => {
-        const estado = record.fields['ESTADO'] || '';
-        // Si no está vendido o si está disponible/publicado, lo mostramos
-        if (typeof estado === 'string' && estado.toLowerCase().includes('vendid')) {
-          return false;
-        }
-        return true;
+        const estado = String(record.fields['ESTADO'] || '').trim().toLowerCase();
+        // Muestra ÚNICAMENTE las unidades que digan exactamente 'disponible'
+        return estado === 'disponible';
       })
       .map((record) => {
         const f = record.fields;
