@@ -648,10 +648,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
-    </div>
-  );
-}
 {/* BANNER / BOTÓN INDEPENDIENTE INSTAGRAM */}
 <div style={{
   maxWidth: '1280px',
@@ -699,3 +695,7 @@ export default function Home() {
     <span>Seguinos en instagram <strong>@cognoautomotores</strong></span>
   </a>
 </div>
+    </div>
+  );
+}
+
