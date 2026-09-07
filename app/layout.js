@@ -163,21 +163,48 @@ export default function RootLayout({ children }) {
 
         {/* CONTENIDO DE LA PÁGINA */}
         <main>{children}</main>
-
-        {/* FOOTER GENERAL */}
+{/* FOOTER GENERAL */}
         <footer style={{ backgroundColor: '#070709', borderTop: '1px solid #27272a', marginTop: '40px' }}>
           <div className="footer-grid">
             
-            {/* Columna 1: Marca & Descripción */}
+            {/* Columna 1: Marca & Descripción + Instagram */}
             <div>
               <img 
                 src="/logo.png.png" 
                 alt="Cogno Automotores" 
                 style={{ height: '48px', width: 'auto', marginBottom: '16px', display: 'block' }} 
               />
-              <p style={{ color: '#a1a1aa', fontSize: '0.92rem', lineHeight: 1.6, maxWidth: '380px', margin: 0, fontWeight: 300 }}>
+              <p style={{ color: '#a1a1aa', fontSize: '0.92rem', lineHeight: 1.6, maxWidth: '380px', margin: '0 0 16px 0', fontWeight: 300 }}>
                 Más de 35 años brindando confianza, respaldo y garantía en la compra y venta de vehículos nuevos y usados seleccionados en Río Cuarto y la región.
               </p>
+
+              {/* BOTÓN OFICIAL INSTAGRAM */}
+              <a
+                href="https://www.instagram.com/cognoautomotores/"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '8px',
+                  backgroundColor: '#141518',
+                  border: '1px solid #27272a',
+                  borderRadius: '10px',
+                  padding: '8px 14px',
+                  color: '#ffffff',
+                  textDecoration: 'none',
+                  fontSize: '0.82rem',
+                  fontWeight: 600,
+                  transition: 'border-color 0.2s ease, transform 0.2s ease'
+                }}
+              >
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#ED1C24" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                  <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                </svg>
+                <span>@cognoautomotores</span>
+              </a>
             </div>
 
             {/* Columna 2: Navegación Rápida */}
