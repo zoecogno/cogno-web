@@ -612,15 +612,6 @@ export default function Home() {
                   <div style={{ fontSize: '0.92rem', color: '#ffffff', fontWeight: 500, marginTop: '2px' }}>Lunes a Viernes: 09:00 a 18:00 hs</div>
                 </div>
               </div>
-
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#ED1C24" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-      <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-      <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-      <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-    </svg>
-    <span>Seguí las novedades y entregas en Instagram</span>
-  </a>
-</div>
                   
               <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
                 <a 
@@ -661,3 +652,50 @@ export default function Home() {
     </div>
   );
 }
+{/* BANNER / BOTÓN INDEPENDIENTE INSTAGRAM */}
+<div style={{
+  maxWidth: '1280px',
+  margin: '32px auto 0 auto',
+  padding: '0 24px',
+  display: 'flex',
+  justifyContent: 'center'
+}}>
+  <a
+    href="https://www.instagram.com/cognoautomotores/"
+    target="_blank"
+    rel="noopener noreferrer"
+    style={{
+      display: 'inline-flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      gap: '12px',
+      backgroundColor: '#141518',
+      border: '1px solid #27272a',
+      borderRadius: '14px',
+      padding: '16px 28px',
+      color: '#ffffff',
+      textDecoration: 'none',
+      fontSize: '0.95rem',
+      fontWeight: 600,
+      boxShadow: '0 10px 25px rgba(0, 0, 0, 0.4)',
+      transition: 'all 0.25s cubic-bezier(0.16, 1, 0.3, 1)'
+    }}
+    onMouseEnter={(e) => {
+      e.currentTarget.style.borderColor = '#ED1C24';
+      e.currentTarget.style.transform = 'translateY(-3px)';
+      e.currentTarget.style.boxShadow = '0 14px 30px rgba(237, 28, 36, 0.15)';
+    }}
+    onMouseLeave={(e) => {
+      e.currentTarget.style.borderColor = '#27272a';
+      e.currentTarget.style.transform = 'translateY(0)';
+      e.currentTarget.style.boxShadow = '0 10px 25px rgba(0, 0, 0, 0.4)';
+    }}
+  >
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ED1C24" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+      <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+      <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+    </svg>
+    <span>Seguinos en instagram <strong>@cognoautomotores</strong></span>
+  </a>
+</div>
