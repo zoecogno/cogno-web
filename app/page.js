@@ -612,7 +612,34 @@ export default function Home() {
                   <div style={{ fontSize: '0.92rem', color: '#ffffff', fontWeight: 500, marginTop: '2px' }}>Lunes a Viernes: 09:00 a 18:00 hs</div>
                 </div>
               </div>
-
+<div style={{ marginTop: '16px' }}>
+  <a
+    href="https://www.instagram.com/cognoautomotores/"
+    target="_blank"
+    rel="noopener noreferrer"
+    style={{
+      display: 'inline-flex',
+      alignItems: 'center',
+      gap: '8px',
+      backgroundColor: '#141518',
+      border: '1px solid #27272a',
+      borderRadius: '8px',
+      padding: '8px 14px',
+      color: '#ffffff',
+      textDecoration: 'none',
+      fontSize: '0.85rem',
+      fontWeight: 600
+    }}
+  >
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#ED1C24" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+      <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+      <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+    </svg>
+    <span>Seguí las novedades y entregas en Instagram</span>
+  </a>
+</div>
+                  
               <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
                 <a 
                   href="https://www.google.com/maps/search/?api=1&query=Av.+Marcelo+T.+de+Alvear+1580,+Rio+Cuarto,+Cordoba" 
