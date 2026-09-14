@@ -13,7 +13,7 @@ const capitulosHistoria = [
   },
   {
     año: 'AÑOS 90',
-    etiqueta: 'EL PRIMER SALÓN',
+    etiqueta: 'PRIMER SALÓN',
     titulo: 'Echar raíces sobre Marcelo T. de Alvear',
     relato: 'Los primeros pasos en el predio propio. El trabajo artesanal de seleccionar cada vehículo, revisar la mecánica de punta a punta y atender personalmente a cada productor, transportista y vecino de la región que confiaba su herramienta de trabajo en nuestras manos.',
     imagen: '/origenes-local.jpg',
@@ -87,7 +87,7 @@ export default function QuienesSomos() {
   return (
     <div style={{ backgroundColor: '#0B0C0E', minHeight: '100vh', color: '#ffffff', paddingBottom: '90px' }}>
       
-      {/* TIPOGRAFÍA MÁQUINA DE ESCRIBIR Y ESTILOS DE PANELES APILABLES */}
+      {/* ESTILOS SNAP SCROLL & ESTAMPILLA VINTAGE */}
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=Special+Elite&display=swap');
 
@@ -95,51 +95,57 @@ export default function QuienesSomos() {
           font-family: 'Special Elite', 'Courier Prime', monospace !important;
         }
 
-        /* PANELES APILABLES: LA PANTALLA QUEDA FIJA Y CADA NUEVA FOTO SUBE DESDE ABAJO */
-        .story-sticky-panel {
-          position: sticky;
-          top: 0;
+        /* CONTENEDOR CON SNAP MAGNÉTICO OBLIGATORIO */
+        .snap-scroll-album {
+          scroll-snap-type: y mandatory;
+          overflow-y: auto;
           height: 100vh;
-          width: 100%;
+          scroll-behavior: smooth;
+        }
+
+        /* CADA HITO ES UN SNAP POINT CLAVADO AL CENTRO */
+        .snap-slide {
+          scroll-snap-align: center;
+          scroll-snap-stop: always;
+          height: 100vh;
           display: flex;
           align-items: center;
           justify-content: center;
-          background-color: #0B0C0E;
-          box-shadow: 0 -25px 50px rgba(0, 0, 0, 0.95);
-          box-sizing: border-box;
           padding: 24px;
+          box-sizing: border-box;
+          background-color: #0B0C0E;
         }
 
-        .story-stage-inner {
+        .slide-inner-grid {
           max-width: 1280px;
           width: 100%;
           display: grid;
-          grid-template-columns: 1.35fr 1fr;
+          grid-template-columns: 1.3fr 1fr;
           gap: 36px;
           align-items: center;
         }
 
-        /* FOTO EN GRANDE (NO SE TAPA) */
-        .photo-canvas {
+        /* FOTO PRINCIPAL EN GRANDE (DESPEJADA) */
+        .photo-frame-cinema {
           width: 100%;
-          height: 68vh;
-          min-height: 400px;
+          height: 72vh;
+          min-height: 420px;
           border-radius: 24px;
           overflow: hidden;
           background-color: #070709;
           border: 1px solid #27272a;
-          box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8);
+          box-shadow: 0 25px 60px rgba(0, 0, 0, 0.85);
           position: relative;
         }
 
-        .photo-canvas img {
+        .photo-frame-cinema img {
           width: 100%;
           height: 100%;
           object-fit: cover;
           display: block;
         }
 
-        /* ESTAMPILLA FILATÉLICA VINTAGE COMPLETA (TODO EL TEXTO VA ADENTRO) */
+        /* ESTAMPILLA FILATÉLICA VINTAGE COMPLETA */
         .vintage-stamp-envelope {
           background: #eadecc;
           background-image: 
@@ -162,7 +168,7 @@ export default function QuienesSomos() {
           transform: scale(1.02) !important;
         }
 
-        /* MATASELLOS POSTAL CIRCULAR ROJO */
+        /* MATASELLOS POSTAL ROJO */
         .postmark-seal {
           position: absolute;
           top: -16px;
@@ -212,18 +218,17 @@ export default function QuienesSomos() {
           align-items: center;
         }
 
-        /* ADAPTACIÓN CELULARES */
+        /* CELULARES */
         @media (max-width: 900px) {
-          .story-sticky-panel {
+          .snap-slide {
             height: auto !important;
-            position: relative !important;
-            padding: 20px 16px 40px 16px !important;
+            padding: 24px 16px !important;
           }
-          .story-stage-inner {
+          .slide-inner-grid {
             grid-template-columns: 1fr !important;
             gap: 20px !important;
           }
-          .photo-canvas {
+          .photo-frame-cinema {
             height: 280px !important;
             min-height: auto !important;
           }
@@ -241,7 +246,7 @@ export default function QuienesSomos() {
       `}</style>
 
       {/* 1. HERO INSTITUCIONAL */}
-      <section style={{ padding: '35px 20px 20px 20px', textAlign: 'center', maxWidth: '980px', margin: '0 auto' }}>
+      <section style={{ padding: '40px 20px 25px 20px', textAlign: 'center', maxWidth: '980px', margin: '0 auto' }}>
         <div style={{ marginBottom: '10px' }}>
           <img 
             src="/logo.png.png" 
@@ -261,31 +266,30 @@ export default function QuienesSomos() {
 
         <div style={{ maxWidth: '780px', margin: '0 auto' }}>
           <p style={{ fontSize: '1.02rem', color: '#d4d4d8', lineHeight: 1.65, margin: 0 }}>
-            Deslizá con el mouse. Cada capítulo sube desde abajo y se ancla en pantalla para revivir los momentos que forjaron nuestro camino:
+            Un solo giro del mouse pasa directamente al siguiente recuerdo. Las fotos se anclan en el centro exacto de la pantalla:
           </p>
         </div>
       </section>
 
-      {/* 2. PANELES SCROLLYTELLING APILABLES (SUBEN DESDE ABAJO) */}
-      <section style={{ position: 'relative' }}>
+      {/* 2. ÁLBUM SCROLL SNAP MAGNÉTICO (PASA DE GOLPE CON UN GIRO) */}
+      <div className="snap-scroll-album">
         {capitulosHistoria.map((cap, index) => (
-          <div key={index} className="story-sticky-panel">
-            <div className="story-stage-inner">
+          <section key={index} className="snap-slide">
+            <div className="slide-inner-grid">
               
-              {/* COLUMNA 1: FOTO GRANDE Y TOTALMENTE DESPEJADA */}
-              <div className="photo-canvas">
+              {/* FOTO GRANDE Y TOTALMENTE DESPEJADA */}
+              <div className="photo-frame-cinema">
                 <img src={cap.imagen} alt={cap.titulo} />
                 <div style={{ position: 'absolute', bottom: '14px', left: '14px', backgroundColor: 'rgba(11, 12, 14, 0.85)', backdropFilter: 'blur(8px)', border: '1px solid #27272a', padding: '6px 14px', borderRadius: '20px', fontSize: '0.76rem', color: '#ffffff', fontWeight: 600 }}>
                   📷 Archivo Cogno Automotores
                 </div>
               </div>
 
-              {/* COLUMNA 2: ESTAMPILLA VINTAGE CON TODO EL TEXTO ADENTRO */}
+              {/* ESTAMPILLA VINTAGE CON EL TEXTO INTEGRAL */}
               <div 
                 className="vintage-stamp-envelope font-typewriter"
                 style={{ transform: `rotate(${cap.rotacion})` }}
               >
-                {/* MATASELLOS ROJO */}
                 <div className="postmark-seal">
                   COGNO<br/>{cap.selloNumero}
                 </div>
@@ -314,9 +318,9 @@ export default function QuienesSomos() {
               </div>
 
             </div>
-          </div>
+          </section>
         ))}
-      </section>
+      </div>
 
       {/* 3. PROPÓSITO & COMPROMISO */}
       <section style={{ maxWidth: '1280px', margin: '60px auto 0 auto', padding: '0 24px' }}>
