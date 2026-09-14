@@ -7,9 +7,9 @@ const capitulosHistoria = [
     titulo: 'La primera chata: "La Vaca Milka"',
     relato: 'Todo comenzó con esta clásica Ford F-100 blanca equipada con cúpula y defensa tubular. Fue la primera unidad entregada y la chispa fundacional de Cogno Automotores. Sin grandes estructuras, pero con una convicción innegociable: la palabra empeñada y el trato leal valen más que cualquier firma.',
     imagen: '/primera-chata.png',
-    pie: 'Ford F-100 bautizada "La Vaca Milka" — Archivo fundacional 1989',
+    pie: 'Ford F-100 "La Vaca Milka" — Archivo 1989',
     selloNumero: '01',
-    selloTexto: 'ORIGEN • 1989'
+    rotacionEstampilla: '-2.5deg'
   },
   {
     año: 'AÑOS 90',
@@ -17,9 +17,9 @@ const capitulosHistoria = [
     titulo: 'Echar raíces sobre Marcelo T. de Alvear',
     relato: 'Los primeros pasos en el predio propio. El trabajo artesanal de seleccionar cada vehículo, revisar la mecánica de punta a punta y atender personalmente a cada productor, transportista y vecino de la región que confiaba su herramienta de trabajo en nuestras manos.',
     imagen: '/origenes-local.jpg',
-    pie: 'Primeras instalaciones y utilitarios en el predio propio',
+    pie: 'Instalaciones sobre Av. Alvear — Años 90',
     selloNumero: '90s',
-    selloTexto: 'PREDIO PROPIO'
+    rotacionEstampilla: '2deg'
   },
   {
     año: 'CRECIMIENTO',
@@ -29,7 +29,7 @@ const capitulosHistoria = [
     imagen: '/familia-90s.jpg',
     pie: 'El corazón de una empresa familiar — Archivo histórico',
     selloNumero: 'FAM',
-    selloTexto: 'MULTIMARCA'
+    rotacionEstampilla: '-1.8deg'
   },
   {
     año: '2014',
@@ -39,7 +39,7 @@ const capitulosHistoria = [
     imagen: '/frente-2014.png',
     pie: 'Exhibición de utilitarios sobre vereda Alvear en 2014',
     selloNumero: '4X4',
-    selloTexto: 'LÍDERES 4X4'
+    rotacionEstampilla: '2.5deg'
   },
   {
     año: '2015',
@@ -49,7 +49,7 @@ const capitulosHistoria = [
     imagen: '/frente-2015.jpg',
     pie: 'Vista frontal desde la avenida — Archivo 2015',
     selloNumero: '15',
-    selloTexto: 'ALVEAR 1580'
+    rotacionEstampilla: '-2deg'
   },
   {
     año: 'EXPANSIÓN',
@@ -57,9 +57,9 @@ const capitulosHistoria = [
     titulo: 'Entregas por flotas: La fuerza de Hilux',
     relato: 'Llegaron los desafíos de escala: proveer flotas corporativas completas, unidades 0 KM llave en mano para el sector agroindustrial y logística pesada. Tres Hilux rojas listas para salir en simultáneo simbolizaron la madurez operativa de la concesionaria.',
     imagen: '/flota-hilux.jpg',
-    pie: 'Flota comercial 0 KM alineada en el salón de entregas',
+    pie: 'Flota comercial 0 KM en el salón de entregas',
     selloNumero: 'FLOTA',
-    selloTexto: 'DESPACHO 0KM'
+    rotacionEstampilla: '2.2deg'
   },
   {
     año: 'PRESENTE',
@@ -69,7 +69,7 @@ const capitulosHistoria = [
     imagen: '/frente-2026.jpg.jpg',
     pie: 'Instalaciones actuales — Marcelo T. de Alvear 1580',
     selloNumero: '35+',
-    selloTexto: 'GARANTÍA TOTAL'
+    rotacionEstampilla: '-1.5deg'
   }
 ];
 
@@ -77,7 +77,6 @@ export default function QuienesSomos() {
   return (
     <div style={{ backgroundColor: '#0B0C0E', minHeight: '100vh', color: '#ffffff', paddingBottom: '80px', overflowX: 'hidden' }}>
       
-      {/* TIPOGRAFÍA VINTAGE & LÍNEA HORIZONTAL ARRIBA/ABAJO */}
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=Special+Elite&display=swap');
 
@@ -85,13 +84,13 @@ export default function QuienesSomos() {
           font-family: 'Special Elite', 'Courier Prime', monospace !important;
         }
 
-        /* CONTENEDOR HORIZONTAL SCROLL */
+        /* CONTENEDOR HORIZONTAL CON SCROLL SUAVE */
         .timeline-h-container {
           position: relative;
           width: 100%;
           overflow-x: auto;
           overflow-y: hidden;
-          padding: 30px 20px 50px 20px;
+          padding: 20px 0 40px 0;
           box-sizing: border-box;
           -webkit-overflow-scrolling: touch;
         }
@@ -107,14 +106,14 @@ export default function QuienesSomos() {
           background: #141518;
         }
 
-        /* EJE DE LA LÍNEA CENTRAL */
+        /* EJE DE ALTURA HOLGADA PARA EVITAR CORTES */
         .timeline-h-stage {
           position: relative;
           display: flex;
           align-items: center;
           min-width: max-content;
-          height: 740px;
-          padding: 0 40px;
+          height: 860px;
+          padding: 0 50px;
         }
 
         .timeline-h-axis {
@@ -123,114 +122,129 @@ export default function QuienesSomos() {
           right: 0;
           top: 50%;
           height: 2px;
-          background: linear-gradient(90deg, transparent 0%, #ED1C24 4%, #27272a 20%, #27272a 80%, #ED1C24 96%, transparent 100%);
+          background: linear-gradient(90deg, transparent 0%, #ED1C24 4%, #27272a 18%, #27272a 82%, #ED1C24 96%, transparent 100%);
           transform: translateY(-50%);
           z-index: 1;
         }
 
-        /* BLOQUE POR CADA HITO (COLUMNA HORIZONTAL) */
-        .timeline-h-node-slot {
+        /* SLOT POR HITO */
+        .timeline-h-slot {
           position: relative;
-          width: 440px;
+          width: 540px;
           height: 100%;
-          margin: 0 24px;
+          margin: 0 20px;
           display: flex;
           align-items: center;
           justify-content: center;
           z-index: 2;
         }
 
-        /* NODO CENTRAL EN LA LÍNEA */
+        /* NODO CENTRAL */
         .timeline-h-dot {
           position: absolute;
           top: 50%;
-          left: 50%;
+          left: 170px;
           transform: translate(-50%, -50%);
-          width: 22px;
-          height: 22px;
+          width: 20px;
+          height: 20px;
           border-radius: 50%;
           background-color: #ED1C24;
           border: 4px solid #0B0C0E;
           box-shadow: 0 0 14px rgba(237, 28, 36, 0.85);
-          z-index: 5;
+          z-index: 6;
         }
 
-        /* TARJETA COMPLETA ARRIBA DE LA LÍNEA */
-        .h-card-top {
+        /* POSICIONAMIENTO ARRIBA Y ABAJO */
+        .h-unit-top {
           position: absolute;
-          bottom: calc(50% + 24px);
-          left: 50%;
-          transform: translateX(-50%);
-          width: 420px;
+          bottom: calc(50% + 20px);
+          left: 0;
+          width: 100%;
+          display: flex;
+          align-items: center;
         }
 
-        /* TARJETA COMPLETA ABAJO DE LA LÍNEA */
-        .h-card-bottom {
+        .h-unit-bottom {
           position: absolute;
-          top: calc(50% + 24px);
-          left: 50%;
-          transform: translateX(-50%);
-          width: 420px;
+          top: calc(50% + 20px);
+          left: 0;
+          width: 100%;
+          display: flex;
+          align-items: center;
         }
 
-        /* MARCO POSTAL FOTO + ESTAMPILLA */
-        .h-card-frame {
+        /* FOTO PRINCIPAL */
+        .h-photo-card {
+          width: 330px;
+          height: 240px;
           background-color: #141518;
           border: 1px solid #27272a;
-          border-radius: 18px;
-          padding: 12px;
-          box-shadow: 0 14px 35px rgba(0,0,0,0.65);
-          transition: transform 0.3s ease, border-color 0.3s ease;
-        }
-        .h-card-frame:hover {
-          transform: translateY(-4px);
-          border-color: rgba(237, 28, 36, 0.5);
-        }
-
-        .h-card-img-wrap {
-          width: 100%;
-          height: 160px;
-          border-radius: 12px;
+          border-radius: 16px;
           overflow: hidden;
-          background-color: #070709;
+          box-shadow: 0 16px 36px rgba(0,0,0,0.7);
+          flex-shrink: 0;
+          position: relative;
+          z-index: 2;
         }
-        .h-card-img-wrap img {
+        .h-photo-card img {
           width: 100%;
           height: 100%;
           object-fit: cover;
           display: block;
         }
+        .h-photo-tag {
+          position: absolute;
+          bottom: 8px;
+          left: 8px;
+          background: rgba(11, 12, 14, 0.85);
+          backdrop-filter: blur(6px);
+          padding: 4px 10px;
+          border-radius: 10px;
+          font-size: 0.68rem;
+          color: #ffffff;
+          border: 1px solid #27272a;
+        }
 
-        /* ESTAMPILLA VINTAGE ACOPLADA */
-        .h-card-stamp {
-          margin-top: 10px;
-          padding: 14px 16px;
+        /* ESTAMPILLA AL COSTADO DERECHO (SOLAPADA LATERALMENTE) */
+        .h-stamp-card {
+          width: 260px;
+          margin-left: -50px;
+          padding: 16px 14px;
           background: #eadecc;
           background-image: 
             radial-gradient(#d6c4a8 10%, transparent 11%),
             linear-gradient(135deg, #f7f3ec 0%, #d8c8b4 100%);
           background-size: 8px 8px, 100% 100%;
           border: 1px solid #baa891;
-          box-shadow: inset 0 0 10px rgba(160, 130, 95, 0.3);
+          box-shadow: 0 14px 30px rgba(0, 0, 0, 0.65), inset 0 0 12px rgba(160, 130, 95, 0.35);
           border-radius: 4px;
           outline: 4px dotted #eadecc;
           outline-offset: -2px;
           position: relative;
           color: #2b2219;
+          z-index: 3;
+          flex-shrink: 0;
+          transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
-        .h-card-seal {
+        .h-stamp-card:hover {
+          z-index: 10;
+          box-shadow: 0 20px 40px rgba(0,0,0,0.85);
+        }
+
+        .h-stamp-seal {
           position: absolute;
-          top: -8px;
-          right: -8px;
-          width: 46px;
-          height: 46px;
+          top: -10px;
+          right: -10px;
+          width: 48px;
+          height: 48px;
           border-radius: 50%;
           border: 2px dashed rgba(237, 28, 36, 0.85);
           display: flex;
           align-items: center;
           justify-content: center;
-          font-size: 0.46rem;
+          text-align: center;
+          font-size: 0.48rem;
           font-weight: 800;
           color: #ED1C24;
           background: rgba(234, 222, 204, 0.95);
@@ -321,7 +335,7 @@ export default function QuienesSomos() {
           align-items: center;
         }
 
-        /* --- CELULARES --- */
+        /* --- CELULARES: RESPONSIVE OPTIMIZADO --- */
         @media (max-width: 768px) {
           .section-title {
             font-size: 1.35rem !important;
@@ -342,20 +356,31 @@ export default function QuienesSomos() {
           }
 
           .timeline-h-stage {
-            height: 640px !important;
+            height: 720px !important;
+            padding: 0 20px !important;
           }
-          .timeline-h-node-slot {
-            width: 320px !important;
-            margin: 0 14px !important;
+          .timeline-h-slot {
+            width: 420px !important;
+            margin: 0 12px !important;
           }
-          .h-card-top, .h-card-bottom {
-            width: 310px !important;
+          .timeline-h-dot {
+            left: 130px !important;
           }
-          .h-card-img-wrap {
-            height: 130px !important;
+          .h-photo-card {
+            width: 250px !important;
+            height: 190px !important;
           }
-          .h-card-stamp {
-            padding: 12px 14px !important;
+          .h-stamp-card {
+            width: 210px !important;
+            margin-left: -40px !important;
+            padding: 12px 10px !important;
+          }
+          .h-stamp-card h3 {
+            font-size: 0.88rem !important;
+          }
+          .h-stamp-card p {
+            font-size: 0.72rem !important;
+            line-height: 1.35 !important;
           }
 
           .vision-grid {
@@ -454,7 +479,7 @@ export default function QuienesSomos() {
         </div>
       </div>
 
-      {/* 2. NUESTRA HISTORIA: LÍNEA HORIZONTAL CON EJE EN EL MEDIO (ARRIBA Y ABAJO) */}
+      {/* 2. NUESTRA HISTORIA: LÍNEA HORIZONTAL CON ESTAMPILLAS AL COSTADO */}
       <section style={{ maxWidth: '1280px', margin: '50px auto 0 auto' }}>
         <div style={{ textAlign: 'center', marginBottom: '16px', padding: '0 20px' }}>
           <span style={{ fontSize: '0.82rem', fontWeight: 700, color: '#ED1C24', letterSpacing: '2px', textTransform: 'uppercase' }}>
@@ -464,58 +489,62 @@ export default function QuienesSomos() {
             Nuestra Historia
           </h2>
           <p style={{ color: '#a1a1aa', fontSize: '0.92rem', maxWidth: '680px', margin: '0 auto', lineHeight: 1.5 }}>
-            Deslizá hacia los lados para recorrer las tres décadas y media que forjaron la identidad de nuestra concesionaria:
+            Deslizá hacia los costados para recorrer nuestra cronología en postales y estampillas:
           </p>
         </div>
 
-        {/* CONTENEDOR CON EJE HORIZONTAL */}
         <div className="timeline-h-container">
           <div className="timeline-h-stage">
             
-            {/* LÍNEA HORIZONTAL ROJA/GRIS CENTRAL */}
             <div className="timeline-h-axis"></div>
 
             {capitulosHistoria.map((cap, index) => {
               const esArriba = index % 2 === 0;
 
               return (
-                <div key={index} className="timeline-h-node-slot">
+                <div key={index} className="timeline-h-slot">
                   
-                  {/* NODO CIRCULAR ROJO EN EL EJE */}
+                  {/* NODO CIRCULAR ROJO */}
                   <div className="timeline-h-dot"></div>
 
-                  {/* TARJETA EN LA POSICIÓN DIBUJADA (ARRIBA O ABAJO) */}
-                  <div className={esArriba ? 'h-card-top' : 'h-card-bottom'}>
-                    <div className="h-card-frame">
-                      
-                      <div className="h-card-img-wrap">
-                        <img src={cap.imagen} alt={cap.titulo} />
+                  {/* UNIDAD FOTO + ESTAMPILLA AL COSTADO */}
+                  <div className={esArriba ? 'h-unit-top' : 'h-unit-bottom'}>
+                    
+                    {/* FOTO HISTÓRICA */}
+                    <div className="h-photo-card">
+                      <img src={cap.imagen} alt={cap.titulo} />
+                      <div className="h-photo-tag">
+                        📷 {cap.pie}
                       </div>
-
-                      <div className="h-card-stamp font-typewriter">
-                        <div className="h-card-seal">
-                          COGNO<br/>{cap.selloNumero}
-                        </div>
-
-                        <div style={{ borderBottom: '1px dashed #baa891', paddingBottom: '4px', marginBottom: '6px' }}>
-                          <div style={{ fontSize: '1.35rem', fontWeight: 700, color: '#991b1b', lineHeight: 1 }}>
-                            {cap.año}
-                          </div>
-                          <div style={{ fontSize: '0.65rem', textTransform: 'uppercase', letterSpacing: '1px', color: '#574838', marginTop: '2px', fontWeight: 700 }}>
-                            {cap.etiqueta}
-                          </div>
-                        </div>
-
-                        <h3 style={{ fontSize: '0.95rem', fontWeight: 700, color: '#1a1612', margin: '0 0 4px 0', lineHeight: 1.25 }}>
-                          {cap.titulo}
-                        </h3>
-
-                        <p style={{ fontSize: '0.78rem', color: '#2b2219', lineHeight: 1.45, margin: 0 }}>
-                          {cap.relato}
-                        </p>
-                      </div>
-
                     </div>
+
+                    {/* ESTAMPILLA AL COSTADO DERECHO */}
+                    <div 
+                      className="h-stamp-card font-typewriter"
+                      style={{ transform: `rotate(${cap.rotacionEstampilla})` }}
+                    >
+                      <div className="h-stamp-seal">
+                        COGNO<br/>{cap.selloNumero}
+                      </div>
+
+                      <div style={{ borderBottom: '1px dashed #baa891', paddingBottom: '4px', marginBottom: '6px' }}>
+                        <div style={{ fontSize: '1.3rem', fontWeight: 700, color: '#991b1b', lineHeight: 1 }}>
+                          {cap.año}
+                        </div>
+                        <div style={{ fontSize: '0.62rem', textTransform: 'uppercase', letterSpacing: '1px', color: '#574838', marginTop: '2px', fontWeight: 700 }}>
+                          {cap.etiqueta}
+                        </div>
+                      </div>
+
+                      <h3 style={{ fontSize: '0.92rem', fontWeight: 700, color: '#1a1612', margin: '0 0 4px 0', lineHeight: 1.25 }}>
+                        {cap.titulo}
+                      </h3>
+
+                      <p style={{ fontSize: '0.76rem', color: '#2b2219', lineHeight: 1.4, margin: 0 }}>
+                        {cap.relato}
+                      </p>
+                    </div>
+
                   </div>
 
                 </div>
@@ -646,14 +675,14 @@ export default function QuienesSomos() {
                 Vení a conocer nuestro local
               </h2>
               <p style={{ fontSize: '0.98rem', color: '#E4E4E7', lineHeight: 1.55, margin: '0 0 18px 0', fontWeight: 400 }}>
-                Te esperamos en nuestro salón comercial para conocer el stock en persona, realizar un peritaje transparente de tu usado y asesorarte de forma personalizada[cite: 4].
+                Te esperamos en nuestro salón comercial para conocer el stock en persona, realizar un peritaje transparente de tu usado y asesorarte de forma personalizada[cite: 2].
               </p>
 
               <div style={{ backgroundColor: '#0B0C0E', border: '1px solid #27272a', padding: '14px 18px', borderRadius: '12px', marginBottom: '18px', display: 'flex', flexDirection: 'column', gap: '10px' }}>
                 <div>
                   <div style={{ fontSize: '0.72rem', color: '#a1a1aa', textTransform: 'uppercase', fontWeight: 600 }}>UBICACIÓN</div>
                   <div style={{ fontSize: '1rem', fontWeight: 600, color: '#ffffff' }}>Av. Marcelo T. de Alvear 1580</div>
-                  <div style={{ fontSize: '0.86rem', color: '#d4d4d8' }}>Río Cuarto, Córdoba, Argentina[cite: 4]</div>
+                  <div style={{ fontSize: '0.86rem', color: '#d4d4d8' }}>Río Cuarto, Córdoba, Argentina[cite: 2]</div>
                 </div>
 
                 <div style={{ borderTop: '1px solid #1F2024', paddingTop: '8px' }}>
@@ -677,7 +706,7 @@ export default function QuienesSomos() {
                   rel="noopener noreferrer" 
                   style={{ backgroundColor: '#1F2024', border: '1px solid #333', color: '#ffffff', padding: '12px 20px', borderRadius: '10px', fontWeight: 600, fontSize: '0.88rem', textDecoration: 'none', textAlign: 'center' }}
                 >
-                  Hablar por WhatsApp
+                  Hablar por WhatsApp[cite: 1, 2]
                 </a>
               </div>
             </div>
