@@ -9,7 +9,7 @@ const capitulosHistoria = [
     imagen: '/primera-chata.png',
     selloNumero: '01',
     selloTexto: 'ORIGEN • 1989',
-    rotacion: '-1.5deg'
+    rotacion: '-1deg'
   },
   {
     año: 'AÑOS 90',
@@ -19,7 +19,7 @@ const capitulosHistoria = [
     imagen: '/origenes-local.jpg',
     selloNumero: '90s',
     selloTexto: 'PREDIO PROPIO',
-    rotacion: '1.8deg'
+    rotacion: '1.2deg'
   },
   {
     año: 'CRECIMIENTO',
@@ -29,7 +29,7 @@ const capitulosHistoria = [
     imagen: '/frente-familia.jpg',
     selloNumero: 'FAM',
     selloTexto: 'MULTIMARCA',
-    rotacion: '-2deg'
+    rotacion: '-1.2deg'
   },
   {
     año: '2014',
@@ -39,7 +39,7 @@ const capitulosHistoria = [
     imagen: '/frente-2014.png',
     selloNumero: '4X4',
     selloTexto: 'LÍDERES PICK-UPS',
-    rotacion: '2deg'
+    rotacion: '1deg'
   },
   {
     año: '2015',
@@ -49,7 +49,7 @@ const capitulosHistoria = [
     imagen: '/frente-2015.jpg',
     selloNumero: '15',
     selloTexto: 'ALVEAR 1580',
-    rotacion: '-1.8deg'
+    rotacion: '-1deg'
   },
   {
     año: 'EXPANSIÓN',
@@ -59,7 +59,7 @@ const capitulosHistoria = [
     imagen: '/flota-hilux.jpg',
     selloNumero: 'FLOTA',
     selloTexto: 'DESPACHO 0KM',
-    rotacion: '1.5deg'
+    rotacion: '1.2deg'
   },
   {
     año: '2019',
@@ -69,7 +69,7 @@ const capitulosHistoria = [
     imagen: '/frente-2019.png',
     selloNumero: '19',
     selloTexto: 'INFRAESTRUCTURA',
-    rotacion: '-2deg'
+    rotacion: '-1.5deg'
   },
   {
     año: 'PRESENTE',
@@ -79,7 +79,7 @@ const capitulosHistoria = [
     imagen: '/frente-2026.jpg.jpg',
     selloNumero: '35+',
     selloTexto: 'GARANTÍA TOTAL',
-    rotacion: '1.5deg'
+    rotacion: '1deg'
   }
 ];
 
@@ -87,7 +87,6 @@ export default function QuienesSomos() {
   return (
     <div style={{ backgroundColor: '#0B0C0E', minHeight: '100vh', color: '#ffffff', paddingBottom: '90px' }}>
       
-      {/* ESTILOS SNAP SCROLL & ESTAMPILLA VINTAGE */}
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=Special+Elite&display=swap');
 
@@ -95,7 +94,6 @@ export default function QuienesSomos() {
           font-family: 'Special Elite', 'Courier Prime', monospace !important;
         }
 
-        /* CONTENEDOR CON SNAP MAGNÉTICO OBLIGATORIO */
         .snap-scroll-album {
           scroll-snap-type: y mandatory;
           overflow-y: auto;
@@ -103,7 +101,6 @@ export default function QuienesSomos() {
           scroll-behavior: smooth;
         }
 
-        /* CADA HITO ES UN SNAP POINT CLAVADO AL CENTRO */
         .snap-slide {
           scroll-snap-align: center;
           scroll-snap-stop: always;
@@ -111,77 +108,79 @@ export default function QuienesSomos() {
           display: flex;
           align-items: center;
           justify-content: center;
-          padding: 24px;
+          padding: 20px;
           box-sizing: border-box;
           background-color: #0B0C0E;
         }
 
-        .slide-inner-grid {
+        /* SOPORTE INTEGRADO: PASPARTÚ FOTO + ESTAMPILLA */
+        .story-unified-frame {
           max-width: 1280px;
           width: 100%;
-          display: grid;
-          grid-template-columns: 1.3fr 1fr;
-          gap: 36px;
-          align-items: center;
-        }
-
-        /* FOTO PRINCIPAL EN GRANDE (DESPEJADA) */
-        .photo-frame-cinema {
-          width: 100%;
-          height: 72vh;
-          min-height: 420px;
-          border-radius: 24px;
-          overflow: hidden;
-          background-color: #070709;
+          background-color: #141518;
           border: 1px solid #27272a;
+          border-radius: 24px;
+          padding: 16px;
+          display: grid;
+          grid-template-columns: 1.35fr 1fr;
+          gap: 24px;
+          align-items: stretch;
           box-shadow: 0 25px 60px rgba(0, 0, 0, 0.85);
           position: relative;
         }
 
-        .photo-frame-cinema img {
+        .photo-canvas-clean {
+          width: 100%;
+          height: 72vh;
+          min-height: 420px;
+          border-radius: 18px;
+          overflow: hidden;
+          background-color: #070709;
+          border: 1px solid #27272a;
+          position: relative;
+        }
+
+        .photo-canvas-clean img {
           width: 100%;
           height: 100%;
           object-fit: cover;
           display: block;
         }
 
-        /* ESTAMPILLA FILATÉLICA VINTAGE COMPLETA */
-        .vintage-stamp-envelope {
+        /* ESTAMPILLA ACOPLADA */
+        .vintage-stamp-docked {
           background: #eadecc;
           background-image: 
             radial-gradient(#d6c4a8 10%, transparent 11%),
             linear-gradient(135deg, #f7f3ec 0%, #d8c8b4 100%);
           background-size: 8px 8px, 100% 100%;
           border: 1px solid #baa891;
-          box-shadow: 0 20px 45px rgba(0, 0, 0, 0.7), inset 0 0 15px rgba(160, 130, 95, 0.35);
-          border-radius: 4px;
+          box-shadow: 0 14px 32px rgba(0, 0, 0, 0.6), inset 0 0 14px rgba(160, 130, 95, 0.35);
+          border-radius: 6px;
           outline: 6px dotted #eadecc;
           outline-offset: -3px;
-          padding: 32px 28px;
-          box-sizing: border-box;
+          padding: 28px 24px;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
           position: relative;
           color: #2b2219;
           transition: transform 0.3s ease;
         }
 
-        .vintage-stamp-envelope:hover {
-          transform: scale(1.02) !important;
-        }
-
-        /* MATASELLOS POSTAL ROJO */
-        .postmark-seal {
+        .postmark-seal-compact {
           position: absolute;
-          top: -16px;
-          right: -16px;
-          width: 72px;
-          height: 72px;
+          top: -14px;
+          right: -14px;
+          width: 64px;
+          height: 64px;
           border-radius: 50%;
           border: 2px dashed rgba(237, 28, 36, 0.85);
           display: flex;
           align-items: center;
           justify-content: center;
           text-align: center;
-          font-size: 0.62rem;
+          font-size: 0.58rem;
           font-weight: 800;
           color: #ED1C24;
           transform: rotate(18deg);
@@ -222,17 +221,18 @@ export default function QuienesSomos() {
         @media (max-width: 900px) {
           .snap-slide {
             height: auto !important;
-            padding: 24px 16px !important;
+            padding: 20px 16px !important;
           }
-          .slide-inner-grid {
+          .story-unified-frame {
             grid-template-columns: 1fr !important;
-            gap: 20px !important;
+            gap: 16px !important;
+            padding: 12px !important;
           }
-          .photo-frame-cinema {
-            height: 280px !important;
+          .photo-canvas-clean {
+            height: 260px !important;
             min-height: auto !important;
           }
-          .vintage-stamp-envelope {
+          .vintage-stamp-docked {
             padding: 20px !important;
             transform: none !important;
           }
@@ -266,52 +266,54 @@ export default function QuienesSomos() {
 
         <div style={{ maxWidth: '780px', margin: '0 auto' }}>
           <p style={{ fontSize: '1.02rem', color: '#d4d4d8', lineHeight: 1.65, margin: 0 }}>
-            Un solo giro del mouse pasa directamente al siguiente recuerdo. Las fotos se anclan en el centro exacto de la pantalla:
+            Un solo giro del mouse pasa directamente al siguiente recuerdo. Las postales y sellos se anclan en el centro exacto:
           </p>
         </div>
       </section>
 
-      {/* 2. ÁLBUM SCROLL SNAP MAGNÉTICO (PASA DE GOLPE CON UN GIRO) */}
+      {/* 2. ÁLBUM SCROLL SNAP CON PASPARTÚ INTEGRADO */}
       <div className="snap-scroll-album">
         {capitulosHistoria.map((cap, index) => (
           <section key={index} className="snap-slide">
-            <div className="slide-inner-grid">
+            <div className="story-unified-frame">
               
-              {/* FOTO GRANDE Y TOTALMENTE DESPEJADA */}
-              <div className="photo-frame-cinema">
+              {/* COLUMNA IZQUIERDA: FOTO DESPEJADA DENTRO DEL MARCO */}
+              <div className="photo-canvas-clean">
                 <img src={cap.imagen} alt={cap.titulo} />
-                <div style={{ position: 'absolute', bottom: '14px', left: '14px', backgroundColor: 'rgba(11, 12, 14, 0.85)', backdropFilter: 'blur(8px)', border: '1px solid #27272a', padding: '6px 14px', borderRadius: '20px', fontSize: '0.76rem', color: '#ffffff', fontWeight: 600 }}>
+                <div style={{ position: 'absolute', bottom: '12px', left: '12px', backgroundColor: 'rgba(11, 12, 14, 0.85)', backdropFilter: 'blur(8px)', border: '1px solid #27272a', padding: '5px 12px', borderRadius: '16px', fontSize: '0.74rem', color: '#ffffff', fontWeight: 600 }}>
                   📷 Archivo Cogno Automotores
                 </div>
               </div>
 
-              {/* ESTAMPILLA VINTAGE CON EL TEXTO INTEGRAL */}
+              {/* COLUMNA DERECHA: ESTAMPILLA ACOPLADA */}
               <div 
-                className="vintage-stamp-envelope font-typewriter"
+                className="vintage-stamp-docked font-typewriter"
                 style={{ transform: `rotate(${cap.rotacion})` }}
               >
-                <div className="postmark-seal">
+                <div className="postmark-seal-compact">
                   COGNO<br/>{cap.selloNumero}
                 </div>
 
-                <div style={{ borderBottom: '1px dashed #baa891', paddingBottom: '10px', marginBottom: '14px' }}>
-                  <div style={{ fontSize: '1.85rem', fontWeight: 700, color: '#991b1b', lineHeight: 1 }}>
-                    {cap.año}
+                <div>
+                  <div style={{ borderBottom: '1px dashed #baa891', paddingBottom: '8px', marginBottom: '12px' }}>
+                    <div style={{ fontSize: '1.75rem', fontWeight: 700, color: '#991b1b', lineHeight: 1 }}>
+                      {cap.año}
+                    </div>
+                    <div style={{ fontSize: '0.72rem', textTransform: 'uppercase', letterSpacing: '1.2px', color: '#574838', marginTop: '4px', fontWeight: 700 }}>
+                      {cap.etiqueta} • {cap.selloTexto}
+                    </div>
                   </div>
-                  <div style={{ fontSize: '0.74rem', textTransform: 'uppercase', letterSpacing: '1.5px', color: '#574838', marginTop: '4px', fontWeight: 700 }}>
-                    {cap.etiqueta} • {cap.selloTexto}
-                  </div>
+
+                  <h3 style={{ fontSize: '1.18rem', fontWeight: 700, color: '#1a1612', margin: '0 0 10px 0', lineHeight: 1.3 }}>
+                    {cap.titulo}
+                  </h3>
+
+                  <p style={{ fontSize: '0.88rem', color: '#2b2219', lineHeight: 1.55, margin: 0 }}>
+                    {cap.relato}
+                  </p>
                 </div>
 
-                <h3 style={{ fontSize: '1.25rem', fontWeight: 700, color: '#1a1612', margin: '0 0 12px 0', lineHeight: 1.3 }}>
-                  {cap.titulo}
-                </h3>
-
-                <p style={{ fontSize: '0.92rem', color: '#2b2219', lineHeight: 1.6, margin: 0 }}>
-                  {cap.relato}
-                </p>
-
-                <div style={{ marginTop: '16px', paddingTop: '10px', borderTop: '1px dashed #baa891', display: 'flex', justifyContent: 'space-between', alignItems: 'center', fontSize: '0.72rem', color: '#7a654f' }}>
+                <div style={{ marginTop: '14px', paddingTop: '8px', borderTop: '1px dashed #baa891', display: 'flex', justifyContent: 'space-between', alignItems: 'center', fontSize: '0.7rem', color: '#7a654f' }}>
                   <span>EXPEDICIÓN RÍO CUARTO</span>
                   <span>SERIE 1989-2026</span>
                 </div>
