@@ -1,33 +1,25 @@
 'use client';
 
-import { useState, useEffect, useRef } from 'react';
-
 const capitulosHistoria = [
   {
     año: '1989',
-    etiqueta: 'EL INICIO FUNDACIONAL',
+    etiqueta: 'EL PUNTO DE PARTIDA',
     titulo: 'La primera chata: "La Vaca Milka"',
-    relato: 'Todo comenzó con esta clásica Ford F-100 blanca con cúpula y defensa tubular. Fue la primera unidad entregada y la chispa fundacional de Cogno Automotores. Sin grandes estructuras, pero con una convicción innegociable: el valor de la palabra empeñada y el trato leal valen más que cualquier firma.',
+    relato: 'Todo comenzó con esta clásica Ford F-100 blanca equipada con cúpula y defensa tubular. Fue la primera unidad entregada y la chispa fundacional de Cogno Automotores. Sin grandes estructuras, pero con una convicción innegociable: la palabra empeñada y el trato leal valen más que cualquier firma.',
     imagen: '/primera-chata.png',
-    estampilla: {
-      valor: '01',
-      origen: 'RÍO CUARTO',
-      sub: 'ORIGEN • 1989',
-      rotacion: '-3deg'
-    }
+    selloNumero: '01',
+    selloTexto: 'ORIGEN • 1989',
+    rotacion: '-1.5deg'
   },
   {
     año: 'AÑOS 90',
-    etiqueta: 'PRIMER SALÓN',
+    etiqueta: 'EL PRIMER SALÓN',
     titulo: 'Echar raíces sobre Marcelo T. de Alvear',
     relato: 'Los primeros pasos en el predio propio. El trabajo artesanal de seleccionar cada vehículo, revisar la mecánica de punta a punta y atender personalmente a cada productor, transportista y vecino de la región que confiaba su herramienta de trabajo en nuestras manos.',
     imagen: '/origenes-local.jpg',
-    estampilla: {
-      valor: '90s',
-      origen: 'ALVEAR 1580',
-      sub: 'PREDIO PROPIO',
-      rotacion: '2.5deg'
-    }
+    selloNumero: '90s',
+    selloTexto: 'PREDIO PROPIO',
+    rotacion: '1.8deg'
   },
   {
     año: 'CRECIMIENTO',
@@ -35,12 +27,9 @@ const capitulosHistoria = [
     titulo: 'Una pasión construida entre generaciones',
     relato: 'La transición hacia la comercialización de 0 KM y usados jóvenes. Detrás del mostrador, la familia siempre presente: atendiendo clientes, resolviendo trámites de gestoría y compartiendo el orgullo de ver crecer un proyecto que ya era parte de la identidad de Banda Norte.',
     imagen: '/frente-familia.jpg',
-    estampilla: {
-      valor: 'FAM',
-      origen: 'MULTIMARCA',
-      sub: 'COMPROMISO',
-      rotacion: '-2deg'
-    }
+    selloNumero: 'FAM',
+    selloTexto: 'MULTIMARCA',
+    rotacion: '-2deg'
   },
   {
     año: '2014',
@@ -48,12 +37,9 @@ const capitulosHistoria = [
     titulo: 'Referentes indiscutidos en pick-ups',
     relato: 'Río Cuarto y el sur de Córdoba demandaban utilitarios pesados y confiables. Consolidamos el mayor despliegue de camionetas de la región, convirtiéndonos en el punto de encuentro natural para renovar Toyota Hilux, Ford Ranger y Volkswagen Amarok con garantía real.',
     imagen: '/frente-2014.png',
-    estampilla: {
-      valor: '4X4',
-      origen: 'LÍDERES PICK-UPS',
-      sub: 'SUR DE CÓRDOBA',
-      rotacion: '3deg'
-    }
+    selloNumero: '4X4',
+    selloTexto: 'LÍDERES PICK-UPS',
+    rotacion: '2deg'
   },
   {
     año: '2015',
@@ -61,12 +47,9 @@ const capitulosHistoria = [
     titulo: 'El salón a la vista de toda la ciudad',
     relato: 'Una postal cotidiana sobre Marcelo T. de Alvear 1580. La rotación de stock no paraba: autos medianos, sedanes familiares y camionetas listas para transferir en el día. Los clientes ya no venían solo por un auto, venían a buscar respaldo y tranquilidad.',
     imagen: '/frente-2015.jpg',
-    estampilla: {
-      valor: '15',
-      origen: 'ALVEAR 1580',
-      sub: 'EXPEDICIÓN RÍO IV',
-      rotacion: '-2.5deg'
-    }
+    selloNumero: '15',
+    selloTexto: 'ALVEAR 1580',
+    rotacion: '-1.8deg'
   },
   {
     año: 'EXPANSIÓN',
@@ -74,12 +57,9 @@ const capitulosHistoria = [
     titulo: 'Entregas por flotas: La fuerza de Hilux',
     relato: 'Llegaron los desafíos de escala: proveer flotas corporativas completas, unidades 0 KM llave en mano para el sector agroindustrial y logística pesada. Tres Hilux rojas listas para salir en simultáneo simbolizaron la madurez operativa de la concesionaria.',
     imagen: '/flota-hilux.jpg',
-    estampilla: {
-      valor: 'FLOTA',
-      origen: 'DESPACHO 0KM',
-      sub: 'ENTREGA ESPECIAL',
-      rotacion: '2deg'
-    }
+    selloNumero: 'FLOTA',
+    selloTexto: 'DESPACHO 0KM',
+    rotacion: '1.5deg'
   },
   {
     año: '2019',
@@ -87,12 +67,9 @@ const capitulosHistoria = [
     titulo: 'Renovación de instalaciones y salón',
     relato: 'Ampliamos el salón cubierto, modernizamos la marquesina corporativa e incorporamos tecnologías de tasación y seguimiento. Cogno Automotores ya unía el prestigio de tres décadas con el dinamismo y confort que exigen las nuevas generaciones.',
     imagen: '/frente-2019.png',
-    estampilla: {
-      valor: '19',
-      origen: 'MARQUESINA',
-      sub: 'INFRAESTRUCTURA',
-      rotacion: '-3deg'
-    }
+    selloNumero: '19',
+    selloTexto: 'INFRAESTRUCTURA',
+    rotacion: '-2deg'
   },
   {
     año: 'PRESENTE',
@@ -100,43 +77,17 @@ const capitulosHistoria = [
     titulo: 'Más de 35 años de confianza viva en Río Cuarto',
     relato: 'Salón modelo sobre Marcelo T. de Alvear 1580, inventario digital en tiempo real conectado al taller y garantía extendida propia de 6 meses. Seguimos siendo la misma empresa familiar del primer día, atendida por sus propios dueños con la seriedad de siempre.',
     imagen: '/frente-2026.jpg.jpg',
-    estampilla: {
-      valor: '35+',
-      origen: 'GARANTÍA TOTAL',
-      sub: 'CERTIFICADO OFICIAL',
-      rotacion: '2deg'
-    }
+    selloNumero: '35+',
+    selloTexto: 'GARANTÍA TOTAL',
+    rotacion: '1.5deg'
   }
 ];
 
 export default function QuienesSomos() {
-  const [indice, setIndice] = useState(0);
-  const trackRef = useRef(null);
-
-  useEffect(() => {
-    const onScroll = () => {
-      if (!trackRef.current) return;
-      const rect = trackRef.current.getBoundingClientRect();
-      const scrollTotal = rect.height - window.innerHeight;
-      const scrollActual = -rect.top;
-
-      if (scrollActual >= 0 && scrollTotal > 0) {
-        const progreso = Math.min(Math.max(scrollActual / scrollTotal, 0), 0.999);
-        const nuevoIndice = Math.floor(progreso * capitulosHistoria.length);
-        setIndice(nuevoIndice);
-      }
-    };
-
-    window.addEventListener('scroll', onScroll, { passive: true });
-    return () => window.removeEventListener('scroll', onScroll);
-  }, []);
-
-  const cap = capitulosHistoria[indice];
-
   return (
-    <div style={{ backgroundColor: '#0B0C0E', minHeight: '100vh', color: '#ffffff', paddingBottom: '90px', overflowX: 'hidden' }}>
+    <div style={{ backgroundColor: '#0B0C0E', minHeight: '100vh', color: '#ffffff', paddingBottom: '90px' }}>
       
-      {/* TIPOGRAFÍA MÁQUINA DE ESCRIBIR & ANIMACIONES */}
+      {/* TIPOGRAFÍA MÁQUINA DE ESCRIBIR Y ESTILOS DE PANELES APILABLES */}
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=Special+Elite&display=swap');
 
@@ -144,14 +95,8 @@ export default function QuienesSomos() {
           font-family: 'Special Elite', 'Courier Prime', monospace !important;
         }
 
-        /* PISTA VIRTUAL PARA EL SCROLL FIJO */
-        .scrolly-sticky-track {
-          position: relative;
-          height: 650vh;
-        }
-
-        /* ESCENARIO CLAVADO AL VIEWPORT */
-        .scrolly-sticky-stage {
+        /* PANELES APILABLES: LA PANTALLA QUEDA FIJA Y CADA NUEVA FOTO SUBE DESDE ABAJO */
+        .story-sticky-panel {
           position: sticky;
           top: 0;
           height: 100vh;
@@ -159,158 +104,85 @@ export default function QuienesSomos() {
           display: flex;
           align-items: center;
           justify-content: center;
-          padding: 20px 24px;
+          background-color: #0B0C0E;
+          box-shadow: 0 -25px 50px rgba(0, 0, 0, 0.95);
           box-sizing: border-box;
-          overflow: hidden;
+          padding: 24px;
         }
 
-        .scrolly-theater-box {
-          max-width: 1180px;
+        .story-stage-inner {
+          max-width: 1280px;
           width: 100%;
-          position: relative;
-          display: flex;
-          flex-direction: column;
-          gap: 20px;
+          display: grid;
+          grid-template-columns: 1.35fr 1fr;
+          gap: 36px;
+          align-items: center;
         }
 
-        /* MARCO DOCUMENTAL DE LA FOTO (NO SE RECORTA NI TAPA) */
-        .stage-photo-window {
-          position: relative;
+        /* FOTO EN GRANDE (NO SE TAPA) */
+        .photo-canvas {
           width: 100%;
-          height: 58vh;
-          min-height: 380px;
+          height: 68vh;
+          min-height: 400px;
           border-radius: 24px;
           overflow: hidden;
           background-color: #070709;
           border: 1px solid #27272a;
-          box-shadow: 0 30px 70px rgba(0, 0, 0, 0.9);
+          box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8);
+          position: relative;
         }
 
-        .stage-photo-window img {
+        .photo-canvas img {
           width: 100%;
           height: 100%;
           object-fit: cover;
           display: block;
-          animation: photoSlideUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
 
-        @keyframes photoSlideUp {
-          from {
-            opacity: 0;
-            transform: scale(1.04) translateY(24px);
-          }
-          to {
-            opacity: 1;
-            transform: scale(1) translateY(0);
-          }
-        }
-
-        /* ESTAMPILLA FILATÉLICA COMPACTA */
-        .postage-stamp {
-          position: absolute;
-          bottom: 20px;
-          right: 24px;
-          width: 130px;
-          height: 160px;
-          background: #eae0d0;
+        /* ESTAMPILLA FILATÉLICA VINTAGE COMPLETA (TODO EL TEXTO VA ADENTRO) */
+        .vintage-stamp-envelope {
+          background: #eadecc;
           background-image: 
-            radial-gradient(transparent 0px, transparent 4px, #eae0d0 4px, #eae0d0),
+            radial-gradient(#d6c4a8 10%, transparent 11%),
             linear-gradient(135deg, #f7f3ec 0%, #d8c8b4 100%);
+          background-size: 8px 8px, 100% 100%;
           border: 1px solid #baa891;
-          box-shadow: 0 16px 36px rgba(0, 0, 0, 0.75), inset 0 0 12px rgba(160, 130, 95, 0.3);
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          justify-content: space-between;
-          padding: 10px 8px;
+          box-shadow: 0 20px 45px rgba(0, 0, 0, 0.7), inset 0 0 15px rgba(160, 130, 95, 0.35);
+          border-radius: 4px;
+          outline: 6px dotted #eadecc;
+          outline-offset: -3px;
+          padding: 32px 28px;
           box-sizing: border-box;
-          z-index: 10;
+          position: relative;
           color: #2b2219;
-          outline: 4px dotted #eae0d0;
-          outline-offset: -2px;
-          animation: stampFloat 0.45s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+          transition: transform 0.3s ease;
         }
 
-        @keyframes stampFloat {
-          from {
-            opacity: 0;
-            transform: translateY(15px) scale(0.92);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0) scale(1);
-          }
+        .vintage-stamp-envelope:hover {
+          transform: scale(1.02) !important;
         }
 
-        /* MATASELLOS CIRCULAR ROJO */
-        .postage-postmark {
+        /* MATASELLOS POSTAL CIRCULAR ROJO */
+        .postmark-seal {
           position: absolute;
-          top: -12px;
-          right: -12px;
-          width: 50px;
-          height: 50px;
+          top: -16px;
+          right: -16px;
+          width: 72px;
+          height: 72px;
           border-radius: 50%;
           border: 2px dashed rgba(237, 28, 36, 0.85);
           display: flex;
           align-items: center;
           justify-content: center;
           text-align: center;
-          font-size: 0.5rem;
+          font-size: 0.62rem;
           font-weight: 800;
           color: #ED1C24;
-          transform: rotate(16deg);
+          transform: rotate(18deg);
           pointer-events: none;
-          background: rgba(234, 224, 208, 0.95);
-          line-height: 1.05;
-        }
-
-        /* LÁMINA DOCUMENTAL INFERIOR CON TIPOGRAFÍA TYPEWRITER */
-        .stage-caption-card {
-          background-color: #141518;
-          border: 1px solid #27272a;
-          border-radius: 20px;
-          padding: 22px 28px;
-          box-shadow: 0 14px 35px rgba(0, 0, 0, 0.6);
-          display: grid;
-          grid-template-columns: auto 1fr;
-          gap: 30px;
-          align-items: center;
-          animation: captionFade 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-        }
-
-        @keyframes captionFade {
-          from {
-            opacity: 0;
-            transform: translateY(12px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-
-        /* DIAL DE HITOS */
-        .timeline-step-pills {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          gap: 8px;
-          margin-top: 6px;
-        }
-
-        .step-pill {
-          height: 4px;
-          border-radius: 4px;
-          background-color: #27272a;
-          transition: all 0.3s ease;
-          flex: 1;
-          max-width: 40px;
-        }
-
-        .step-pill.active {
-          background-color: #ED1C24;
-          box-shadow: 0 0 10px rgba(237, 28, 36, 0.8);
-          max-width: 60px;
+          background: rgba(234, 222, 204, 0.95);
+          line-height: 1.1;
+          letter-spacing: 0.5px;
         }
 
         .values-grid-2x2 {
@@ -341,32 +213,23 @@ export default function QuienesSomos() {
         }
 
         /* ADAPTACIÓN CELULARES */
-        @media (max-width: 860px) {
-          .stage-photo-window {
-            height: 42vh !important;
-            min-height: 250px !important;
+        @media (max-width: 900px) {
+          .story-sticky-panel {
+            height: auto !important;
+            position: relative !important;
+            padding: 20px 16px 40px 16px !important;
           }
-          .stage-caption-card {
+          .story-stage-inner {
             grid-template-columns: 1fr !important;
-            gap: 10px !important;
-            padding: 16px !important;
+            gap: 20px !important;
           }
-          .postage-stamp {
-            width: 95px !important;
-            height: 120px !important;
-            bottom: 12px !important;
-            right: 12px !important;
-            padding: 6px !important;
+          .photo-canvas {
+            height: 280px !important;
+            min-height: auto !important;
           }
-          .postage-stamp .stamp-big-num {
-            font-size: 1.25rem !important;
-          }
-          .postage-postmark {
-            width: 38px !important;
-            height: 38px !important;
-            font-size: 0.42rem !important;
-            top: -8px !important;
-            right: -8px !important;
+          .vintage-stamp-envelope {
+            padding: 20px !important;
+            transform: none !important;
           }
           .values-grid-2x2, .salon-grid {
             grid-template-columns: 1fr !important;
@@ -378,7 +241,7 @@ export default function QuienesSomos() {
       `}</style>
 
       {/* 1. HERO INSTITUCIONAL */}
-      <section style={{ padding: '30px 20px 10px 20px', textAlign: 'center', maxWidth: '980px', margin: '0 auto' }}>
+      <section style={{ padding: '35px 20px 20px 20px', textAlign: 'center', maxWidth: '980px', margin: '0 auto' }}>
         <div style={{ marginBottom: '10px' }}>
           <img 
             src="/logo.png.png" 
@@ -398,88 +261,65 @@ export default function QuienesSomos() {
 
         <div style={{ maxWidth: '780px', margin: '0 auto' }}>
           <p style={{ fontSize: '1.02rem', color: '#d4d4d8', lineHeight: 1.65, margin: 0 }}>
-            Deslizá con la rueda del mouse. La pantalla permanecerá fija en las postales mientras los recuerdos cobran vida:
+            Deslizá con el mouse. Cada capítulo sube desde abajo y se ancla en pantalla para revivir los momentos que forjaron nuestro camino:
           </p>
         </div>
       </section>
 
-      {/* 2. TEATRO SCROLLYTELLING FIJO (PANTALLA CONGELADA) */}
-      <section ref={trackRef} className="scrolly-sticky-track">
-        <div className="scrolly-sticky-stage">
-          
-          <div className="scrolly-theater-box">
-            
-            {/* VENTANA PANORÁMICA DE LA FOTO */}
-            <div className="stage-photo-window">
-              <img 
-                key={cap.imagen} 
-                src={cap.imagen} 
-                alt={cap.titulo} 
-              />
-
-              {/* ESTAMPILLA FILATÉLICA AUTÉNTICA */}
-              <div 
-                key={cap.año + '-stamp'}
-                className="postage-stamp font-typewriter"
-                style={{ transform: `rotate(${cap.estampilla.rotacion})` }}
-              >
-                <div className="postage-postmark">
-                  COGNO<br/>OFICIAL
-                </div>
-
-                <div style={{ fontSize: '0.62rem', fontWeight: 700, letterSpacing: '0.8px', textTransform: 'uppercase', color: '#574838' }}>
-                  {cap.estampilla.origen}
-                </div>
-
-                <div className="stamp-big-num" style={{ fontSize: '1.75rem', fontWeight: 700, color: '#991b1b', lineHeight: 1, margin: '2px 0' }}>
-                  {cap.estampilla.valor}
-                </div>
-
-                <div style={{ fontSize: '0.54rem', fontWeight: 600, letterSpacing: '0.5px', textTransform: 'uppercase', color: '#7a654f', textAlign: 'center', borderTop: '1px dashed #baa891', paddingTop: '3px', width: '100%' }}>
-                  {cap.estampilla.sub}
-                </div>
-              </div>
-            </div>
-
-            {/* TARJETA DESCRIPTIVA INFERIOR (MÁQUINA DE ESCRIBIR) */}
-            <div key={cap.año + '-card'} className="stage-caption-card">
+      {/* 2. PANELES SCROLLYTELLING APILABLES (SUBEN DESDE ABAJO) */}
+      <section style={{ position: 'relative' }}>
+        {capitulosHistoria.map((cap, index) => (
+          <div key={index} className="story-sticky-panel">
+            <div className="story-stage-inner">
               
-              {/* AÑO Y ETIQUETA */}
-              <div style={{ minWidth: '150px' }}>
-                <div className="font-typewriter" style={{ fontSize: '2.15rem', fontWeight: 700, color: '#ED1C24', lineHeight: 1 }}>
-                  {cap.año}
-                </div>
-                <div style={{ fontSize: '0.72rem', color: '#a1a1aa', fontWeight: 700, letterSpacing: '1.2px', textTransform: 'uppercase', marginTop: '4px' }}>
-                  {cap.etiqueta}
+              {/* COLUMNA 1: FOTO GRANDE Y TOTALMENTE DESPEJADA */}
+              <div className="photo-canvas">
+                <img src={cap.imagen} alt={cap.titulo} />
+                <div style={{ position: 'absolute', bottom: '14px', left: '14px', backgroundColor: 'rgba(11, 12, 14, 0.85)', backdropFilter: 'blur(8px)', border: '1px solid #27272a', padding: '6px 14px', borderRadius: '20px', fontSize: '0.76rem', color: '#ffffff', fontWeight: 600 }}>
+                  📷 Archivo Cogno Automotores
                 </div>
               </div>
 
-              {/* TÍTULO Y RELATO */}
-              <div>
-                <h2 style={{ fontSize: '1.35rem', fontWeight: 600, color: '#ffffff', margin: '0 0 6px 0', lineHeight: 1.3 }}>
+              {/* COLUMNA 2: ESTAMPILLA VINTAGE CON TODO EL TEXTO ADENTRO */}
+              <div 
+                className="vintage-stamp-envelope font-typewriter"
+                style={{ transform: `rotate(${cap.rotacion})` }}
+              >
+                {/* MATASELLOS ROJO */}
+                <div className="postmark-seal">
+                  COGNO<br/>{cap.selloNumero}
+                </div>
+
+                <div style={{ borderBottom: '1px dashed #baa891', paddingBottom: '10px', marginBottom: '14px' }}>
+                  <div style={{ fontSize: '1.85rem', fontWeight: 700, color: '#991b1b', lineHeight: 1 }}>
+                    {cap.año}
+                  </div>
+                  <div style={{ fontSize: '0.74rem', textTransform: 'uppercase', letterSpacing: '1.5px', color: '#574838', marginTop: '4px', fontWeight: 700 }}>
+                    {cap.etiqueta} • {cap.selloTexto}
+                  </div>
+                </div>
+
+                <h3 style={{ fontSize: '1.25rem', fontWeight: 700, color: '#1a1612', margin: '0 0 12px 0', lineHeight: 1.3 }}>
                   {cap.titulo}
-                </h2>
-                <p style={{ fontSize: '0.94rem', color: '#d4d4d8', lineHeight: 1.6, margin: 0 }}>
+                </h3>
+
+                <p style={{ fontSize: '0.92rem', color: '#2b2219', lineHeight: 1.6, margin: 0 }}>
                   {cap.relato}
                 </p>
+
+                <div style={{ marginTop: '16px', paddingTop: '10px', borderTop: '1px dashed #baa891', display: 'flex', justifyContent: 'space-between', alignItems: 'center', fontSize: '0.72rem', color: '#7a654f' }}>
+                  <span>EXPEDICIÓN RÍO CUARTO</span>
+                  <span>SERIE 1989-2026</span>
+                </div>
               </div>
 
             </div>
-
-            {/* DIAL DE PROGRESO DE HITOS */}
-            <div className="timeline-step-pills">
-              {capitulosHistoria.map((_, i) => (
-                <div key={i} className={`step-pill ${i === indice ? 'active' : ''}`} />
-              ))}
-            </div>
-
           </div>
-
-        </div>
+        ))}
       </section>
 
       {/* 3. PROPÓSITO & COMPROMISO */}
-      <section style={{ maxWidth: '1280px', margin: '40px auto 0 auto', padding: '0 24px' }}>
+      <section style={{ maxWidth: '1280px', margin: '60px auto 0 auto', padding: '0 24px' }}>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '24px' }}>
           
           <div style={{ position: 'relative', minHeight: '260px', borderRadius: '20px', overflow: 'hidden', border: '1px solid #27272a', padding: '28px 24px', display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', backgroundColor: '#141518' }}>
