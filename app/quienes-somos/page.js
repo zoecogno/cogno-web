@@ -3,14 +3,13 @@
 const capitulosHistoria = [
   {
     año: '1989',
-    etiqueta: 'EL INICIO FUNDACIONAL',
+    etiqueta: 'EL PUNTO DE PARTIDA',
     titulo: 'La primera chata: "La Vaca Milka"',
-    relato: 'Todo comenzó con esta clásica Ford F-100 blanca equipada con cúpula y defensa tubular. Fue la primera unidad entregada y la chispa fundacional de Cogno Automotores. Sin grandes estructuras, pero con una convicción innegociable: el valor de la palabra empeñada y el trato leal valen más que cualquier firma.',
+    relato: 'Todo comenzó con esta clásica Ford F-100 blanca equipada con cúpula y defensa tubular. Fue la primera unidad entregada y la chispa fundacional de Cogno Automotores. Sin grandes estructuras, pero con una convicción innegociable: la palabra empeñada y el trato leal valen más que cualquier firma.',
     imagen: '/primera-chata.png',
     pie: 'Ford F-100 bautizada "La Vaca Milka" — Archivo fundacional 1989',
     selloNumero: '01',
-    selloTexto: 'ORIGEN • 1989',
-    rotacion: '-1.5deg'
+    selloTexto: 'ORIGEN • 1989'
   },
   {
     año: 'AÑOS 90',
@@ -20,8 +19,7 @@ const capitulosHistoria = [
     imagen: '/origenes-local.jpg',
     pie: 'Primeras instalaciones y utilitarios en el predio propio',
     selloNumero: '90s',
-    selloTexto: 'PREDIO PROPIO',
-    rotacion: '2deg'
+    selloTexto: 'PREDIO PROPIO'
   },
   {
     año: 'CRECIMIENTO',
@@ -31,8 +29,7 @@ const capitulosHistoria = [
     imagen: '/familia-90s.jpg',
     pie: 'El corazón de una empresa familiar — Archivo histórico',
     selloNumero: 'FAM',
-    selloTexto: 'MULTIMARCA',
-    rotacion: '-1.8deg'
+    selloTexto: 'MULTIMARCA'
   },
   {
     año: '2014',
@@ -42,8 +39,7 @@ const capitulosHistoria = [
     imagen: '/frente-2014.png',
     pie: 'Exhibición de utilitarios sobre vereda Alvear en 2014',
     selloNumero: '4X4',
-    selloTexto: 'LÍDERES 4X4',
-    rotacion: '1.5deg'
+    selloTexto: 'LÍDERES 4X4'
   },
   {
     año: '2015',
@@ -53,8 +49,7 @@ const capitulosHistoria = [
     imagen: '/frente-2015.jpg',
     pie: 'Vista frontal desde la avenida — Archivo 2015',
     selloNumero: '15',
-    selloTexto: 'ALVEAR 1580',
-    rotacion: '-2deg'
+    selloTexto: 'ALVEAR 1580'
   },
   {
     año: 'EXPANSIÓN',
@@ -64,8 +59,7 @@ const capitulosHistoria = [
     imagen: '/flota-hilux.jpg',
     pie: 'Flota comercial 0 KM alineada en el salón de entregas',
     selloNumero: 'FLOTA',
-    selloTexto: 'DESPACHO 0KM',
-    rotacion: '2deg'
+    selloTexto: 'DESPACHO 0KM'
   },
   {
     año: 'PRESENTE',
@@ -75,8 +69,7 @@ const capitulosHistoria = [
     imagen: '/frente-2026.jpg.jpg',
     pie: 'Instalaciones actuales — Marcelo T. de Alvear 1580',
     selloNumero: '35+',
-    selloTexto: 'GARANTÍA TOTAL',
-    rotacion: '1.2deg'
+    selloTexto: 'GARANTÍA TOTAL'
   }
 ];
 
@@ -84,7 +77,7 @@ export default function QuienesSomos() {
   return (
     <div style={{ backgroundColor: '#0B0C0E', minHeight: '100vh', color: '#ffffff', paddingBottom: '80px', overflowX: 'hidden' }}>
       
-      {/* ESTILOS TIPOGRÁFICOS Y SISTEMA RESPONSIVE */}
+      {/* TIPOGRAFÍA VINTAGE & LÍNEA HORIZONTAL ARRIBA/ABAJO */}
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=Special+Elite&display=swap');
 
@@ -92,140 +85,160 @@ export default function QuienesSomos() {
           font-family: 'Special Elite', 'Courier Prime', monospace !important;
         }
 
-        /* LÍNEA DE TIEMPO EN ESCRITORIO (ZIGZAG) */
-        .timeline-track-desktop {
+        /* CONTENEDOR HORIZONTAL SCROLL */
+        .timeline-h-container {
           position: relative;
-          max-width: 1180px;
-          margin: 40px auto 0 auto;
-          padding: 0 20px;
-          display: block;
+          width: 100%;
+          overflow-x: auto;
+          overflow-y: hidden;
+          padding: 30px 20px 50px 20px;
+          box-sizing: border-box;
+          -webkit-overflow-scrolling: touch;
         }
 
-        .timeline-track-desktop::before {
-          content: '';
+        .timeline-h-container::-webkit-scrollbar {
+          height: 6px;
+        }
+        .timeline-h-container::-webkit-scrollbar-thumb {
+          background: #ED1C24;
+          border-radius: 4px;
+        }
+        .timeline-h-container::-webkit-scrollbar-track {
+          background: #141518;
+        }
+
+        /* EJE DE LA LÍNEA CENTRAL */
+        .timeline-h-stage {
+          position: relative;
+          display: flex;
+          align-items: center;
+          min-width: max-content;
+          height: 740px;
+          padding: 0 40px;
+        }
+
+        .timeline-h-axis {
           position: absolute;
-          top: 30px;
-          bottom: 30px;
-          left: 50%;
-          width: 2px;
-          background: linear-gradient(180deg, #ED1C24 0%, #27272a 12%, #27272a 88%, #ED1C24 100%);
-          transform: translateX(-50%);
+          left: 0;
+          right: 0;
+          top: 50%;
+          height: 2px;
+          background: linear-gradient(90deg, transparent 0%, #ED1C24 4%, #27272a 20%, #27272a 80%, #ED1C24 96%, transparent 100%);
+          transform: translateY(-50%);
           z-index: 1;
         }
 
-        .timeline-row {
+        /* BLOQUE POR CADA HITO (COLUMNA HORIZONTAL) */
+        .timeline-h-node-slot {
+          position: relative;
+          width: 440px;
+          height: 100%;
+          margin: 0 24px;
           display: flex;
           align-items: center;
-          position: relative;
-          margin-bottom: 75px;
-          width: 100%;
-        }
-
-        .timeline-row:nth-child(even) {
-          flex-direction: row-reverse;
-        }
-
-        .timeline-dot {
-          position: absolute;
-          left: 50%;
-          transform: translateX(-50%);
-          width: 18px;
-          height: 18px;
-          border-radius: 50%;
-          background-color: #ED1C24;
-          border: 3px solid #0B0C0E;
-          box-shadow: 0 0 12px rgba(237, 28, 36, 0.7);
-          z-index: 5;
-        }
-
-        .timeline-col {
-          width: 46%;
-          box-sizing: border-box;
+          justify-content: center;
           z-index: 2;
         }
 
-        .timeline-photo-box {
-          border-radius: 18px;
-          overflow: hidden;
-          background-color: #141518;
-          border: 1px solid #27272a;
-          box-shadow: 0 16px 36px rgba(0, 0, 0, 0.6);
-          transition: transform 0.35s ease, border-color 0.35s ease;
+        /* NODO CENTRAL EN LA LÍNEA */
+        .timeline-h-dot {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          width: 22px;
+          height: 22px;
+          border-radius: 50%;
+          background-color: #ED1C24;
+          border: 4px solid #0B0C0E;
+          box-shadow: 0 0 14px rgba(237, 28, 36, 0.85);
+          z-index: 5;
         }
 
-        .timeline-photo-box:hover {
-          transform: scale(1.02);
+        /* TARJETA COMPLETA ARRIBA DE LA LÍNEA */
+        .h-card-top {
+          position: absolute;
+          bottom: calc(50% + 24px);
+          left: 50%;
+          transform: translateX(-50%);
+          width: 420px;
+        }
+
+        /* TARJETA COMPLETA ABAJO DE LA LÍNEA */
+        .h-card-bottom {
+          position: absolute;
+          top: calc(50% + 24px);
+          left: 50%;
+          transform: translateX(-50%);
+          width: 420px;
+        }
+
+        /* MARCO POSTAL FOTO + ESTAMPILLA */
+        .h-card-frame {
+          background-color: #141518;
+          border: 1px solid #27272a;
+          border-radius: 18px;
+          padding: 12px;
+          box-shadow: 0 14px 35px rgba(0,0,0,0.65);
+          transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+        .h-card-frame:hover {
+          transform: translateY(-4px);
           border-color: rgba(237, 28, 36, 0.5);
         }
 
-        .timeline-photo-box img {
+        .h-card-img-wrap {
           width: 100%;
-          height: 320px;
+          height: 160px;
+          border-radius: 12px;
+          overflow: hidden;
+          background-color: #070709;
+        }
+        .h-card-img-wrap img {
+          width: 100%;
+          height: 100%;
           object-fit: cover;
           display: block;
         }
 
-        .timeline-photo-caption {
-          padding: 10px 16px;
-          font-size: 0.76rem;
-          color: #a1a1aa;
-          background-color: #0d0e11;
-          border-top: 1px solid #1f2024;
-          display: flex;
-          align-items: center;
-          gap: 8px;
-        }
-
-        .timeline-stamp-box {
+        /* ESTAMPILLA VINTAGE ACOPLADA */
+        .h-card-stamp {
+          margin-top: 10px;
+          padding: 14px 16px;
           background: #eadecc;
           background-image: 
             radial-gradient(#d6c4a8 10%, transparent 11%),
             linear-gradient(135deg, #f7f3ec 0%, #d8c8b4 100%);
           background-size: 8px 8px, 100% 100%;
           border: 1px solid #baa891;
-          box-shadow: 0 16px 36px rgba(0, 0, 0, 0.65), inset 0 0 14px rgba(160, 130, 95, 0.35);
+          box-shadow: inset 0 0 10px rgba(160, 130, 95, 0.3);
           border-radius: 4px;
-          outline: 5px dotted #eadecc;
-          outline-offset: -3px;
-          padding: 24px 22px;
-          box-sizing: border-box;
+          outline: 4px dotted #eadecc;
+          outline-offset: -2px;
           position: relative;
           color: #2b2219;
-          transition: transform 0.3s ease;
         }
 
-        .timeline-stamp-box:hover {
-          transform: scale(1.02) !important;
-        }
-
-        .timeline-seal {
+        .h-card-seal {
           position: absolute;
-          top: -12px;
-          right: -12px;
-          width: 62px;
-          height: 62px;
+          top: -8px;
+          right: -8px;
+          width: 46px;
+          height: 46px;
           border-radius: 50%;
           border: 2px dashed rgba(237, 28, 36, 0.85);
           display: flex;
           align-items: center;
           justify-content: center;
-          text-align: center;
-          font-size: 0.56rem;
+          font-size: 0.46rem;
           font-weight: 800;
           color: #ED1C24;
-          transform: rotate(16deg);
-          pointer-events: none;
           background: rgba(234, 222, 204, 0.95);
-          line-height: 1.1;
-          letter-spacing: 0.5px;
+          transform: rotate(14deg);
+          line-height: 1;
         }
 
-        /* REEL HORIZONTAL TÁCTIL EN MÓVILES */
-        .timeline-mobile-reel {
-          display: none;
-        }
-
-        /* MISIÓN Y VISIÓN (ESCALA APROBADA) */
+        /* MISIÓN Y VISIÓN COMPACTAS */
         .vision-grid {
           display: grid;
           grid-template-columns: 1fr 1fr;
@@ -286,7 +299,7 @@ export default function QuienesSomos() {
           display: flex;
           gap: 18px;
           align-items: flex-start;
-          transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease, box-shadow 0.3s ease;
+          transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
         }
         .value-card:hover {
           transform: translateY(-5px);
@@ -308,7 +321,7 @@ export default function QuienesSomos() {
           align-items: center;
         }
 
-        /* --- ADAPTACIÓN MÓVIL ESTRICTA --- */
+        /* --- CELULARES --- */
         @media (max-width: 768px) {
           .section-title {
             font-size: 1.35rem !important;
@@ -328,91 +341,23 @@ export default function QuienesSomos() {
             line-height: 1.45 !important;
           }
 
-          /* APAGAR LÍNEA VERTICAL Y ACTIVAR REEL HORIZONTAL */
-          .timeline-track-desktop {
-            display: none !important;
+          .timeline-h-stage {
+            height: 640px !important;
+          }
+          .timeline-h-node-slot {
+            width: 320px !important;
+            margin: 0 14px !important;
+          }
+          .h-card-top, .h-card-bottom {
+            width: 310px !important;
+          }
+          .h-card-img-wrap {
+            height: 130px !important;
+          }
+          .h-card-stamp {
+            padding: 12px 14px !important;
           }
 
-          .timeline-mobile-reel {
-            display: flex !important;
-            overflow-x: auto;
-            scroll-snap-type: x mandatory;
-            gap: 16px;
-            padding: 10px 16px 25px 16px;
-            -webkit-overflow-scrolling: touch;
-          }
-
-          .timeline-mobile-reel::-webkit-scrollbar {
-            height: 4px;
-          }
-          .timeline-mobile-reel::-webkit-scrollbar-thumb {
-            background: #ED1C24;
-            border-radius: 4px;
-          }
-          .timeline-mobile-reel::-webkit-scrollbar-track {
-            background: #141518;
-          }
-
-          .mobile-slide-card {
-            flex: 0 0 88vw;
-            scroll-snap-align: center;
-            background-color: #141518;
-            border: 1px solid #27272a;
-            border-radius: 18px;
-            overflow: hidden;
-            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.7);
-            display: flex;
-            flex-direction: column;
-          }
-
-          .mobile-photo-wrap {
-            height: 200px;
-            width: 100%;
-            overflow: hidden;
-            background-color: #070709;
-            position: relative;
-          }
-
-          .mobile-photo-wrap img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-          }
-
-          .mobile-stamp-wrap {
-            padding: 18px 16px;
-            background: #eadecc;
-            background-image: 
-              radial-gradient(#d6c4a8 10%, transparent 11%),
-              linear-gradient(135deg, #f7f3ec 0%, #d8c8b4 100%);
-            background-size: 8px 8px, 100% 100%;
-            color: #2b2219;
-            position: relative;
-            outline: 4px dotted #eadecc;
-            outline-offset: -2px;
-          }
-
-          .mobile-seal {
-            position: absolute;
-            top: -10px;
-            right: 10px;
-            width: 46px;
-            height: 46px;
-            border-radius: 50%;
-            border: 2px dashed rgba(237, 28, 36, 0.85);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 0.46rem;
-            font-weight: 800;
-            color: #ED1C24;
-            background: rgba(234, 222, 204, 0.95);
-            transform: rotate(14deg);
-            line-height: 1;
-          }
-
-          /* MISIÓN Y VISIÓN COMPACTAS */
           .vision-grid {
             grid-template-columns: 1fr !important;
             gap: 12px !important;
@@ -431,7 +376,6 @@ export default function QuienesSomos() {
             line-height: 1.45 !important;
           }
 
-          /* VALORES COMPACTOS */
           .values-grid-2x2 {
             grid-template-columns: 1fr !important;
             gap: 10px !important;
@@ -446,10 +390,6 @@ export default function QuienesSomos() {
             height: 38px !important;
             border-radius: 10px !important;
             flex-shrink: 0 !important;
-          }
-          .value-icon-box svg {
-            width: 18px !important;
-            height: 18px !important;
           }
           .value-card h3 {
             font-size: 1.05rem !important;
@@ -514,9 +454,9 @@ export default function QuienesSomos() {
         </div>
       </div>
 
-      {/* 2. NUESTRA HISTORIA: LÍNEA DE TIEMPO / CARROUSEL MÓVIL */}
-      <section style={{ maxWidth: '1280px', margin: '45px auto 0 auto' }}>
-        <div style={{ textAlign: 'center', marginBottom: '30px', padding: '0 20px' }}>
+      {/* 2. NUESTRA HISTORIA: LÍNEA HORIZONTAL CON EJE EN EL MEDIO (ARRIBA Y ABAJO) */}
+      <section style={{ maxWidth: '1280px', margin: '50px auto 0 auto' }}>
+        <div style={{ textAlign: 'center', marginBottom: '16px', padding: '0 20px' }}>
           <span style={{ fontSize: '0.82rem', fontWeight: 700, color: '#ED1C24', letterSpacing: '2px', textTransform: 'uppercase' }}>
             NUESTRO RECORRIDO
           </span>
@@ -524,99 +464,65 @@ export default function QuienesSomos() {
             Nuestra Historia
           </h2>
           <p style={{ color: '#a1a1aa', fontSize: '0.92rem', maxWidth: '680px', margin: '0 auto', lineHeight: 1.5 }}>
-            Los hitos y memorias documentales que forjaron tres décadas y media de compromiso en Río Cuarto.
+            Deslizá hacia los lados para recorrer las tres décadas y media que forjaron la identidad de nuestra concesionaria:
           </p>
         </div>
 
-        {/* VISTA ESCRITORIO: LÍNEA EN ZIGZAG */}
-        <div className="timeline-track-desktop">
-          {capitulosHistoria.map((cap, index) => (
-            <div key={index} className="timeline-row">
-              <div className="timeline-dot"></div>
+        {/* CONTENEDOR CON EJE HORIZONTAL */}
+        <div className="timeline-h-container">
+          <div className="timeline-h-stage">
+            
+            {/* LÍNEA HORIZONTAL ROJA/GRIS CENTRAL */}
+            <div className="timeline-h-axis"></div>
 
-              {/* ESTAMPILLA VINTAGE */}
-              <div className="timeline-col">
-                <div 
-                  className="timeline-stamp-box font-typewriter"
-                  style={{ transform: `rotate(${cap.rotacion})` }}
-                >
-                  <div className="timeline-seal">
-                    COGNO<br/>{cap.selloNumero}
-                  </div>
+            {capitulosHistoria.map((cap, index) => {
+              const esArriba = index % 2 === 0;
 
-                  <div style={{ borderBottom: '1px dashed #baa891', paddingBottom: '8px', marginBottom: '12px' }}>
-                    <div style={{ fontSize: '1.65rem', fontWeight: 700, color: '#991b1b', lineHeight: 1 }}>
-                      {cap.año}
+              return (
+                <div key={index} className="timeline-h-node-slot">
+                  
+                  {/* NODO CIRCULAR ROJO EN EL EJE */}
+                  <div className="timeline-h-dot"></div>
+
+                  {/* TARJETA EN LA POSICIÓN DIBUJADA (ARRIBA O ABAJO) */}
+                  <div className={esArriba ? 'h-card-top' : 'h-card-bottom'}>
+                    <div className="h-card-frame">
+                      
+                      <div className="h-card-img-wrap">
+                        <img src={cap.imagen} alt={cap.titulo} />
+                      </div>
+
+                      <div className="h-card-stamp font-typewriter">
+                        <div className="h-card-seal">
+                          COGNO<br/>{cap.selloNumero}
+                        </div>
+
+                        <div style={{ borderBottom: '1px dashed #baa891', paddingBottom: '4px', marginBottom: '6px' }}>
+                          <div style={{ fontSize: '1.35rem', fontWeight: 700, color: '#991b1b', lineHeight: 1 }}>
+                            {cap.año}
+                          </div>
+                          <div style={{ fontSize: '0.65rem', textTransform: 'uppercase', letterSpacing: '1px', color: '#574838', marginTop: '2px', fontWeight: 700 }}>
+                            {cap.etiqueta}
+                          </div>
+                        </div>
+
+                        <h3 style={{ fontSize: '0.95rem', fontWeight: 700, color: '#1a1612', margin: '0 0 4px 0', lineHeight: 1.25 }}>
+                          {cap.titulo}
+                        </h3>
+
+                        <p style={{ fontSize: '0.78rem', color: '#2b2219', lineHeight: 1.45, margin: 0 }}>
+                          {cap.relato}
+                        </p>
+                      </div>
+
                     </div>
-                    <div style={{ fontSize: '0.72rem', textTransform: 'uppercase', letterSpacing: '1.2px', color: '#574838', marginTop: '4px', fontWeight: 700 }}>
-                      {cap.etiqueta} • {cap.selloTexto}
-                    </div>
                   </div>
 
-                  <h3 style={{ fontSize: '1.18rem', fontWeight: 700, color: '#1a1612', margin: '0 0 10px 0', lineHeight: 1.3 }}>
-                    {cap.titulo}
-                  </h3>
-
-                  <p style={{ fontSize: '0.88rem', color: '#2b2219', lineHeight: 1.55, margin: 0 }}>
-                    {cap.relato}
-                  </p>
-
-                  <div style={{ marginTop: '14px', paddingTop: '8px', borderTop: '1px dashed #baa891', display: 'flex', justifyContent: 'space-between', alignItems: 'center', fontSize: '0.7rem', color: '#7a654f' }}>
-                    <span>EXPEDICIÓN RÍO CUARTO</span>
-                    <span>SERIE 1989-2026</span>
-                  </div>
                 </div>
-              </div>
+              );
+            })}
 
-              {/* FOTO DOCUMENTAL */}
-              <div className="timeline-col">
-                <div className="timeline-photo-box">
-                  <img src={cap.imagen} alt={cap.titulo} />
-                  <div className="timeline-photo-caption">
-                    <span style={{ color: '#ED1C24' }}>📷</span>
-                    <span>{cap.pie}</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-
-        {/* VISTA MÓVIL: REEL HORIZONTAL TÁCTIL */}
-        <div className="timeline-mobile-reel">
-          {capitulosHistoria.map((cap, index) => (
-            <div key={index} className="mobile-slide-card">
-              <div className="mobile-photo-wrap">
-                <img src={cap.imagen} alt={cap.titulo} />
-                <div style={{ position: 'absolute', bottom: '8px', left: '8px', backgroundColor: 'rgba(11, 12, 14, 0.85)', padding: '4px 10px', borderRadius: '12px', fontSize: '0.68rem', color: '#ffffff', fontWeight: 600 }}>
-                  📷 {cap.pie}
-                </div>
-              </div>
-
-              <div className="mobile-stamp-wrap font-typewriter">
-                <div className="mobile-seal">
-                  COGNO<br/>{cap.selloNumero}
-                </div>
-
-                <div style={{ borderBottom: '1px dashed #baa891', paddingBottom: '6px', marginBottom: '8px' }}>
-                  <div style={{ fontSize: '1.45rem', fontWeight: 700, color: '#991b1b', lineHeight: 1 }}>
-                    {cap.año}
-                  </div>
-                  <div style={{ fontSize: '0.65rem', textTransform: 'uppercase', letterSpacing: '1px', color: '#574838', marginTop: '2px', fontWeight: 700 }}>
-                    {cap.etiqueta}
-                  </div>
-                </div>
-
-                <h3 style={{ fontSize: '1.05rem', fontWeight: 700, color: '#1a1612', margin: '0 0 6px 0', lineHeight: 1.25 }}>
-                  {cap.titulo}
-                </h3>
-
-                <p style={{ fontSize: '0.84rem', color: '#2b2219', lineHeight: 1.45, margin: 0 }}>
-                  {cap.relato}
-                </p>
-              </div>
-            </div>
-          ))}
+          </div>
         </div>
       </section>
 
@@ -740,14 +646,14 @@ export default function QuienesSomos() {
                 Vení a conocer nuestro local
               </h2>
               <p style={{ fontSize: '0.98rem', color: '#E4E4E7', lineHeight: 1.55, margin: '0 0 18px 0', fontWeight: 400 }}>
-                Te esperamos en nuestro salón comercial para conocer el stock en persona, realizar un peritaje transparente de tu usado y asesorarte de forma personalizada.
+                Te esperamos en nuestro salón comercial para conocer el stock en persona, realizar un peritaje transparente de tu usado y asesorarte de forma personalizada[cite: 4].
               </p>
 
               <div style={{ backgroundColor: '#0B0C0E', border: '1px solid #27272a', padding: '14px 18px', borderRadius: '12px', marginBottom: '18px', display: 'flex', flexDirection: 'column', gap: '10px' }}>
                 <div>
                   <div style={{ fontSize: '0.72rem', color: '#a1a1aa', textTransform: 'uppercase', fontWeight: 600 }}>UBICACIÓN</div>
                   <div style={{ fontSize: '1rem', fontWeight: 600, color: '#ffffff' }}>Av. Marcelo T. de Alvear 1580</div>
-                  <div style={{ fontSize: '0.86rem', color: '#d4d4d8' }}>Río Cuarto, Córdoba, Argentina</div>
+                  <div style={{ fontSize: '0.86rem', color: '#d4d4d8' }}>Río Cuarto, Córdoba, Argentina[cite: 4]</div>
                 </div>
 
                 <div style={{ borderTop: '1px solid #1F2024', paddingTop: '8px' }}>
