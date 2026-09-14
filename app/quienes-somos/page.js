@@ -7,9 +7,11 @@ const capitulosHistoria = [
     titulo: 'La primera chata: "La Vaca Milka"',
     relato: 'Todo comenzó con esta clásica Ford F-100 blanca equipada con cúpula y defensa tubular. Fue la primera unidad entregada y la chispa fundacional de Cogno Automotores. Sin grandes estructuras, pero con una convicción innegociable: la palabra empeñada y el trato leal valen más que cualquier firma.',
     imagen: '/primera-chata.png',
+    posicionEstampilla: 'derecha', // Estampilla a la derecha solapando hacia la foto
     selloNumero: '01',
+    selloTipo: 'circular',
     selloTexto: 'ORIGEN • 1989',
-    rotacion: '-1deg'
+    rotacion: '-2deg'
   },
   {
     año: 'AÑOS 90',
@@ -17,9 +19,11 @@ const capitulosHistoria = [
     titulo: 'Echar raíces sobre Marcelo T. de Alvear',
     relato: 'Los primeros pasos en el predio propio. El trabajo artesanal de seleccionar cada vehículo, revisar la mecánica de punta a punta y atender personalmente a cada productor, transportista y vecino de la región que confiaba su herramienta de trabajo en nuestras manos.',
     imagen: '/origenes-local.jpg',
+    posicionEstampilla: 'izquierda', // Estampilla a la izquierda solapando hacia la foto
     selloNumero: '90s',
+    selloTipo: 'rectangular',
     selloTexto: 'PREDIO PROPIO',
-    rotacion: '1.2deg'
+    rotacion: '2deg'
   },
   {
     año: 'CRECIMIENTO',
@@ -27,9 +31,11 @@ const capitulosHistoria = [
     titulo: 'Una pasión construida entre generaciones',
     relato: 'La transición hacia la comercialización de 0 KM y usados jóvenes. Detrás del mostrador, la familia siempre presente: atendiendo clientes, resolviendo trámites de gestoría y compartiendo el orgullo de ver crecer un proyecto que ya era parte de la identidad de Banda Norte.',
     imagen: '/frente-familia.jpg',
+    posicionEstampilla: 'derecha',
     selloNumero: 'FAM',
+    selloTipo: 'circular',
     selloTexto: 'MULTIMARCA',
-    rotacion: '-1.2deg'
+    rotacion: '-1.5deg'
   },
   {
     año: '2014',
@@ -37,9 +43,11 @@ const capitulosHistoria = [
     titulo: 'Referentes indiscutidos en pick-ups',
     relato: 'Río Cuarto y el sur de Córdoba demandaban utilitarios pesados y confiables. Consolidamos el mayor despliegue de camionetas de la región, convirtiéndonos en el punto de encuentro natural para renovar Toyota Hilux, Ford Ranger y Volkswagen Amarok con garantía real.',
     imagen: '/frente-2014.png',
+    posicionEstampilla: 'izquierda',
     selloNumero: '4X4',
+    selloTipo: 'rectangular',
     selloTexto: 'LÍDERES PICK-UPS',
-    rotacion: '1deg'
+    rotacion: '1.8deg'
   },
   {
     año: '2015',
@@ -47,9 +55,11 @@ const capitulosHistoria = [
     titulo: 'El salón a la vista de toda la ciudad',
     relato: 'Una postal cotidiana sobre Marcelo T. de Alvear 1580. La rotación de stock no paraba: autos medianos, sedanes familiares y camionetas listas para transferir en el día. Los clientes ya no venían solo por un auto, venían a buscar respaldo y tranquilidad.',
     imagen: '/frente-2015.jpg',
+    posicionEstampilla: 'derecha',
     selloNumero: '15',
+    selloTipo: 'circular',
     selloTexto: 'ALVEAR 1580',
-    rotacion: '-1deg'
+    rotacion: '-2deg'
   },
   {
     año: 'EXPANSIÓN',
@@ -57,9 +67,11 @@ const capitulosHistoria = [
     titulo: 'Entregas por flotas: La fuerza de Hilux',
     relato: 'Llegaron los desafíos de escala: proveer flotas corporativas completas, unidades 0 KM llave en mano para el sector agroindustrial y logística pesada. Tres Hilux rojas listas para salir en simultáneo simbolizaron la madurez operativa de la concesionaria.',
     imagen: '/flota-hilux.jpg',
+    posicionEstampilla: 'izquierda',
     selloNumero: 'FLOTA',
+    selloTipo: 'rectangular',
     selloTexto: 'DESPACHO 0KM',
-    rotacion: '1.2deg'
+    rotacion: '2deg'
   },
   {
     año: '2019',
@@ -67,9 +79,11 @@ const capitulosHistoria = [
     titulo: 'Renovación de instalaciones y salón',
     relato: 'Ampliamos el salón cubierto, modernizamos la marquesina corporativa e incorporamos tecnologías de tasación y seguimiento. Cogno Automotores ya unía el prestigio de tres décadas con el dinamismo y confort que exigen las nuevas generaciones.',
     imagen: '/frente-2019.png',
+    posicionEstampilla: 'derecha',
     selloNumero: '19',
+    selloTipo: 'circular',
     selloTexto: 'INFRAESTRUCTURA',
-    rotacion: '-1.5deg'
+    rotacion: '-1.8deg'
   },
   {
     año: 'PRESENTE',
@@ -77,9 +91,11 @@ const capitulosHistoria = [
     titulo: 'Más de 35 años de confianza viva en Río Cuarto',
     relato: 'Salón modelo sobre Marcelo T. de Alvear 1580, inventario digital en tiempo real conectado al taller y garantía extendida propia de 6 meses. Seguimos siendo la misma empresa familiar del primer día, atendida por sus propios dueños con la seriedad de siempre.',
     imagen: '/frente-2026.jpg.jpg',
+    posicionEstampilla: 'derecha',
     selloNumero: '35+',
+    selloTipo: 'circular',
     selloTexto: 'GARANTÍA TOTAL',
-    rotacion: '1deg'
+    rotacion: '1.5deg'
   }
 ];
 
@@ -87,6 +103,7 @@ export default function QuienesSomos() {
   return (
     <div style={{ backgroundColor: '#0B0C0E', minHeight: '100vh', color: '#ffffff', paddingBottom: '90px' }}>
       
+      {/* TIPOGRAFÍA VINTAGE Y EFECTOS DE SOLAPAMIENTO */}
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=Special+Elite&display=swap');
 
@@ -94,6 +111,7 @@ export default function QuienesSomos() {
           font-family: 'Special Elite', 'Courier Prime', monospace !important;
         }
 
+        /* SCROLL SNAP MAGNÉTICO */
         .snap-scroll-album {
           scroll-snap-type: y mandatory;
           overflow-y: auto;
@@ -108,79 +126,94 @@ export default function QuienesSomos() {
           display: flex;
           align-items: center;
           justify-content: center;
-          padding: 20px;
+          padding: 24px;
           box-sizing: border-box;
           background-color: #0B0C0E;
         }
 
-        /* SOPORTE INTEGRADO: PASPARTÚ FOTO + ESTAMPILLA */
-        .story-unified-frame {
-          max-width: 1280px;
+        /* CONTENEDOR ESCÉNICO CON COMPOSICIÓN SOLAPADA */
+        .stage-overlap-composition {
+          max-width: 1240px;
           width: 100%;
-          background-color: #141518;
-          border: 1px solid #27272a;
-          border-radius: 24px;
-          padding: 16px;
-          display: grid;
-          grid-template-columns: 1.35fr 1fr;
-          gap: 24px;
-          align-items: stretch;
-          box-shadow: 0 25px 60px rgba(0, 0, 0, 0.85);
           position: relative;
+          display: flex;
+          align-items: center;
+          justify-content: center;
         }
 
-        .photo-canvas-clean {
-          width: 100%;
-          height: 72vh;
+        /* FOTO EN GRANDE (PANORÁMICA Y CINEMATOGRÁFICA) */
+        .photo-overlap-box {
+          width: 70%;
+          height: 68vh;
           min-height: 420px;
-          border-radius: 18px;
+          border-radius: 22px;
           overflow: hidden;
           background-color: #070709;
           border: 1px solid #27272a;
+          box-shadow: 0 25px 60px rgba(0, 0, 0, 0.9);
           position: relative;
+          z-index: 1;
         }
 
-        .photo-canvas-clean img {
+        .photo-overlap-box img {
           width: 100%;
           height: 100%;
           object-fit: cover;
           display: block;
         }
 
-        /* ESTAMPILLA ACOPLADA */
-        .vintage-stamp-docked {
+        /* ESTAMPILLA VINTAGE CON SOLAPAMIENTO PARCIAL */
+        .stamp-overlap-card {
+          width: 44%;
           background: #eadecc;
           background-image: 
             radial-gradient(#d6c4a8 10%, transparent 11%),
             linear-gradient(135deg, #f7f3ec 0%, #d8c8b4 100%);
           background-size: 8px 8px, 100% 100%;
           border: 1px solid #baa891;
-          box-shadow: 0 14px 32px rgba(0, 0, 0, 0.6), inset 0 0 14px rgba(160, 130, 95, 0.35);
-          border-radius: 6px;
+          box-shadow: 0 20px 45px rgba(0, 0, 0, 0.8), inset 0 0 16px rgba(160, 130, 95, 0.35);
+          border-radius: 4px;
           outline: 6px dotted #eadecc;
           outline-offset: -3px;
           padding: 28px 24px;
-          display: flex;
-          flex-direction: column;
-          justify-content: space-between;
+          box-sizing: border-box;
           position: relative;
           color: #2b2219;
-          transition: transform 0.3s ease;
+          z-index: 2;
+          transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
-        .postmark-seal-compact {
+        .stamp-overlap-card:hover {
+          z-index: 10;
+          box-shadow: 0 25px 55px rgba(0, 0, 0, 0.95);
+        }
+
+        /* ESTAMPILLA A LA DERECHA (MUERDE LA PARTE INFERIOR DERECHA DE LA FOTO) */
+        .stamp-pos-derecha {
+          margin-left: -14%;
+          margin-top: 10%;
+        }
+
+        /* ESTAMPILLA A LA IZQUIERDA (MUERDE LA PARTE INFERIOR IZQUIERDA DE LA FOTO) */
+        .stamp-pos-izquierda {
+          margin-right: -14%;
+          margin-top: 10%;
+        }
+
+        /* MATASELLOS CIRCULAR ROJO */
+        .postmark-seal-circle {
           position: absolute;
           top: -14px;
           right: -14px;
-          width: 64px;
-          height: 64px;
+          width: 68px;
+          height: 68px;
           border-radius: 50%;
           border: 2px dashed rgba(237, 28, 36, 0.85);
           display: flex;
           align-items: center;
           justify-content: center;
           text-align: center;
-          font-size: 0.58rem;
+          font-size: 0.6rem;
           font-weight: 800;
           color: #ED1C24;
           transform: rotate(18deg);
@@ -188,6 +221,27 @@ export default function QuienesSomos() {
           background: rgba(234, 222, 204, 0.95);
           line-height: 1.1;
           letter-spacing: 0.5px;
+        }
+
+        /* MATASELLOS RECTANGULAR OFICIAL */
+        .postmark-seal-rect {
+          position: absolute;
+          top: -12px;
+          right: -10px;
+          padding: 4px 12px;
+          border-radius: 4px;
+          border: 2px solid rgba(237, 28, 36, 0.85);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 0.65rem;
+          font-weight: 800;
+          color: #ED1C24;
+          text-transform: uppercase;
+          transform: rotate(-8deg);
+          pointer-events: none;
+          background: rgba(234, 222, 204, 0.95);
+          letter-spacing: 1px;
         }
 
         .values-grid-2x2 {
@@ -217,24 +271,25 @@ export default function QuienesSomos() {
           align-items: center;
         }
 
-        /* CELULARES */
+        /* CELULARES: SE ACOMODA EN COLUMNA VERTICAL */
         @media (max-width: 900px) {
           .snap-slide {
             height: auto !important;
-            padding: 20px 16px !important;
+            padding: 24px 16px !important;
           }
-          .story-unified-frame {
-            grid-template-columns: 1fr !important;
-            gap: 16px !important;
-            padding: 12px !important;
+          .stage-overlap-composition {
+            flex-direction: column !important;
           }
-          .photo-canvas-clean {
-            height: 260px !important;
+          .photo-overlap-box {
+            width: 100% !important;
+            height: 280px !important;
             min-height: auto !important;
           }
-          .vintage-stamp-docked {
-            padding: 20px !important;
+          .stamp-overlap-card {
+            width: 100% !important;
+            margin: -24px 0 0 0 !important;
             transform: none !important;
+            padding: 20px !important;
           }
           .values-grid-2x2, .salon-grid {
             grid-template-columns: 1fr !important;
@@ -271,30 +326,42 @@ export default function QuienesSomos() {
         </div>
       </section>
 
-      {/* 2. ÁLBUM SCROLL SNAP CON PASPARTÚ INTEGRADO */}
+      {/* 2. ÁLBUM SCROLL SNAP CON ESTAMPILLA SOLAPADA */}
       <div className="snap-scroll-album">
-        {capitulosHistoria.map((cap, index) => (
-          <section key={index} className="snap-slide">
-            <div className="story-unified-frame">
-              
-              {/* COLUMNA IZQUIERDA: FOTO DESPEJADA DENTRO DEL MARCO */}
-              <div className="photo-canvas-clean">
-                <img src={cap.imagen} alt={cap.titulo} />
-                <div style={{ position: 'absolute', bottom: '12px', left: '12px', backgroundColor: 'rgba(11, 12, 14, 0.85)', backdropFilter: 'blur(8px)', border: '1px solid #27272a', padding: '5px 12px', borderRadius: '16px', fontSize: '0.74rem', color: '#ffffff', fontWeight: 600 }}>
-                  📷 Archivo Cogno Automotores
-                </div>
-              </div>
+        {capitulosHistoria.map((cap, index) => {
+          const esDerecha = cap.posicionEstampilla === 'derecha';
 
-              {/* COLUMNA DERECHA: ESTAMPILLA ACOPLADA */}
+          return (
+            <section key={index} className="snap-slide">
               <div 
-                className="vintage-stamp-docked font-typewriter"
-                style={{ transform: `rotate(${cap.rotacion})` }}
+                className="stage-overlap-composition"
+                style={{ flexDirection: esDerecha ? 'row' : 'row-reverse' }}
               >
-                <div className="postmark-seal-compact">
-                  COGNO<br/>{cap.selloNumero}
+                
+                {/* FOTO EN GRANDE (PANORÁMICA Y LIMPIA) */}
+                <div className="photo-overlap-box">
+                  <img src={cap.imagen} alt={cap.titulo} />
+                  <div style={{ position: 'absolute', bottom: '12px', left: esDerecha ? '14px' : 'auto', right: esDerecha ? 'auto' : '14px', backgroundColor: 'rgba(11, 12, 14, 0.85)', backdropFilter: 'blur(8px)', border: '1px solid #27272a', padding: '5px 12px', borderRadius: '16px', fontSize: '0.74rem', color: '#ffffff', fontWeight: 600 }}>
+                    📷 Archivo Cogno Automotores
+                  </div>
                 </div>
 
-                <div>
+                {/* ESTAMPILLA SOLAPADA (MUERDE PARCIALMENTE LA FOTO) */}
+                <div 
+                  className={`stamp-overlap-card font-typewriter ${esDerecha ? 'stamp-pos-derecha' : 'stamp-pos-izquierda'}`}
+                  style={{ transform: `rotate(${cap.rotacion})` }}
+                >
+                  {/* SELLO POSTAL SEGÚN EL TIPO */}
+                  {cap.selloTipo === 'circular' ? (
+                    <div className="postmark-seal-circle">
+                      COGNO<br/>{cap.selloNumero}
+                    </div>
+                  ) : (
+                    <div className="postmark-seal-rect">
+                      EXP • {cap.selloNumero}
+                    </div>
+                  )}
+
                   <div style={{ borderBottom: '1px dashed #baa891', paddingBottom: '8px', marginBottom: '12px' }}>
                     <div style={{ fontSize: '1.75rem', fontWeight: 700, color: '#991b1b', lineHeight: 1 }}>
                       {cap.año}
@@ -311,17 +378,17 @@ export default function QuienesSomos() {
                   <p style={{ fontSize: '0.88rem', color: '#2b2219', lineHeight: 1.55, margin: 0 }}>
                     {cap.relato}
                   </p>
+
+                  <div style={{ marginTop: '14px', paddingTop: '8px', borderTop: '1px dashed #baa891', display: 'flex', justifyContent: 'space-between', alignItems: 'center', fontSize: '0.7rem', color: '#7a654f' }}>
+                    <span>EXPEDICIÓN RÍO CUARTO</span>
+                    <span>SERIE 1989-2026</span>
+                  </div>
                 </div>
 
-                <div style={{ marginTop: '14px', paddingTop: '8px', borderTop: '1px dashed #baa891', display: 'flex', justifyContent: 'space-between', alignItems: 'center', fontSize: '0.7rem', color: '#7a654f' }}>
-                  <span>EXPEDICIÓN RÍO CUARTO</span>
-                  <span>SERIE 1989-2026</span>
-                </div>
               </div>
-
-            </div>
-          </section>
-        ))}
+            </section>
+          );
+        })}
       </div>
 
       {/* 3. PROPÓSITO & COMPROMISO */}
