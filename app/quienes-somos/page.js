@@ -54,8 +54,8 @@ const capitulosHistoria = [
   {
     año: 'EXPANSIÓN',
     etiqueta: 'VOLUMEN Y FLOTAS',
-    titulo: 'Entregas por flotas: La fuerza de Hilux',
-    relato: 'Llegaron los desafíos de escala: proveer flotas corporativas completas, unidades 0 KM llave en mano para el sector agroindustrial y logística pesada. Tres Hilux rojas listas para salir en simultáneo simbolizaron la madurez operativa de la concesionaria.',
+    titulo: 'Entregas por flotas',
+    relato: 'Llegaron los desafíos de escala: proveer flotas corporativas completas, unidades 0 KM llave en mano para el sector agroindustrial y logística pesada. Cuatro Hilux rojas listas para salir en simultáneo simbolizaron la madurez operativa de la concesionaria.',
     imagen: '/flota-hilux.jpg',
     selloNumero: 'FLOTA',
     selloTexto: 'DESPACHO 0KM',
@@ -578,7 +578,7 @@ export default function QuienesSomos() {
             Nuestra Historia
           </h2>
           <p style={{ color: '#a1a1aa', fontSize: '0.92rem', maxWidth: '680px', margin: '0 auto', lineHeight: 1.5 }}>
-            Las empresas no se construyen con discursos, sino con hechos, clientes que vuelven a lo largo de los años y el valor irrenunciable de la palabra empeñada.
+            Las empresas no se construyen con discursos, sino con hechos, clientes que vuelven a lo largo de los años y el valor irrenunciable de la palabra empeñada.Te invitamos a recorrer los momentos que nos trajeron hasta acá.
           </p>
         </div>
 
@@ -633,7 +633,7 @@ export default function QuienesSomos() {
         </div>
 
         {/* --- VISTA CELULAR (MÓVIL): HORIZONTAL CON EJE AL CENTRO (ARRIBA Y ABAJO) --- */}
-        <div className="timeline-mobile-wrapper">
+   <div className="timeline-mobile-wrapper">
           <div className="timeline-mobile-stage">
             
             {/* LÍNEA HORIZONTAL CENTRAL */}
@@ -649,14 +649,6 @@ export default function QuienesSomos() {
                   <div className="timeline-mobile-dot"></div>
 
                   {/* BLOQUE FOTO + ESTAMPILLA ALTERNADO */}
-                  <div className={esArriba ? 'mobile-node-top' : 'mobile-node-bottom'}>
-                    
-                    {/* FOTO EN GRANDE */}
-                    <div className="mobile-h-photo">
-                      <img src={cap.imagen} alt={cap.titulo} />
-                    </div>
-
-                   {/* BLOQUE FOTO + ESTAMPILLA ALTERNADO */}
                   <div className={esArriba ? 'mobile-node-top' : 'mobile-node-bottom'}>
                     
                     {/* FOTO EN GRANDE */}
