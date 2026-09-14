@@ -3,27 +3,31 @@
 const capitulosHistoria = [
   {
     año: '1989',
-    etiqueta: 'EL PUNTO DE PARTIDA',
+    etiqueta: 'EL INICIO FUNDACIONAL',
     titulo: 'La primera chata: "La Vaca Milka"',
     relato: 'Todo comenzó con esta clásica Ford F-100 blanca equipada con cúpula y defensa tubular. Fue la primera unidad entregada y la chispa fundacional de Cogno Automotores. Sin grandes estructuras, pero con una convicción innegociable: el valor de la palabra empeñada y el trato leal valen más que cualquier firma.',
     imagen: '/primera-chata.png',
-    posicion: 'stamp-bottom-right',
-    rotacion: 'rotate(-2.5deg)',
-    tipoFondo: 'papel-calido',
-    selloForma: 'sello-circular',
-    selloTexto: 'ORIGEN • 1989'
+    posicionEstampilla: 'stamp-right',
+    estampilla: {
+      valor: '01',
+      origen: 'RÍO CUARTO',
+      subtexto: 'ORIGEN • 1989',
+      rotacion: '-4deg'
+    }
   },
   {
     año: 'AÑOS 90',
-    etiqueta: 'EL PRIMER SALÓN',
+    etiqueta: 'PRIMER SALÓN',
     titulo: 'Echar raíces sobre Marcelo T. de Alvear',
     relato: 'Los primeros pasos en el predio propio. El trabajo artesanal de seleccionar cada vehículo, revisar la mecánica de punta a punta y atender personalmente a cada productor, transportista y vecino de la región que confiaba su herramienta de trabajo en nuestras manos.',
     imagen: '/origenes-local.jpg',
-    posicion: 'stamp-bottom-left',
-    rotacion: 'rotate(2deg)',
-    tipoFondo: 'papel-pergamino',
-    selloForma: 'sello-rectangular',
-    selloTexto: 'REGISTRO N° 01 • RÍO IV'
+    posicionEstampilla: 'stamp-left',
+    estampilla: {
+      valor: '90s',
+      origen: 'ALVEAR 1580',
+      subtexto: 'PREDIO PROPIO',
+      rotacion: '3.5deg'
+    }
   },
   {
     año: 'CRECIMIENTO',
@@ -31,23 +35,27 @@ const capitulosHistoria = [
     titulo: 'Una pasión construida entre generaciones',
     relato: 'La transición hacia la comercialización de 0 KM y usados jóvenes. Detrás del mostrador, la familia siempre presente: atendiendo clientes, resolviendo trámites de gestoría y compartiendo el orgullo de ver crecer un proyecto que ya era parte de la identidad de Banda Norte.',
     imagen: '/frente-familia.jpg',
-    posicion: 'stamp-bottom-right',
-    rotacion: 'rotate(-1.5deg)',
-    tipoFondo: 'papel-blanco-envejecido',
-    selloForma: 'sello-circular',
-    selloTexto: 'MULTIMARCA • FAMILIA'
+    posicionEstampilla: 'stamp-right',
+    estampilla: {
+      valor: 'FAM',
+      origen: '0 KM MULTIMARCA',
+      subtexto: 'COMPROMISO',
+      rotacion: '-2deg'
+    }
   },
   {
     año: '2014',
-    etiqueta: 'CONSOLIDACIÓN',
-    titulo: 'Referentes indiscutidos en pick-ups',
+    etiqueta: 'LIDERAZGO PICK-UPS',
+    titulo: 'Referentes indiscutidos en camionetas',
     relato: 'Río Cuarto y el sur de Córdoba demandaban utilitarios pesados y confiables. Consolidamos el mayor despliegue de camionetas de la región, convirtiéndonos en el punto de encuentro natural para renovar Toyota Hilux, Ford Ranger y Volkswagen Amarok con garantía real.',
     imagen: '/frente-2014.png',
-    posicion: 'stamp-top-right',
-    rotacion: 'rotate(2.5deg)',
-    tipoFondo: 'papel-pergamino',
-    selloForma: 'sello-rectangular',
-    selloTexto: 'PICK-UPS 4X4 • 2014'
+    posicionEstampilla: 'stamp-left',
+    estampilla: {
+      valor: '4X4',
+      origen: 'LÍDERES PICK-UPS',
+      subtexto: 'SUR DE CÓRDOBA',
+      rotacion: '4deg'
+    }
   },
   {
     año: '2015',
@@ -55,11 +63,13 @@ const capitulosHistoria = [
     titulo: 'El salón a la vista de toda la ciudad',
     relato: 'Una postal cotidiana sobre Marcelo T. de Alvear 1580. La rotación de stock no paraba: autos medianos, sedanes familiares y camionetas listas para transferir en el día. Los clientes ya no venían solo por un auto, venían a buscar respaldo y tranquilidad.',
     imagen: '/frente-2015.jpg',
-    posicion: 'stamp-bottom-left',
-    rotacion: 'rotate(-2deg)',
-    tipoFondo: 'papel-calido',
-    selloForma: 'sello-circular',
-    selloTexto: 'ALVEAR 1580 • EXPEDICIÓN'
+    posicionEstampilla: 'stamp-right',
+    estampilla: {
+      valor: '15',
+      origen: 'ALVEAR 1580',
+      subtexto: 'EXPEDICIÓN RÍO IV',
+      rotacion: '-3.5deg'
+    }
   },
   {
     año: 'EXPANSIÓN',
@@ -67,222 +77,191 @@ const capitulosHistoria = [
     titulo: 'Entregas por flotas: La fuerza de Hilux',
     relato: 'Llegaron los desafíos de escala: proveer flotas corporativas completas, unidades 0 KM llave en mano para el sector agroindustrial y logística pesada. Tres Hilux rojas listas para salir en simultáneo simbolizaron la madurez operativa de la concesionaria.',
     imagen: '/flota-hilux.jpg',
-    posicion: 'stamp-bottom-right',
-    rotacion: 'rotate(3deg)',
-    tipoFondo: 'papel-blanco-envejecido',
-    selloForma: 'sello-rectangular',
-    selloTexto: 'FLOTAS 0KM • DESPACHO'
+    posicionEstampilla: 'stamp-left',
+    estampilla: {
+      valor: 'FLOTA',
+      origen: 'DESPACHO 0KM',
+      subtexto: 'ENTREGA ESPECIAL',
+      rotacion: '2.5deg'
+    }
   },
   {
     año: '2019',
     etiqueta: 'MODERNIZACIÓN',
-    titulo: 'Renovación integral de infraestructura',
+    titulo: 'Renovación de instalaciones y catálogo',
     relato: 'Ampliamos el salón cubierto, modernizamos la marquesina corporativa e incorporamos tecnologías de tasación y seguimiento. Cogno Automotores ya unía el prestigio de tres décadas con el dinamismo y confort que exigen las nuevas generaciones.',
     imagen: '/frente-2019.png',
-    posicion: 'stamp-bottom-left',
-    rotacion: 'rotate(-1.8deg)',
-    tipoFondo: 'papel-pergamino',
-    selloForma: 'sello-circular',
-    selloTexto: 'MODERNIZACIÓN • 2019'
+    posicionEstampilla: 'stamp-right',
+    estampilla: {
+      valor: '19',
+      origen: 'MARQUESINA NUEVA',
+      subtexto: 'INFRAESTRUCTURA',
+      rotacion: '-4deg'
+    }
   },
   {
     año: 'PRESENTE',
     etiqueta: 'HOY',
-    titulo: 'Más de 35 años de confianza viva',
+    titulo: 'Más de 35 años de confianza viva en Río Cuarto',
     relato: 'Salón modelo sobre Marcelo T. de Alvear 1580, inventario digital en tiempo real conectado al taller y garantía extendida propia de 6 meses. Seguimos siendo la misma empresa familiar del primer día, atendida por sus propios dueños con la seriedad de siempre.',
     imagen: '/frente-2026.jpg.jpg',
-    posicion: 'stamp-bottom-right',
-    rotacion: 'rotate(2deg)',
-    tipoFondo: 'papel-calido',
-    selloForma: 'sello-circular',
-    selloTexto: 'GARANTÍA OFICIAL • 2026'
+    posicionEstampilla: 'stamp-right',
+    estampilla: {
+      valor: '35+',
+      origen: 'GARANTÍA TOTAL',
+      subtexto: 'CERTIFICADO OFICIAL',
+      rotacion: '3deg'
+    }
   }
 ];
 
 export default function QuienesSomos() {
   return (
-    <div style={{ backgroundColor: '#0B0C0E', minHeight: '100vh', color: '#ffffff', paddingBottom: '80px', overflowX: 'hidden' }}>
+    <div style={{ backgroundColor: '#0B0C0E', minHeight: '100vh', color: '#ffffff', paddingBottom: '90px', overflowX: 'hidden' }}>
       
-      {/* TIPOGRAFÍA VINTAGE TYPEWRITER Y EFECTOS POSTALES */}
+      {/* TIPOGRAFÍAS DE ÉPOCA Y SISTEMA VISUAL */}
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=Special+Elite&display=swap');
 
-        .font-typewriter {
-          font-family: 'Special Elite', 'Courier Prime', 'Courier New', monospace !important;
+        .font-vintage {
+          font-family: 'Special Elite', 'Courier Prime', monospace !important;
         }
 
-        /* LÍNEA GUÍA CENTRAL DEL ÁLBUM */
-        .scrolly-album-track {
+        /* LÍNEA DE CRONOLOGÍA CONTINUA */
+        .chronology-track {
           position: relative;
-          max-width: 1100px;
+          max-width: 1120px;
           margin: 60px auto 0 auto;
-          padding: 0 24px;
+          padding: 0 20px;
         }
 
-        .scrolly-album-track::before {
+        .chronology-track::before {
           content: '';
           position: absolute;
-          top: 20px;
-          bottom: 40px;
+          top: 30px;
+          bottom: 30px;
           left: 50%;
           width: 2px;
-          border-left: 2px dashed #27272a;
+          background: linear-gradient(180deg, rgba(237, 28, 36, 0.8) 0%, #27272a 12%, #27272a 88%, rgba(237, 28, 36, 0.8) 100%);
           transform: translateX(-50%);
           z-index: 1;
         }
 
-        .album-item {
+        .chronology-entry {
           position: relative;
-          margin-bottom: 140px;
+          margin-bottom: 150px;
           z-index: 2;
         }
 
-        /* MARCO DOCUMENTAL DE LA FOTO */
-        .album-photo-frame {
+        /* MARCO DOCUMENTAL CINEMATOGRÁFICO */
+        .doc-frame {
           position: relative;
-          width: 100%;
-          max-width: 980px;
-          margin: 0 auto;
           background-color: #141518;
           border: 1px solid #27272a;
-          border-radius: 20px;
+          border-radius: 24px;
           padding: 16px;
-          box-shadow: 0 24px 60px rgba(0, 0, 0, 0.75);
-          transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s ease;
+          box-shadow: 0 25px 60px rgba(0, 0, 0, 0.85);
+          transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-        .album-photo-frame:hover {
-          border-color: rgba(237, 28, 36, 0.5);
-          transform: translateY(-4px);
+        .doc-frame:hover {
+          border-color: rgba(237, 28, 36, 0.45);
+          transform: translateY(-6px);
+          box-shadow: 0 30px 70px rgba(0, 0, 0, 0.9), 0 0 30px rgba(237, 28, 36, 0.1);
         }
 
-        .album-photo-img-wrap {
+        .doc-media-window {
+          position: relative;
           width: 100%;
-          height: 500px;
-          border-radius: 14px;
+          height: 520px;
+          border-radius: 16px;
           overflow: hidden;
           background-color: #070709;
         }
 
-        .album-photo-img-wrap img {
+        .doc-media-window img {
           width: 100%;
           height: 100%;
           object-fit: cover;
           display: block;
-          transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+          transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-        .album-photo-frame:hover .album-photo-img-wrap img {
-          transform: scale(1.03);
+        .doc-frame:hover .doc-media-window img {
+          transform: scale(1.025);
         }
 
-        /* VARIANTES DE UBICACIÓN DE LA ESTAMPILLA */
-        .stamp-capsule {
+        /* ESTAMPILLA FILATÉLICA COMPACTA */
+        .stamp-badge {
           position: absolute;
-          width: 380px;
-          color: #1e1b18;
-          padding: 24px 26px;
-          z-index: 15;
-          outline-offset: -4px;
+          width: 140px;
+          height: 170px;
+          background: #e8ded1;
+          background-image: 
+            radial-gradient(transparent 0px, transparent 4px, #e8ded1 4px, #e8ded1),
+            linear-gradient(135deg, #f7f2ea 0%, #d8c8b4 100%);
+          border: 1px solid #baa891;
+          box-shadow: 0 14px 28px rgba(0, 0, 0, 0.65), inset 0 0 12px rgba(160, 130, 95, 0.3);
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: space-between;
+          padding: 12px 10px;
+          box-sizing: border-box;
+          z-index: 10;
           transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+          color: #2b2219;
+          
+          /* DENTADO PERFORADO */
+          outline: 4px dotted #e8ded1;
+          outline-offset: -2px;
         }
 
-        .stamp-bottom-right {
-          bottom: -45px;
-          right: 32px;
+        .stamp-right {
+          bottom: -25px;
+          right: 35px;
         }
 
-        .stamp-bottom-left {
-          bottom: -45px;
-          left: 32px;
+        .stamp-left {
+          bottom: -25px;
+          left: 35px;
         }
 
-        .stamp-top-right {
-          top: 24px;
-          right: 28px;
+        .doc-frame:hover .stamp-badge {
+          transform: translateY(-8px) scale(1.06) !important;
+          box-shadow: 0 20px 40px rgba(0, 0, 0, 0.85);
         }
 
-        /* TEXTURAS DE PAPEL VINTAGE */
-        .papel-calido {
-          background: #eadecc;
-          background-image: 
-            radial-gradient(#d6c4a8 10%, transparent 11%),
-            linear-gradient(135deg, #f5efe6 0%, #dfd0ba 100%);
-          background-size: 8px 8px, 100% 100%;
-          border: 1px solid #c4b093;
-          outline: 6px dotted #eadecc;
-          box-shadow: 0 16px 36px rgba(0, 0, 0, 0.65), inset 0 0 20px rgba(160, 130, 95, 0.35);
-        }
-
-        .papel-pergamino {
-          background: #d8c29d;
-          background-image: 
-            radial-gradient(#c2aa84 10%, transparent 11%),
-            linear-gradient(135deg, #e4d3b6 0%, #caa97d 100%);
-          background-size: 8px 8px, 100% 100%;
-          border: 1px solid #b5996f;
-          outline: 6px dotted #d8c29d;
-          box-shadow: 0 16px 36px rgba(0, 0, 0, 0.7), inset 0 0 22px rgba(130, 95, 60, 0.4);
-        }
-
-        .papel-blanco-envejecido {
-          background: #ede6d8;
-          background-image: 
-            radial-gradient(#dcd2be 10%, transparent 11%),
-            linear-gradient(135deg, #faf7f0 0%, #dfd5be 100%);
-          background-size: 8px 8px, 100% 100%;
-          border: 1px solid #cbbf9f;
-          outline: 6px dotted #ede6d8;
-          box-shadow: 0 16px 36px rgba(0, 0, 0, 0.6), inset 0 0 18px rgba(170, 150, 120, 0.3);
-        }
-
-        .album-photo-frame:hover .stamp-capsule {
-          transform: translateY(-6px) scale(1.03) !important;
-          box-shadow: 0 22px 45px rgba(0,0,0,0.85);
-        }
-
-        /* SELLOS POSTALES */
-        .sello-circular {
+        /* MATASELLOS CIRCULAR */
+        .stamp-postmark-ring {
           position: absolute;
-          top: -14px;
-          right: -14px;
-          width: 72px;
-          height: 72px;
+          top: -16px;
+          right: -16px;
+          width: 58px;
+          height: 58px;
           border-radius: 50%;
           border: 2px dashed rgba(237, 28, 36, 0.85);
           display: flex;
           align-items: center;
           justify-content: center;
           text-align: center;
-          font-size: 0.62rem;
-          font-weight: 700;
+          font-size: 0.58rem;
+          font-weight: 800;
           color: #ED1C24;
-          text-transform: uppercase;
-          transform: rotate(16deg);
+          transform: rotate(18deg);
           pointer-events: none;
-          background-color: rgba(234, 222, 204, 0.9);
-          line-height: 1.1;
-          letter-spacing: 0.5px;
+          background: rgba(232, 222, 209, 0.9);
+          line-height: 1;
         }
 
-        .sello-rectangular {
-          position: absolute;
-          top: -12px;
-          right: -10px;
-          padding: 4px 10px;
-          border-radius: 4px;
-          border: 2px solid rgba(237, 28, 36, 0.85);
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          font-size: 0.65rem;
-          font-weight: 700;
-          color: #ED1C24;
-          text-transform: uppercase;
-          transform: rotate(-8deg);
-          pointer-events: none;
-          background-color: rgba(234, 222, 204, 0.95);
-          letter-spacing: 1px;
+        /* LÁMINA DE TEXTO DOCUMENTAL INFERIOR */
+        .doc-caption-strip {
+          margin-top: 18px;
+          padding: 16px 20px 8px 20px;
+          display: grid;
+          grid-template-columns: auto 1fr;
+          gap: 28px;
+          align-items: start;
         }
 
         .values-grid-2x2 {
@@ -312,28 +291,36 @@ export default function QuienesSomos() {
           align-items: center;
         }
 
-        /* RESPONSIVE MÓVIL */
+        /* ADAPTACIÓN CELULARES */
         @media (max-width: 860px) {
-          .album-photo-frame {
-            padding: 10px 10px 145px 10px;
+          .doc-media-window {
+            height: 270px !important;
           }
-          .album-photo-img-wrap {
-            height: 260px;
-          }
-          .stamp-capsule {
-            width: calc(100% - 24px) !important;
-            left: 12px !important;
-            right: 12px !important;
-            bottom: -25px !important;
-            top: auto !important;
-            padding: 16px !important;
-            transform: none !important;
-          }
-          .scrolly-album-track {
-            padding: 0 12px;
-          }
-          .scrolly-album-track::before {
+          .chronology-track::before {
             display: none;
+          }
+          .doc-caption-strip {
+            grid-template-columns: 1fr !important;
+            gap: 12px !important;
+            padding: 14px 8px 4px 8px !important;
+          }
+          .stamp-badge {
+            width: 100px !important;
+            height: 125px !important;
+            bottom: -15px !important;
+            right: 15px !important;
+            left: auto !important;
+            padding: 8px !important;
+          }
+          .stamp-badge .stamp-val {
+            font-size: 1.4rem !important;
+          }
+          .stamp-postmark-ring {
+            width: 44px !important;
+            height: 44px !important;
+            font-size: 0.48rem !important;
+            top: -10px !important;
+            right: -10px !important;
           }
           .values-grid-2x2, .salon-grid {
             grid-template-columns: 1fr !important;
@@ -370,43 +357,64 @@ export default function QuienesSomos() {
         </div>
       </section>
 
-      {/* 2. ÁLBUM DOCUMENTAL DINÁMICO CON ESTAMPILLAS ASIMÉTRICAS */}
-      <section className="scrolly-album-track">
+      {/* 2. CRONOLOGÍA EDITORIAL CON ESTAMPILLA FILATÉLICA */}
+      <section className="chronology-track">
         {capitulosHistoria.map((cap, index) => (
-          <div key={index} className="album-item">
+          <div key={index} className="chronology-entry">
             
-            <div className="album-photo-frame">
-              {/* FOTO HISTÓRICA PROTAGONISTA */}
-              <div className="album-photo-img-wrap">
+            <div className="doc-frame">
+              
+              {/* VENTANA PANORÁMICA DE LA FOTO */}
+              <div className="doc-media-window">
                 <img src={cap.imagen} alt={cap.titulo} />
-              </div>
 
-              {/* ESTAMPILLA VINTAGE CON MÁQUINA DE ESCRIBIR */}
-              <div 
-                className={`stamp-capsule ${cap.posicion} ${cap.tipoFondo} font-typewriter`}
-                style={{ transform: cap.rotacion }}
-              >
-                {/* SELLO POSTAL PERSONALIZADO */}
-                <div className={cap.selloForma}>
-                  {cap.selloTexto}
+                {/* ESTAMPILLA VINTAGE COMPACTA */}
+                <div 
+                  className={`stamp-badge ${cap.posicionEstampilla} font-vintage`}
+                  style={{ transform: `rotate(${cap.estampilla.rotacion})` }}
+                >
+                  <div className="stamp-postmark-ring">
+                    COGNO<br/>OFICIAL
+                  </div>
+
+                  <div style={{ fontSize: '0.65rem', fontWeight: 700, letterSpacing: '1px', textTransform: 'uppercase', color: '#574838' }}>
+                    {cap.estampilla.origen}
+                  </div>
+
+                  <div className="stamp-val" style={{ fontSize: '1.85rem', fontWeight: 700, color: '#991b1b', lineHeight: 1, margin: '4px 0' }}>
+                    {cap.estampilla.valor}
+                  </div>
+
+                  <div style={{ fontSize: '0.58rem', fontWeight: 600, letterSpacing: '0.5px', textTransform: 'uppercase', color: '#7a654f', textAlign: 'center', borderTop: '1px dashed #baa891', paddingTop: '4px', width: '100%' }}>
+                    {cap.estampilla.subtexto}
+                  </div>
                 </div>
 
-                <div style={{ borderBottom: '1px dashed #7a6347', paddingBottom: '8px', marginBottom: '10px' }}>
-                  <div style={{ fontSize: '1.45rem', fontWeight: 700, color: '#991b1b', letterSpacing: '1px', lineHeight: 1 }}>
+              </div>
+
+              {/* LÁMINA DESCRIPTIVA INFERIOR (LIBERA EL 100% DE LA FOTO) */}
+              <div className="doc-caption-strip">
+                
+                {/* FECHA Y HITO */}
+                <div style={{ minWidth: '150px' }}>
+                  <div className="font-vintage" style={{ fontSize: '2.1rem', fontWeight: 700, color: '#ED1C24', lineHeight: 1, letterSpacing: '-0.5px' }}>
                     {cap.año}
                   </div>
-                  <div style={{ fontSize: '0.72rem', textTransform: 'uppercase', letterSpacing: '1.5px', color: '#4a3b2b', marginTop: '3px' }}>
+                  <div style={{ fontSize: '0.72rem', color: '#a1a1aa', fontWeight: 700, letterSpacing: '1.2px', textTransform: 'uppercase', marginTop: '6px' }}>
                     {cap.etiqueta}
                   </div>
                 </div>
 
-                <h3 style={{ fontSize: '1.08rem', fontWeight: 700, color: '#1a1612', margin: '0 0 8px 0', lineHeight: 1.3 }}>
-                  {cap.titulo}
-                </h3>
+                {/* RELATO HISTÓRICO */}
+                <div>
+                  <h3 style={{ fontSize: '1.35rem', fontWeight: 600, color: '#ffffff', margin: '0 0 8px 0', lineHeight: 1.3 }}>
+                    {cap.titulo}
+                  </h3>
+                  <p style={{ fontSize: '0.94rem', color: '#d4d4d8', lineHeight: 1.65, margin: 0, fontWeight: 400 }}>
+                    {cap.relato}
+                  </p>
+                </div>
 
-                <p style={{ fontSize: '0.86rem', color: '#2b2219', lineHeight: 1.55, margin: 0 }}>
-                  {cap.relato}
-                </p>
               </div>
 
             </div>
@@ -542,7 +550,7 @@ export default function QuienesSomos() {
                 <div>
                   <div style={{ fontSize: '0.72rem', color: '#a1a1aa', textTransform: 'uppercase', fontWeight: 600 }}>UBICACIÓN</div>
                   <div style={{ fontSize: '1rem', fontWeight: 600, color: '#ffffff' }}>Av. Marcelo T. de Alvear 1580</div>
-                  <div style={{ fontSize: '0.86rem', color: '#d4d4d8' }}>Río Cuarto, Córdoba, Argentina</div>
+                  <div style={{ fontSize: '0.86rem', color: '#d4d4d8' }}>Río Cuarto, Córdoba, Argentina[cite: 4]</div>
                 </div>
 
                 <div style={{ borderTop: '1px solid #1F2024', paddingTop: '8px' }}>
