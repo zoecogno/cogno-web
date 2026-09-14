@@ -77,7 +77,6 @@ export default function QuienesSomos() {
   return (
     <div style={{ backgroundColor: '#0B0C0E', minHeight: '100vh', color: '#ffffff', paddingBottom: '80px', overflowX: 'hidden' }}>
       
-      {/* TIPOGRAFÍA VINTAGE & LÍNEA VERTICAL CON FOTO AMPLIADA EN MÓVIL */}
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=Special+Elite&display=swap');
 
@@ -85,15 +84,18 @@ export default function QuienesSomos() {
           font-family: 'Special Elite', 'Courier Prime', monospace !important;
         }
 
-        /* LÍNEA DE TIEMPO VERTICAL */
-        .timeline-container {
+        /* =========================================================
+           1. ESCRITORIO (PC): LÍNEA DE TIEMPO VERTICAL EN ZIGZAG
+           ========================================================= */
+        .timeline-desktop-wrapper {
           position: relative;
           max-width: 1180px;
           margin: 45px auto 0 auto;
           padding: 0 20px;
+          display: block;
         }
 
-        .timeline-container::before {
+        .timeline-desktop-wrapper::before {
           content: '';
           position: absolute;
           top: 30px;
@@ -105,7 +107,7 @@ export default function QuienesSomos() {
           z-index: 1;
         }
 
-        .timeline-row {
+        .timeline-desktop-row {
           display: flex;
           align-items: center;
           position: relative;
@@ -113,11 +115,11 @@ export default function QuienesSomos() {
           width: 100%;
         }
 
-        .timeline-row:nth-child(even) {
+        .timeline-desktop-row:nth-child(even) {
           flex-direction: row-reverse;
         }
 
-        .timeline-dot {
+        .timeline-desktop-dot {
           position: absolute;
           left: 50%;
           transform: translateX(-50%);
@@ -130,37 +132,35 @@ export default function QuienesSomos() {
           z-index: 5;
         }
 
-        .timeline-col {
+        .timeline-desktop-col {
           width: 46%;
           box-sizing: border-box;
           z-index: 2;
         }
 
-        /* FOTO DOCUMENTAL LIMPIA (SIN EPÍGRAFE) */
-        .timeline-photo-box {
+        .timeline-desktop-photo {
           border-radius: 18px;
           overflow: hidden;
           background-color: #141518;
           border: 1px solid #27272a;
           box-shadow: 0 16px 36px rgba(0, 0, 0, 0.65);
-          transition: transform 0.35s ease, border-color 0.35s ease;
           height: 330px;
+          transition: transform 0.3s ease, border-color 0.3s ease;
         }
 
-        .timeline-photo-box:hover {
+        .timeline-desktop-photo:hover {
           transform: scale(1.02);
           border-color: rgba(237, 28, 36, 0.5);
         }
 
-        .timeline-photo-box img {
+        .timeline-desktop-photo img {
           width: 100%;
           height: 100%;
           object-fit: cover;
           display: block;
         }
 
-        /* ESTAMPILLA VINTAGE CON RELATO */
-        .timeline-stamp-box {
+        .timeline-desktop-stamp {
           background: #eadecc;
           background-image: 
             radial-gradient(#d6c4a8 10%, transparent 11%),
@@ -178,7 +178,7 @@ export default function QuienesSomos() {
           transition: transform 0.3s ease;
         }
 
-        .timeline-stamp-box:hover {
+        .timeline-desktop-stamp:hover {
           transform: scale(1.02) !important;
         }
 
@@ -204,7 +204,14 @@ export default function QuienesSomos() {
           letter-spacing: 0.5px;
         }
 
-        /* MISIÓN Y VISIÓN COMPACTAS */
+        /* =========================================================
+           2. CELULARES (MÓVIL): LÍNEA HORIZONTAL ARRIBA/ABAJO
+           ========================================================= */
+        .timeline-mobile-wrapper {
+          display: none;
+        }
+
+        /* MISIÓN & VISIÓN */
         .vision-grid {
           display: grid;
           grid-template-columns: 1fr 1fr;
@@ -287,8 +294,8 @@ export default function QuienesSomos() {
           align-items: center;
         }
 
-        /* --- ADAPTACIÓN MÓVIL ESTRICTA --- */
-        @media (max-width: 768px) {
+        /* ADAPTACIÓN MOBILE */
+        @media (max-width: 860px) {
           .section-title {
             font-size: 1.35rem !important;
           }
@@ -307,48 +314,149 @@ export default function QuienesSomos() {
             line-height: 1.45 !important;
           }
 
-          /* LÍNEA DE TIEMPO EN MÓVIL */
-          .timeline-container {
-            padding: 0 16px !important;
-            margin-top: 35px !important;
-          }
-          .timeline-container::before {
+          /* APAGAR TIMELINE VERTICAL EN MÓVIL */
+          .timeline-desktop-wrapper {
             display: none !important;
           }
-          .timeline-dot {
-            display: none !important;
+
+          /* PRENDER TIMELINE HORIZONTAL CON EJE EN EL MEDIO (ARRIBA Y ABAJO) */
+          .timeline-mobile-wrapper {
+            display: block !important;
+            width: 100%;
+            overflow-x: auto;
+            overflow-y: hidden;
+            padding: 15px 10px 30px 10px;
+            box-sizing: border-box;
+            -webkit-overflow-scrolling: touch;
           }
-          .timeline-row, .timeline-row:nth-child(even) {
-            flex-direction: column !important;
-            margin-bottom: 45px !important;
+
+          .timeline-mobile-wrapper::-webkit-scrollbar {
+            height: 5px;
           }
-          .timeline-col {
-            width: 100% !important;
-            max-width: 100% !important;
+          .timeline-mobile-wrapper::-webkit-scrollbar-thumb {
+            background: #ED1C24;
+            border-radius: 4px;
           }
-          .timeline-col:last-child {
-            margin-top: 14px !important;
+          .timeline-mobile-wrapper::-webkit-scrollbar-track {
+            background: #141518;
+          }
+
+          .timeline-mobile-stage {
+            position: relative;
+            display: flex;
+            align-items: center;
+            min-width: max-content;
+            height: 840px; /* Espacio para foto arriba y foto abajo */
+            padding: 0 20px;
+          }
+
+          .timeline-mobile-axis {
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 50%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent 0%, #ED1C24 4%, #27272a 15%, #27272a 85%, #ED1C24 96%, transparent 100%);
+            transform: translateY(-50%);
+            z-index: 1;
+          }
+
+          .timeline-mobile-slot {
+            position: relative;
+            width: 320px;
+            height: 100%;
+            margin: 0 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2;
+          }
+
+          .timeline-mobile-dot {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: #ED1C24;
+            border: 3px solid #0B0C0E;
+            box-shadow: 0 0 12px rgba(237, 28, 36, 0.85);
+            z-index: 5;
+          }
+
+          .mobile-node-top {
+            position: absolute;
+            bottom: calc(50% + 22px);
+            left: 50%;
+            transform: translateX(-50%);
+            width: 310px;
+          }
+
+          .mobile-node-bottom {
+            position: absolute;
+            top: calc(50% + 22px);
+            left: 50%;
+            transform: translateX(-50%);
+            width: 310px;
           }
 
           /* FOTO EN CELULARES MÁS GRANDE */
-          .timeline-photo-box {
-            height: 280px !important;
-            border-radius: 16px !important;
+          .mobile-h-photo {
+            width: 100%;
+            height: 240px;
+            border-radius: 14px;
+            overflow: hidden;
+            background-color: #070709;
+            border: 1px solid #27272a;
+            box-shadow: 0 12px 28px rgba(0,0,0,0.6);
           }
 
-          .timeline-stamp-box {
-            padding: 18px 16px !important;
-            outline-width: 3px !important;
-          }
-          .timeline-seal {
-            width: 48px !important;
-            height: 48px !important;
-            font-size: 0.46rem !important;
-            top: -8px !important;
-            right: -8px !important;
+          .mobile-h-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
           }
 
-          /* RESTABLECIMIENTO DE MISIÓN Y VISIÓN COMPACTAS */
+          .mobile-h-stamp {
+            margin-top: 8px;
+            background: #eadecc;
+            background-image: 
+              radial-gradient(#d6c4a8 10%, transparent 11%),
+              linear-gradient(135deg, #f7f3ec 0%, #d8c8b4 100%);
+            background-size: 8px 8px, 100% 100%;
+            border: 1px solid #baa891;
+            box-shadow: inset 0 0 10px rgba(160, 130, 95, 0.35);
+            border-radius: 4px;
+            outline: 4px dotted #eadecc;
+            outline-offset: -2px;
+            padding: 14px 12px;
+            color: #2b2219;
+            position: relative;
+          }
+
+          .mobile-h-seal {
+            position: absolute;
+            top: -6px;
+            right: -6px;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            border: 2px dashed rgba(237, 28, 36, 0.85);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.44rem;
+            font-weight: 800;
+            color: #ED1C24;
+            background: rgba(234, 222, 204, 0.95);
+            transform: rotate(14deg);
+            line-height: 1;
+          }
+
+          /* MISIÓN Y VISIÓN COMPACTAS */
           .vision-grid {
             grid-template-columns: 1fr !important;
             gap: 12px !important;
@@ -382,6 +490,10 @@ export default function QuienesSomos() {
             height: 38px !important;
             border-radius: 10px !important;
             flex-shrink: 0 !important;
+          }
+          .value-icon-box svg {
+            width: 18px !important;
+            height: 18px !important;
           }
           .value-card h3 {
             font-size: 1.05rem !important;
@@ -431,7 +543,7 @@ export default function QuienesSomos() {
 
         <div style={{ maxWidth: '820px', margin: '0 auto' }}>
           <p className="hero-qs-desc" style={{ fontSize: '0.98rem', color: '#F4F4F5', lineHeight: 1.55, margin: 0, fontWeight: 400 }}>
-            Somos <strong style={{ fontWeight: 600, color: '#ffffff' }}>Cogno Automotores S.A.</strong>, una empresa familiar con más de 35 años en Río Cuarto. Comercializamos 0 KM multimarca y usados seleccionados con garantía propia y peritaje riguroso[cite: 3, 4].
+            Somos <strong style={{ fontWeight: 600, color: '#ffffff' }}>Cogno Automotores S.A.</strong>, una empresa familiar con más de 35 años en Río Cuarto. Comercializamos 0 KM multimarca y usados seleccionados con garantía propia y peritaje riguroso.
           </p>
         </div>
       </section>
@@ -447,9 +559,9 @@ export default function QuienesSomos() {
         </div>
       </div>
 
-      {/* 2. NUESTRA HISTORIA: LÍNEA VERTICAL CON ESTAMPILLAS */}
-      <section className="timeline-container">
-        <div style={{ textAlign: 'center', marginBottom: '35px', padding: '0 20px' }}>
+      {/* 2. NUESTRA HISTORIA */}
+      <section style={{ maxWidth: '1280px', margin: '45px auto 0 auto' }}>
+        <div style={{ textAlign: 'center', marginBottom: '24px', padding: '0 20px' }}>
           <span style={{ fontSize: '0.82rem', fontWeight: 700, color: '#ED1C24', letterSpacing: '2px', textTransform: 'uppercase' }}>
             NUESTRO RECORRIDO
           </span>
@@ -461,54 +573,112 @@ export default function QuienesSomos() {
           </p>
         </div>
 
-        {capitulosHistoria.map((cap, index) => (
-          <div key={index} className="timeline-row">
+        {/* --- VISTA PC (ESCRITORIO): VERTICAL EN ZIGZAG --- */}
+        <div className="timeline-desktop-wrapper">
+          {capitulosHistoria.map((cap, index) => (
+            <div key={index} className="timeline-desktop-row">
+              <div className="timeline-desktop-dot"></div>
+
+              {/* ESTAMPILLA VINTAGE */}
+              <div className="timeline-desktop-col">
+                <div 
+                  className="timeline-desktop-stamp font-typewriter"
+                  style={{ transform: `rotate(${cap.rotacion})` }}
+                >
+                  <div className="timeline-seal">
+                    COGNO<br/>{cap.selloNumero}
+                  </div>
+
+                  <div style={{ borderBottom: '1px dashed #baa891', paddingBottom: '8px', marginBottom: '12px' }}>
+                    <div style={{ fontSize: '1.65rem', fontWeight: 700, color: '#991b1b', lineHeight: 1 }}>
+                      {cap.año}
+                    </div>
+                    <div style={{ fontSize: '0.72rem', textTransform: 'uppercase', letterSpacing: '1.2px', color: '#574838', marginTop: '4px', fontWeight: 700 }}>
+                      {cap.etiqueta} • {cap.selloTexto}
+                    </div>
+                  </div>
+
+                  <h3 style={{ fontSize: '1.18rem', fontWeight: 700, color: '#1a1612', margin: '0 0 10px 0', lineHeight: 1.3 }}>
+                    {cap.titulo}
+                  </h3>
+
+                  <p style={{ fontSize: '0.88rem', color: '#2b2219', lineHeight: 1.55, margin: 0 }}>
+                    {cap.relato}
+                  </p>
+
+                  <div style={{ marginTop: '14px', paddingTop: '8px', borderTop: '1px dashed #baa891', display: 'flex', justifyContent: 'space-between', alignItems: 'center', fontSize: '0.7rem', color: '#7a654f' }}>
+                    <span>EXPEDICIÓN RÍO CUARTO</span>
+                    <span>SERIE 1989-2026</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* FOTO DOCUMENTAL LIMPIA */}
+              <div className="timeline-desktop-col">
+                <div className="timeline-desktop-photo">
+                  <img src={cap.imagen} alt={cap.titulo} />
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* --- VISTA CELULAR (MÓVIL): HORIZONTAL CON EJE AL CENTRO (ARRIBA Y ABAJO) --- */}
+        <div className="timeline-mobile-wrapper">
+          <div className="timeline-mobile-stage">
             
-            <div className="timeline-dot"></div>
+            {/* LÍNEA HORIZONTAL CENTRAL */}
+            <div className="timeline-mobile-axis"></div>
 
-            {/* ESTAMPILLA VINTAGE */}
-            <div className="timeline-col">
-              <div 
-                className="timeline-stamp-box font-typewriter"
-                style={{ transform: `rotate(${cap.rotacion})` }}
-              >
-                <div className="timeline-seal">
-                  COGNO<br/>{cap.selloNumero}
-                </div>
+            {capitulosHistoria.map((cap, index) => {
+              const esArriba = index % 2 === 0;
 
-                <div style={{ borderBottom: '1px dashed #baa891', paddingBottom: '8px', marginBottom: '12px' }}>
-                  <div style={{ fontSize: '1.65rem', fontWeight: 700, color: '#991b1b', lineHeight: 1 }}>
-                    {cap.año}
+              return (
+                <div key={index} className="timeline-mobile-slot">
+                  
+                  {/* NODO CENTRAL EN EL EJE */}
+                  <div className="timeline-mobile-dot"></div>
+
+                  {/* BLOQUE FOTO + ESTAMPILLA ALTERNADO */}
+                  <div className={esArriba ? 'mobile-node-top' : 'mobile-node-bottom'}>
+                    
+                    {/* FOTO EN GRANDE */}
+                    <div className="mobile-h-photo">
+                      <img src={cap.imagen} alt={cap.titulo} />
+                    </div>
+
+                    {/* ESTAMPILLA VINTAGE CON RELATO */}
+                    <div className="mobile-h-stamp font-typewriter">
+                      <div className="mobile-h-seal">
+                        COGNO<br/>{cap.selloNumero}
+                      </div>
+
+                      <div style={{ borderBottom: '1px dashed #baa891', paddingBottom: '4px', marginBottom: '6px' }}>
+                        <div style={{ fontSize: '1.25rem', fontWeight: 700, color: '#991b1b', lineHeight: 1 }}>
+                          {cap.año}
+                        </div>
+                        <div style={{ fontSize: '0.62rem', textTransform: 'uppercase', letterSpacing: '0.8px', color: '#574838', marginTop: '2px', fontWeight: 700 }}>
+                          {cap.etiqueta}
+                        </div>
+                      </div>
+
+                      <h3 style={{ fontSize: '0.9rem', fontWeight: 700, color: '#1a1612', margin: '0 0 4px 0', lineHeight: 1.25 }}>
+                        {cap.titulo}
+                      </h3>
+
+                      <p style={{ fontSize: '0.74rem', color: '#2b2219', lineHeight: 1.4, margin: 0 }}>
+                        {cap.relato}
+                      </p>
+                    </div>
+
                   </div>
-                  <div style={{ fontSize: '0.72rem', textTransform: 'uppercase', letterSpacing: '1.2px', color: '#574838', marginTop: '4px', fontWeight: 700 }}>
-                    {cap.etiqueta} • {cap.selloTexto}
-                  </div>
+
                 </div>
-
-                <h3 style={{ fontSize: '1.18rem', fontWeight: 700, color: '#1a1612', margin: '0 0 10px 0', lineHeight: 1.3 }}>
-                  {cap.titulo}
-                </h3>
-
-                <p style={{ fontSize: '0.88rem', color: '#2b2219', lineHeight: 1.55, margin: 0 }}>
-                  {cap.relato}
-                </p>
-
-                <div style={{ marginTop: '14px', paddingTop: '8px', borderTop: '1px dashed #baa891', display: 'flex', justifyContent: 'space-between', alignItems: 'center', fontSize: '0.7rem', color: '#7a654f' }}>
-                  <span>EXPEDICIÓN RÍO CUARTO</span>
-                  <span>SERIE 1989-2026</span>
-                </div>
-              </div>
-            </div>
-
-            {/* FOTO DOCUMENTAL LIMPIA */}
-            <div className="timeline-col">
-              <div className="timeline-photo-box">
-                <img src={cap.imagen} alt={cap.titulo} />
-              </div>
-            </div>
+              );
+            })}
 
           </div>
-        ))}
+        </div>
       </section>
 
       {/* 3. PROPÓSITO & VISIÓN */}
@@ -631,14 +801,14 @@ export default function QuienesSomos() {
                 Vení a conocer nuestro local
               </h2>
               <p style={{ fontSize: '0.98rem', color: '#E4E4E7', lineHeight: 1.55, margin: '0 0 18px 0', fontWeight: 400 }}>
-                Te esperamos en nuestro salón comercial para conocer el stock en persona, realizar un peritaje transparente de tu usado y asesorarte de forma personalizada.
+                Te esperamos en nuestro salón comercial para conocer el stock en persona, realizar un peritaje transparente de tu usado y asesorarte de forma personalizada[cite: 4].
               </p>
 
               <div style={{ backgroundColor: '#0B0C0E', border: '1px solid #27272a', padding: '14px 18px', borderRadius: '12px', marginBottom: '18px', display: 'flex', flexDirection: 'column', gap: '10px' }}>
                 <div>
                   <div style={{ fontSize: '0.72rem', color: '#a1a1aa', textTransform: 'uppercase', fontWeight: 600 }}>UBICACIÓN</div>
                   <div style={{ fontSize: '1rem', fontWeight: 600, color: '#ffffff' }}>Av. Marcelo T. de Alvear 1580</div>
-                  <div style={{ fontSize: '0.86rem', color: '#d4d4d8' }}>Río Cuarto, Córdoba, Argentina</div>
+                  <div style={{ fontSize: '0.86rem', color: '#d4d4d8' }}>Río Cuarto, Córdoba, Argentina[cite: 4]</div>
                 </div>
 
                 <div style={{ borderTop: '1px solid #1F2024', paddingTop: '8px' }}>
