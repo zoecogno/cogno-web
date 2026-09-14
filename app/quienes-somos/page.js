@@ -342,12 +342,8 @@ export default function QuienesSomos() {
           }
 
           .timeline-mobile-stage {
-            position: relative;
-            display: flex;
-            align-items: center;
-            min-width: max-content;
-            height: 840px; /* Espacio para foto arriba y foto abajo */
-            padding: 0 20px;
+            height: 800px !important;
+            padding: 0 30px !important;
           }
 
           .timeline-mobile-axis {
@@ -361,11 +357,11 @@ export default function QuienesSomos() {
             z-index: 1;
           }
 
-          .timeline-mobile-slot {
+        .timeline-mobile-slot {
             position: relative;
-            width: 320px;
+            width: 440px !important; /* Ancho suficiente para foto + estampilla al costado */
             height: 100%;
-            margin: 0 16px;
+            margin: 0 16px !important;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -388,29 +384,37 @@ export default function QuienesSomos() {
 
           .mobile-node-top {
             position: absolute;
-            bottom: calc(50% + 22px);
+            bottom: calc(50% + 24px);
             left: 50%;
             transform: translateX(-50%);
-            width: 310px;
+            display: flex !important;
+            flex-direction: row !important;
+            align-items: center;
+            width: 430px !important;
           }
 
           .mobile-node-bottom {
             position: absolute;
-            top: calc(50% + 22px);
+            top: calc(50% + 24px);
             left: 50%;
             transform: translateX(-50%);
-            width: 310px;
+            display: flex !important;
+            flex-direction: row !important;
+            align-items: center;
+            width: 430px !important;
           }
 
-          /* FOTO EN CELULARES MÁS GRANDE */
+      /* FOTO EN CELULARES */
           .mobile-h-photo {
-            width: 100%;
-            height: 240px;
-            border-radius: 14px;
+            width: 250px !important;
+            height: 230px !important;
+            border-radius: 14px !important;
             overflow: hidden;
             background-color: #070709;
             border: 1px solid #27272a;
-            box-shadow: 0 12px 28px rgba(0,0,0,0.6);
+            box-shadow: 0 12px 28px rgba(0,0,0,0.7);
+            flex-shrink: 0;
+            z-index: 2;
           }
 
           .mobile-h-photo img {
@@ -420,21 +424,26 @@ export default function QuienesSomos() {
             display: block;
           }
 
+       /* ESTAMPILLA AL COSTADO E INCLINADA */
           .mobile-h-stamp {
-            margin-top: 8px;
+            width: 210px !important;
+            margin-top: 0 !important;
+            margin-left: -22px !important; /* Muerde el costado de la foto */
             background: #eadecc;
             background-image: 
               radial-gradient(#d6c4a8 10%, transparent 11%),
               linear-gradient(135deg, #f7f3ec 0%, #d8c8b4 100%);
             background-size: 8px 8px, 100% 100%;
             border: 1px solid #baa891;
-            box-shadow: inset 0 0 10px rgba(160, 130, 95, 0.35);
+            box-shadow: 0 12px 24px rgba(0,0,0,0.65), inset 0 0 10px rgba(160, 130, 95, 0.35);
             border-radius: 4px;
             outline: 4px dotted #eadecc;
             outline-offset: -2px;
-            padding: 14px 12px;
+            padding: 14px 12px !important;
             color: #2b2219;
             position: relative;
+            flex-shrink: 0;
+            z-index: 3;
           }
 
           .mobile-h-seal {
@@ -647,8 +656,19 @@ export default function QuienesSomos() {
                       <img src={cap.imagen} alt={cap.titulo} />
                     </div>
 
+                   {/* BLOQUE FOTO + ESTAMPILLA ALTERNADO */}
+                  <div className={esArriba ? 'mobile-node-top' : 'mobile-node-bottom'}>
+                    
+                    {/* FOTO EN GRANDE */}
+                    <div className="mobile-h-photo">
+                      <img src={cap.imagen} alt={cap.titulo} />
+                    </div>
+
                     {/* ESTAMPILLA VINTAGE CON RELATO */}
-                    <div className="mobile-h-stamp font-typewriter">
+                    <div 
+                      className="mobile-h-stamp font-typewriter"
+                      style={{ transform: `rotate(${cap.rotacion})` }}
+                    >
                       <div className="mobile-h-seal">
                         COGNO<br/>{cap.selloNumero}
                       </div>
@@ -680,7 +700,6 @@ export default function QuienesSomos() {
           </div>
         </div>
       </section>
-
       {/* 3. PROPÓSITO & VISIÓN */}
       <section style={{ maxWidth: '1280px', margin: '50px auto 0 auto', padding: '0 24px' }}>
         <div className="vision-grid">
