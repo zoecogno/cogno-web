@@ -571,10 +571,10 @@ box-shadow: 0 0 10px rgba(237, 28, 36, 0.4);
           <span>🛡️</span>
           <span>TRAYECTORIA Y COMPROMISO</span>
         </div>
-
-        <div style={{ maxWidth: '820px', margin: '0 auto' }}>
+<div style={{ maxWidth: '820px', margin: '0 auto' }}>
           <p className="hero-qs-desc" style={{ fontSize: '0.98rem', color: '#F4F4F5', lineHeight: 1.55, margin: 0, fontWeight: 400 }}>
             Somos <strong style={{ fontWeight: 600, color: '#ffffff' }}>Cogno Automotores S.A.</strong>, una empresa familiar con más de 35 años en Río Cuarto. Nos dedicamos a la venta de vehículos nuevos y usados, con un amplio stock y una destacada variedad de pick-ups.
+          </p>
         </div>
       </section>
 
