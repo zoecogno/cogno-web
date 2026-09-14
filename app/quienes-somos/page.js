@@ -3,35 +3,51 @@
 const capitulosHistoria = [
   {
     año: '1989',
-    etiqueta: 'EL INICIO',
+    etiqueta: 'EL PUNTO DE PARTIDA',
     titulo: 'La primera chata: "La Vaca Milka"',
-    relato: 'Todo comenzó con esta Ford F-100 blanca con defensa tubular y cúpula. Fue la primera unidad entregada y la chispa fundacional de Cogno Automotores. Sin grandes estructuras, pero con una convicción innegociable: el valor de la palabra empeñada y el trato leal valen más que cualquier firma.',
+    relato: 'Todo comenzó con esta clásica Ford F-100 blanca equipada con cúpula y defensa tubular. Fue la primera unidad entregada y la chispa fundacional de Cogno Automotores. Sin grandes estructuras, pero con una convicción innegociable: el valor de la palabra empeñada y el trato leal valen más que cualquier firma.',
     imagen: '/primera-chata.png',
-    sello: 'ORIGEN • RÍO CUARTO'
+    posicion: 'stamp-bottom-right',
+    rotacion: 'rotate(-2.5deg)',
+    tipoFondo: 'papel-calido',
+    selloForma: 'sello-circular',
+    selloTexto: 'ORIGEN • 1989'
   },
   {
     año: 'AÑOS 90',
-    etiqueta: 'PRIMER SALÓN',
+    etiqueta: 'EL PRIMER SALÓN',
     titulo: 'Echar raíces sobre Marcelo T. de Alvear',
     relato: 'Los primeros pasos en el predio propio. El trabajo artesanal de seleccionar cada vehículo, revisar la mecánica de punta a punta y atender personalmente a cada productor, transportista y vecino de la región que confiaba su herramienta de trabajo en nuestras manos.',
     imagen: '/origenes-local.jpg',
-    sello: 'PREDIO PROPIO • 1990s'
+    posicion: 'stamp-bottom-left',
+    rotacion: 'rotate(2deg)',
+    tipoFondo: 'papel-pergamino',
+    selloForma: 'sello-rectangular',
+    selloTexto: 'REGISTRO N° 01 • RÍO IV'
   },
   {
     año: 'CRECIMIENTO',
-    etiqueta: 'FAMILIA Y VALORES',
+    etiqueta: 'EMPRESA Y FAMILIA',
     titulo: 'Una pasión construida entre generaciones',
     relato: 'La transición hacia la comercialización de 0 KM y usados jóvenes. Detrás del mostrador, la familia siempre presente: atendiendo clientes, resolviendo trámites de gestoría y compartiendo el orgullo de ver crecer un proyecto que ya era parte de la identidad de Banda Norte.',
     imagen: '/frente-familia.jpg',
-    sello: 'FAMILIA • MULTIMARCA'
+    posicion: 'stamp-bottom-right',
+    rotacion: 'rotate(-1.5deg)',
+    tipoFondo: 'papel-blanco-envejecido',
+    selloForma: 'sello-circular',
+    selloTexto: 'MULTIMARCA • FAMILIA'
   },
   {
     año: '2014',
     etiqueta: 'CONSOLIDACIÓN',
     titulo: 'Referentes indiscutidos en pick-ups',
-    relato: 'Río Cuarto y el sur de Córdoba demandaban utilitarios pesados y confiables. Consolidamos el mayor despliegue de camionetas de la zona, convirtiéndonos en el punto de encuentro natural para renovar Toyota Hilux, Ford Ranger y Volkswagen Amarok con garantía real.',
+    relato: 'Río Cuarto y el sur de Córdoba demandaban utilitarios pesados y confiables. Consolidamos el mayor despliegue de camionetas de la región, convirtiéndonos en el punto de encuentro natural para renovar Toyota Hilux, Ford Ranger y Volkswagen Amarok con garantía real.',
     imagen: '/frente-2014.png',
-    sello: 'LÍDERES 4X4 • 2014'
+    posicion: 'stamp-top-right',
+    rotacion: 'rotate(2.5deg)',
+    tipoFondo: 'papel-pergamino',
+    selloForma: 'sello-rectangular',
+    selloTexto: 'PICK-UPS 4X4 • 2014'
   },
   {
     año: '2015',
@@ -39,7 +55,11 @@ const capitulosHistoria = [
     titulo: 'El salón a la vista de toda la ciudad',
     relato: 'Una postal cotidiana sobre Marcelo T. de Alvear 1580. La rotación de stock no paraba: autos medianos, sedanes familiares y camionetas listas para transferir en el día. Los clientes ya no venían solo por un auto, venían a buscar respaldo y tranquilidad.',
     imagen: '/frente-2015.jpg',
-    sello: 'ALVEAR 1580 • 2015'
+    posicion: 'stamp-bottom-left',
+    rotacion: 'rotate(-2deg)',
+    tipoFondo: 'papel-calido',
+    selloForma: 'sello-circular',
+    selloTexto: 'ALVEAR 1580 • EXPEDICIÓN'
   },
   {
     año: 'EXPANSIÓN',
@@ -47,15 +67,23 @@ const capitulosHistoria = [
     titulo: 'Entregas por flotas: La fuerza de Hilux',
     relato: 'Llegaron los desafíos de escala: proveer flotas corporativas completas, unidades 0 KM llave en mano para el sector agroindustrial y logística pesada. Tres Hilux rojas listas para salir en simultáneo simbolizaron la madurez operativa de la concesionaria.',
     imagen: '/flota-hilux.jpg',
-    sello: 'FLOTAS 0KM • COGNO'
+    posicion: 'stamp-bottom-right',
+    rotacion: 'rotate(3deg)',
+    tipoFondo: 'papel-blanco-envejecido',
+    selloForma: 'sello-rectangular',
+    selloTexto: 'FLOTAS 0KM • DESPACHO'
   },
   {
     año: '2019',
     etiqueta: 'MODERNIZACIÓN',
-    titulo: 'Renovación de instalaciones y salón',
+    titulo: 'Renovación integral de infraestructura',
     relato: 'Ampliamos el salón cubierto, modernizamos la marquesina corporativa e incorporamos tecnologías de tasación y seguimiento. Cogno Automotores ya unía el prestigio de tres décadas con el dinamismo y confort que exigen las nuevas generaciones.',
     imagen: '/frente-2019.png',
-    sello: 'INSTALACIONES • 2019'
+    posicion: 'stamp-bottom-left',
+    rotacion: 'rotate(-1.8deg)',
+    tipoFondo: 'papel-pergamino',
+    selloForma: 'sello-circular',
+    selloTexto: 'MODERNIZACIÓN • 2019'
   },
   {
     año: 'PRESENTE',
@@ -63,7 +91,11 @@ const capitulosHistoria = [
     titulo: 'Más de 35 años de confianza viva',
     relato: 'Salón modelo sobre Marcelo T. de Alvear 1580, inventario digital en tiempo real conectado al taller y garantía extendida propia de 6 meses. Seguimos siendo la misma empresa familiar del primer día, atendida por sus propios dueños con la seriedad de siempre.',
     imagen: '/frente-2026.jpg.jpg',
-    sello: 'TRAYECTORIA • HOY'
+    posicion: 'stamp-bottom-right',
+    rotacion: 'rotate(2deg)',
+    tipoFondo: 'papel-calido',
+    selloForma: 'sello-circular',
+    selloTexto: 'GARANTÍA OFICIAL • 2026'
   }
 ];
 
@@ -71,7 +103,7 @@ export default function QuienesSomos() {
   return (
     <div style={{ backgroundColor: '#0B0C0E', minHeight: '100vh', color: '#ffffff', paddingBottom: '80px', overflowX: 'hidden' }}>
       
-      {/* TIPOGRAFÍA MÁQUINA DE ESCRIBIR & ESTILOS DE ESTAMPILLA */}
+      {/* TIPOGRAFÍA VINTAGE TYPEWRITER Y EFECTOS POSTALES */}
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=Special+Elite&display=swap');
 
@@ -79,7 +111,7 @@ export default function QuienesSomos() {
           font-family: 'Special Elite', 'Courier Prime', 'Courier New', monospace !important;
         }
 
-        /* CONTENEDOR Y LÍNEA CENTRAL GUÍA */
+        /* LÍNEA GUÍA CENTRAL DEL ÁLBUM */
         .scrolly-album-track {
           position: relative;
           max-width: 1100px;
@@ -90,8 +122,8 @@ export default function QuienesSomos() {
         .scrolly-album-track::before {
           content: '';
           position: absolute;
-          top: 0;
-          bottom: 0;
+          top: 20px;
+          bottom: 40px;
           left: 50%;
           width: 2px;
           border-left: 2px dashed #27272a;
@@ -99,35 +131,35 @@ export default function QuienesSomos() {
           z-index: 1;
         }
 
-        /* POSTAL / MARCO HISTÓRICO */
         .album-item {
           position: relative;
-          margin-bottom: 120px;
+          margin-bottom: 140px;
           z-index: 2;
         }
 
+        /* MARCO DOCUMENTAL DE LA FOTO */
         .album-photo-frame {
           position: relative;
           width: 100%;
-          max-width: 960px;
+          max-width: 980px;
           margin: 0 auto;
           background-color: #141518;
           border: 1px solid #27272a;
-          border-radius: 18px;
-          padding: 18px 18px 50px 18px;
-          box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7);
-          transition: transform 0.3s ease, border-color 0.3s ease;
+          border-radius: 20px;
+          padding: 16px;
+          box-shadow: 0 24px 60px rgba(0, 0, 0, 0.75);
+          transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s ease;
         }
 
         .album-photo-frame:hover {
-          border-color: rgba(237, 28, 36, 0.4);
+          border-color: rgba(237, 28, 36, 0.5);
           transform: translateY(-4px);
         }
 
         .album-photo-img-wrap {
           width: 100%;
-          height: 480px;
-          border-radius: 12px;
+          height: 500px;
+          border-radius: 14px;
           overflow: hidden;
           background-color: #070709;
         }
@@ -137,44 +169,85 @@ export default function QuienesSomos() {
           height: 100%;
           object-fit: cover;
           display: block;
+          transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-        /* ESTAMPILLA VINTAGE SUPERPUESTA EN LA ESQUINA INFERIOR DERECHA */
+        .album-photo-frame:hover .album-photo-img-wrap img {
+          transform: scale(1.03);
+        }
+
+        /* VARIANTES DE UBICACIÓN DE LA ESTAMPILLA */
         .stamp-capsule {
           position: absolute;
+          width: 380px;
+          color: #1e1b18;
+          padding: 24px 26px;
+          z-index: 15;
+          outline-offset: -4px;
+          transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .stamp-bottom-right {
           bottom: -45px;
-          right: 30px;
-          width: 360px;
+          right: 32px;
+        }
+
+        .stamp-bottom-left {
+          bottom: -45px;
+          left: 32px;
+        }
+
+        .stamp-top-right {
+          top: 24px;
+          right: 28px;
+        }
+
+        /* TEXTURAS DE PAPEL VINTAGE */
+        .papel-calido {
           background: #eadecc;
           background-image: 
             radial-gradient(#d6c4a8 10%, transparent 11%),
-            linear-gradient(135deg, #f3ece1 0%, #e0d1bb 100%);
+            linear-gradient(135deg, #f5efe6 0%, #dfd0ba 100%);
           background-size: 8px 8px, 100% 100%;
-          color: #1e1b18;
-          padding: 22px 24px;
-          box-shadow: 
-            0 14px 30px rgba(0,0,0,0.6),
-            inset 0 0 15px rgba(160, 130, 95, 0.35);
           border: 1px solid #c4b093;
           outline: 6px dotted #eadecc;
-          outline-offset: -3px;
-          transform: rotate(-1.5deg);
-          transition: transform 0.3s ease, box-shadow 0.3s ease;
-          z-index: 10;
+          box-shadow: 0 16px 36px rgba(0, 0, 0, 0.65), inset 0 0 20px rgba(160, 130, 95, 0.35);
+        }
+
+        .papel-pergamino {
+          background: #d8c29d;
+          background-image: 
+            radial-gradient(#c2aa84 10%, transparent 11%),
+            linear-gradient(135deg, #e4d3b6 0%, #caa97d 100%);
+          background-size: 8px 8px, 100% 100%;
+          border: 1px solid #b5996f;
+          outline: 6px dotted #d8c29d;
+          box-shadow: 0 16px 36px rgba(0, 0, 0, 0.7), inset 0 0 22px rgba(130, 95, 60, 0.4);
+        }
+
+        .papel-blanco-envejecido {
+          background: #ede6d8;
+          background-image: 
+            radial-gradient(#dcd2be 10%, transparent 11%),
+            linear-gradient(135deg, #faf7f0 0%, #dfd5be 100%);
+          background-size: 8px 8px, 100% 100%;
+          border: 1px solid #cbbf9f;
+          outline: 6px dotted #ede6d8;
+          box-shadow: 0 16px 36px rgba(0, 0, 0, 0.6), inset 0 0 18px rgba(170, 150, 120, 0.3);
         }
 
         .album-photo-frame:hover .stamp-capsule {
-          transform: rotate(0deg) scale(1.02);
-          box-shadow: 0 18px 36px rgba(0,0,0,0.8);
+          transform: translateY(-6px) scale(1.03) !important;
+          box-shadow: 0 22px 45px rgba(0,0,0,0.85);
         }
 
-        /* SELLO POSTAL CIRCULAR ROJO */
-        .stamp-postmark {
+        /* SELLOS POSTALES */
+        .sello-circular {
           position: absolute;
           top: -14px;
           right: -14px;
-          width: 68px;
-          height: 68px;
+          width: 72px;
+          height: 72px;
           border-radius: 50%;
           border: 2px dashed rgba(237, 28, 36, 0.85);
           display: flex;
@@ -185,11 +258,31 @@ export default function QuienesSomos() {
           font-weight: 700;
           color: #ED1C24;
           text-transform: uppercase;
-          transform: rotate(18deg);
+          transform: rotate(16deg);
           pointer-events: none;
-          background-color: rgba(234, 222, 204, 0.85);
+          background-color: rgba(234, 222, 204, 0.9);
           line-height: 1.1;
           letter-spacing: 0.5px;
+        }
+
+        .sello-rectangular {
+          position: absolute;
+          top: -12px;
+          right: -10px;
+          padding: 4px 10px;
+          border-radius: 4px;
+          border: 2px solid rgba(237, 28, 36, 0.85);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 0.65rem;
+          font-weight: 700;
+          color: #ED1C24;
+          text-transform: uppercase;
+          transform: rotate(-8deg);
+          pointer-events: none;
+          background-color: rgba(234, 222, 204, 0.95);
+          letter-spacing: 1px;
         }
 
         .values-grid-2x2 {
@@ -222,20 +315,25 @@ export default function QuienesSomos() {
         /* RESPONSIVE MÓVIL */
         @media (max-width: 860px) {
           .album-photo-frame {
-            padding: 12px 12px 130px 12px;
+            padding: 10px 10px 145px 10px;
           }
           .album-photo-img-wrap {
             height: 260px;
           }
           .stamp-capsule {
-            width: calc(100% - 36px);
-            right: 18px;
-            bottom: -20px;
-            padding: 16px;
+            width: calc(100% - 24px) !important;
+            left: 12px !important;
+            right: 12px !important;
+            bottom: -25px !important;
+            top: auto !important;
+            padding: 16px !important;
             transform: none !important;
           }
           .scrolly-album-track {
             padding: 0 12px;
+          }
+          .scrolly-album-track::before {
+            display: none;
           }
           .values-grid-2x2, .salon-grid {
             grid-template-columns: 1fr !important;
@@ -267,44 +365,46 @@ export default function QuienesSomos() {
 
         <div style={{ maxWidth: '780px', margin: '0 auto' }}>
           <p style={{ fontSize: '1.02rem', color: '#d4d4d8', lineHeight: 1.65, margin: 0 }}>
-            Las empresas no se construyen con discursos, sino con hechos, clientes que vuelven a lo largo de los años y el valor irrenunciable de la palabra empeñada. Recorré el álbum documental de nuestra historia:
+            Las empresas no se construyen con discursos, sino con hechos, clientes que vuelven a lo largo de las décadas y el valor irrenunciable de la palabra empeñada. Recorré nuestro archivo documental:
           </p>
         </div>
       </section>
 
-      {/* 2. ÁLBUM DOCUMENTAL CON ESTAMPILLA EN MÁQUINA DE ESCRIBIR */}
+      {/* 2. ÁLBUM DOCUMENTAL DINÁMICO CON ESTAMPILLAS ASIMÉTRICAS */}
       <section className="scrolly-album-track">
         {capitulosHistoria.map((cap, index) => (
           <div key={index} className="album-item">
             
             <div className="album-photo-frame">
-              {/* FOTO EN GRANDE */}
+              {/* FOTO HISTÓRICA PROTAGONISTA */}
               <div className="album-photo-img-wrap">
                 <img src={cap.imagen} alt={cap.titulo} />
               </div>
 
               {/* ESTAMPILLA VINTAGE CON MÁQUINA DE ESCRIBIR */}
-              <div className="stamp-capsule font-typewriter">
-                
-                {/* SELLO POSTAL CIRCULAR ROJO */}
-                <div className="stamp-postmark">
-                  {cap.sello}
+              <div 
+                className={`stamp-capsule ${cap.posicion} ${cap.tipoFondo} font-typewriter`}
+                style={{ transform: cap.rotacion }}
+              >
+                {/* SELLO POSTAL PERSONALIZADO */}
+                <div className={cap.selloForma}>
+                  {cap.selloTexto}
                 </div>
 
-                <div style={{ borderBottom: '1px dashed #8c7860', paddingBottom: '8px', marginBottom: '10px' }}>
-                  <div style={{ fontSize: '1.35rem', fontWeight: 700, color: '#991b1b', letterSpacing: '1px', lineHeight: 1 }}>
+                <div style={{ borderBottom: '1px dashed #7a6347', paddingBottom: '8px', marginBottom: '10px' }}>
+                  <div style={{ fontSize: '1.45rem', fontWeight: 700, color: '#991b1b', letterSpacing: '1px', lineHeight: 1 }}>
                     {cap.año}
                   </div>
-                  <div style={{ fontSize: '0.72rem', textTransform: 'uppercase', letterSpacing: '1.5px', color: '#574838', marginTop: '3px' }}>
+                  <div style={{ fontSize: '0.72rem', textTransform: 'uppercase', letterSpacing: '1.5px', color: '#4a3b2b', marginTop: '3px' }}>
                     {cap.etiqueta}
                   </div>
                 </div>
 
-                <h3 style={{ fontSize: '1.05rem', fontWeight: 700, color: '#1a1612', margin: '0 0 8px 0', lineHeight: 1.3 }}>
+                <h3 style={{ fontSize: '1.08rem', fontWeight: 700, color: '#1a1612', margin: '0 0 8px 0', lineHeight: 1.3 }}>
                   {cap.titulo}
                 </h3>
 
-                <p style={{ fontSize: '0.85rem', color: '#2f2720', lineHeight: 1.5, margin: 0 }}>
+                <p style={{ fontSize: '0.86rem', color: '#2b2219', lineHeight: 1.55, margin: 0 }}>
                   {cap.relato}
                 </p>
               </div>
@@ -315,7 +415,7 @@ export default function QuienesSomos() {
         ))}
       </section>
 
-      {/* 3. PROPÓSITO & VISIÓN */}
+      {/* 3. PROPÓSITO & COMPROMISO */}
       <section style={{ maxWidth: '1280px', margin: '50px auto 0 auto', padding: '0 24px' }}>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '24px' }}>
           
@@ -326,7 +426,7 @@ export default function QuienesSomos() {
               <span style={{ fontSize: '0.78rem', fontWeight: 700, color: '#ED1C24', letterSpacing: '1.5px', textTransform: 'uppercase' }}>NUESTRO COMPROMISO</span>
               <h3 style={{ fontSize: '1.45rem', fontWeight: 600, margin: '4px 0 8px 0', color: '#ffffff' }}>Seguridad, respaldo y tranquilidad</h3>
               <p style={{ fontSize: '0.92rem', color: '#ffffff', lineHeight: 1.55, margin: 0 }}>
-                Cada vehículo que comercializamos atraviesa un peritaje mecánico estricto y cuenta con garantía real propia de 6 meses para que tomes la mejor decisión de inversión.
+                Cada vehículo que comercializamos atraviesa un peritaje mecánico riguroso y cuenta con garantía real propia de 6 meses para que tomes la mejor decisión de inversión.
               </p>
             </div>
           </div>
