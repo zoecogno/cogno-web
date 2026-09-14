@@ -7,9 +7,9 @@ const capitulosHistoria = [
     titulo: 'La primera chata: "La Vaca Milka"',
     relato: 'Todo comenzó con esta clásica Ford F-100 blanca equipada con cúpula y defensa tubular. Fue la primera unidad entregada y la chispa fundacional de Cogno Automotores. Sin grandes estructuras, pero con una convicción innegociable: la palabra empeñada y el trato leal valen más que cualquier firma.',
     imagen: '/primera-chata.png',
-    pie: 'Ford F-100 "La Vaca Milka" — Archivo 1989',
     selloNumero: '01',
-    rotacionEstampilla: '-2.5deg'
+    selloTexto: 'ORIGEN • 1989',
+    rotacion: '-1.5deg'
   },
   {
     año: 'AÑOS 90',
@@ -17,9 +17,9 @@ const capitulosHistoria = [
     titulo: 'Echar raíces sobre Marcelo T. de Alvear',
     relato: 'Los primeros pasos en el predio propio. El trabajo artesanal de seleccionar cada vehículo, revisar la mecánica de punta a punta y atender personalmente a cada productor, transportista y vecino de la región que confiaba su herramienta de trabajo en nuestras manos.',
     imagen: '/origenes-local.jpg',
-    pie: 'Instalaciones sobre Av. Alvear — Años 90',
     selloNumero: '90s',
-    rotacionEstampilla: '2deg'
+    selloTexto: 'PREDIO PROPIO',
+    rotacion: '2deg'
   },
   {
     año: 'CRECIMIENTO',
@@ -27,9 +27,9 @@ const capitulosHistoria = [
     titulo: 'Una pasión construida entre generaciones',
     relato: 'La transición hacia la comercialización de 0 KM y usados jóvenes. Detrás del mostrador, la familia siempre presente: atendiendo clientes, resolviendo trámites de gestoría y compartiendo el orgullo de ver crecer un proyecto que ya era parte de la identidad de Banda Norte.',
     imagen: '/familia-90s.jpg',
-    pie: 'El corazón de una empresa familiar — Archivo histórico',
     selloNumero: 'FAM',
-    rotacionEstampilla: '-1.8deg'
+    selloTexto: 'MULTIMARCA',
+    rotacion: '-1.8deg'
   },
   {
     año: '2014',
@@ -37,9 +37,9 @@ const capitulosHistoria = [
     titulo: 'Referentes indiscutidos en pick-ups',
     relato: 'Río Cuarto y el sur de Córdoba demandaban utilitarios pesados y confiables. Consolidamos el mayor despliegue de camionetas de la región, convirtiéndonos en el punto de encuentro natural para renovar Toyota Hilux, Ford Ranger y Volkswagen Amarok con garantía real.',
     imagen: '/frente-2014.png',
-    pie: 'Exhibición de utilitarios sobre vereda Alvear en 2014',
     selloNumero: '4X4',
-    rotacionEstampilla: '2.5deg'
+    selloTexto: 'LÍDERES 4X4',
+    rotacion: '1.5deg'
   },
   {
     año: '2015',
@@ -47,9 +47,9 @@ const capitulosHistoria = [
     titulo: 'El salón a la vista de toda la ciudad',
     relato: 'Una postal cotidiana sobre Marcelo T. de Alvear 1580. La rotación de stock no paraba: autos medianos, sedanes familiares y camionetas listas para transferir en el día. Los clientes ya no venían solo por un auto, venían a buscar respaldo y tranquilidad.',
     imagen: '/frente-2015.jpg',
-    pie: 'Vista frontal desde la avenida — Archivo 2015',
     selloNumero: '15',
-    rotacionEstampilla: '-2deg'
+    selloTexto: 'ALVEAR 1580',
+    rotacion: '-2deg'
   },
   {
     año: 'EXPANSIÓN',
@@ -57,9 +57,9 @@ const capitulosHistoria = [
     titulo: 'Entregas por flotas: La fuerza de Hilux',
     relato: 'Llegaron los desafíos de escala: proveer flotas corporativas completas, unidades 0 KM llave en mano para el sector agroindustrial y logística pesada. Tres Hilux rojas listas para salir en simultáneo simbolizaron la madurez operativa de la concesionaria.',
     imagen: '/flota-hilux.jpg',
-    pie: 'Flota comercial 0 KM en el salón de entregas',
     selloNumero: 'FLOTA',
-    rotacionEstampilla: '2.2deg'
+    selloTexto: 'DESPACHO 0KM',
+    rotacion: '2deg'
   },
   {
     año: 'PRESENTE',
@@ -67,9 +67,9 @@ const capitulosHistoria = [
     titulo: 'Más de 35 años de confianza viva en Río Cuarto',
     relato: 'Salón modelo sobre Marcelo T. de Alvear 1580, inventario digital en tiempo real conectado al taller y garantía extendida propia de 6 meses. Seguimos siendo la misma empresa familiar del primer día, atendida por sus propios dueños con la seriedad de siempre.',
     imagen: '/frente-2026.jpg.jpg',
-    pie: 'Instalaciones actuales — Marcelo T. de Alvear 1580',
     selloNumero: '35+',
-    rotacionEstampilla: '-1.5deg'
+    selloTexto: 'GARANTÍA TOTAL',
+    rotacion: '1.2deg'
   }
 ];
 
@@ -77,6 +77,7 @@ export default function QuienesSomos() {
   return (
     <div style={{ backgroundColor: '#0B0C0E', minHeight: '100vh', color: '#ffffff', paddingBottom: '80px', overflowX: 'hidden' }}>
       
+      {/* TIPOGRAFÍA VINTAGE & LÍNEA VERTICAL CON FOTO AMPLIADA EN MÓVIL */}
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=Special+Elite&display=swap');
 
@@ -84,172 +85,123 @@ export default function QuienesSomos() {
           font-family: 'Special Elite', 'Courier Prime', monospace !important;
         }
 
-        /* CONTENEDOR HORIZONTAL CON SCROLL SUAVE */
-        .timeline-h-container {
+        /* LÍNEA DE TIEMPO VERTICAL */
+        .timeline-container {
           position: relative;
-          width: 100%;
-          overflow-x: auto;
-          overflow-y: hidden;
-          padding: 20px 0 40px 0;
-          box-sizing: border-box;
-          -webkit-overflow-scrolling: touch;
+          max-width: 1180px;
+          margin: 45px auto 0 auto;
+          padding: 0 20px;
         }
 
-        .timeline-h-container::-webkit-scrollbar {
-          height: 6px;
-        }
-        .timeline-h-container::-webkit-scrollbar-thumb {
-          background: #ED1C24;
-          border-radius: 4px;
-        }
-        .timeline-h-container::-webkit-scrollbar-track {
-          background: #141518;
-        }
-
-        /* EJE DE ALTURA HOLGADA PARA EVITAR CORTES */
-        .timeline-h-stage {
-          position: relative;
-          display: flex;
-          align-items: center;
-          min-width: max-content;
-          height: 860px;
-          padding: 0 50px;
-        }
-
-        .timeline-h-axis {
+        .timeline-container::before {
+          content: '';
           position: absolute;
-          left: 0;
-          right: 0;
-          top: 50%;
-          height: 2px;
-          background: linear-gradient(90deg, transparent 0%, #ED1C24 4%, #27272a 18%, #27272a 82%, #ED1C24 96%, transparent 100%);
-          transform: translateY(-50%);
+          top: 30px;
+          bottom: 30px;
+          left: 50%;
+          width: 2px;
+          background: linear-gradient(180deg, #ED1C24 0%, #27272a 12%, #27272a 88%, #ED1C24 100%);
+          transform: translateX(-50%);
           z-index: 1;
         }
 
-        /* SLOT POR HITO */
-        .timeline-h-slot {
-          position: relative;
-          width: 540px;
-          height: 100%;
-          margin: 0 20px;
+        .timeline-row {
           display: flex;
           align-items: center;
-          justify-content: center;
-          z-index: 2;
+          position: relative;
+          margin-bottom: 75px;
+          width: 100%;
         }
 
-        /* NODO CENTRAL */
-        .timeline-h-dot {
+        .timeline-row:nth-child(even) {
+          flex-direction: row-reverse;
+        }
+
+        .timeline-dot {
           position: absolute;
-          top: 50%;
-          left: 170px;
-          transform: translate(-50%, -50%);
-          width: 20px;
-          height: 20px;
+          left: 50%;
+          transform: translateX(-50%);
+          width: 18px;
+          height: 18px;
           border-radius: 50%;
           background-color: #ED1C24;
-          border: 4px solid #0B0C0E;
-          box-shadow: 0 0 14px rgba(237, 28, 36, 0.85);
-          z-index: 6;
+          border: 3px solid #0B0C0E;
+          box-shadow: 0 0 12px rgba(237, 28, 36, 0.75);
+          z-index: 5;
         }
 
-        /* POSICIONAMIENTO ARRIBA Y ABAJO */
-        .h-unit-top {
-          position: absolute;
-          bottom: calc(50% + 20px);
-          left: 0;
-          width: 100%;
-          display: flex;
-          align-items: center;
-        }
-
-        .h-unit-bottom {
-          position: absolute;
-          top: calc(50% + 20px);
-          left: 0;
-          width: 100%;
-          display: flex;
-          align-items: center;
-        }
-
-        /* FOTO PRINCIPAL */
-        .h-photo-card {
-          width: 330px;
-          height: 240px;
-          background-color: #141518;
-          border: 1px solid #27272a;
-          border-radius: 16px;
-          overflow: hidden;
-          box-shadow: 0 16px 36px rgba(0,0,0,0.7);
-          flex-shrink: 0;
-          position: relative;
+        .timeline-col {
+          width: 46%;
+          box-sizing: border-box;
           z-index: 2;
         }
-        .h-photo-card img {
+
+        /* FOTO DOCUMENTAL LIMPIA (SIN EPÍGRAFE) */
+        .timeline-photo-box {
+          border-radius: 18px;
+          overflow: hidden;
+          background-color: #141518;
+          border: 1px solid #27272a;
+          box-shadow: 0 16px 36px rgba(0, 0, 0, 0.65);
+          transition: transform 0.35s ease, border-color 0.35s ease;
+          height: 330px;
+        }
+
+        .timeline-photo-box:hover {
+          transform: scale(1.02);
+          border-color: rgba(237, 28, 36, 0.5);
+        }
+
+        .timeline-photo-box img {
           width: 100%;
           height: 100%;
           object-fit: cover;
           display: block;
         }
-        .h-photo-tag {
-          position: absolute;
-          bottom: 8px;
-          left: 8px;
-          background: rgba(11, 12, 14, 0.85);
-          backdrop-filter: blur(6px);
-          padding: 4px 10px;
-          border-radius: 10px;
-          font-size: 0.68rem;
-          color: #ffffff;
-          border: 1px solid #27272a;
-        }
 
-        /* ESTAMPILLA AL COSTADO DERECHO (SOLAPADA LATERALMENTE) */
-        .h-stamp-card {
-          width: 260px;
-          margin-left: -50px;
-          padding: 16px 14px;
+        /* ESTAMPILLA VINTAGE CON RELATO */
+        .timeline-stamp-box {
           background: #eadecc;
           background-image: 
             radial-gradient(#d6c4a8 10%, transparent 11%),
             linear-gradient(135deg, #f7f3ec 0%, #d8c8b4 100%);
           background-size: 8px 8px, 100% 100%;
           border: 1px solid #baa891;
-          box-shadow: 0 14px 30px rgba(0, 0, 0, 0.65), inset 0 0 12px rgba(160, 130, 95, 0.35);
+          box-shadow: 0 16px 36px rgba(0, 0, 0, 0.65), inset 0 0 14px rgba(160, 130, 95, 0.35);
           border-radius: 4px;
-          outline: 4px dotted #eadecc;
-          outline-offset: -2px;
+          outline: 5px dotted #eadecc;
+          outline-offset: -3px;
+          padding: 24px 22px;
+          box-sizing: border-box;
           position: relative;
           color: #2b2219;
-          z-index: 3;
-          flex-shrink: 0;
-          transition: transform 0.3s ease, box-shadow 0.3s ease;
+          transition: transform 0.3s ease;
         }
 
-        .h-stamp-card:hover {
-          z-index: 10;
-          box-shadow: 0 20px 40px rgba(0,0,0,0.85);
+        .timeline-stamp-box:hover {
+          transform: scale(1.02) !important;
         }
 
-        .h-stamp-seal {
+        .timeline-seal {
           position: absolute;
-          top: -10px;
-          right: -10px;
-          width: 48px;
-          height: 48px;
+          top: -12px;
+          right: -12px;
+          width: 62px;
+          height: 62px;
           border-radius: 50%;
           border: 2px dashed rgba(237, 28, 36, 0.85);
           display: flex;
           align-items: center;
           justify-content: center;
           text-align: center;
-          font-size: 0.48rem;
+          font-size: 0.56rem;
           font-weight: 800;
           color: #ED1C24;
+          transform: rotate(16deg);
+          pointer-events: none;
           background: rgba(234, 222, 204, 0.95);
-          transform: rotate(14deg);
-          line-height: 1;
+          line-height: 1.1;
+          letter-spacing: 0.5px;
         }
 
         /* MISIÓN Y VISIÓN COMPACTAS */
@@ -313,7 +265,7 @@ export default function QuienesSomos() {
           display: flex;
           gap: 18px;
           align-items: flex-start;
-          transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+          transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease, box-shadow 0.3s ease;
         }
         .value-card:hover {
           transform: translateY(-5px);
@@ -335,7 +287,7 @@ export default function QuienesSomos() {
           align-items: center;
         }
 
-        /* --- CELULARES: RESPONSIVE OPTIMIZADO --- */
+        /* --- ADAPTACIÓN MÓVIL ESTRICTA --- */
         @media (max-width: 768px) {
           .section-title {
             font-size: 1.35rem !important;
@@ -355,34 +307,48 @@ export default function QuienesSomos() {
             line-height: 1.45 !important;
           }
 
-          .timeline-h-stage {
-            height: 720px !important;
-            padding: 0 20px !important;
+          /* LÍNEA DE TIEMPO EN MÓVIL */
+          .timeline-container {
+            padding: 0 16px !important;
+            margin-top: 35px !important;
           }
-          .timeline-h-slot {
-            width: 420px !important;
-            margin: 0 12px !important;
+          .timeline-container::before {
+            display: none !important;
           }
-          .timeline-h-dot {
-            left: 130px !important;
+          .timeline-dot {
+            display: none !important;
           }
-          .h-photo-card {
-            width: 250px !important;
-            height: 190px !important;
+          .timeline-row, .timeline-row:nth-child(even) {
+            flex-direction: column !important;
+            margin-bottom: 45px !important;
           }
-          .h-stamp-card {
-            width: 210px !important;
-            margin-left: -40px !important;
-            padding: 12px 10px !important;
+          .timeline-col {
+            width: 100% !important;
+            max-width: 100% !important;
           }
-          .h-stamp-card h3 {
-            font-size: 0.88rem !important;
-          }
-          .h-stamp-card p {
-            font-size: 0.72rem !important;
-            line-height: 1.35 !important;
+          .timeline-col:last-child {
+            margin-top: 14px !important;
           }
 
+          /* FOTO EN CELULARES MÁS GRANDE */
+          .timeline-photo-box {
+            height: 280px !important;
+            border-radius: 16px !important;
+          }
+
+          .timeline-stamp-box {
+            padding: 18px 16px !important;
+            outline-width: 3px !important;
+          }
+          .timeline-seal {
+            width: 48px !important;
+            height: 48px !important;
+            font-size: 0.46rem !important;
+            top: -8px !important;
+            right: -8px !important;
+          }
+
+          /* RESTABLECIMIENTO DE MISIÓN Y VISIÓN COMPACTAS */
           .vision-grid {
             grid-template-columns: 1fr !important;
             gap: 12px !important;
@@ -401,6 +367,7 @@ export default function QuienesSomos() {
             line-height: 1.45 !important;
           }
 
+          /* VALORES COMPACTOS */
           .values-grid-2x2 {
             grid-template-columns: 1fr !important;
             gap: 10px !important;
@@ -425,6 +392,7 @@ export default function QuienesSomos() {
             line-height: 1.45 !important;
           }
 
+          /* SALÓN COMERCIAL */
           .salon-card-box {
             padding: 22px 16px !important;
             border-radius: 16px !important;
@@ -463,12 +431,12 @@ export default function QuienesSomos() {
 
         <div style={{ maxWidth: '820px', margin: '0 auto' }}>
           <p className="hero-qs-desc" style={{ fontSize: '0.98rem', color: '#F4F4F5', lineHeight: 1.55, margin: 0, fontWeight: 400 }}>
-            Somos <strong style={{ fontWeight: 600, color: '#ffffff' }}>Cogno Automotores S.A.</strong>, una empresa familiar con más de 35 años en Río Cuarto. Comercializamos 0 KM multimarca y usados seleccionados con garantía propia y peritaje riguroso.
+            Somos <strong style={{ fontWeight: 600, color: '#ffffff' }}>Cogno Automotores S.A.</strong>, una empresa familiar con más de 35 años en Río Cuarto. Comercializamos 0 KM multimarca y usados seleccionados con garantía propia y peritaje riguroso[cite: 3, 4].
           </p>
         </div>
       </section>
 
-      {/* FOTO SALÓN ACTUAL CONTENIDA */}
+      {/* FOTO SALÓN ACTUAL */}
       <div style={{ maxWidth: '1000px', margin: '18px auto 0 auto', padding: '0 24px' }}>
         <div style={{ borderRadius: '18px', overflow: 'hidden', border: '1px solid #27272a', backgroundColor: '#070709', boxShadow: '0 16px 36px rgba(0,0,0,0.6)' }}>
           <img 
@@ -479,9 +447,9 @@ export default function QuienesSomos() {
         </div>
       </div>
 
-      {/* 2. NUESTRA HISTORIA: LÍNEA HORIZONTAL CON ESTAMPILLAS AL COSTADO */}
-      <section style={{ maxWidth: '1280px', margin: '50px auto 0 auto' }}>
-        <div style={{ textAlign: 'center', marginBottom: '16px', padding: '0 20px' }}>
+      {/* 2. NUESTRA HISTORIA: LÍNEA VERTICAL CON ESTAMPILLAS */}
+      <section className="timeline-container">
+        <div style={{ textAlign: 'center', marginBottom: '35px', padding: '0 20px' }}>
           <span style={{ fontSize: '0.82rem', fontWeight: 700, color: '#ED1C24', letterSpacing: '2px', textTransform: 'uppercase' }}>
             NUESTRO RECORRIDO
           </span>
@@ -489,70 +457,58 @@ export default function QuienesSomos() {
             Nuestra Historia
           </h2>
           <p style={{ color: '#a1a1aa', fontSize: '0.92rem', maxWidth: '680px', margin: '0 auto', lineHeight: 1.5 }}>
-            Deslizá hacia los costados para recorrer nuestra cronología en postales y estampillas:
+            Las empresas no se construyen con discursos, sino con hechos, clientes que vuelven a lo largo de los años y el valor irrenunciable de la palabra empeñada.
           </p>
         </div>
 
-        <div className="timeline-h-container">
-          <div className="timeline-h-stage">
+        {capitulosHistoria.map((cap, index) => (
+          <div key={index} className="timeline-row">
             
-            <div className="timeline-h-axis"></div>
+            <div className="timeline-dot"></div>
 
-            {capitulosHistoria.map((cap, index) => {
-              const esArriba = index % 2 === 0;
-
-              return (
-                <div key={index} className="timeline-h-slot">
-                  
-                  {/* NODO CIRCULAR ROJO */}
-                  <div className="timeline-h-dot"></div>
-
-                  {/* UNIDAD FOTO + ESTAMPILLA AL COSTADO */}
-                  <div className={esArriba ? 'h-unit-top' : 'h-unit-bottom'}>
-                    
-                    {/* FOTO HISTÓRICA */}
-                    <div className="h-photo-card">
-                      <img src={cap.imagen} alt={cap.titulo} />
-                      <div className="h-photo-tag">
-                        📷 {cap.pie}
-                      </div>
-                    </div>
-
-                    {/* ESTAMPILLA AL COSTADO DERECHO */}
-                    <div 
-                      className="h-stamp-card font-typewriter"
-                      style={{ transform: `rotate(${cap.rotacionEstampilla})` }}
-                    >
-                      <div className="h-stamp-seal">
-                        COGNO<br/>{cap.selloNumero}
-                      </div>
-
-                      <div style={{ borderBottom: '1px dashed #baa891', paddingBottom: '4px', marginBottom: '6px' }}>
-                        <div style={{ fontSize: '1.3rem', fontWeight: 700, color: '#991b1b', lineHeight: 1 }}>
-                          {cap.año}
-                        </div>
-                        <div style={{ fontSize: '0.62rem', textTransform: 'uppercase', letterSpacing: '1px', color: '#574838', marginTop: '2px', fontWeight: 700 }}>
-                          {cap.etiqueta}
-                        </div>
-                      </div>
-
-                      <h3 style={{ fontSize: '0.92rem', fontWeight: 700, color: '#1a1612', margin: '0 0 4px 0', lineHeight: 1.25 }}>
-                        {cap.titulo}
-                      </h3>
-
-                      <p style={{ fontSize: '0.76rem', color: '#2b2219', lineHeight: 1.4, margin: 0 }}>
-                        {cap.relato}
-                      </p>
-                    </div>
-
-                  </div>
-
+            {/* ESTAMPILLA VINTAGE */}
+            <div className="timeline-col">
+              <div 
+                className="timeline-stamp-box font-typewriter"
+                style={{ transform: `rotate(${cap.rotacion})` }}
+              >
+                <div className="timeline-seal">
+                  COGNO<br/>{cap.selloNumero}
                 </div>
-              );
-            })}
+
+                <div style={{ borderBottom: '1px dashed #baa891', paddingBottom: '8px', marginBottom: '12px' }}>
+                  <div style={{ fontSize: '1.65rem', fontWeight: 700, color: '#991b1b', lineHeight: 1 }}>
+                    {cap.año}
+                  </div>
+                  <div style={{ fontSize: '0.72rem', textTransform: 'uppercase', letterSpacing: '1.2px', color: '#574838', marginTop: '4px', fontWeight: 700 }}>
+                    {cap.etiqueta} • {cap.selloTexto}
+                  </div>
+                </div>
+
+                <h3 style={{ fontSize: '1.18rem', fontWeight: 700, color: '#1a1612', margin: '0 0 10px 0', lineHeight: 1.3 }}>
+                  {cap.titulo}
+                </h3>
+
+                <p style={{ fontSize: '0.88rem', color: '#2b2219', lineHeight: 1.55, margin: 0 }}>
+                  {cap.relato}
+                </p>
+
+                <div style={{ marginTop: '14px', paddingTop: '8px', borderTop: '1px dashed #baa891', display: 'flex', justifyContent: 'space-between', alignItems: 'center', fontSize: '0.7rem', color: '#7a654f' }}>
+                  <span>EXPEDICIÓN RÍO CUARTO</span>
+                  <span>SERIE 1989-2026</span>
+                </div>
+              </div>
+            </div>
+
+            {/* FOTO DOCUMENTAL LIMPIA */}
+            <div className="timeline-col">
+              <div className="timeline-photo-box">
+                <img src={cap.imagen} alt={cap.titulo} />
+              </div>
+            </div>
 
           </div>
-        </div>
+        ))}
       </section>
 
       {/* 3. PROPÓSITO & VISIÓN */}
@@ -675,14 +631,14 @@ export default function QuienesSomos() {
                 Vení a conocer nuestro local
               </h2>
               <p style={{ fontSize: '0.98rem', color: '#E4E4E7', lineHeight: 1.55, margin: '0 0 18px 0', fontWeight: 400 }}>
-                Te esperamos en nuestro salón comercial para conocer el stock en persona, realizar un peritaje transparente de tu usado y asesorarte de forma personalizada[cite: 2].
+                Te esperamos en nuestro salón comercial para conocer el stock en persona, realizar un peritaje transparente de tu usado y asesorarte de forma personalizada.
               </p>
 
               <div style={{ backgroundColor: '#0B0C0E', border: '1px solid #27272a', padding: '14px 18px', borderRadius: '12px', marginBottom: '18px', display: 'flex', flexDirection: 'column', gap: '10px' }}>
                 <div>
                   <div style={{ fontSize: '0.72rem', color: '#a1a1aa', textTransform: 'uppercase', fontWeight: 600 }}>UBICACIÓN</div>
                   <div style={{ fontSize: '1rem', fontWeight: 600, color: '#ffffff' }}>Av. Marcelo T. de Alvear 1580</div>
-                  <div style={{ fontSize: '0.86rem', color: '#d4d4d8' }}>Río Cuarto, Córdoba, Argentina[cite: 2]</div>
+                  <div style={{ fontSize: '0.86rem', color: '#d4d4d8' }}>Río Cuarto, Córdoba, Argentina</div>
                 </div>
 
                 <div style={{ borderTop: '1px solid #1F2024', paddingTop: '8px' }}>
@@ -706,7 +662,7 @@ export default function QuienesSomos() {
                   rel="noopener noreferrer" 
                   style={{ backgroundColor: '#1F2024', border: '1px solid #333', color: '#ffffff', padding: '12px 20px', borderRadius: '10px', fontWeight: 600, fontSize: '0.88rem', textDecoration: 'none', textAlign: 'center' }}
                 >
-                  Hablar por WhatsApp[cite: 1, 2]
+                  Hablar por WhatsApp
                 </a>
               </div>
             </div>
