@@ -75,8 +75,9 @@ const capitulosHistoria = [
 
 export default function QuienesSomos() {
   return (
-    <div style={{ backgroundColor: '#0B0C0E', minHeight: '100vh', color: '#ffffff', paddingBottom: '80px', overflowX: 'hidden' }}>
+<div style={{ backgroundColor: '#0B0C0E', minHeight: '100vh', color: '#ffffff', paddingBottom: '80px' }}>
       
+    {/* ESTILOS INTERACTIVOS, LÍNEA VERTICAL (PC) Y LÍNEA HORIZONTAL ARRIBA/ABAJO (MÓVIL) */}
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=Special+Elite&display=swap');
 
@@ -205,13 +206,15 @@ export default function QuienesSomos() {
         }
 
         /* =========================================================
-           2. CELULARES (MÓVIL): LÍNEA HORIZONTAL ARRIBA/ABAJO
+           2. CELULARES (MÓVIL): LÍNEA HORIZONTAL CON EJE EN EL MEDIO
            ========================================================= */
         .timeline-mobile-wrapper {
           display: none;
         }
 
-        /* MISIÓN & VISIÓN */
+        /* =========================================================
+           3. PROPÓSITO, VISIÓN, VALORES Y SALÓN COMERCIAL (PC)
+           ========================================================= */
         .vision-grid {
           display: grid;
           grid-template-columns: 1fr 1fr;
@@ -258,7 +261,6 @@ export default function QuienesSomos() {
           z-index: 3;
         }
 
-        /* VALORES (GRILLA 2x2) */
         .values-grid-2x2 {
           display: grid;
           grid-template-columns: 1fr 1fr;
@@ -294,7 +296,9 @@ export default function QuienesSomos() {
           align-items: center;
         }
 
-        /* ADAPTACIÓN MOBILE */
+        /* =========================================================
+           4. ADAPTACIÓN MÓVIL ESTRICTA (<= 860px)
+           ========================================================= */
         @media (max-width: 860px) {
           .section-title {
             font-size: 1.35rem !important;
@@ -314,24 +318,28 @@ export default function QuienesSomos() {
             line-height: 1.45 !important;
           }
 
-          /* APAGAR TIMELINE VERTICAL EN MÓVIL */
+          /* Oculta la vista de escritorio */
           .timeline-desktop-wrapper {
             display: none !important;
           }
 
-          /* PRENDER TIMELINE HORIZONTAL CON EJE EN EL MEDIO (ARRIBA Y ABAJO) */
+          /* Contenedor de scroll horizontal en celular */
           .timeline-mobile-wrapper {
             display: block !important;
-            width: 100%;
-            overflow-x: auto;
-            overflow-y: hidden;
-            padding: 15px 10px 30px 10px;
-            box-sizing: border-box;
-            -webkit-overflow-scrolling: touch;
+            width: 100vw !important;
+            max-width: 100vw !important;
+            overflow-x: scroll !important;
+            overflow-y: hidden !important;
+            margin-left: -20px !important;
+            padding: 15px 20px 35px 20px !important;
+            box-sizing: border-box !important;
+            -webkit-overflow-scrolling: touch !important;
+            scroll-behavior: smooth;
           }
 
           .timeline-mobile-wrapper::-webkit-scrollbar {
-            height: 5px;
+            height: 6px;
+            display: block !important;
           }
           .timeline-mobile-wrapper::-webkit-scrollbar-thumb {
             background: #ED1C24;
@@ -341,33 +349,41 @@ export default function QuienesSomos() {
             background: #141518;
           }
 
+          /* Pista horizontal continua */
           .timeline-mobile-stage {
-            height: 800px !important;
-            padding: 0 30px !important;
+            position: relative;
+            display: inline-flex !important;
+            align-items: center;
+            height: 820px !important;
+            padding: 0 40px 0 10px !important;
           }
 
+          /* Eje horizontal rojo al medio */
           .timeline-mobile-axis {
             position: absolute;
             left: 0;
-            right: 0;
+            width: 100%;
             top: 50%;
             height: 2px;
-            background: linear-gradient(90deg, transparent 0%, #ED1C24 4%, #27272a 15%, #27272a 85%, #ED1C24 96%, transparent 100%);
+            background: #ED1C24;
             transform: translateY(-50%);
             z-index: 1;
           }
 
-        .timeline-mobile-slot {
+          /* Espacio por cada hito */
+          .timeline-mobile-slot {
             position: relative;
-            width: 440px !important; /* Ancho suficiente para foto + estampilla al costado */
+            width: 490px !important;
             height: 100%;
-            margin: 0 16px !important;
+            margin-right: 36px !important;
+            flex-shrink: 0 !important;
             display: flex;
             align-items: center;
             justify-content: center;
             z-index: 2;
           }
 
+          /* Nodo central sobre el eje */
           .timeline-mobile-dot {
             position: absolute;
             top: 50%;
@@ -382,38 +398,40 @@ export default function QuienesSomos() {
             z-index: 5;
           }
 
+          /* Hito arriba del eje: foto + estampilla al costado */
           .mobile-node-top {
             position: absolute;
-            bottom: calc(50% + 24px);
+            bottom: calc(50% + 22px);
             left: 50%;
             transform: translateX(-50%);
             display: flex !important;
             flex-direction: row !important;
-            align-items: center;
-            width: 430px !important;
+            align-items: center !important;
+            width: 480px !important;
           }
 
+          /* Hito abajo del eje: foto + estampilla al costado */
           .mobile-node-bottom {
             position: absolute;
-            top: calc(50% + 24px);
+            top: calc(50% + 22px);
             left: 50%;
             transform: translateX(-50%);
             display: flex !important;
             flex-direction: row !important;
-            align-items: center;
-            width: 430px !important;
+            align-items: center !important;
+            width: 480px !important;
           }
 
-      /* FOTO EN CELULARES */
+          /* Foto documental en celular */
           .mobile-h-photo {
-            width: 250px !important;
-            height: 230px !important;
-            border-radius: 14px !important;
+            width: 270px !important;
+            height: 240px !important;
+            border-radius: 16px !important;
             overflow: hidden;
             background-color: #070709;
             border: 1px solid #27272a;
             box-shadow: 0 12px 28px rgba(0,0,0,0.7);
-            flex-shrink: 0;
+            flex-shrink: 0 !important;
             z-index: 2;
           }
 
@@ -424,25 +442,25 @@ export default function QuienesSomos() {
             display: block;
           }
 
-       /* ESTAMPILLA AL COSTADO E INCLINADA */
+          /* Estampilla al costado e inclinada */
           .mobile-h-stamp {
-            width: 210px !important;
+            width: 220px !important;
             margin-top: 0 !important;
-            margin-left: -22px !important; /* Muerde el costado de la foto */
+            margin-left: -20px !important;
             background: #eadecc;
             background-image: 
               radial-gradient(#d6c4a8 10%, transparent 11%),
               linear-gradient(135deg, #f7f3ec 0%, #d8c8b4 100%);
             background-size: 8px 8px, 100% 100%;
             border: 1px solid #baa891;
-            box-shadow: 0 12px 24px rgba(0,0,0,0.65), inset 0 0 10px rgba(160, 130, 95, 0.35);
+            box-shadow: 0 12px 25px rgba(0,0,0,0.7), inset 0 0 10px rgba(160, 130, 95, 0.35);
             border-radius: 4px;
             outline: 4px dotted #eadecc;
             outline-offset: -2px;
             padding: 14px 12px !important;
             color: #2b2219;
             position: relative;
-            flex-shrink: 0;
+            flex-shrink: 0 !important;
             z-index: 3;
           }
 
@@ -465,7 +483,7 @@ export default function QuienesSomos() {
             line-height: 1;
           }
 
-          /* MISIÓN Y VISIÓN COMPACTAS */
+          /* Misión y Visión compactas en celular */
           .vision-grid {
             grid-template-columns: 1fr !important;
             gap: 12px !important;
@@ -484,7 +502,7 @@ export default function QuienesSomos() {
             line-height: 1.45 !important;
           }
 
-          /* VALORES COMPACTOS */
+          /* Valores compactos en celular */
           .values-grid-2x2 {
             grid-template-columns: 1fr !important;
             gap: 10px !important;
@@ -513,7 +531,7 @@ export default function QuienesSomos() {
             line-height: 1.45 !important;
           }
 
-          /* SALÓN COMERCIAL */
+          /* Salón comercial en celular */
           .salon-card-box {
             padding: 22px 16px !important;
             border-radius: 16px !important;
