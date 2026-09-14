@@ -53,11 +53,11 @@ const capitulosHistoria = [
   },
   {
     año: 'EXPANSIÓN',
-    etiqueta: 'VOLUMEN Y FLOTAS',
-    titulo: 'Entregas por flotas',
-    relato: 'Llegaron los desafíos de escala: proveer flotas corporativas completas, unidades 0 KM llave en mano para el sector agroindustrial y logística pesada. Cuatro Hilux rojas listas para salir en simultáneo simbolizaron la madurez operativa de la concesionaria.',
+    etiqueta: 'POSTALES DEL SALÓN',
+    titulo: 'La fuerza de nuestra trayectoria',
+    relato: 'Cuatro Hilux rojas listas para salir en simultáneo simbolizaron la madurez operativa de la concesionaria. Una imagen icónica que resume el ritmo constante de entregas y la confianza depositada por clientes de toda la provincia al momento de renovar su herramienta de trabajo.',
     imagen: '/flota-hilux.jpg',
-    selloNumero: 'FLOTA',
+    selloNumero: 'TOYOTA',
     selloTexto: 'DESPACHO 0KM',
     rotacion: '2deg'
   },
@@ -65,7 +65,7 @@ const capitulosHistoria = [
     año: 'PRESENTE',
     etiqueta: 'HOY',
     titulo: 'Más de 35 años de confianza viva en Río Cuarto',
-    relato: 'Salón modelo sobre Marcelo T. de Alvear 1580, inventario digital en tiempo real conectado al taller y garantía extendida propia de 6 meses. Seguimos siendo la misma empresa familiar del primer día, atendida por sus propios dueños con la seriedad de siempre.',
+    relato: 'Nuestra historia nos respalda, y seguimos trabajando cada día para ofrecer un servicio responsable, cercano y a la altura de las expectativas de quienes nos eligen. La palabra empeñada y la garantía real de cada unidad continúan siendo el motor de nuestra familia.',
     imagen: '/frente-2026.jpg.jpg',
     selloNumero: '35+',
     selloTexto: 'GARANTÍA TOTAL',
@@ -103,7 +103,8 @@ export default function QuienesSomos() {
           bottom: 30px;
           left: 50%;
           width: 2px;
-          background: linear-gradient(180deg, #ED1C24 0%, #27272a 12%, #27272a 88%, #ED1C24 100%);
+          background: #ED1C24;
+box-shadow: 0 0 10px rgba(237, 28, 36, 0.4);
           transform: translateX(-50%);
           z-index: 1;
         }
@@ -354,9 +355,12 @@ export default function QuienesSomos() {
             position: relative;
             display: inline-flex !important;
             align-items: center;
-            height: 820px !important;
+            height: 720px !important;
             padding: 0 40px 0 10px !important;
           }
+          .vision-section-container {
+  margin-top: 15px !important;
+}
 
           /* Eje horizontal rojo al medio */
           .timeline-mobile-axis {
@@ -570,8 +574,7 @@ export default function QuienesSomos() {
 
         <div style={{ maxWidth: '820px', margin: '0 auto' }}>
           <p className="hero-qs-desc" style={{ fontSize: '0.98rem', color: '#F4F4F5', lineHeight: 1.55, margin: 0, fontWeight: 400 }}>
-            Somos <strong style={{ fontWeight: 600, color: '#ffffff' }}>Cogno Automotores S.A.</strong>, una empresa familiar con más de 35 años en Río Cuarto. Comercializamos 0 KM multimarca y usados seleccionados con garantía propia y peritaje riguroso.
-          </p>
+            Somos <strong style={{ fontWeight: 600, color: '#ffffff' }}>Cogno Automotores S.A.</strong>, una empresa familiar con más de 35 años en Río Cuarto. Nos dedicamos a la venta de vehículos nuevos y usados, con un amplio stock y una destacada variedad de pick-ups.
         </div>
       </section>
 
@@ -596,7 +599,7 @@ export default function QuienesSomos() {
             Nuestra Historia
           </h2>
           <p style={{ color: '#a1a1aa', fontSize: '0.92rem', maxWidth: '680px', margin: '0 auto', lineHeight: 1.5 }}>
-            Las empresas no se construyen con discursos, sino con hechos, clientes que vuelven a lo largo de los años y el valor irrenunciable de la palabra empeñada.Te invitamos a recorrer los momentos que nos trajeron hasta acá.
+            Las empresas no se construyen con discursos, sino con hechos, clientes que vuelven a lo largo de los años y el valor irrenunciable de la palabra empeñada. Te invitamos a recorrer los momentos que nos trajeron hasta acá.
           </p>
         </div>
 
@@ -710,8 +713,16 @@ export default function QuienesSomos() {
           </div>
         </div>
       </section>
+<div style={{ textAlign: 'center', marginBottom: '28px', padding: '0 20px' }}>
+  <span style={{ fontSize: '0.82rem', fontWeight: 700, color: '#ED1C24', letterSpacing: '2px', textTransform: 'uppercase' }}>
+    HORIZONTE ESTRATÉGICO
+  </span>
+  <h2 className="section-title" style={{ margin: '6px 0 0 0', color: '#ffffff' }}>
+    Hacia Dónde Vamos
+  </h2>
+</div>
       {/* 3. PROPÓSITO & VISIÓN */}
-      <section style={{ maxWidth: '1280px', margin: '50px auto 0 auto', padding: '0 24px' }}>
+    <section className="vision-section-container" style={{ maxWidth: '1280px', margin: '50px auto 0 auto', padding: '0 24px' }}>
         <div className="vision-grid">
           
           <div className="vision-card">
