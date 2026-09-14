@@ -355,7 +355,7 @@ box-shadow: 0 0 10px rgba(237, 28, 36, 0.4);
             position: relative;
             display: inline-flex !important;
             align-items: center;
-            height: 720px !important;
+            height: 620px !important;
             padding: 0 40px 0 10px !important;
           }
           .vision-section-container {
