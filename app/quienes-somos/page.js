@@ -1,13 +1,15 @@
 'use client';
 
+import { useState, useEffect } from 'react';
+
 const capitulosHistoria = [
   {
     año: '1989',
-    etiqueta: 'EL PUNTO DE PARTIDA',
+    etiqueta: 'EL COMIENZO',
     titulo: 'La primera chata: "La Vaca Milka"',
     relato: 'Todo comenzó con esta clásica Ford F-100 blanca equipada con cúpula y defensa tubular. Fue la primera unidad entregada y la chispa fundacional de Cogno Automotores. Sin grandes estructuras, pero con una convicción innegociable: la palabra empeñada y el trato leal valen más que cualquier firma.',
     imagen: '/primera-chata.png',
-    pie: 'Ford F-100 bautizada "La Vaca Milka" — Archivo fundacional 1989'
+    pie: 'Ford F-100 "La Vaca Milka" — Archivo fundacional 1989'
   },
   {
     año: 'AÑOS 90',
@@ -23,7 +25,7 @@ const capitulosHistoria = [
     titulo: 'Una pasión construida entre generaciones',
     relato: 'La transición hacia la comercialización de 0 KM y usados jóvenes. Detrás del mostrador, la familia siempre presente: atendiendo clientes, resolviendo trámites de gestoría y compartiendo el orgullo de ver crecer un proyecto que ya era parte de la identidad de Banda Norte.',
     imagen: '/frente-familia.jpg',
-    pie: 'La vidriera histórica de Unidades 0KM y el corazón de la empresa familiar'
+    pie: 'La vidriera histórica de Unidades 0KM y el corazón familiar'
   },
   {
     año: '2014',
@@ -68,97 +70,121 @@ const capitulosHistoria = [
 ];
 
 export default function QuienesSomos() {
+  const [indiceActivo, setIndiceActivo] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const section = document.getElementById('historia-scroll-track');
+      if (!section) return;
+
+      const rect = section.getBoundingClientRect();
+      const scrollDist = -rect.top;
+      const totalScrollable = rect.height - window.innerHeight;
+
+      if (scrollDist >= 0 && totalScrollable > 0) {
+        const progreso = Math.min(Math.max(scrollDist / totalScrollable, 0), 0.999);
+        const nuevoIndice = Math.floor(progreso * capitulosHistoria.length);
+        setIndiceActivo(nuevoIndice);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const actual = capitulosHistoria[indiceActivo];
+
   return (
     <div style={{ backgroundColor: '#0B0C0E', minHeight: '100vh', color: '#ffffff', paddingBottom: '80px', overflowX: 'hidden' }}>
       
       <style>{`
-        /* LÍNEA DE TIEMPO SCROLLYTELLING */
-        .story-timeline {
+        /* TRACK DE SCROLL PRINCIPAL */
+        .sticky-story-track {
           position: relative;
-          max-width: 1100px;
-          margin: 60px auto 0 auto;
-          padding: 0 20px;
-        }
-        .story-timeline::before {
-          content: '';
-          position: absolute;
-          top: 0;
-          bottom: 0;
-          left: 50%;
-          width: 2px;
-          background: linear-gradient(180deg, #ED1C24 0%, #27272a 15%, #27272a 85%, #ED1C24 100%);
-          transform: translateX(-50%);
+          height: 600vh;
         }
 
-        .story-row {
+        .sticky-story-stage {
+          position: sticky;
+          top: 0;
+          height: 100vh;
           display: flex;
           align-items: center;
-          position: relative;
-          margin-bottom: 90px;
-          width: 100%;
-        }
-        .story-row:nth-child(even) {
-          flex-direction: row-reverse;
-        }
-
-        .story-node {
-          position: absolute;
-          left: 50%;
-          transform: translateX(-50%);
-          width: 18px;
-          height: 18px;
-          border-radius: 50%;
-          background-color: #ED1C24;
-          border: 4px solid #0B0C0E;
-          box-shadow: 0 0 12px rgba(237, 28, 36, 0.7);
-          z-index: 10;
-        }
-
-        .story-col {
-          width: 45%;
+          justify-content: center;
+          overflow: hidden;
+          padding: 20px 24px;
           box-sizing: border-box;
         }
 
-        .story-card-text {
-          background-color: #141518;
-          border: 1px solid #27272a;
-          border-radius: 20px;
-          padding: 30px;
-          box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
-          transition: border-color 0.3s ease, transform 0.3s ease;
-        }
-        .story-card-text:hover {
-          border-color: rgba(237, 28, 36, 0.5);
-          transform: translateY(-4px);
+        .story-theater-grid {
+          max-width: 1280px;
+          width: 100%;
+          display: grid;
+          grid-template-columns: 1.15fr 1fr;
+          gap: 40px;
+          align-items: center;
         }
 
-        .story-card-photo {
-          border-radius: 20px;
+        .story-visual-screen {
+          position: relative;
+          height: 480px;
+          border-radius: 22px;
           overflow: hidden;
           background-color: #141518;
           border: 1px solid #27272a;
-          box-shadow: 0 16px 36px rgba(0, 0, 0, 0.5);
-          transition: transform 0.4s ease, border-color 0.3s ease;
+          box-shadow: 0 25px 50px rgba(0, 0, 0, 0.7);
         }
-        .story-card-photo:hover {
-          transform: scale(1.02);
-          border-color: #ED1C24;
-        }
-        .story-card-photo img {
+
+        .story-visual-screen img {
           width: 100%;
-          height: 320px;
+          height: 100%;
           object-fit: cover;
           display: block;
+          transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.5s ease;
         }
-        .story-card-photo-caption {
-          padding: 12px 18px;
-          font-size: 0.8rem;
-          color: #a1a1aa;
-          background-color: #0d0e11;
-          border-top: 1px solid #1f2024;
+
+        .story-text-pane {
+          background-color: #141518;
+          border: 1px solid #27272a;
+          border-radius: 22px;
+          padding: 36px;
+          box-shadow: 0 16px 36px rgba(0, 0, 0, 0.5);
+          position: relative;
+        }
+
+        .story-anim-slide {
+          animation: slideUpFade 0.45s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        @keyframes slideUpFade {
+          from {
+            opacity: 0;
+            transform: translateY(22px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+
+        .timeline-indicator-track {
           display: flex;
           align-items: center;
           gap: 8px;
+          margin-bottom: 24px;
+        }
+
+        .indicator-dot {
+          height: 4px;
+          border-radius: 4px;
+          transition: all 0.3s ease;
+          background-color: #27272a;
+          flex: 1;
+        }
+
+        .indicator-dot.active {
+          background-color: #ED1C24;
+          box-shadow: 0 0 10px rgba(237, 28, 36, 0.6);
         }
 
         .values-grid-2x2 {
@@ -188,30 +214,24 @@ export default function QuienesSomos() {
           align-items: center;
         }
 
-        /* CELULARES */
+        /* RESPONSIVE MOBILE */
         @media (max-width: 860px) {
-          .story-timeline::before {
-            left: 20px;
+          .sticky-story-track {
+            height: auto !important;
           }
-          .story-node {
-            left: 20px;
+          .sticky-story-stage {
+            position: relative !important;
+            height: auto !important;
+            padding: 20px 0 !important;
           }
-          .story-row, .story-row:nth-child(even) {
-            flex-direction: column !important;
-            align-items: flex-start !important;
-            padding-left: 45px;
-            margin-bottom: 60px;
+          .story-theater-grid {
+            grid-template-columns: 1fr !important;
+            gap: 20px !important;
           }
-          .story-col {
-            width: 100% !important;
+          .story-visual-screen {
+            height: 250px !important;
           }
-          .story-col:last-child {
-            margin-top: 18px;
-          }
-          .story-card-photo img {
-            height: 240px !important;
-          }
-          .story-card-text {
+          .story-text-pane {
             padding: 20px !important;
           }
           .values-grid-2x2, .salon-grid {
@@ -243,55 +263,64 @@ export default function QuienesSomos() {
         </div>
 
         <div style={{ maxWidth: '780px', margin: '0 auto' }}>
-          <p style={{ fontSize: '1.05rem', color: '#d4d4d8', lineHeight: 1.65, margin: 0 }}>
-            Las empresas no se construyen con discursos, sino con hechos, clientes que vuelven a lo largo de los años y el valor irrenunciable de la palabra empeñada. Te invitamos a recorrer los momentos que nos trajeron hasta acá.
+          <p style={{ fontSize: '1.02rem', color: '#d4d4d8', lineHeight: 1.65, margin: 0 }}>
+            Deslizá hacia abajo para recorrer nuestro camino. Las fotos y memorias cobran vida en pantalla paso a paso.
           </p>
         </div>
       </section>
 
-      {/* 2. SCROLLYTELLING EDITORIAL TIMELINE */}
-      <section className="story-timeline">
-        {capitulosHistoria.map((cap, index) => (
-          <div key={index} className="story-row">
+      {/* 2. TEATRO SCROLLYTELLING FIJO */}
+      <section id="historia-scroll-track" className="sticky-story-track">
+        <div className="sticky-story-stage">
+          <div className="story-theater-grid">
             
-            {/* NODO CENTRAL */}
-            <div className="story-node"></div>
-
-            {/* COLUMNA 1: RELATO Y FECHA */}
-            <div className="story-col">
-              <div className="story-card-text">
-                <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '12px' }}>
-                  <span style={{ fontSize: '1.6rem', fontWeight: 800, color: '#ED1C24', letterSpacing: '-0.5px' }}>
-                    {cap.año}
-                  </span>
-                  <span style={{ fontSize: '0.74rem', color: '#a1a1aa', fontWeight: 700, letterSpacing: '1px', textTransform: 'uppercase', backgroundColor: '#0B0C0E', padding: '4px 10px', borderRadius: '8px', border: '1px solid #27272a' }}>
-                    {cap.etiqueta}
-                  </span>
-                </div>
-
-                <h2 style={{ fontSize: '1.4rem', fontWeight: 600, color: '#ffffff', margin: '0 0 12px 0', lineHeight: 1.3 }}>
-                  {cap.titulo}
-                </h2>
-
-                <p style={{ fontSize: '0.94rem', color: '#d4d4d8', lineHeight: 1.65, margin: 0 }}>
-                  {cap.relato}
-                </p>
+            {/* PANTALLA VISUAL */}
+            <div className="story-visual-screen">
+              <img 
+                key={actual.imagen} 
+                src={actual.imagen} 
+                alt={actual.titulo} 
+                className="story-anim-slide"
+              />
+              <div style={{ position: 'absolute', bottom: '14px', left: '14px', right: '14px', backgroundColor: 'rgba(11, 12, 14, 0.85)', backdropFilter: 'blur(8px)', border: '1px solid #27272a', padding: '8px 16px', borderRadius: '12px', fontSize: '0.8rem', color: '#a1a1aa', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                <span style={{ color: '#ED1C24' }}>📷</span>
+                <span>{actual.pie}</span>
               </div>
             </div>
 
-            {/* COLUMNA 2: FOTO DOCUMENTAL */}
-            <div className="story-col">
-              <div className="story-card-photo">
-                <img src={cap.imagen} alt={cap.titulo} />
-                <div className="story-card-photo-caption">
-                  <span style={{ color: '#ED1C24' }}>📷</span>
-                  <span>{cap.pie}</span>
-                </div>
+            {/* PANEL DE RELATO */}
+            <div className="story-text-pane">
+              
+              {/* LÍNEA DE PROGRESO */}
+              <div className="timeline-indicator-track">
+                {capitulosHistoria.map((_, i) => (
+                  <div key={i} className={`indicator-dot ${i === indiceActivo ? 'active' : ''}`} />
+                ))}
               </div>
+
+              <div key={actual.año} className="story-anim-slide">
+                <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '12px' }}>
+                  <span style={{ fontSize: '1.85rem', fontWeight: 800, color: '#ED1C24', letterSpacing: '-0.5px' }}>
+                    {actual.año}
+                  </span>
+                  <span style={{ fontSize: '0.74rem', color: '#a1a1aa', fontWeight: 700, letterSpacing: '1px', textTransform: 'uppercase', backgroundColor: '#0B0C0E', padding: '4px 10px', borderRadius: '8px', border: '1px solid #27272a' }}>
+                    {actual.etiqueta}
+                  </span>
+                </div>
+
+                <h2 style={{ fontSize: '1.5rem', fontWeight: 600, color: '#ffffff', margin: '0 0 14px 0', lineHeight: 1.25 }}>
+                  {actual.titulo}
+                </h2>
+
+                <p style={{ fontSize: '0.96rem', color: '#d4d4d8', lineHeight: 1.7, margin: 0 }}>
+                  {actual.relato}
+                </p>
+              </div>
+
             </div>
 
           </div>
-        ))}
+        </div>
       </section>
 
       {/* 3. PROPÓSITO & VISIÓN */}
