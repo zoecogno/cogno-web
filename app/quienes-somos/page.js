@@ -1,70 +1,124 @@
 'use client';
 
+import { useState } from 'react';
+
+const hitosHistoricos = [
+  {
+    id: '1989',
+    año: '1989',
+    etiqueta: 'EL COMIENZO',
+    titulo: 'La primera chata entregada: "La Vaca Milka"',
+    descripcion: 'El inicio formal de nuestra historia. Esta emblemática Ford F-100 blanca con defensa tubular y cúpula fue la primera unidad vendida que dio origen a más de 35 años de trabajo ininterrumpido en Río Cuarto.',
+    imagen: '/primera-chata.png',
+    destacado: 'Más de 35 años de palabra empeñada'
+  },
+  {
+    id: '1995',
+    año: 'AÑOS 90',
+    etiqueta: 'PRIMER SALÓN',
+    titulo: 'El compromiso sobre Av. Marcelo T. de Alvear',
+    descripcion: 'Nuestros primeros pasos con predio comercial propio. Desde los orígenes forjamos el valor de la transparencia jurídica, la garantía real y el trato personalizado mano a mano con cada vecino de la ciudad y la región.',
+    imagen: '/origenes-local.jpg',
+    destacado: 'Atención familiar y peritaje riguroso'
+  },
+  {
+    id: 'flota',
+    año: 'CRECIMIENTO',
+    etiqueta: 'LIDERAZGO REGIONAL',
+    titulo: 'Referentes en utilitarios pesados y pick-ups',
+    descripcion: 'Consolidación comercial como concesionaria de referencia para el campo y la industria cordobesa, destacándonos por entregas constantes de flotas 0 KM y usados seleccionados.',
+    imagen: '/frente-2019.png', // Podés reemplazar por /flota-hilux.jpg
+    destacado: 'Especialistas en 4x4 y media/alta gama'
+  },
+  {
+    id: 'hoy',
+    año: 'PRESENTE',
+    etiqueta: 'INSTALACIONES ACTUALES',
+    titulo: 'Una infraestructura moderna con los valores de siempre',
+    descripcion: 'Salón comercial de vanguardia sobre Av. Marcelo T. de Alvear 1580, catálogo digital multimarca en tiempo real y garantía extendida propia en todas nuestras unidades.',
+    imagen: '/frente-2026.jpg.jpg',
+    destacado: 'La propuesta más confiable del sur de Córdoba'
+  }
+];
+
 export default function QuienesSomos() {
+  const [hitoActivo, setHitoActivo] = useState(0);
+
+  const hito = hitosHistoricos[hitoActivo];
+
   return (
     <div style={{ backgroundColor: '#0B0C0E', minHeight: '100vh', color: '#ffffff', paddingBottom: '80px', overflowX: 'hidden' }}>
       
       {/* ESTILOS INTERACTIVOS Y RESPONSIVE MÓVIL */}
       <style>{`
-        .timeline-grid {
-          display: grid;
-          grid-template-columns: repeat(2, 1fr);
-          gap: 24px;
+        .timeline-tab-btn {
+          background: #141518;
+          border: 1px solid #27272a;
+          color: #a1a1aa;
+          padding: 12px 24px;
+          border-radius: 12px;
+          font-weight: 700;
+          font-size: 0.95rem;
+          cursor: pointer;
+          transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+          display: flex;
+          align-items: center;
+          gap: 10px;
         }
-        .timeline-card {
+        .timeline-tab-btn:hover {
+          color: #ffffff;
+          border-color: rgba(237, 28, 36, 0.5);
+          transform: translateY(-2px);
+        }
+        .timeline-tab-btn.active {
+          background: #ED1C24;
+          border-color: #ED1C24;
+          color: #ffffff;
+          box-shadow: 0 8px 24px rgba(237, 28, 36, 0.35);
+        }
+
+        .showcase-container {
+          display: grid;
+          grid-template-columns: 1.15fr 1fr;
+          gap: 36px;
+          align-items: center;
           background-color: #141518;
           border: 1px solid #27272a;
-          border-radius: 20px;
+          border-radius: 22px;
+          padding: 36px;
+          box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+          animation: fadeInUp 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        @keyframes fadeInUp {
+          from {
+            opacity: 0;
+            transform: translateY(16px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+
+        .showcase-image-wrap {
+          height: 380px;
+          border-radius: 16px;
           overflow: hidden;
-          display: flex;
-          flex-direction: column;
-          transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease, box-shadow 0.3s ease;
-        }
-        .timeline-card:hover {
-          transform: translateY(-5px);
-          border-color: rgba(237, 28, 36, 0.5);
-          box-shadow: 0 16px 36px rgba(0, 0, 0, 0.6), 0 0 20px rgba(237, 28, 36, 0.12);
-        }
-        .timeline-img-box {
-          width: 100%;
-          height: 250px;
           position: relative;
-          overflow: hidden;
           background-color: #070709;
-          border-bottom: 1px solid #27272a;
+          border: 1px solid #27272a;
         }
-        .timeline-img-box img {
+        .showcase-image-wrap img {
           width: 100%;
           height: 100%;
           object-fit: cover;
-          transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+          transition: transform 0.6s ease;
         }
-        .timeline-card:hover .timeline-img-box img {
-          transform: scale(1.05);
+        .showcase-image-wrap:hover img {
+          transform: scale(1.04);
         }
-        .timeline-content {
-          padding: 22px 24px;
-          display: flex;
-          flex-direction: column;
-          flex-grow: 1;
-        }
-        .timeline-badge {
-          display: inline-flex;
-          align-items: center;
-          gap: 6px;
-          background-color: rgba(237, 28, 36, 0.12);
-          border: 1px solid rgba(237, 28, 36, 0.4);
-          color: #ED1C24;
-          padding: 4px 12px;
-          border-radius: 20px;
-          font-size: 0.76rem;
-          font-weight: 700;
-          letter-spacing: 0.8px;
-          text-transform: uppercase;
-          width: fit-content;
-          margin-bottom: 10px;
-        }
-        
+
         .values-grid-2x2 {
           display: grid;
           grid-template-columns: 1fr 1fr;
@@ -78,65 +132,14 @@ export default function QuienesSomos() {
           display: flex;
           gap: 18px;
           align-items: flex-start;
-          transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease, box-shadow 0.3s ease;
+          transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
         }
         .value-card:hover {
           transform: translateY(-5px);
           border-color: rgba(237, 28, 36, 0.45);
           box-shadow: 0 14px 30px rgba(0,0,0,0.5), 0 0 20px rgba(237, 28, 36, 0.1);
         }
-        .vision-grid {
-          display: grid;
-          grid-template-columns: 1fr 1fr;
-          gap: 24px;
-        }
-        .vision-card {
-          position: relative;
-          min-height: 280px;
-          border-radius: 20px;
-          overflow: hidden;
-          border: 1px solid #27272a;
-          padding: 28px 24px;
-          display: flex;
-          flex-direction: column;
-          justify-content: flex-end;
-          background-color: #141518;
-          transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
-        }
-        .vision-card img {
-          position: absolute;
-          inset: 0;
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-          transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-          z-index: 1;
-        }
-        .vision-card:hover img {
-          transform: scale(1.08);
-        }
-        .vision-card:hover {
-          border-color: #ED1C24;
-          transform: translateY(-5px);
-          box-shadow: 0 16px 32px rgba(0,0,0,0.6);
-        }
-        .vision-overlay {
-          position: absolute;
-          inset: 0;
-          background: linear-gradient(180deg, rgba(11,12,14,0.3) 0%, rgba(11,12,14,0.85) 45%, rgba(11,12,14,0.98) 100%);
-          z-index: 2;
-        }
-        .vision-content {
-          position: relative;
-          z-index: 3;
-        }
-        .section-title {
-          font-size: 1.85rem !important;
-          font-weight: 600;
-        }
-        .salon-title {
-          font-size: 1.85rem !important;
-        }
+
         .salon-grid {
           display: grid;
           grid-template-columns: 1.1fr 1fr;
@@ -144,107 +147,37 @@ export default function QuienesSomos() {
           align-items: center;
         }
 
-        /* --- CELULARES (ADAPTACIÓN COMPACTA) --- */
-        @media (max-width: 768px) {
-          .section-title {
-            font-size: 1.35rem !important;
-          }
-          .hero-qs-title {
-            font-size: 1.75rem !important;
-            line-height: 1.25 !important;
-            margin-bottom: 10px !important;
-          }
-          .hero-qs-badge {
-            padding: 6px 14px !important;
-            font-size: 0.72rem !important;
-            margin-bottom: 12px !important;
-          }
-          .hero-qs-desc {
-            font-size: 0.9rem !important;
-            line-height: 1.45 !important;
-          }
-          .timeline-grid {
+        @media (max-width: 900px) {
+          .showcase-container {
             grid-template-columns: 1fr !important;
-            gap: 16px !important;
+            gap: 24px !important;
+            padding: 20px !important;
           }
-          .timeline-img-box {
-            height: 200px !important;
+          .showcase-image-wrap {
+            height: 240px !important;
           }
-          .timeline-content {
-            padding: 18px 18px !important;
-          }
-          .timeline-content h3 {
-            font-size: 1.18rem !important;
-          }
-          .timeline-content p {
-            font-size: 0.88rem !important;
-            line-height: 1.5 !important;
-          }
-          .vision-grid {
-            grid-template-columns: 1fr !important;
-            gap: 12px !important;
-          }
-          .vision-card {
-            min-height: auto !important;
-            padding: 16px 16px !important;
-            border-radius: 14px !important;
-          }
-          .vision-card h3 {
-            font-size: 1.15rem !important;
-            margin-bottom: 4px !important;
-          }
-          .vision-card p {
-            font-size: 0.86rem !important;
-            line-height: 1.45 !important;
+          .timeline-nav-bar {
+            overflow-x: auto;
+            white-space: nowrap;
+            justify-content: flex-start !important;
+            padding-bottom: 12px;
           }
           .values-grid-2x2 {
             grid-template-columns: 1fr !important;
-            gap: 10px !important;
-          }
-          .value-card {
-            padding: 14px 16px !important;
-            border-radius: 14px !important;
             gap: 12px !important;
-          }
-          .value-icon-box {
-            width: 38px !important;
-            height: 38px !important;
-            border-radius: 10px !important;
-            flex-shrink: 0 !important;
-          }
-          .value-icon-box svg {
-            width: 18px !important;
-            height: 18px !important;
-          }
-          .value-card h3 {
-            font-size: 1.05rem !important;
-            margin-bottom: 3px !important;
-          }
-          .value-card p {
-            font-size: 0.85rem !important;
-            line-height: 1.45 !important;
-          }
-          .salon-card-box {
-            padding: 22px 16px !important;
-            border-radius: 16px !important;
           }
           .salon-grid {
             grid-template-columns: 1fr !important;
             gap: 16px !important;
           }
-          .salon-title {
-            font-size: 1.45rem !important;
-          }
-          .salon-map-container {
-            height: 220px !important;
+          .hero-qs-title {
+            font-size: 1.75rem !important;
           }
         }
       `}</style>
 
       {/* 1. ENCABEZADO INSTITUCIONAL */}
       <section style={{ padding: '20px 20px 10px 20px', textAlign: 'center', maxWidth: '980px', margin: '0 auto' }}>
-        
-        {/* Logo */}
         <div style={{ marginBottom: '10px' }}>
           <img 
             src="/logo.png.png" 
@@ -253,153 +186,108 @@ export default function QuienesSomos() {
           />
         </div>
 
-        {/* Título principal */}
         <h1 className="hero-qs-title" style={{ fontSize: '2.35rem', fontWeight: 600, margin: '0 0 10px 0', letterSpacing: '-0.4px', color: '#ffffff', lineHeight: 1.15 }}>
           ¿Quiénes <span style={{ color: '#ED1C24' }}>somos?</span>
         </h1>
 
-        {/* Badge rojo */}
-        <div className="hero-qs-badge" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', backgroundColor: 'rgba(237, 28, 36, 0.08)', border: '1px solid rgba(237, 28, 36, 0.4)', color: '#ED1C24', padding: '6px 16px', borderRadius: '30px', fontSize: '0.78rem', fontWeight: 700, letterSpacing: '0.6px', marginBottom: '14px', textTransform: 'uppercase' }}>
+        <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', backgroundColor: 'rgba(237, 28, 36, 0.08)', border: '1px solid rgba(237, 28, 36, 0.4)', color: '#ED1C24', padding: '6px 16px', borderRadius: '30px', fontSize: '0.78rem', fontWeight: 700, letterSpacing: '0.6px', marginBottom: '14px', textTransform: 'uppercase' }}>
           <span>🛡️</span>
           <span>MÁS DE 35 AÑOS DE TRAYECTORIA Y COMPROMISO</span>
         </div>
 
-        {/* Párrafos principales */}
         <div style={{ maxWidth: '820px', margin: '0 auto', display: 'flex', flexDirection: 'column', gap: '10px' }}>
-          <p className="hero-qs-desc" style={{ fontSize: '1rem', color: '#F4F4F5', lineHeight: 1.6, margin: 0, fontWeight: 400 }}>
-            Somos <strong style={{ fontWeight: 600, color: '#ffffff' }}>Cogno Automotores S.A.</strong>, una empresa familiar con más de tres décadas y media de trayectoria intachable en el sector automotor de Río Cuarto y la región.
-          </p>
-          <p className="hero-qs-desc" style={{ fontSize: '1rem', color: '#F4F4F5', lineHeight: 1.6, margin: 0, fontWeight: 400 }}>
-            <strong style={{ fontWeight: 600, color: '#ffffff' }}>Nuestra historia nos respalda</strong>. Comenzamos paso a paso con la seriedad y el valor de la palabra como única garantía, y hoy sostenemos ese mismo compromiso en cada unidad 0 KM y usado seleccionado que entregamos.
+          <p style={{ fontSize: '1rem', color: '#F4F4F5', lineHeight: 1.6, margin: 0, fontWeight: 400 }}>
+            Somos <strong style={{ fontWeight: 600, color: '#ffffff' }}>Cogno Automotores S.A.</strong>, una empresa familiar líder en Río Cuarto y el sur de Córdoba. Nos dedicamos a la comercialización de vehículos nuevos y usados seleccionados, con un stock permanente y una destacada trayectoria en pick-ups y utilitarios.
           </p>
         </div>
-
       </section>
 
-      {/* FOTO SALÓN PANORÁMICA PROPORCIONAL ACTUAL */}
-      <div style={{ maxWidth: '1000px', margin: '24px auto 0 auto', padding: '0 24px' }}>
-        <div style={{ borderRadius: '18px', overflow: 'hidden', border: '1px solid #27272a', backgroundColor: '#070709', boxShadow: '0 16px 36px rgba(0,0,0,0.6)' }}>
-          <img 
-            src="/frente-2026.jpg.jpg" 
-            alt="Salón actual de Cogno Automotores sobre Av. Marcelo T. de Alvear" 
-            style={{ width: '100%', height: 'auto', display: 'block' }}
-          />
-        </div>
-
-        <div style={{ maxWidth: '820px', margin: '24px auto 0 auto', textAlign: 'center', display: 'flex', flexDirection: 'column', gap: '10px' }}>
-          <p style={{ fontSize: '0.98rem', color: '#E4E4E7', lineHeight: 1.6, margin: 0, fontWeight: 400 }}>
-            A lo largo de los años nos consolidamos como un referente automotor indiscutido, elegidos por generaciones de familias y empresas de la zona que buscan tranquilidad jurídica y peritaje mecánico estricto.
-          </p>
-        </div>
-      </div>
-
-      {/* 2. NUESTRA HISTORIA EN IMÁGENES (TIMELINE VISUAL) */}
-      <section style={{ maxWidth: '1280px', margin: '55px auto 0 auto', padding: '0 24px' }}>
-        <div style={{ textAlign: 'center', marginBottom: '32px' }}>
+      {/* 2. LÍNEA DE TIEMPO INTERACTIVA */}
+      <section style={{ maxWidth: '1280px', margin: '45px auto 0 auto', padding: '0 24px' }}>
+        
+        <div style={{ textAlign: 'center', marginBottom: '28px' }}>
           <span style={{ fontSize: '0.82rem', fontWeight: 700, color: '#ED1C24', letterSpacing: '2px', textTransform: 'uppercase' }}>
-            NUESTRO CAMINO
+            NUESTRO RECORRIDO
           </span>
-          <h2 className="section-title" style={{ margin: '6px 0 10px 0', color: '#ffffff' }}>
-            Una historia construida sobre la confianza
+          <h2 style={{ fontSize: '1.85rem', fontWeight: 600, margin: '6px 0 0 0', color: '#ffffff' }}>
+            Línea de Tiempo Interactiva
           </h2>
-          <p style={{ color: '#a1a1aa', fontSize: '0.95rem', maxWidth: '680px', margin: '0 auto', lineHeight: 1.55 }}>
-            Los hitos, vehículos y momentos que forjaron la identidad de Cogno Automotores a lo largo de más de 35 años.
+          <p style={{ color: '#a1a1aa', fontSize: '0.92rem', marginTop: '6px' }}>
+            Hacé clic en cada hito para descubrir cómo evolucionamos a lo largo de las décadas:
           </p>
         </div>
 
-        <div className="timeline-grid">
+        {/* SELECTOR INTERACTIVO DE ÉPOCAS */}
+        <div className="timeline-nav-bar" style={{ display: 'flex', justifyContent: 'center', gap: '12px', marginBottom: '28px' }}>
+          {hitosHistoricos.map((item, index) => (
+            <button
+              key={item.id}
+              onClick={() => setHitoActivo(index)}
+              className={`timeline-tab-btn ${hitoActivo === index ? 'active' : ''}`}
+            >
+              <span>{item.año}</span>
+              <span style={{ fontSize: '0.75rem', opacity: 0.85, fontWeight: 500 }}>• {item.etiqueta}</span>
+            </button>
+          ))}
+        </div>
+
+        {/* CONTENEDOR DINÁMICO DEL HITO SELECCIONADO */}
+        <div key={hito.id} className="showcase-container">
           
-          {/* HITO 1: LA VACA MILKA */}
-          <div className="timeline-card">
-            <div className="timeline-img-box">
-              <img src="/primera-chata.png" alt="Primera unidad vendida - La Vaca Milka" />
-            </div>
-            <div className="timeline-content">
-              <div className="timeline-badge">1989 • EL INICIO</div>
-              <h3 style={{ fontSize: '1.25rem', fontWeight: 600, color: '#ffffff', margin: '0 0 8px 0' }}>
-                La primera chata vendida: "La Vaca Milka"
-              </h3>
-              <p style={{ fontSize: '0.92rem', color: '#d4d4d8', lineHeight: 1.55, margin: 0, fontWeight: 400 }}>
-                El punto de partida de nuestra historia automotriz. Esta clásica Ford F-100 con cúpula y defensa tubular fue el primer vehículo comercializado que abrió camino a tres décadas de trabajo constante.
-              </p>
+          <div className="showcase-image-wrap">
+            <img src={hito.imagen} alt={hito.titulo} />
+            <div style={{ position: 'absolute', bottom: '14px', right: '14px', backgroundColor: 'rgba(11, 12, 14, 0.85)', backdropFilter: 'blur(8px)', border: '1px solid #27272a', padding: '6px 14px', borderRadius: '20px', fontSize: '0.78rem', fontWeight: 600, color: '#ffffff' }}>
+              📸 Archivo Cogno
             </div>
           </div>
 
-          {/* HITO 2: EL PRIMER LOCAL Y ORÍGENES */}
-          <div className="timeline-card">
-            <div className="timeline-img-box">
-              <img src="/origenes-local.jpg" alt="Primer salón y utilitarios en los comienzos" />
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
+            <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', backgroundColor: 'rgba(237, 28, 36, 0.12)', border: '1px solid rgba(237, 28, 36, 0.4)', color: '#ED1C24', padding: '4px 12px', borderRadius: '14px', fontSize: '0.76rem', fontWeight: 700, width: 'fit-content', textTransform: 'uppercase' }}>
+              {hito.etiqueta}
             </div>
-            <div className="timeline-content">
-              <div className="timeline-badge">AÑOS 90 • PRIMER SALÓN</div>
-              <h3 style={{ fontSize: '1.25rem', fontWeight: 600, color: '#ffffff', margin: '0 0 8px 0' }}>
-                Los primeros pasos sobre Av. Marcelo T. de Alvear
-              </h3>
-              <p style={{ fontSize: '0.92rem', color: '#d4d4d8', lineHeight: 1.55, margin: 0, fontWeight: 400 }}>
-                Las primeras unidades exhibidas en el predio propio. Desde los orígenes, priorizamos la palabra empeñada, la transparencia en la documentación y una atención cercana y personalizada.
-              </p>
-            </div>
-          </div>
+            
+            <h3 style={{ fontSize: '1.65rem', fontWeight: 600, margin: 0, color: '#ffffff', lineHeight: 1.25 }}>
+              {hito.titulo}
+            </h3>
 
-          {/* HITO 3: CONSOLIDACIÓN PICK-UPS 2014 */}
-          <div className="timeline-card">
-            <div className="timeline-img-box">
-              <img src="/frente-2014.png" alt="Fachada y stock de pickups en 2014" />
-            </div>
-            <div className="timeline-content">
-              <div className="timeline-badge">2014 • LIDERAZGO EN PICK-UPS</div>
-              <h3 style={{ fontSize: '1.25rem', fontWeight: 600, color: '#ffffff', margin: '0 0 8px 0' }}>
-                Referentes en utilitarios pesados y camionetas
-              </h3>
-              <p style={{ fontSize: '0.92rem', color: '#d4d4d8', lineHeight: 1.55, margin: 0, fontWeight: 400 }}>
-                Consolidación como el salón de referencia para el campo y la industria regional, con un amplio despliegue permanente de Toyota Hilux, Ford Ranger y Volkswagen Amarok seleccionadas.
-              </p>
-            </div>
-          </div>
+            <p style={{ fontSize: '0.98rem', color: '#d4d4d8', lineHeight: 1.65, margin: 0 }}>
+              {hito.descripcion}
+            </p>
 
-          {/* HITO 4: CRECIMIENTO Y RENOVACIÓN 2019 */}
-          <div className="timeline-card">
-            <div className="timeline-img-box">
-              <img src="/frente-2019.png" alt="Salón ampliado en 2019" />
-            </div>
-            <div className="timeline-content">
-              <div className="timeline-badge">2019 • EXPANSIÓN Y MODERNIZACIÓN</div>
-              <h3 style={{ fontSize: '1.25rem', fontWeight: 600, color: '#ffffff', margin: '0 0 8px 0' }}>
-                Renovación del salón y catálogo multimarca
-              </h3>
-              <p style={{ fontSize: '0.92rem', color: '#d4d4d8', lineHeight: 1.55, margin: 0, fontWeight: 400 }}>
-                Modernización integral de la marquesina e instalaciones sobre Marcelo T. de Alvear 1580, sumando nuevas líneas de 0 KM multimarca y vehículos de media y alta gama.
-              </p>
+            <div style={{ borderTop: '1px solid #27272a', paddingTop: '16px', display: 'flex', alignItems: 'center', gap: '10px', color: '#a1a1aa', fontSize: '0.88rem' }}>
+              <span style={{ color: '#ED1C24', fontSize: '1.1rem' }}>✓</span>
+              <span>{hito.destacado}</span>
             </div>
           </div>
 
         </div>
+
       </section>
 
       {/* 3. PROPÓSITO & VISIÓN */}
       <section style={{ maxWidth: '1280px', margin: '55px auto 0 auto', padding: '0 24px' }}>
-        <div className="vision-grid">
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '24px' }}>
           
-          <div className="vision-card">
-            <img src="/calidad-usados.jpg.webp" alt="Propósito Cogno Automotores" />
-            <div className="vision-overlay"></div>
-            <div className="vision-content">
+          <div style={{ position: 'relative', minHeight: '260px', borderRadius: '20px', overflow: 'hidden', border: '1px solid #27272a', padding: '28px 24px', display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', backgroundColor: '#141518' }}>
+            <img src="/calidad-usados.jpg.webp" alt="Propósito Cogno Automotores" style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', zIndex: 1 }} />
+            <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, rgba(11,12,14,0.3) 0%, rgba(11,12,14,0.85) 45%, rgba(11,12,14,0.98) 100%)', zIndex: 2 }}></div>
+            <div style={{ position: 'relative', zIndex: 3 }}>
               <span style={{ fontSize: '0.78rem', fontWeight: 700, color: '#ED1C24', letterSpacing: '1.5px', textTransform: 'uppercase' }}>NUESTRO PROPÓSITO</span>
               <h3 style={{ fontSize: '1.45rem', fontWeight: 600, margin: '4px 0 8px 0', color: '#ffffff' }}>Seguridad, respaldo y tranquilidad</h3>
-              <p style={{ fontSize: '0.94rem', color: '#ffffff', lineHeight: 1.55, margin: 0, fontWeight: 400 }}>
-                Brindar una experiencia de compra transparente y sólida, ofreciendo vehículos nuevos y usados rigurosamente peritados con garantía real propia para que cada cliente tome la mejor decisión.
+              <p style={{ fontSize: '0.92rem', color: '#ffffff', lineHeight: 1.55, margin: 0 }}>
+                Brindar una experiencia de compra transparente y sólida, ofreciendo vehículos rigurosamente peritados con garantía real propia para que cada cliente tome la mejor decisión.
               </p>
             </div>
           </div>
 
-          <div className="vision-card">
-            <img src="/premios-trayectoria.jpg.webp" alt="Hacia dónde vamos" />
-            <div className="vision-overlay"></div>
-            <div className="vision-content">
+          <div style={{ position: 'relative', minHeight: '260px', borderRadius: '20px', overflow: 'hidden', border: '1px solid #27272a', padding: '28px 24px', display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', backgroundColor: '#141518' }}>
+            <img src="/premios-trayectoria.jpg.webp" alt="Hacia dónde vamos" style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', zIndex: 1 }} />
+            <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, rgba(11,12,14,0.3) 0%, rgba(11,12,14,0.85) 45%, rgba(11,12,14,0.98) 100%)', zIndex: 2 }}></div>
+            <div style={{ position: 'relative', zIndex: 3 }}>
               <span style={{ fontSize: '0.78rem', fontWeight: 700, color: '#ED1C24', letterSpacing: '1.5px', textTransform: 'uppercase' }}>HACIA DÓNDE VAMOS</span>
               <h3 style={{ fontSize: '1.45rem', fontWeight: 600, margin: '4px 0 8px 0', color: '#ffffff' }}>El referente indiscutido en la región</h3>
-              <p style={{ fontSize: '0.94rem', color: '#ffffff', lineHeight: 1.55, margin: 0, fontWeight: 400 }}>
-                Consolidarnos día a día como el punto de encuentro automotor de Río Cuarto y la zona, uniendo la calidez y seriedad de una empresa familiar con la agilidad y exigencia del mercado actual.
+              <p style={{ fontSize: '0.92rem', color: '#ffffff', lineHeight: 1.55, margin: 0 }}>
+                Consolidarnos día a día como el punto de referencia automotor de Río Cuarto y la zona, uniendo la calidez de una empresa familiar con la agilidad y exigencia del mercado actual.
               </p>
             </div>
           </div>
@@ -411,7 +299,7 @@ export default function QuienesSomos() {
       <section style={{ maxWidth: '1280px', margin: '55px auto 0 auto', padding: '0 24px' }}>
         <div style={{ textAlign: 'center', marginBottom: '28px' }}>
           <span style={{ fontSize: '0.82rem', fontWeight: 700, color: '#ED1C24', letterSpacing: '2px', textTransform: 'uppercase' }}>PILARES FUNDAMENTALES</span>
-          <h2 className="section-title" style={{ margin: '4px 0 0 0' }}>Nuestros Valores</h2>
+          <h2 style={{ fontSize: '1.85rem', fontWeight: 600, margin: '4px 0 0 0' }}>Nuestros Valores</h2>
         </div>
 
         <div className="values-grid-2x2">
@@ -430,8 +318,8 @@ export default function QuienesSomos() {
             </div>
             <div>
               <h3 style={{ fontSize: '1.1rem', fontWeight: 600, color: '#ffffff', margin: '0 0 4px 0' }}>Honestidad y Transparencia</h3>
-              <p style={{ fontSize: '0.92rem', color: '#E4E4E7', lineHeight: 1.5, margin: 0, fontWeight: 400 }}>
-                Claridad absoluta en el estado de cada vehículo, peritaje verificable, precios y condiciones comerciales desde el primer contacto.
+              <p style={{ fontSize: '0.92rem', color: '#E4E4E7', lineHeight: 1.5, margin: 0 }}>
+                Claridad absoluta en el estado de cada vehículo, peritaje verificable y condiciones comerciales transparentes desde el primer contacto.
               </p>
             </div>
           </div>
@@ -445,8 +333,8 @@ export default function QuienesSomos() {
             </div>
             <div>
               <h3 style={{ fontSize: '1.1rem', fontWeight: 600, color: '#ffffff', margin: '0 0 4px 0' }}>Confianza y Cercanía</h3>
-              <p style={{ fontSize: '0.92rem', color: '#E4E4E7', lineHeight: 1.5, margin: 0, fontWeight: 400 }}>
-                Trato humano y profesional. Más de 35 años atendiendo a varias generaciones de familias que nos vuelven a elegir.
+              <p style={{ fontSize: '0.92rem', color: '#E4E4E7', lineHeight: 1.5, margin: 0 }}>
+                Trato humano y personalizado. Más de 35 años atendiendo a varias generaciones de familias que nos vuelven a elegir.
               </p>
             </div>
           </div>
@@ -460,8 +348,8 @@ export default function QuienesSomos() {
             </div>
             <div>
               <h3 style={{ fontSize: '1.1rem', fontWeight: 600, color: '#ffffff', margin: '0 0 4px 0' }}>Responsabilidad Operativa</h3>
-              <p style={{ fontSize: '0.92rem', color: '#E4E4E7', lineHeight: 1.5, margin: 0, fontWeight: 400 }}>
-                Asumimos cada compromiso con seriedad, garantizando transferencias inmediatas y unidades libres de cualquier gravamen.
+              <p style={{ fontSize: '0.92rem', color: '#E4E4E7', lineHeight: 1.5, margin: 0 }}>
+                Garantizamos transferencias inmediatas y unidades peritadas libres de cualquier gravamen o deuda.
               </p>
             </div>
           </div>
@@ -474,8 +362,8 @@ export default function QuienesSomos() {
             </div>
             <div>
               <h3 style={{ fontSize: '1.1rem', fontWeight: 600, color: '#ffffff', margin: '0 0 4px 0' }}>Compromiso Post Venta</h3>
-              <p style={{ fontSize: '0.92rem', color: '#E4E4E7', lineHeight: 1.5, margin: 0, fontWeight: 400 }}>
-                Sostenemos un estándar de respuesta ágil y acompañamiento permanente para cualquier consulta posterior a la entrega.
+              <p style={{ fontSize: '0.92rem', color: '#E4E4E7', lineHeight: 1.5, margin: 0 }}>
+                Acompañamiento constante y respuesta ágil ante cualquier necesidad luego de retirar tu vehículo.
               </p>
             </div>
           </div>
@@ -485,18 +373,18 @@ export default function QuienesSomos() {
 
       {/* 5. SALÓN COMERCIAL & HORARIOS */}
       <section style={{ maxWidth: '1280px', margin: '55px auto 0 auto', padding: '0 24px' }}>
-        <div className="salon-card-box" style={{ backgroundColor: '#141518', border: '1px solid #27272a', borderRadius: '22px', padding: '32px 26px' }}>
+        <div style={{ backgroundColor: '#141518', border: '1px solid #27272a', borderRadius: '22px', padding: '32px 26px' }}>
           
           <div className="salon-grid">
             <div>
               <span style={{ color: '#ED1C24', fontSize: '0.78rem', fontWeight: 700, letterSpacing: '1px', textTransform: 'uppercase' }}>
                 SALÓN COMERCIAL
               </span>
-              <h2 className="salon-title" style={{ fontWeight: 600, margin: '4px 0 10px 0', lineHeight: 1.2 }}>
+              <h2 style={{ fontSize: '1.85rem', fontWeight: 600, margin: '4px 0 10px 0', lineHeight: 1.2 }}>
                 Vení a conocer nuestro local
               </h2>
-              <p style={{ fontSize: '0.98rem', color: '#E4E4E7', lineHeight: 1.55, margin: '0 0 18px 0', fontWeight: 400 }}>
-                Te esperamos en nuestras instalaciones para conocer el stock en persona, realizar un peritaje transparente de tu usado y asesorarte de forma personalizada.
+              <p style={{ fontSize: '0.98rem', color: '#E4E4E7', lineHeight: 1.55, margin: '0 0 18px 0' }}>
+                Te esperamos en nuestras instalaciones para conocer el stock en persona, peritar tu usado y recibir asesoramiento a medida.
               </p>
 
               <div style={{ backgroundColor: '#0B0C0E', border: '1px solid #27272a', padding: '14px 18px', borderRadius: '12px', marginBottom: '18px', display: 'flex', flexDirection: 'column', gap: '10px' }}>
@@ -532,7 +420,7 @@ export default function QuienesSomos() {
               </div>
             </div>
 
-            <div className="salon-map-container" style={{ height: '300px', borderRadius: '16px', overflow: 'hidden', border: '1px solid #27272a', backgroundColor: '#0B0C0E' }}>
+            <div style={{ height: '300px', borderRadius: '16px', overflow: 'hidden', border: '1px solid #27272a', backgroundColor: '#0B0C0E' }}>
               <iframe
                 title="Ubicación Cogno Automotores"
                 width="100%"
