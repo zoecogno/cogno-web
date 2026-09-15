@@ -5,7 +5,7 @@ const capitulosHistoria = [
     año: '1989',
     etiqueta: 'EL PUNTO DE PARTIDA',
     titulo: 'La primera chata: "La Vaca Milka"',
-    relato: 'Todo comenzó con esta clásica Ford F-100 blanca equipada con cúpula y defensa tubular. Fue la primera unidad entregada y la chispa fundacional de Cogno Automotores. Sin grandes estructuras, pero con una convicción innegociable: la palabra empeñada y el trato leal valen más que cualquier firma.',
+    relato: 'Todo comenzó con esta clásica Ford F-100 color champagne. Fue la primera unidad entregada y la chispa fundacional de Cogno Automotores. Sin grandes estructuras, pero con una convicción innegociable: la palabra empeñada y el trato leal valen más que cualquier firma.',
     imagen: '/primera-chata.png',
     selloNumero: '01',
     selloTexto: 'ORIGEN • 1989',
