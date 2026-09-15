@@ -35,13 +35,13 @@ export async function GET() {
       .map((record) => {
         const f = record.fields;
 
-        // Extracción de fotos de la columna FOTOS
+        // Prioriza SIEMPRE la URL original en máxima resolución (sin comprimir por thumbnails)
         let photos = [];
         const rawPhotos = f['FOTOS'];
         if (Array.isArray(rawPhotos)) {
           photos = rawPhotos.map((p) => {
             if (typeof p === 'string') return p;
-            return (p.thumbnails && p.thumbnails.large && p.thumbnails.large.url) || (p.thumbnails && p.thumbnails.full && p.thumbnails.full.url) || p.url || '';
+            return p.url || (p.thumbnails && p.thumbnails.full && p.thumbnails.full.url) || (p.thumbnails && p.thumbnails.large && p.thumbnails.large.url) || '';
           }).filter(Boolean);
         } else if (typeof rawPhotos === 'string') {
           photos = [rawPhotos];
