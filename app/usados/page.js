@@ -681,7 +681,7 @@ function CatalogoContent() {
           </button>
         </div>
       ) : (
-      <div className="usados-grid">
+    <div className="usados-grid">
           {filtered.map((v) => {
             const mainPhoto = v.photos && v.photos.length > 0 ? v.photos[0] : null;
             return (
@@ -776,6 +776,8 @@ function CatalogoContent() {
             );
           })}
         </div>
+      )}
+
       {/* 4. MODAL DETALLE */}
       {selectedVehicle && (
         <div 
