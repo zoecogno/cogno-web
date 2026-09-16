@@ -681,11 +681,11 @@ function CatalogoContent() {
           </button>
         </div>
       ) : (
-        <div className="usados-grid">
+      <div className="usados-grid">
           {filtered.map((v) => {
             const mainPhoto = v.photos && v.photos.length > 0 ? v.photos[0] : null;
             return (
-            <div key={v.id} className="card-usado">
+              <div key={v.id} className="card-usado">
                 <div className="card-usado-img-box" style={{ position: 'relative' }}>
                   {mainPhoto ? (
                     <img 
@@ -706,7 +706,6 @@ function CatalogoContent() {
                       Sin foto disponible
                     </div>
                   )}
-                </div>
 
                   {/* CHIP AÑO FLOTANTE (Arriba Izquierda) */}
                   {v.year && (
@@ -777,8 +776,6 @@ function CatalogoContent() {
             );
           })}
         </div>
-      )}
-
       {/* 4. MODAL DETALLE */}
       {selectedVehicle && (
         <div 
