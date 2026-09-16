@@ -3,12 +3,12 @@
 const BRANDS_DATA = [
   {
     brand: 'VOLKSWAGEN',
-    image: '/VW AMAROK V6 GRIS VOLCÁN.jpg',
+    image: '/amarok v6.webp',
     desc: 'Tecnología de avanzada, confort de marcha y robustez garantizada en cada modelo de la línea alemana.',
   },
   {
     brand: 'TOYOTA',
-    image: '/sw4 diamond blanca 0KM TOYOTA.jpeg',
+    image: '/TOYOTA SW4.jpeg',
     desc: 'Líder indiscutido en durabilidad, valor de reventa superior y la máxima confiabilidad mecánica del mercado.',
   },
   {
@@ -19,7 +19,7 @@ const BRANDS_DATA = [
   },
   {
     brand: 'CHEVROLET',
-    image: '/S10 HIGH CHEVROLET.avif',
+    image: '/s10 0km.png',
     desc: 'Conectividad total OnStar, diseño moderno y motores turbo altamente eficientes para todo tipo de uso.',
   },
   {
@@ -54,7 +54,7 @@ const BRANDS_DATA = [
   },
   {
     brand: 'NISSAN',
-    image: '/nissan frontier.jpg',
+    image: '/NISSAN FRONTIER 0KM.jpg',
     desc: 'Ingeniería japonesa, robustez comprobada en pick-ups y tecnología inteligente de asistencia al manejo.',
   },
   {
@@ -64,7 +64,7 @@ const BRANDS_DATA = [
   },
   {
     brand: 'BMW',
-    image: '/bmw x6 0km.webp',
+    image: '/BMW X1 0KM.webp',
     desc: 'Rendimiento deportivo superior, diseño imponente y tecnología premium de vanguardia en cada trayecto.',
   },
   {
@@ -74,7 +74,7 @@ const BRANDS_DATA = [
   },
   {
     brand: 'AUDI',
-    image: '/audi q5.avif',
+    image: '/audi SQ5.avif',
     desc: 'Innovación tecnológica de punta, tracción quattro y sofisticación en diseño interior y exterior.',
   },
   {
