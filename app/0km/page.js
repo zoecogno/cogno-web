@@ -19,7 +19,7 @@ const BRANDS_DATA = [
   },
   {
     brand: 'CHEVROLET',
-    image: '/chevrolet s10 roja.avif',
+    image: '/chevrolet s10 0km roja.png',
     desc: 'Conectividad total OnStar, diseño moderno y motores turbo altamente eficientes para todo tipo de uso.',
   },
   {
