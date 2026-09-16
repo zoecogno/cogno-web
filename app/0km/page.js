@@ -3,12 +3,12 @@
 const BRANDS_DATA = [
   {
     brand: 'VOLKSWAGEN',
-    image: '/amarok v6.webp',
+    image: '/amarok v6 verde.avif',
     desc: 'Tecnología de avanzada, confort de marcha y robustez garantizada en cada modelo de la línea alemana.',
   },
   {
     brand: 'TOYOTA',
-    image: '/TOYOTA SW4.jpeg',
+    image: '/hilux srx 0km.png',
     desc: 'Líder indiscutido en durabilidad, valor de reventa superior y la máxima confiabilidad mecánica del mercado.',
   },
   {
