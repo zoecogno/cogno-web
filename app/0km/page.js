@@ -19,7 +19,7 @@ const BRANDS_DATA = [
   },
   {
     brand: 'CHEVROLET',
-    image: '/s10 0km.png',
+    image: '/chevrolet s10 roja.avif',
     desc: 'Conectividad total OnStar, diseño moderno y motores turbo altamente eficientes para todo tipo de uso.',
   },
   {
@@ -29,7 +29,7 @@ const BRANDS_DATA = [
   },
   {
     brand: 'RENAULT',
-    image: '/RENAULT KARDIAN 0KM.webp',
+    image: '/renault niagara.jpg',
     desc: 'Espacio interior, confort y soluciones prácticas e innovadoras para la familia y el trabajo diario.',
   },
   {
@@ -39,7 +39,7 @@ const BRANDS_DATA = [
   },
   {
     brand: 'RAM',
-    image: '/ram 0km.webp', // o foto disponible
+    image: '/ram rampage.jpg', // o foto disponible
     desc: 'Potencia extrema, lujo superior y la máxima capacidad de carga y remolque en pick-ups full-size.',
   },
   {
@@ -69,12 +69,12 @@ const BRANDS_DATA = [
   },
   {
     brand: 'MERCEDES-BENZ',
-    image: '/mercedez glc.avif',
+    image: '/mercedenz CLA.avif',
     desc: 'Excelencia automotriz, elegancia atemporal y los más altos estándares globales de confort y seguridad.',
   },
   {
     brand: 'AUDI',
-    image: '/audi SQ5.avif',
+    image: '/audi q5 blanca.jpg',
     desc: 'Innovación tecnológica de punta, tracción quattro y sofisticación en diseño interior y exterior.',
   },
   {
