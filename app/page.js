@@ -413,7 +413,7 @@ export default function Home() {
                   Unidades 0KM
                 </h2>
                 <p className="card-desc-text" style={{ fontSize: '0.92rem', color: '#E4E4E7', lineHeight: 1.5, margin: '0 0 16px 0', fontWeight: 400 }}>
-                  Comercializamos la gama completa de las principales marcas del país. Financiación directa de fábrica y entrega programada.
+                  Comercializamos la gama completa de las principales marcas del país. Financiación directa de fábrica y entrega inmediata.
                 </p>
               </div>
               <a href="/0km" className="action-btn-red" style={{ padding: '12px', fontSize: '0.92rem' }}>
@@ -440,7 +440,7 @@ export default function Home() {
                   Usados Seleccionados
                 </h2>
                 <p className="card-desc-text" style={{ fontSize: '0.92rem', color: '#E4E4E7', lineHeight: 1.5, margin: '0 0 16px 0', fontWeight: 400 }}>
-                  Unidades con historial verificado y entrega con toda la documentación lista para salir a la calle.
+                  Unidades con historial verificado y entrega inmediata con toda la documentación lista para salir a la calle.
                 </p>
               </div>
               <a href="/usados" className="action-btn-red" style={{ padding: '12px', fontSize: '0.92rem' }}>
