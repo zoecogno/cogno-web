@@ -685,25 +685,28 @@ function CatalogoContent() {
           {filtered.map((v) => {
             const mainPhoto = v.photos && v.photos.length > 0 ? v.photos[0] : null;
             return (
-              <div key={v.id} className="card-usado">
+            <div key={v.id} className="card-usado">
                 <div className="card-usado-img-box" style={{ position: 'relative' }}>
                   {mainPhoto ? (
-                   <img 
-  src={mainPhoto} 
-  alt={`${v.brand} ${v.line}`} 
-  loading="lazy" 
-  style={{
-    width: '100%',
-    height: '100%',
-    objectFit: 'cover',
-    imageRendering: '-webkit-optimize-contrast',
-    backfaceVisibility: 'hidden',
-    transform: 'translateZ(0)'
-  }}
-/>
+                    <img 
+                      src={mainPhoto} 
+                      alt={`${v.brand} ${v.line}`} 
+                      loading="lazy" 
+                      style={{
+                        width: '100%',
+                        height: '100%',
+                        objectFit: 'cover',
+                        imageRendering: '-webkit-optimize-contrast',
+                        backfaceVisibility: 'hidden',
+                        transform: 'translateZ(0)'
+                      }}
+                    />
+                  ) : (
+                    <div style={{ width: '100%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#71717a', fontSize: '0.85rem' }}>
                       Sin foto disponible
                     </div>
                   )}
+                </div>
 
                   {/* CHIP AÑO FLOTANTE (Arriba Izquierda) */}
                   {v.year && (
