@@ -172,22 +172,22 @@ export default function QuienesSomos() {
           object-fit: cover;
           display: block;
         }
-
-        /* Contenedor para fotos dobles lado a lado en escritorio */
+/* Contenedor para fotos dobles lado a lado en escritorio */
         .timeline-desktop-photo-double {
           display: grid;
           grid-template-columns: 1fr 1fr;
           gap: 10px;
           height: 330px;
           background-color: #141518;
-          padding: 6px;
+          padding: 8px;
         }
 
         .timeline-desktop-photo-double img {
           width: 100%;
           height: 100%;
-          object-fit: cover;
-          border-radius: 12px;
+          object-fit: contain; /* <-- ESTO EVITA QUE SE CORTEN Y MUESTRA LA FOTO APAISADA ENTERA */
+          border-radius: 10px;
+          background-color: #0b0c0e; /* Fondo sutil por si la proporción deja márgenes */
         }
 
         .timeline-desktop-stamp {
@@ -457,7 +457,7 @@ export default function QuienesSomos() {
             display: block;
           }
 
-          .mobile-h-photo-double {
+        .mobile-h-photo-double {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 6px;
@@ -468,8 +468,9 @@ export default function QuienesSomos() {
           .mobile-h-photo-double img {
             width: 100%;
             height: 100%;
-            object-fit: cover;
-            border-radius: 10px;
+            object-fit: contain; /* <-- TAMBIÉN ACÁ */
+            border-radius: 8px;
+            background-color: #0b0c0e;
           }
 
           .mobile-h-stamp {
