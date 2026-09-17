@@ -172,22 +172,48 @@ export default function QuienesSomos() {
           object-fit: cover;
           display: block;
         }
-/* Contenedor para fotos dobles lado a lado en escritorio */
+/* Contenedor para fotos dobles superpuestas en escritorio */
         .timeline-desktop-photo-double {
-          display: grid;
-          grid-template-columns: 1fr 1fr;
-          gap: 10px;
+          position: relative;
           height: 330px;
-          background-color: #141518;
-          padding: 8px;
+          background-color: transparent;
+          border: none;
+          box-shadow: none;
         }
 
-        .timeline-desktop-photo-double img {
-          width: 100%;
-          height: 100%;
-          object-fit: contain; /* <-- ESTO EVITA QUE SE CORTEN Y MUESTRA LA FOTO APAISADA ENTERA */
-          border-radius: 10px;
-          background-color: #0b0c0e; /* Fondo sutil por si la proporción deja márgenes */
+        .timeline-desktop-photo-double img:nth-child(1) {
+          position: absolute;
+          top: 10px;
+          left: 10px;
+          width: 72%;
+          height: 280px;
+          object-fit: cover;
+          border-radius: 14px;
+          border: 3px solid #141518;
+          box-shadow: 0 12px 30px rgba(0, 0, 0, 0.7);
+          transform: rotate(-3deg);
+          z-index: 1;
+          transition: transform 0.3s ease;
+        }
+
+        .timeline-desktop-photo-double img:nth-child(2) {
+          position: absolute;
+          top: 30px;
+          right: 10px;
+          width: 72%;
+          height: 280px;
+          object-fit: cover;
+          border-radius: 14px;
+          border: 3px solid #141518;
+          box-shadow: 0 16px 35px rgba(0, 0, 0, 0.8);
+          transform: rotate(4deg);
+          z-index: 2;
+          transition: transform 0.3s ease;
+        }
+
+        .timeline-desktop-photo-double img:hover {
+          transform: scale(1.03) rotate(0deg) !important;
+          z-index: 5;
         }
 
         .timeline-desktop-stamp {
@@ -456,21 +482,42 @@ export default function QuienesSomos() {
             object-fit: cover;
             display: block;
           }
-
-        .mobile-h-photo-double {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 6px;
-            padding: 4px;
-            background: #141518;
+/* Contenedor para fotos dobles superpuestas en móvil */
+          .mobile-h-photo-double {
+            position: relative;
+            width: 270px !important;
+            height: 240px !important;
+            background-color: transparent;
+            border: none;
+            box-shadow: none;
           }
 
-          .mobile-h-photo-double img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain; /* <-- TAMBIÉN ACÁ */
-            border-radius: 8px;
-            background-color: #0b0c0e;
+          .mobile-h-photo-double img:nth-child(1) {
+            position: absolute;
+            top: 10px;
+            left: 5px;
+            width: 70%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 12px;
+            border: 2px solid #141518;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.7);
+            transform: rotate(-3deg);
+            z-index: 1;
+          }
+
+          .mobile-h-photo-double img:nth-child(2) {
+            position: absolute;
+            top: 20px;
+            right: 5px;
+            width: 70%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 12px;
+            border: 2px solid #141518;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.8);
+            transform: rotate(4deg);
+            z-index: 2;
           }
 
           .mobile-h-stamp {
