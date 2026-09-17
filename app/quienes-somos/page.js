@@ -60,7 +60,7 @@ const capitulosHistoria = [
     imagen1: '/2016.jpeg',
     imagen2: '/julio 2016.jpeg',
     selloNumero: 'STK',
-    selloTexto: 'DEPÓSITO',
+    selloTexto: 'UNIDADES SELECCIONADAS',
     rotacion: '-1.5deg'
   },
   {
@@ -924,7 +924,7 @@ export default function QuienesSomos() {
                 Vení a conocer nuestro local
               </h2>
               <p style={{ fontSize: '0.98rem', color: '#E4E4E7', lineHeight: 1.55, margin: '0 0 18px 0', fontWeight: 400 }}>
-                Te esperamos en nuestro salón comercial para conocer el stock en persona, realizar un peritaje transparente de tu usado y asesorarte de forma personalizada[cite: 1].
+                Te esperamos en nuestro salón comercial para conocer el stock en persona, realizar un peritaje transparente de tu usado y asesorarte de forma personalizada.
               </p>
 
               <div style={{ backgroundColor: '#0B0C0E', border: '1px solid #27272a', padding: '14px 18px', borderRadius: '12px', marginBottom: '18px', display: 'flex', flexDirection: 'column', gap: '10px' }}>
