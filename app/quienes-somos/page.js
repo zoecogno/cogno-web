@@ -56,7 +56,9 @@ const capitulosHistoria = [
     etiqueta: 'STOCK EN CRECIMIENTO • DEPÓSITO',
     titulo: 'El esfuerzo diario y la variedad',
     relato: 'Vistas internas del salón y depósito repletas de unidades preparadas, reflejando el trabajo en equipo y el compromiso constante por mantener un stock dinámico y seguro.',
-    imagen: '/2016.jpeg',
+    esDoble: true,
+    imagen1: '/2016.jpeg',
+    imagen2: '/julio 2016.jpeg',
     selloNumero: 'STK',
     selloTexto: 'DEPÓSITO',
     rotacion: '-1.5deg'
@@ -66,7 +68,9 @@ const capitulosHistoria = [
     etiqueta: 'CONFIANZA PLENA • FLOTAS 0KM',
     titulo: 'Entregas múltiples y respaldo de marcas',
     relato: 'Las flotas de Amarok blancas y nuestras icónicas camionetas en fila, simbolizando el respaldo de las marcas líderes y la confianza depositada por clientes de toda la provincia.',
-    imagen: '/amaroks blancas.png',
+    esDoble: true,
+    imagen1: '/amaroks blancas.png',
+    imagen2: '/flota-hilux.jpg', // Asegúrate de tener esta o ajustala si el nombre difiere
     selloNumero: 'FLT',
     selloTexto: 'FLOTAS 0KM',
     rotacion: '-2deg'
@@ -167,6 +171,21 @@ export default function QuienesSomos() {
           height: 100%;
           object-fit: cover;
           display: block;
+        }
+
+        /* Estilo para fotos dobles */
+        .timeline-desktop-photo-double {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 10px;
+          height: 330px;
+        }
+
+        .timeline-desktop-photo-double img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          border-radius: 14px;
         }
 
         .timeline-desktop-stamp {
@@ -436,6 +455,21 @@ export default function QuienesSomos() {
             display: block;
           }
 
+          .mobile-h-photo-double {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6px;
+            padding: 4px;
+            background: #141518;
+          }
+
+          .mobile-h-photo-double img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 10px;
+          }
+
           .mobile-h-stamp {
             width: 220px !important;
             margin-top: 0 !important;
@@ -629,10 +663,17 @@ export default function QuienesSomos() {
                 </div>
               </div>
 
-              {/* FOTO DOCUMENTAL LIMPIA */}
+              {/* FOTO DOCUMENTAL (SIMPLE O DOBLE) */}
               <div className="timeline-desktop-col">
-                <div className="timeline-desktop-photo">
-                  <img src={cap.imagen} alt={cap.titulo} />
+                <div className={cap.esDoble ? "timeline-desktop-photo timeline-desktop-photo-double" : "timeline-desktop-photo"}>
+                  {cap.esDoble ? (
+                    <>
+                      <img src={cap.imagen1} alt={`${cap.titulo} - 1`} />
+                      <img src={cap.imagen2} alt={`${cap.titulo} - 2`} />
+                    </>
+                  ) : (
+                    <img src={cap.imagen} alt={cap.titulo} />
+                  )}
                 </div>
               </div>
             </div>
@@ -652,8 +693,15 @@ export default function QuienesSomos() {
                   <div className="timeline-mobile-dot"></div>
 
                   <div className={esArriba ? 'mobile-node-top' : 'mobile-node-bottom'}>
-                    <div className="mobile-h-photo">
-                      <img src={cap.imagen} alt={cap.titulo} />
+                    <div className={cap.esDoble ? "mobile-h-photo mobile-h-photo-double" : "mobile-h-photo"}>
+                      {cap.esDoble ? (
+                        <>
+                          <img src={cap.imagen1} alt={`${cap.titulo} - 1`} />
+                          <img src={cap.imagen2} alt={`${cap.titulo} - 2`} />
+                        </>
+                      ) : (
+                        <img src={cap.imagen} alt={cap.titulo} />
+                      )}
                     </div>
 
                     <div 
