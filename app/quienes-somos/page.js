@@ -70,7 +70,7 @@ const capitulosHistoria = [
     relato: 'Las flotas de Amarok blancas y nuestras icónicas camionetas en fila, simbolizando el respaldo de las marcas líderes y la confianza depositada por clientes de toda la provincia.',
     esDoble: true,
     imagen1: '/amaroks blancas.png',
-    imagen2: '/flota-hilux.jpg', // Asegúrate de tener esta o ajustala si el nombre difiere
+    imagen2: '/flota-hilux.jpg',
     selloNumero: 'FLT',
     selloTexto: 'FLOTAS 0KM',
     rotacion: '-2deg'
@@ -173,19 +173,21 @@ export default function QuienesSomos() {
           display: block;
         }
 
-        /* Estilo para fotos dobles */
+        /* Contenedor para fotos dobles lado a lado en escritorio */
         .timeline-desktop-photo-double {
           display: grid;
           grid-template-columns: 1fr 1fr;
           gap: 10px;
           height: 330px;
+          background-color: #141518;
+          padding: 6px;
         }
 
         .timeline-desktop-photo-double img {
           width: 100%;
           height: 100%;
           object-fit: cover;
-          border-radius: 14px;
+          border-radius: 12px;
         }
 
         .timeline-desktop-stamp {
@@ -593,7 +595,7 @@ export default function QuienesSomos() {
         </div>
         <div style={{ maxWidth: '820px', margin: '0 auto' }}>
           <p className="hero-qs-desc" style={{ fontSize: '0.98rem', color: '#a1a1aa', lineHeight: 1.55, margin: 0, fontWeight: 400 }}>
-            Somos <strong style={{ fontWeight: 600, color: '#e4e4e7' }}>Cogno Automotores S.A.</strong>, una empresa familiar con más de 35 años en Río Cuarto. Nos dedicamos a la venta de vehículos nuevos y usados, con un amplio stock y una destacada variedad de pick-ups.
+            Somos <strong style={{ fontWeight: 600, color: '#e4e4e7' }}>Cogno Automotores S.A.</strong>, una empresa familiar con más de 35 años en Río Cuarto[cite: 1]. Nos dedicamos a la venta de vehículos nuevos y usados, con un amplio stock y una destacada variedad de pick-ups.
           </p>
         </div>
       </section>
@@ -663,7 +665,7 @@ export default function QuienesSomos() {
                 </div>
               </div>
 
-              {/* FOTO DOCUMENTAL (SIMPLE O DOBLE) */}
+              {/* FOTO DOCUMENTAL (SIMPLE O DOBLE LADO A LADO) */}
               <div className="timeline-desktop-col">
                 <div className={cap.esDoble ? "timeline-desktop-photo timeline-desktop-photo-double" : "timeline-desktop-photo"}>
                   {cap.esDoble ? (
