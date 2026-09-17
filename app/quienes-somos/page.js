@@ -172,7 +172,8 @@ export default function QuienesSomos() {
           object-fit: cover;
           display: block;
         }
-/* Contenedor para fotos dobles superpuestas en escritorio */
+
+        /* Fotos dobles superpuestas en escritorio (estilo álbum) */
         .timeline-desktop-photo-double {
           position: relative;
           height: 330px;
@@ -365,6 +366,10 @@ export default function QuienesSomos() {
             color: #a1a1aa !important;
           }
 
+          .mobile-swipe-hint {
+            display: block !important;
+          }
+
           .timeline-desktop-wrapper {
             display: none !important;
           }
@@ -482,7 +487,8 @@ export default function QuienesSomos() {
             object-fit: cover;
             display: block;
           }
-/* Contenedor para fotos dobles superpuestas en móvil */
+
+          /* Fotos dobles superpuestas en móvil */
           .mobile-h-photo-double {
             position: relative;
             width: 270px !important;
@@ -496,10 +502,10 @@ export default function QuienesSomos() {
             position: absolute;
             top: 10px;
             left: 5px;
-            width: 70%;
-            height: 200px;
+            width: 68%;
+            height: 190px;
             object-fit: cover;
-            border-radius: 12px;
+            border-radius: 10px;
             border: 2px solid #141518;
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.7);
             transform: rotate(-3deg);
@@ -510,10 +516,10 @@ export default function QuienesSomos() {
             position: absolute;
             top: 20px;
             right: 5px;
-            width: 70%;
-            height: 200px;
+            width: 68%;
+            height: 190px;
             object-fit: cover;
-            border-radius: 12px;
+            border-radius: 10px;
             border: 2px solid #141518;
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.8);
             transform: rotate(4deg);
@@ -661,7 +667,7 @@ export default function QuienesSomos() {
 
       {/* 2. NUESTRA HISTORIA */}
       <section style={{ maxWidth: '1280px', margin: '45px auto 0 auto' }}>
-        <div style={{ textAlign: 'center', marginBottom: '24px', padding: '0 20px' }}>
+        <div style={{ textAlign: 'center', marginBottom: '20px', padding: '0 20px' }}>
           <span style={{ fontSize: '0.82rem', fontWeight: 700, color: '#ED1C24', letterSpacing: '2px', textTransform: 'uppercase' }}>
             NUESTRO RECORRIDO
           </span>
@@ -671,6 +677,13 @@ export default function QuienesSomos() {
           <p style={{ color: '#a1a1aa', fontSize: '0.92rem', maxWidth: '680px', margin: '0 auto', lineHeight: 1.5 }}>
             Las empresas no se construyen con discursos, sino con hechos, clientes que vuelven a lo largo de los años y el valor irrenunciable de la palabra empeñada. Te invitamos a recorrer los momentos que nos trajeron hasta acá.
           </p>
+          
+          {/* Indicador de desplazamiento para móviles */}
+          <div className="mobile-swipe-hint" style={{ display: 'none', marginTop: '12px' }}>
+            <span style={{ fontSize: '0.78rem', color: '#ED1C24', backgroundColor: 'rgba(237, 28, 36, 0.1)', padding: '4px 12px', borderRadius: '20px', border: '1px solid rgba(237, 28, 36, 0.3)', fontWeight: 600 }}>
+               Desliza hacia los lados para conocer toda la historia →
+            </span>
+          </div>
         </div>
 
         {/* --- VISTA PC (ESCRITORIO): VERTICAL EN ZIGZAG --- */}
@@ -713,7 +726,7 @@ export default function QuienesSomos() {
                 </div>
               </div>
 
-              {/* FOTO DOCUMENTAL (SIMPLE O DOBLE LADO A LADO) */}
+              {/* FOTO DOCUMENTAL (SIMPLE O DOBLE SUPERPUESTA) */}
               <div className="timeline-desktop-col">
                 <div className={cap.esDoble ? "timeline-desktop-photo timeline-desktop-photo-double" : "timeline-desktop-photo"}>
                   {cap.esDoble ? (
