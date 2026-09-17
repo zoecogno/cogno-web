@@ -5,7 +5,7 @@ const capitulosHistoria = [
     año: '1989',
     etiqueta: 'EL PUNTO DE PARTIDA',
     titulo: 'La primera chata: "La Vaca Milka"',
-    relato: 'Todo comenzó con esta clásica Ford F-100 color champagne. Fue la primera unidad entregada y la chispa fundacional de Cogno Automotores. Sin grandes estructuras, pero con una convicción innegociable: la palabra empeñada y el trato leal valen más que cualquier firma.',
+    relato: 'Todo comenzó con esta clásica Ford F-100 color champagne. Fue la primera unidad entregada y la chispa fundacional de Cogno Automotores. Sin grandes estructuras, sino con una convicción inquebrantable: la palabra empeñada y el trato leal valen más que cualquier firma.',
     imagen: '/primera-chata.png',
     selloNumero: '01',
     selloTexto: 'ORIGEN • 1989',
@@ -15,7 +15,7 @@ const capitulosHistoria = [
     año: 'ORÍGENES',
     etiqueta: 'PRIMER SALÓN',
     titulo: 'Echar raíces sobre Marcelo T. de Alvear',
-    relato: 'Los primeros pasos en el predio propio. El trabajo artesanal de seleccionar cada vehículo, revisar la mecánica de punta a punta y atender personalmente a cada productor, transportista y vecino de la región que confiaba su herramienta de trabajo en nuestras manos.',
+    relato: 'Los primeros pasos en el predio propio de Río Cuarto. El trabajo artesanal de seleccionar cada vehículo, revisar la mecánica de punta a punta y atender personalmente a cada productor, transportista y vecino que confiaba en nuestras manos.',
     imagen: '/origenes-local.jpg',
     selloNumero: '90s',
     selloTexto: 'PREDIO PROPIO',
@@ -25,38 +25,38 @@ const capitulosHistoria = [
     año: 'AÑOS 90',
     etiqueta: 'EL SELLO DE LAS PICK-UPS',
     titulo: 'Nuestra clásica vidriera sobre la avenida',
-    relato: 'Exhibiendo lo mejor de la industria nacional, marcando el pulso de las unidades 0 KM que elegían las familias y el campo en una época dorada para los utilitarios.',
-    imagen: '/primera-chata.png', // O reemplazá por la ruta de tu foto de la vidriera F-100 de 1997 si ya la subiste
+    relato: 'Exhibiendo lo mejor de la industria nacional en nuestra marquesina, marcando el pulso de las unidades 0 KM que elegían las familias y el campo en una época dorada para los utilitarios.',
+    imagen: '/vidriera f100.png',
     selloNumero: '97',
-    selloTexto: 'VIDRIERA',
+    selloTexto: 'F-100 0KM',
     rotacion: '-1.8deg'
   },
   {
-    año: '2011',
+    año: 'ETAPA DE EXPANSIÓN',
     etiqueta: 'INNOVACIÓN Y VARIEDAD',
     titulo: 'Apuesta a la vanguardia y el diseño',
-    relato: 'Incorporando deportividad y exclusividad en cada rincón de nuestro salón, como el inolvidable Peugeot RCZ que marcó época en el espacio interior de la concesionaria.',
-    imagen: '/familia-90s.jpg', // O la foto del RCZ que subas a public/
+    relato: 'Incorporando deportividad y exclusividad en cada rincón de nuestro salón, como el inolvidable Peugeot RCZ que marcó tendencia en el espacio interior de la concesionaria.',
+    imagen: '/rcz 2011.png',
     selloNumero: '2011',
     selloTexto: 'VANGUARDIA',
     rotacion: '1.5deg'
   },
   {
-    año: '2012',
+    año: 'TRABAJO Y RUTA',
     etiqueta: 'PRESENCIA EN LA REGIÓN',
-    titulo: 'Compañera fiel del trabajo y los caminos',
-    relato: 'La Ford Ranger negra haciendo base en la puerta, lista para salir a recorrer los campos del sur cordobés y acompañar al sector productivo con potencia y seguridad.',
-    imagen: '/frente-2014.png', // O la foto de la Ranger 2012
+    titulo: 'Compañera fiel del sur cordobés',
+    relato: 'La Ford Ranger negra haciendo base firme en la puerta, lista para salir a recorrer los campos y acompañar al sector productivo con potencia, robustez y confianza.',
+    imagen: '/2012-10-19_10-55-46_87_Río Cuarto.jpg',
     selloNumero: '4X4',
-    selloTexto: 'SUR CORDOBÉS',
+    selloTexto: 'ZONA RURAL',
     rotacion: '-2deg'
   },
   {
     año: '2015',
     etiqueta: 'RITMO DE CALLE',
     titulo: 'El salón a la vista de toda la ciudad',
-    relato: 'Renovamos nuestra fachada y marquesinas corporativas sobre Marcelo T. de Alvear 1580 para potenciar la identidad de la marca y recibir con mayor comodidad a nuestros clientes.',
-    imagen: '/frente-2015.jpg',
+    relato: 'Renovamos nuestra fachada y marquesinas corporativas sobre Av. Marcelo T. de Alvear 1580 para potenciar la identidad de la marca y brindar una experiencia más moderna.',
+    imagen: '/frente 2015.png',
     selloNumero: '15',
     selloTexto: 'NUEVA FACHADA',
     rotacion: '2deg'
@@ -65,18 +65,18 @@ const capitulosHistoria = [
     año: '2016',
     etiqueta: 'STOCK EN CRECIMIENTO',
     titulo: 'El esfuerzo diario y la variedad',
-    relato: 'Vistas internas del salón y depósito repletas de unidades preparadas, reflejando el trabajo en equipo y el compromiso constante por mantener un stock dinámico y confiable.',
-    imagen: '/frente-2015.jpg', // O la foto de 2016
+    relato: 'Vistas internas del salón y depósito repletas de unidades preparadas, reflejando el trabajo en equipo y el compromiso constante por mantener un stock dinámico y seguro.',
+    imagen: '/2016.jpeg',
     selloNumero: 'STK',
     selloTexto: 'DEPÓSITO',
     rotacion: '-1.5deg'
   },
   {
-    año: '2018',
+    año: 'AÑOS DE REFERENCIA',
     etiqueta: 'CONSOLIDACIÓN NOCTURNA',
     titulo: 'Presencia constante en la zona',
-    relato: 'Nuestras puertas abiertas de noche reflejando la dedicación y el movimiento continuo que nos convirtieron en referentes indiscutidos del rubro en la ciudad.',
-    imagen: '/frente-2015.jpg', // O la foto de noche 2018
+    relato: 'Nuestras puertas abiertas de noche reflejando la dedicación y el movimiento continuo que nos convirtieron en referentes indiscutidos del rubro automotor en la ciudad.',
+    imagen: '/febb 2018.HEIC',
     selloNumero: '18',
     selloTexto: 'REFERENTES',
     rotacion: '1.8deg'
@@ -85,8 +85,8 @@ const capitulosHistoria = [
     año: '2020',
     etiqueta: 'CONFIANZA PLENA',
     titulo: 'Entregas múltiples y respaldo de marcas',
-    relato: 'Las flotas de Amarok y nuestras icónicas Hilux rojas en fila, simbolizando el respaldo de las marcas líderes y la confianza depositada por clientes de toda la provincia.',
-    imagen: '/flota-hilux.jpg',
+    relato: 'Las flotas de Amarok blancas y nuestras icónicas camionetas en fila, simbolizando el respaldo de las marcas líderes y la confianza depositada por clientes de toda la provincia.',
+    imagen: '/amaroks blancas.png',
     selloNumero: 'FLT',
     selloTexto: 'FLOTAS 0KM',
     rotacion: '-2deg'
@@ -833,14 +833,14 @@ export default function QuienesSomos() {
                 Vení a conocer nuestro local
               </h2>
               <p style={{ fontSize: '0.98rem', color: '#E4E4E7', lineHeight: 1.55, margin: '0 0 18px 0', fontWeight: 400 }}>
-                Te esperamos en nuestro salón comercial para conocer el stock en persona, realizar un peritaje transparente de tu usado y asesorarte de forma personalizada.
+                Te esperamos en nuestro salón comercial para conocer el stock en persona, realizar un peritaje transparente de tu usado y asesorarte de forma personalizada[cite: 1].
               </p>
 
               <div style={{ backgroundColor: '#0B0C0E', border: '1px solid #27272a', padding: '14px 18px', borderRadius: '12px', marginBottom: '18px', display: 'flex', flexDirection: 'column', gap: '10px' }}>
                 <div>
                   <div style={{ fontSize: '0.72rem', color: '#a1a1aa', textTransform: 'uppercase', fontWeight: 600 }}>UBICACIÓN</div>
-                  <div style={{ fontSize: '1rem', fontWeight: 600, color: '#ffffff' }}>Av. Marcelo T. de Alvear 1580</div>
-                  <div style={{ fontSize: '0.86rem', color: '#d4d4d8' }}>Río Cuarto, Córdoba, Argentina</div>
+                  <div style={{ fontSize: '1rem', fontWeight: 600, color: '#ffffff' }}>Av. Marcelo T. de Alvear 1580[cite: 1]</div>
+                  <div style={{ fontSize: '0.86rem', color: '#d4d4d8' }}>Río Cuarto, Córdoba, Argentina[cite: 1]</div>
                 </div>
 
                 <div style={{ borderTop: '1px solid #1F2024', paddingTop: '8px' }}>
