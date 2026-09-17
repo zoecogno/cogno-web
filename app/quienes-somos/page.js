@@ -12,7 +12,7 @@ const capitulosHistoria = [
     rotacion: '-1.5deg'
   },
   {
-    año: 'AÑOS 90',
+    año: 'ORÍGENES',
     etiqueta: 'PRIMER SALÓN',
     titulo: 'Echar raíces sobre Marcelo T. de Alvear',
     relato: 'Los primeros pasos en el predio propio. El trabajo artesanal de seleccionar cada vehículo, revisar la mecánica de punta a punta y atender personalmente a cada productor, transportista y vecino de la región que confiaba su herramienta de trabajo en nuestras manos.',
@@ -22,62 +22,92 @@ const capitulosHistoria = [
     rotacion: '2deg'
   },
   {
-    año: 'CRECIMIENTO',
-    etiqueta: 'EMPRESA Y FAMILIA',
-    titulo: 'Una pasión construida entre generaciones',
-    relato: 'La transición hacia la comercialización de 0 KM y usados jóvenes. Detrás del mostrador, la familia siempre presente: atendiendo clientes, resolviendo trámites de gestoría y compartiendo el orgullo de ver crecer un proyecto que ya era parte de la identidad de Banda Norte.',
-    imagen: '/familia-90s.jpg',
-    selloNumero: 'FAM',
-    selloTexto: 'MULTIMARCA',
+    año: 'AÑOS 90',
+    etiqueta: 'EL SELLO DE LAS PICK-UPS',
+    titulo: 'Nuestra clásica vidriera sobre la avenida',
+    relato: 'Exhibiendo lo mejor de la industria nacional, marcando el pulso de las unidades 0 KM que elegían las familias y el campo en una época dorada para los utilitarios.',
+    imagen: '/primera-chata.png', // O reemplazá por la ruta de tu foto de la vidriera F-100 de 1997 si ya la subiste
+    selloNumero: '97',
+    selloTexto: 'VIDRIERA',
     rotacion: '-1.8deg'
   },
   {
-    año: '2014',
-    etiqueta: 'CONSOLIDACIÓN',
-    titulo: 'Referentes indiscutidos en pick-ups',
-    relato: 'Río Cuarto y el sur de Córdoba demandaban utilitarios pesados y confiables. Consolidamos el mayor despliegue de camionetas de la región, convirtiéndonos en el punto de encuentro natural para renovar Toyota Hilux, Ford Ranger y Volkswagen Amarok con garantía real.',
-    imagen: '/frente-2014.png',
-    selloNumero: '4X4',
-    selloTexto: 'LÍDERES 4X4',
+    año: '2011',
+    etiqueta: 'INNOVACIÓN Y VARIEDAD',
+    titulo: 'Apuesta a la vanguardia y el diseño',
+    relato: 'Incorporando deportividad y exclusividad en cada rincón de nuestro salón, como el inolvidable Peugeot RCZ que marcó época en el espacio interior de la concesionaria.',
+    imagen: '/familia-90s.jpg', // O la foto del RCZ que subas a public/
+    selloNumero: '2011',
+    selloTexto: 'VANGUARDIA',
     rotacion: '1.5deg'
+  },
+  {
+    año: '2012',
+    etiqueta: 'PRESENCIA EN LA REGIÓN',
+    titulo: 'Compañera fiel del trabajo y los caminos',
+    relato: 'La Ford Ranger negra haciendo base en la puerta, lista para salir a recorrer los campos del sur cordobés y acompañar al sector productivo con potencia y seguridad.',
+    imagen: '/frente-2014.png', // O la foto de la Ranger 2012
+    selloNumero: '4X4',
+    selloTexto: 'SUR CORDOBÉS',
+    rotacion: '-2deg'
   },
   {
     año: '2015',
     etiqueta: 'RITMO DE CALLE',
     titulo: 'El salón a la vista de toda la ciudad',
-    relato: 'Una postal cotidiana sobre Marcelo T. de Alvear 1580. La rotación de stock no paraba: autos medianos, sedanes familiares y camionetas listas para transferir en el día. Los clientes ya no venían solo por un auto, venían a buscar respaldo y tranquilidad.',
+    relato: 'Renovamos nuestra fachada y marquesinas corporativas sobre Marcelo T. de Alvear 1580 para potenciar la identidad de la marca y recibir con mayor comodidad a nuestros clientes.',
     imagen: '/frente-2015.jpg',
     selloNumero: '15',
-    selloTexto: 'ALVEAR 1580',
-    rotacion: '-2deg'
+    selloTexto: 'NUEVA FACHADA',
+    rotacion: '2deg'
   },
   {
-    año: 'EXPANSIÓN',
-    etiqueta: 'POSTALES DEL SALÓN',
-    titulo: 'La fuerza de nuestra trayectoria',
-    relato: 'Cuatro Hilux rojas listas para salir en simultáneo simbolizaron la madurez operativa de la concesionaria. Una imagen icónica que resume el ritmo constante de entregas y la confianza depositada por clientes de toda la provincia al momento de renovar su herramienta de trabajo.',
+    año: '2016',
+    etiqueta: 'STOCK EN CRECIMIENTO',
+    titulo: 'El esfuerzo diario y la variedad',
+    relato: 'Vistas internas del salón y depósito repletas de unidades preparadas, reflejando el trabajo en equipo y el compromiso constante por mantener un stock dinámico y confiable.',
+    imagen: '/frente-2015.jpg', // O la foto de 2016
+    selloNumero: 'STK',
+    selloTexto: 'DEPÓSITO',
+    rotacion: '-1.5deg'
+  },
+  {
+    año: '2018',
+    etiqueta: 'CONSOLIDACIÓN NOCTURNA',
+    titulo: 'Presencia constante en la zona',
+    relato: 'Nuestras puertas abiertas de noche reflejando la dedicación y el movimiento continuo que nos convirtieron en referentes indiscutidos del rubro en la ciudad.',
+    imagen: '/frente-2015.jpg', // O la foto de noche 2018
+    selloNumero: '18',
+    selloTexto: 'REFERENTES',
+    rotacion: '1.8deg'
+  },
+  {
+    año: '2020',
+    etiqueta: 'CONFIANZA PLENA',
+    titulo: 'Entregas múltiples y respaldo de marcas',
+    relato: 'Las flotas de Amarok y nuestras icónicas Hilux rojas en fila, simbolizando el respaldo de las marcas líderes y la confianza depositada por clientes de toda la provincia.',
     imagen: '/flota-hilux.jpg',
-    selloNumero: 'TOYOTA',
-    selloTexto: 'DESPACHO 0KM',
-    rotacion: '2deg'
+    selloNumero: 'FLT',
+    selloTexto: 'FLOTAS 0KM',
+    rotacion: '-2deg'
   },
   {
     año: 'PRESENTE',
     etiqueta: 'HOY',
     titulo: 'Más de 35 años de confianza viva en Río Cuarto',
-    relato: 'Nuestra historia nos respalda, y seguimos trabajando cada día para ofrecer un servicio responsable, cercano y a la altura de las expectativas de quienes nos eligen. La palabra empeñada y la garantía real de cada unidad continúan siendo el motor de nuestra familia.',
+    relato: 'Nuestra historia nos respalda, uniendo la calidez de siempre con la nueva plataforma digital para estar siempre cerca tuyo. La palabra empeñada sigue siendo nuestro motor.',
     imagen: '/frente-2026.jpg.jpg',
     selloNumero: '35+',
-    selloTexto: 'GARANTÍA TOTAL',
+    selloTexto: 'FUTURO DIGITAL',
     rotacion: '1.2deg'
   }
 ];
 
 export default function QuienesSomos() {
   return (
-<div style={{ backgroundColor: '#0B0C0E', minHeight: '100vh', color: '#ffffff', paddingBottom: '80px' }}>
+    <div style={{ backgroundColor: '#0B0C0E', minHeight: '100vh', color: '#ffffff', paddingBottom: '80px' }}>
       
-    {/* ESTILOS INTERACTIVOS, LÍNEA VERTICAL (PC) Y LÍNEA HORIZONTAL ARRIBA/ABAJO (MÓVIL) */}
+      {/* ESTILOS INTERACTIVOS Y RESPONSIVOS */}
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=Special+Elite&display=swap');
 
@@ -85,9 +115,6 @@ export default function QuienesSomos() {
           font-family: 'Special Elite', 'Courier Prime', monospace !important;
         }
 
-        /* =========================================================
-           1. ESCRITORIO (PC): LÍNEA DE TIEMPO VERTICAL EN ZIGZAG
-           ========================================================= */
         .timeline-desktop-wrapper {
           position: relative;
           max-width: 1180px;
@@ -104,7 +131,7 @@ export default function QuienesSomos() {
           left: 50%;
           width: 2px;
           background: #ED1C24;
-box-shadow: 0 0 10px rgba(237, 28, 36, 0.4);
+          box-shadow: 0 0 10px rgba(237, 28, 36, 0.4);
           transform: translateX(-50%);
           z-index: 1;
         }
@@ -206,16 +233,10 @@ box-shadow: 0 0 10px rgba(237, 28, 36, 0.4);
           letter-spacing: 0.5px;
         }
 
-        /* =========================================================
-           2. CELULARES (MÓVIL): LÍNEA HORIZONTAL CON EJE EN EL MEDIO
-           ========================================================= */
         .timeline-mobile-wrapper {
           display: none;
         }
 
-        /* =========================================================
-           3. PROPÓSITO, VISIÓN, VALORES Y SALÓN COMERCIAL (PC)
-           ========================================================= */
         .vision-grid {
           display: grid;
           grid-template-columns: 1fr 1fr;
@@ -297,9 +318,6 @@ box-shadow: 0 0 10px rgba(237, 28, 36, 0.4);
           align-items: center;
         }
 
-        /* =========================================================
-           4. ADAPTACIÓN MÓVIL ESTRICTA (<= 860px)
-           ========================================================= */
         @media (max-width: 860px) {
           .section-title {
             font-size: 1.35rem !important;
@@ -320,12 +338,10 @@ box-shadow: 0 0 10px rgba(237, 28, 36, 0.4);
             color: #a1a1aa !important;
           }
 
-          /* Oculta la vista de escritorio */
           .timeline-desktop-wrapper {
             display: none !important;
           }
 
-          /* Contenedor de scroll horizontal en celular */
           .timeline-mobile-wrapper {
             display: block !important;
             width: 100vw !important;
@@ -351,7 +367,6 @@ box-shadow: 0 0 10px rgba(237, 28, 36, 0.4);
             background: #141518;
           }
 
-          /* Pista horizontal continua */
           .timeline-mobile-stage {
             position: relative;
             display: inline-flex !important;
@@ -360,10 +375,9 @@ box-shadow: 0 0 10px rgba(237, 28, 36, 0.4);
             padding: 0 40px 0 10px !important;
           }
           .vision-section-container {
-  margin-top: 15px !important;
-}
+            margin-top: 15px !important;
+          }
 
-          /* Eje horizontal rojo al medio */
           .timeline-mobile-axis {
             position: absolute;
             left: 0;
@@ -375,7 +389,6 @@ box-shadow: 0 0 10px rgba(237, 28, 36, 0.4);
             z-index: 1;
           }
 
-          /* Espacio por cada hito */
           .timeline-mobile-slot {
             position: relative;
             width: 490px !important;
@@ -388,7 +401,6 @@ box-shadow: 0 0 10px rgba(237, 28, 36, 0.4);
             z-index: 2;
           }
 
-          /* Nodo central sobre el eje */
           .timeline-mobile-dot {
             position: absolute;
             top: 50%;
@@ -403,7 +415,6 @@ box-shadow: 0 0 10px rgba(237, 28, 36, 0.4);
             z-index: 5;
           }
 
-          /* Hito arriba del eje: foto + estampilla al costado */
           .mobile-node-top {
             position: absolute;
             bottom: calc(50% + 22px);
@@ -415,7 +426,6 @@ box-shadow: 0 0 10px rgba(237, 28, 36, 0.4);
             width: 480px !important;
           }
 
-          /* Hito abajo del eje: foto + estampilla al costado */
           .mobile-node-bottom {
             position: absolute;
             top: calc(50% + 22px);
@@ -427,7 +437,6 @@ box-shadow: 0 0 10px rgba(237, 28, 36, 0.4);
             width: 480px !important;
           }
 
-          /* Foto documental en celular */
           .mobile-h-photo {
             width: 270px !important;
             height: 240px !important;
@@ -447,7 +456,6 @@ box-shadow: 0 0 10px rgba(237, 28, 36, 0.4);
             display: block;
           }
 
-          /* Estampilla al costado e inclinada */
           .mobile-h-stamp {
             width: 220px !important;
             margin-top: 0 !important;
@@ -488,7 +496,6 @@ box-shadow: 0 0 10px rgba(237, 28, 36, 0.4);
             line-height: 1;
           }
 
-          /* Misión y Visión compactas en celular */
           .vision-grid {
             grid-template-columns: 1fr !important;
             gap: 12px !important;
@@ -507,7 +514,6 @@ box-shadow: 0 0 10px rgba(237, 28, 36, 0.4);
             line-height: 1.45 !important;
           }
 
-          /* Valores compactos en celular */
           .values-grid-2x2 {
             grid-template-columns: 1fr !important;
             gap: 10px !important;
@@ -536,7 +542,6 @@ box-shadow: 0 0 10px rgba(237, 28, 36, 0.4);
             line-height: 1.45 !important;
           }
 
-          /* Salón comercial en celular */
           .salon-card-box {
             padding: 22px 16px !important;
             border-radius: 16px !important;
@@ -572,11 +577,11 @@ box-shadow: 0 0 10px rgba(237, 28, 36, 0.4);
           <span>🛡️</span>
           <span>TRAYECTORIA Y COMPROMISO</span>
         </div>
-<div style={{ maxWidth: '820px', margin: '0 auto' }}>
-  <p className="hero-qs-desc" style={{ fontSize: '0.98rem', color: '#a1a1aa', lineHeight: 1.55, margin: 0, fontWeight: 400 }}>
-    Somos <strong style={{ fontWeight: 600, color: '#e4e4e7' }}>Cogno Automotores S.A.</strong>, una empresa familiar con más de 35 años en Río Cuarto. Nos dedicamos a la venta de vehículos nuevos y usados, con un amplio stock y una destacada variedad de pick-ups.
-  </p>
-</div>
+        <div style={{ maxWidth: '820px', margin: '0 auto' }}>
+          <p className="hero-qs-desc" style={{ fontSize: '0.98rem', color: '#a1a1aa', lineHeight: 1.55, margin: 0, fontWeight: 400 }}>
+            Somos <strong style={{ fontWeight: 600, color: '#e4e4e7' }}>Cogno Automotores S.A.</strong>, una empresa familiar con más de 35 años en Río Cuarto. Nos dedicamos a la venta de vehículos nuevos y usados, con un amplio stock y una destacada variedad de pick-ups.
+          </p>
+        </div>
       </section>
 
       {/* FOTO SALÓN ACTUAL */}
@@ -654,11 +659,9 @@ box-shadow: 0 0 10px rgba(237, 28, 36, 0.4);
           ))}
         </div>
 
-        {/* --- VISTA CELULAR (MÓVIL): HORIZONTAL CON EJE AL CENTRO (ARRIBA Y ABAJO) --- */}
-   <div className="timeline-mobile-wrapper">
+        {/* --- VISTA CELULAR (MÓVIL): HORIZONTAL CON EJE AL CENTRO --- */}
+        <div className="timeline-mobile-wrapper">
           <div className="timeline-mobile-stage">
-            
-            {/* LÍNEA HORIZONTAL CENTRAL */}
             <div className="timeline-mobile-axis"></div>
 
             {capitulosHistoria.map((cap, index) => {
@@ -666,19 +669,13 @@ box-shadow: 0 0 10px rgba(237, 28, 36, 0.4);
 
               return (
                 <div key={index} className="timeline-mobile-slot">
-                  
-                  {/* NODO CENTRAL EN EL EJE */}
                   <div className="timeline-mobile-dot"></div>
 
-                  {/* BLOQUE FOTO + ESTAMPILLA ALTERNADO */}
                   <div className={esArriba ? 'mobile-node-top' : 'mobile-node-bottom'}>
-                    
-                    {/* FOTO EN GRANDE */}
                     <div className="mobile-h-photo">
                       <img src={cap.imagen} alt={cap.titulo} />
                     </div>
 
-                    {/* ESTAMPILLA VINTAGE CON RELATO */}
                     <div 
                       className="mobile-h-stamp font-typewriter"
                       style={{ transform: `rotate(${cap.rotacion})` }}
@@ -704,28 +701,26 @@ box-shadow: 0 0 10px rgba(237, 28, 36, 0.4);
                         {cap.relato}
                       </p>
                     </div>
-
                   </div>
-
                 </div>
               );
             })}
-
           </div>
         </div>
       </section>
-<div style={{ textAlign: 'center', marginBottom: '28px', padding: '0 20px' }}>
-  <span style={{ fontSize: '0.82rem', fontWeight: 700, color: '#ED1C24', letterSpacing: '2px', textTransform: 'uppercase' }}>
-    HORIZONTE ESTRATÉGICO
-  </span>
-  <h2 className="section-title" style={{ margin: '6px 0 0 0', color: '#ffffff' }}>
-    Hacia Dónde Vamos
-  </h2>
-</div>
+
+      <div style={{ textAlign: 'center', marginBottom: '28px', padding: '0 20px', marginTop: '50px' }}>
+        <span style={{ fontSize: '0.82rem', fontWeight: 700, color: '#ED1C24', letterSpacing: '2px', textTransform: 'uppercase' }}>
+          HORIZONTE ESTRATÉGICO
+        </span>
+        <h2 className="section-title" style={{ margin: '6px 0 0 0', color: '#ffffff' }}>
+          Hacia Dónde Vamos
+        </h2>
+      </div>
+
       {/* 3. PROPÓSITO & VISIÓN */}
-    <section className="vision-section-container" style={{ maxWidth: '1280px', margin: '50px auto 0 auto', padding: '0 24px' }}>
+      <section className="vision-section-container" style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 24px' }}>
         <div className="vision-grid">
-          
           <div className="vision-card">
             <img src="/calidad-usados.jpg.webp" alt="Propósito" />
             <div className="vision-overlay"></div>
@@ -749,7 +744,6 @@ box-shadow: 0 0 10px rgba(237, 28, 36, 0.4);
               </p>
             </div>
           </div>
-
         </div>
       </section>
 
@@ -761,7 +755,6 @@ box-shadow: 0 0 10px rgba(237, 28, 36, 0.4);
         </div>
 
         <div className="values-grid-2x2">
-          
           <div className="value-card">
             <div style={{ width: '42px', height: '42px', borderRadius: '10px', backgroundColor: 'rgba(237, 28, 36, 0.12)', border: '1px solid rgba(237, 28, 36, 0.3)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, color: '#ED1C24' }}>
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ED1C24" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -825,14 +818,12 @@ box-shadow: 0 0 10px rgba(237, 28, 36, 0.4);
               </p>
             </div>
           </div>
-
         </div>
       </section>
 
       {/* 5. SALÓN COMERCIAL & HORARIOS */}
       <section style={{ maxWidth: '1280px', margin: '50px auto 0 auto', padding: '0 24px' }}>
         <div className="salon-card-box" style={{ backgroundColor: '#141518', border: '1px solid #27272a', borderRadius: '22px', padding: '32px 26px' }}>
-          
           <div className="salon-grid">
             <div>
               <span style={{ color: '#ED1C24', fontSize: '0.78rem', fontWeight: 700, letterSpacing: '1px', textTransform: 'uppercase' }}>
@@ -842,14 +833,14 @@ box-shadow: 0 0 10px rgba(237, 28, 36, 0.4);
                 Vení a conocer nuestro local
               </h2>
               <p style={{ fontSize: '0.98rem', color: '#E4E4E7', lineHeight: 1.55, margin: '0 0 18px 0', fontWeight: 400 }}>
-                Te esperamos en nuestro salón comercial para conocer el stock en persona, realizar un peritaje transparente de tu usado y asesorarte de forma personalizada[cite: 4].
+                Te esperamos en nuestro salón comercial para conocer el stock en persona, realizar un peritaje transparente de tu usado y asesorarte de forma personalizada.
               </p>
 
               <div style={{ backgroundColor: '#0B0C0E', border: '1px solid #27272a', padding: '14px 18px', borderRadius: '12px', marginBottom: '18px', display: 'flex', flexDirection: 'column', gap: '10px' }}>
                 <div>
                   <div style={{ fontSize: '0.72rem', color: '#a1a1aa', textTransform: 'uppercase', fontWeight: 600 }}>UBICACIÓN</div>
                   <div style={{ fontSize: '1rem', fontWeight: 600, color: '#ffffff' }}>Av. Marcelo T. de Alvear 1580</div>
-                  <div style={{ fontSize: '0.86rem', color: '#d4d4d8' }}>Río Cuarto, Córdoba, Argentina[cite: 4]</div>
+                  <div style={{ fontSize: '0.86rem', color: '#d4d4d8' }}>Río Cuarto, Córdoba, Argentina</div>
                 </div>
 
                 <div style={{ borderTop: '1px solid #1F2024', paddingTop: '8px' }}>
