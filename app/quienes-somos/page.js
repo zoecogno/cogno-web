@@ -42,16 +42,6 @@ const capitulosHistoria = [
     rotacion: '1.5deg'
   },
   {
-    año: 'TRABAJO Y RUTA',
-    etiqueta: 'PRESENCIA EN LA REGIÓN',
-    titulo: 'Compañera fiel del sur cordobés',
-    relato: 'La Ford Ranger negra haciendo base firme en la puerta, lista para salir a recorrer los campos y acompañar al sector productivo con potencia, robustez y confianza.',
-    imagen: '/2012-10-19_10-55-46_87_Río Cuarto.jpg',
-    selloNumero: '4X4',
-    selloTexto: 'ZONA RURAL',
-    rotacion: '-2deg'
-  },
-  {
     año: '2015',
     etiqueta: 'RITMO DE CALLE',
     titulo: 'El salón a la vista de toda la ciudad',
@@ -63,7 +53,7 @@ const capitulosHistoria = [
   },
   {
     año: '2016',
-    etiqueta: 'STOCK EN CRECIMIENTO',
+    etiqueta: 'STOCK EN CRECIMIENTO • DEPÓSITO',
     titulo: 'El esfuerzo diario y la variedad',
     relato: 'Vistas internas del salón y depósito repletas de unidades preparadas, reflejando el trabajo en equipo y el compromiso constante por mantener un stock dinámico y seguro.',
     imagen: '/2016.jpeg',
@@ -72,18 +62,8 @@ const capitulosHistoria = [
     rotacion: '-1.5deg'
   },
   {
-    año: 'AÑOS DE REFERENCIA',
-    etiqueta: 'CONSOLIDACIÓN NOCTURNA',
-    titulo: 'Presencia constante en la zona',
-    relato: 'Nuestras puertas abiertas de noche reflejando la dedicación y el movimiento continuo que nos convirtieron en referentes indiscutidos del rubro automotor en la ciudad.',
-    imagen: '/febb 2018.HEIC',
-    selloNumero: '18',
-    selloTexto: 'REFERENTES',
-    rotacion: '1.8deg'
-  },
-  {
     año: '2020',
-    etiqueta: 'CONFIANZA PLENA',
+    etiqueta: 'CONFIANZA PLENA • FLOTAS 0KM',
     titulo: 'Entregas múltiples y respaldo de marcas',
     relato: 'Las flotas de Amarok blancas y nuestras icónicas camionetas en fila, simbolizando el respaldo de las marcas líderes y la confianza depositada por clientes de toda la provincia.',
     imagen: '/amaroks blancas.png',
