@@ -35,27 +35,27 @@ const capitulosHistoria = [
     año: 'ETAPA DE EXPANSIÓN',
     etiqueta: 'INNOVACIÓN Y VARIEDAD',
     titulo: 'Apuesta a la vanguardia y el diseño',
-    relato: 'Incorporando deportividad y exclusividad en cada rincón de nuestro salón, como el inolvidable Peugeot RCZ que marcó tendencia en el espacio interior de la concesionaria.',
+    relato: 'Fuimos llegando a mercados que antes no abarcábamos, trayendo utilitarios como siempre pero incorporando también modelos exclusivos que marcaron tendencia en nuestro salón.',
     imagen: '/rcz 2011.png',
     selloNumero: '2011',
     selloTexto: 'VANGUARDIA',
     rotacion: '1.5deg'
   },
   {
-    año: '2015',
+    año: 'AÑOS 2010´s',
     etiqueta: 'RITMO DE CALLE',
-    titulo: 'El salón a la vista de toda la ciudad',
-    relato: 'Renovamos nuestra fachada y marquesinas corporativas sobre Av. Marcelo T. de Alvear 1580 para potenciar la identidad de la marca y brindar una experiencia más moderna.',
+    titulo: 'Renovando nuestra casa para recibirte mejor',
+    relato: 'Dimos un salto y renovamos la fachada sobre la avenida, brindando un mejor espacio y una experiencia más moderna para quienes nos visitan.',
     imagen: '/frente 2015.png',
     selloNumero: '15',
     selloTexto: 'NUEVA FACHADA',
     rotacion: '2deg'
   },
   {
-    año: '2016',
-    etiqueta: 'STOCK EN CRECIMIENTO • DEPÓSITO',
+    año: 'STOCK EN CRECIMIENTO',
+    etiqueta: '• DEPÓSITOS REPLETOS',
     titulo: 'El esfuerzo diario y la variedad',
-    relato: 'Vistas internas del salón y depósito repletas de unidades preparadas, reflejando el trabajo en equipo y el compromiso constante por mantener un stock dinámico y seguro.',
+    relato: 'Estas fotos reflejan el permanente desarrollo de la empresa y nuestro compromiso inquebrantable por ofrecer un stock amplio, variado y rigurosamente seleccionado.',
     esDoble: true,
     imagen1: '/2016.jpeg',
     imagen2: '/julio 2016.jpeg',
@@ -64,15 +64,15 @@ const capitulosHistoria = [
     rotacion: '-1.5deg'
   },
   {
-    año: '2020',
-    etiqueta: 'CONFIANZA PLENA • FLOTAS 0KM',
-    titulo: 'Entregas múltiples y respaldo de marcas',
-    relato: 'Las flotas de Amarok blancas y nuestras icónicas camionetas en fila, simbolizando el respaldo de las marcas líderes y la confianza depositada por clientes de toda la provincia.',
+    año: 'AÑOS 20',
+    etiqueta: 'CONFIANZA PLENA • NUESTRAS CAMIONETAS',
+    titulo: 'Respaldo de marcas líderes y familias en marcha',
+    relato: 'EntREGAs múltiples de 0 KM en simultáneo que reafirman la solidez de la concesionaria y la confianza depositada por clientes de toda la región.',
     esDoble: true,
     imagen1: '/amaroks blancas.png',
     imagen2: '/flota-hilux.jpg',
     selloNumero: 'FLT',
-    selloTexto: 'FLOTAS 0KM',
+    selloTexto: 'ENTREGAS',
     rotacion: '-2deg'
   },
   {
@@ -649,7 +649,7 @@ export default function QuienesSomos() {
         </div>
         <div style={{ maxWidth: '820px', margin: '0 auto' }}>
           <p className="hero-qs-desc" style={{ fontSize: '0.98rem', color: '#a1a1aa', lineHeight: 1.55, margin: 0, fontWeight: 400 }}>
-            Somos <strong style={{ fontWeight: 600, color: '#e4e4e7' }}>Cogno Automotores S.A.</strong>, una empresa familiar con más de 35 años en Río Cuarto[cite: 1]. Nos dedicamos a la venta de vehículos nuevos y usados, con un amplio stock y una destacada variedad de pick-ups.
+            Somos <strong style={{ fontWeight: 600, color: '#e4e4e7' }}>Cogno Automotores S.A.</strong>, una empresa familiar con más de 35 años en Río Cuarto. Nos dedicamos a la venta de vehículos nuevos y usados, con un amplio stock y una destacada variedad de pick-ups.
           </p>
         </div>
       </section>
@@ -930,8 +930,8 @@ export default function QuienesSomos() {
               <div style={{ backgroundColor: '#0B0C0E', border: '1px solid #27272a', padding: '14px 18px', borderRadius: '12px', marginBottom: '18px', display: 'flex', flexDirection: 'column', gap: '10px' }}>
                 <div>
                   <div style={{ fontSize: '0.72rem', color: '#a1a1aa', textTransform: 'uppercase', fontWeight: 600 }}>UBICACIÓN</div>
-                  <div style={{ fontSize: '1rem', fontWeight: 600, color: '#ffffff' }}>Av. Marcelo T. de Alvear 1580[cite: 1]</div>
-                  <div style={{ fontSize: '0.86rem', color: '#d4d4d8' }}>Río Cuarto, Córdoba, Argentina[cite: 1]</div>
+                  <div style={{ fontSize: '1rem', fontWeight: 600, color: '#ffffff' }}>Av. Marcelo T. de Alvear 1580</div>
+                  <div style={{ fontSize: '0.86rem', color: '#d4d4d8' }}>Río Cuarto, Córdoba, Argentina</div>
                 </div>
 
                 <div style={{ borderTop: '1px solid #1F2024', paddingTop: '8px' }}>
