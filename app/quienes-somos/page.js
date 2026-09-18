@@ -69,7 +69,7 @@ const capitulosHistoria = [
     titulo: 'Respaldo de marcas líderes y familias en marcha',
     relato: 'Entregas múltiples de 0 KM en simultáneo que reafirman la solidez de la concesionaria y la confianza depositada por clientes de toda la región.',
     esDoble: true,
-    imagen1: '/flota-hilux.jp',
+    imagen1: '/flota-hilux.jpg',
     imagen2: '/amaroks blancas.png',
     selloNumero: 'OKM',
     selloTexto: 'ENTREGAS',
