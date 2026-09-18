@@ -10,31 +10,33 @@ export default function RootLayout({ children }) {
 
   return (
     <html lang="es">
-   <head>
-  <title>Cogno Automotores | 0km y Usados Seleccionados en Río Cuarto</title>
-  <meta name="description" content="Concesionaria líder en Río Cuarto. Venta de 0km de todas las marcas y amplia selección de usados garantizados por 6 meses. Financiación a medida y toma de usados." />
-  <meta name="google-site-verification" content="h7YIJ4ZDqRDbo5yc44yJp6MzjsIerURzPM12F00fl9k" />
-  <meta name="keywords" content="Cogno Automotores, Autos 0km Río Cuarto, 0km multimarca Río Cuarto, Camionetas 0km Río Cuarto, Comprar 0km Río Cuarto, Pickups 0km Río Cuarto, Autos usados Río Cuarto, Usados seleccionados Río Cuarto, Concesionaria Río Cuarto, Venta de autos 0km y usados, Venta de autos Río Cuarto,Comprar autos Río Cuarto, Financiación de autos Río Cuarto, Toma de usados Río Cuarto, Permuta de autos Río Cuarto, Autos con garantía Río Cuarto, Pickups Río Cuarto, Toyota Río Cuarto, Ford Río Cuarto, Volkswagen Río Cuarto, Chevrolet Río Cuarto, Fiat Río Cuarto, Peugeot Río Cuarto, Concesionarias en Córdoba, Autos usados Córdoba sur" /> 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
- <link rel="icon" type="image/png" href="icon-cogno.png">
+      <head>
+        <title>Cogno Automotores | 0km y Usados Seleccionados en Río Cuarto</title>
+        <meta name="description" content="Concesionaria líder en Río Cuarto. Venta de 0km de todas las marcas y amplia selección de usados garantizados por 6 meses. Financiación a medida y toma de usados." />
+        <meta name="google-site-verification" content="h7YIJ4ZDqRDbo5yc44yJp6MzjsIerURzPM12F00fl9k" />
+        <meta name="keywords" content="Cogno Automotores, Autos 0km Río Cuarto, 0km multimarca Río Cuarto, Camionetas 0km Río Cuarto, Comprar 0km Río Cuarto, Pickups 0km Río Cuarto, Autos usados Río Cuarto, Usados seleccionados Río Cuarto, Concesionaria Río Cuarto, Venta de autos 0km y usados, Venta de autos Río Cuarto,Comprar autos Río Cuarto, Financiación de autos Río Cuarto, Toma de usados Río Cuarto, Permuta de autos Río Cuarto, Autos con garantía Río Cuarto, Pickups Río Cuarto, Toyota Río Cuarto, Ford Río Cuarto, Volkswagen Río Cuarto, Chevrolet Río Cuarto, Fiat Río Cuarto, Peugeot Río Cuarto, Concesionarias en Córdoba, Autos usados Córdoba sur" /> 
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        
+        {/* Favicon con el PNG oficial */}
+        <link rel="icon" type="image/png" href="/icon-cogno.png" />
 
-  {/* OpenGraph / WhatsApp / Redes Sociales */}
-  <meta property="og:type" content="website" />
-  <meta property="og:locale" content="es_AR" />
-  <meta property="og:url" content="https://cognoautomotores.com.ar" />
-  <meta property="og:site_name" content="Cogno Automotores" />
- <meta property="og:title" content="Cogno Automotores | 0km y Usados Seleccionados" />
- <meta property="og:description" content="Más de 35 años de trayectoria en Río Cuarto. Concesionaria líder en 0km multimarcas y usados garantizados con entrega inmediata." />
-  <meta property="og:image" content="https://cognoautomotores.com.ar/logo-black.png" />
-  <meta property="og:image:width" content="1200" />
-  <meta property="og:image:height" content="630" />
+        {/* OpenGraph / WhatsApp / Redes Sociales */}
+        <meta property="og:type" content="website" />
+        <meta property="og:locale" content="es_AR" />
+        <meta property="og:url" content="https://cognoautomotores.com.ar" />
+        <meta property="og:site_name" content="Cogno Automotores" />
+        <meta property="og:title" content="Cogno Automotores | 0km y Usados Seleccionados" />
+        <meta property="og:description" content="Más de 35 años de trayectoria en Río Cuarto. Concesionaria líder en 0km multimarcas y usados garantizados con entrega inmediata." />
+        <meta property="og:image" content="https://cognoautomotores.com.ar/logo-black.png" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
 
-  {/* Twitter Card */}
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Cogno Automotores | 0km y Usados Seleccionados en Río Cuarto" />
-  <meta name="twitter:description" content="Venta de vehículos 0km de todas las marcas y usados garantizados en Río Cuarto." />
-  <meta name="twitter:image" content="https://cognoautomotores.com.ar/logo-black.png" />
-</head>
+        {/* Twitter Card */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Cogno Automotores | 0km y Usados Seleccionados en Río Cuarto" />
+        <meta name="twitter:description" content="Venta de vehículos 0km de todas las marcas y usados garantizados en Río Cuarto." />
+        <meta name="twitter:image" content="https://cognoautomotores.com.ar/logo-black.png" />
+      </head>
       <body style={{ margin: 0, backgroundColor: '#0B0C0E', color: '#ffffff', fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif' }}>
         
         {/* ESTILOS GLOBALES DE NAVBAR Y FOOTER */}
@@ -163,7 +165,8 @@ export default function RootLayout({ children }) {
 
         {/* CONTENIDO DE LA PÁGINA */}
         <main>{children}</main>
-{/* FOOTER GENERAL */}
+
+        {/* FOOTER GENERAL */}
         <footer style={{ backgroundColor: '#070709', borderTop: '1px solid #27272a', marginTop: '40px' }}>
           <div className="footer-grid">
             
