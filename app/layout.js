@@ -20,14 +20,14 @@ export default function RootLayout({ children }) {
         {/* Favicon con el PNG oficial */}
         <link rel="icon" type="image/png" href="/icon-cogno.png" />
 
-        {/* OpenGraph / WhatsApp / Redes Sociales */}
+      {/* OpenGraph / WhatsApp / Redes Sociales */}
         <meta property="og:type" content="website" />
         <meta property="og:locale" content="es_AR" />
         <meta property="og:url" content="https://cognoautomotores.com.ar" />
         <meta property="og:site_name" content="Cogno Automotores" />
         <meta property="og:title" content="Cogno Automotores | 0km y Usados Seleccionados" />
         <meta property="og:description" content="Más de 35 años de trayectoria en Río Cuarto. Concesionaria líder en 0km multimarcas y usados garantizados con entrega inmediata." />
-        <meta property="og:image" content="https://cognoautomotores.com.ar/logo-black.png" />
+        <meta property="og:image" content="https://cognoautomotores.com.ar/frente-2026.jpg.jpg" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
 
@@ -35,7 +35,7 @@ export default function RootLayout({ children }) {
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Cogno Automotores | 0km y Usados Seleccionados en Río Cuarto" />
         <meta name="twitter:description" content="Venta de vehículos 0km de todas las marcas y usados garantizados en Río Cuarto." />
-        <meta name="twitter:image" content="https://cognoautomotores.com.ar/logo-black.png" />
+        <meta name="twitter:image" content="https://cognoautomotores.com.ar/frente-2026.jpg.jpg" />
       </head>
       <body style={{ margin: 0, backgroundColor: '#0B0C0E', color: '#ffffff', fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif' }}>
         
