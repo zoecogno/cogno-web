@@ -26,7 +26,7 @@ export default function RootLayout({ children }) {
         <meta property="og:url" content="https://cognoautomotores.com.ar" />
         <meta property="og:site_name" content="Cogno Automotores" />
         <meta property="og:title" content="Cogno Automotores | 0km y Usados Seleccionados" />
-        <meta property="og:description" content="Más de 35 años de trayectoria en Río Cuarto. Concesionaria líder en 0km multimarcas y usados garantizados con entrega inmediata." />
+        <meta property="og:description" content="Más de 35 años de trayectoria en Río Cuarto. Agencia líder en 0km multimarcas y usados garantizados con entrega inmediata." />
         <meta property="og:image" content="https://cognoautomotores.com.ar/frente-2026.jpg" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
