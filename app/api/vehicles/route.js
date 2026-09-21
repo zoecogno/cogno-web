@@ -5,7 +5,7 @@ export const dynamic = 'force-dynamic';
 // Memoria temporal en el servidor de Vercel (Cache)
 let cachedVehicles = null;
 let lastFetchTime = 0;
-// Tiempo de caché: 12 horas (puedes ajustarlo si prefieres, ej: 86400000 para 24 horas)
+// Tiempo de caché: 12 horas
 const CACHE_DURATION = 12 * 60 * 60 * 1000; 
 
 export async function GET(request) {
@@ -83,7 +83,6 @@ export async function GET(request) {
     lastFetchTime = now;
 
     return NextResponse.json(vehicles);
-  } else (error) { // corregido sintaxis abajo
   } catch (error) {
     return NextResponse.json({ error: 'Excepción interna', message: error.message }, { status: 500 });
   }
