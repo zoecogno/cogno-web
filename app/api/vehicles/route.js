@@ -2,10 +2,8 @@ import { NextResponse } from 'next/server';
 
 export const dynamic = 'force-dynamic';
 
-// Memoria temporal en el servidor de Vercel (Cache)
 let cachedVehicles = null;
 let lastFetchTime = 0;
-// Tiempo de caché: 12 horas
 const CACHE_DURATION = 12 * 60 * 60 * 1000; 
 
 export async function GET(request) {
@@ -29,24 +27,36 @@ export async function GET(request) {
   }
 
   try {
-    const url = `https://api.airtable.com/v0/${baseId}/${encodeURIComponent(tableName)}?pageSize=100`;
-    const res = await fetch(url, {
-      headers: {
-        Authorization: `Bearer ${apiKey}`,
-      },
-      cache: 'no-store',
-    });
+    let allRecords = [];
+    let offset = null;
 
-    const data = await res.json();
+    do {
+      let url = `https://api.airtable.com/v0/${baseId}/${encodeURIComponent(tableName)}?pageSize=100`;
+      if (offset) {
+        url += `&offset=${encodeURIComponent(offset)}`;
+      }
 
-    if (!res.ok || !data.records) {
-      return NextResponse.json({ error: 'Error al consultar Airtable', details: data }, { status: res.status || 500 });
-    }
+      const res = await fetch(url, {
+        headers: {
+          Authorization: `Bearer ${apiKey}`,
+        },
+        cache: 'no-store',
+      });
 
-    const vehicles = data.records
+      const data = await res.json();
+
+      if (!res.ok || !data.records) {
+        return NextResponse.json({ error: 'Error al consultar Airtable', details: data }, { status: res.status || 500 });
+      }
+
+      allRecords = allRecords.concat(data.records);
+      offset = data.offset;
+    } while (offset);
+
+    const vehicles = allRecords
       .filter((record) => {
         const estado = String(record.fields['ESTADO'] || '').trim().toLowerCase();
-        // Acepta cualquier variante que indique disponibilidad de forma flexible
+        // Acepta cualquier variante de disponible de forma flexible
         return estado === 'disponible' || estado.includes('disp');
       })
       .map((record) => {
