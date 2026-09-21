@@ -29,7 +29,6 @@ export async function GET(request) {
   }
 
   try {
-    // Añadimos pageSize para asegurar que traiga todos los registros sin tope bajo
     const url = `https://api.airtable.com/v0/${baseId}/${encodeURIComponent(tableName)}?pageSize=100`;
     const res = await fetch(url, {
       headers: {
@@ -47,8 +46,8 @@ export async function GET(request) {
     const vehicles = data.records
       .filter((record) => {
         const estado = String(record.fields['ESTADO'] || '').trim().toLowerCase();
-        // Acepta tanto 'disponible' como cualquier variante sin espacios extra
-        return estado === 'disponible' || estado.includes('disponible');
+        // Acepta cualquier variante que indique disponibilidad de forma flexible
+        return estado === 'disponible' || estado.includes('disp');
       })
       .map((record) => {
         const f = record.fields;
