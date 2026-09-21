@@ -12,13 +12,10 @@ export async function GET(request) {
   const { searchParams } = new URL(request.url);
   const secretAdminKey = searchParams.get('admin');
   
-  // Tu clave secreta para forzar la recarga inmediata desde Airtable
   const CLAVE_ADMIN_SECRETA = 'cogno2026admin'; 
-
   const now = Date.now();
   const fuerzaRecarga = secretAdminKey === CLAVE_ADMIN_SECRETA;
 
-  // Si hay caché válida y NO se pidió recarga por administrador, devolvemos los datos guardados sin gastar Airtable
   if (cachedVehicles && !fuerzaRecarga && (now - lastFetchTime < CACHE_DURATION)) {
     return NextResponse.json(cachedVehicles);
   }
@@ -32,7 +29,8 @@ export async function GET(request) {
   }
 
   try {
-    const url = `https://api.airtable.com/v0/${baseId}/${encodeURIComponent(tableName)}`;
+    // Añadimos pageSize para asegurar que traiga todos los registros sin tope bajo
+    const url = `https://api.airtable.com/v0/${baseId}/${encodeURIComponent(tableName)}?pageSize=100`;
     const res = await fetch(url, {
       headers: {
         Authorization: `Bearer ${apiKey}`,
@@ -49,7 +47,8 @@ export async function GET(request) {
     const vehicles = data.records
       .filter((record) => {
         const estado = String(record.fields['ESTADO'] || '').trim().toLowerCase();
-        return estado === 'disponible';
+        // Acepta tanto 'disponible' como cualquier variante sin espacios extra
+        return estado === 'disponible' || estado.includes('disponible');
       })
       .map((record) => {
         const f = record.fields;
@@ -78,7 +77,6 @@ export async function GET(request) {
         };
       });
 
-    // Guardamos en caché y actualizamos la marca de tiempo
     cachedVehicles = vehicles;
     lastFetchTime = now;
 
